@@ -6,13 +6,7 @@ import lombok.Data;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * 
- * 
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2020-08-22 10:07:26
- */
+
 @Data
 @Table(name = "menu_post")
 public class MenuPost implements Serializable {

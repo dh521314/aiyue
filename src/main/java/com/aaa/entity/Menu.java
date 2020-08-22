@@ -10,6 +10,7 @@ public class Menu implements Serializable {
     @Id
     private Integer mid;
 
+
     private String mname;
 
     private String path;
