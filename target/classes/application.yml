@@ -1,0 +1,24 @@
+server:
+  servlet:
+    context-path: /springboot2  # 根路径，必须是/开头的
+  port: 8088
+
+spring:
+  datasource:  # 数据库配置
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306test?userUnicode=true&characterEncoding=UTF8&serverTimezone=UTC
+    username: root
+    password: admin
+
+  thymeleaf:
+    # encoding: UTF-8
+    # prefix: classpath:/templates/
+    # suffix: .html
+    mode: HTML5  # 视图模型
+    cache: false # 模板缓存
+
+  resources:
+    static-locations: classpath:/META- INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,classpath:/templates/ # 静态资源路径
+
+
+
