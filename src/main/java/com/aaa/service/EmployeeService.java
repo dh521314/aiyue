@@ -31,4 +31,24 @@ public class EmployeeService {
     public List<Employee> findAll() {
         return employeeDao.selectAll();
     }
+
+    public Employee findByEname(String ename,String epwd){
+        return employeeDao.findByEname(ename,epwd);
+    }
+
+    public Integer updateEmpPhoto(String ename,String epwd,String ephoto){
+        return employeeDao.updateEmpPhoto(ename, epwd, ephoto);
+    }
+
+    public Integer updateEmpManager(Employee employee){
+        return employeeDao.updateByPrimaryKey(employee);
+    }
+
+    public Employee selectEpwd(Integer eid){
+        return employeeDao.selectEpwd(eid);
+    }
+
+    public Integer updateEmpPwd(Integer eid,String epwd){
+        return employeeDao.updateEmpPwd(eid,epwd);
+    }
 }

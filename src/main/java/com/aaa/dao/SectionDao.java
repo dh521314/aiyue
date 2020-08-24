@@ -1,4 +1,9 @@
 package com.aaa.dao;
 
-public interface SectionDao {
+import com.aaa.entity.Section;
+import tk.mybatis.mapper.common.Mapper;
+
+@org.apache.ibatis.annotations.Mapper
+public interface SectionDao extends Mapper<Section> {
+
 }
