@@ -61,4 +61,43 @@ public class Employee implements Serializable {
 	@Column
 	private Integer state;
 
+	public Employee() {
+	}
+
+	public Employee(Integer eid, String ename, String realname, String idcard, String ephone, String email) {
+		this.eid = eid;
+		this.ename = ename;
+		this.realname = realname;
+		this.idcard = idcard;
+		this.ephone = ephone;
+		this.email = email;
+	}
+
+	public Employee(Integer eid, String ename, String realname, String idcard, String ephoto, String ephone, String email, Integer postid, Integer state) {
+		this.eid = eid;
+		this.ename = ename;
+		this.realname = realname;
+		this.idcard = idcard;
+		this.ephoto = ephoto;
+		this.ephone = ephone;
+		this.email = email;
+		this.postid = postid;
+		this.state = state;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee{" +
+				"eid=" + eid +
+				", ename='" + ename + '\'' +
+				", epwd='" + epwd + '\'' +
+				", realname='" + realname + '\'' +
+				", idcard='" + idcard + '\'' +
+				", ephoto='" + ephoto + '\'' +
+				", ephone='" + ephone + '\'' +
+				", email='" + email + '\'' +
+				", postid=" + postid +
+				", state=" + state +
+				'}';
+	}
 }
