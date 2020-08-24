@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -14,6 +15,10 @@ import javax.annotation.Resource;
 public class EmployeeController {
     @Resource
     EmployeeService employeeService;
+    @RequestMapping("/login")
+    public List<Employee> login(String ename, String epwd) {
+        return employeeService.login(ename,epwd);
+    }
 
     @RequestMapping("/findByEname")
     public Employee findByEname(String ename, String epwd){
