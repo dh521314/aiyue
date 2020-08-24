@@ -2,10 +2,11 @@ package com.aaa.service;
 
 import com.aaa.dao.WriterDao;
 import com.aaa.entity.Writer;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
-
+@Service
 public class WriterService {
     @Resource
     WriterDao writerDao;
