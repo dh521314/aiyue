@@ -4,6 +4,9 @@ package com.aaa.entity;
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Data
@@ -14,29 +17,53 @@ public class Message implements Serializable {
 	 * 
 	 */
 	@Id
+	@Column
+	@GeneratedValue(generator = "JDBC")
 	private Integer meid;
 	/**
 	 * 
 	 */
+	@Column
 	private Integer typeid;
 	/**
 	 * 
 	 */
+	@Column
 	private String mename;
 	/**
 	 * 
 	 */
+	@Column
 	private String surface;
 	/**
 	 * 
 	 */
+	@Column
 	private String synopsis;
 	/**
 	 * 
 	 */
+	@Column
 	private Integer writerid;
 
 	public Message() {
+	}
+
+	public Message(Integer typeid, String mename, String surface, String synopsis, Integer writerid) {
+		this.typeid = typeid;
+		this.mename = mename;
+		this.surface = surface;
+		this.synopsis = synopsis;
+		this.writerid = writerid;
+	}
+
+	public Message(Integer meid, Integer typeid, String mename, String surface, String synopsis, Integer writerid) {
+		this.meid = meid;
+		this.typeid = typeid;
+		this.mename = mename;
+		this.surface = surface;
+		this.synopsis = synopsis;
+		this.writerid = writerid;
 	}
 
 	public Integer getMeid() {
