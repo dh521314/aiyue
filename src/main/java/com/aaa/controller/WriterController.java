@@ -10,6 +10,7 @@ import javax.annotation.Resource;
 import java.util.List;
 @CrossOrigin
 @Controller
+@RequestMapping("/writer")
 public class WriterController {
     @Resource
     WriterService writerService;
