@@ -2,6 +2,7 @@ package com.aaa.controller;
 
 import com.aaa.entity.Type;
 import com.aaa.service.TypeService;
+import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,6 +37,10 @@ public class TypeController {
         return typeService.findAll();
     }
 
+    @RequestMapping("pageFind")
+    public PageInfo<Type> pageFindAll(Integer num, Integer size){
+        return typeService.pageFindAll(num,size);
+    }
 
 
 }
