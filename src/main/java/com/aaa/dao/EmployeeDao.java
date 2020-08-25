@@ -1,6 +1,8 @@
 package com.aaa.dao;
 
 import com.aaa.entity.Employee;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import tk.mybatis.mapper.common.Mapper;
@@ -23,4 +25,14 @@ public interface EmployeeDao extends Mapper<Employee> {
 
     @Update("update employee set epwd=#{epwd} where eid=#{eid}")
     public Integer updateEmpPwd(Integer eid,String epwd);
+
+    @Insert("insert into employee(ename,epwd) values(#{ename},'66668888')")
+    public Integer addEmp(@Param("ename")String ename);
+
+    @Update("update employee set state=#{state} where eid=#{eid}")
+    public Integer updateEmp(Integer eid,Integer state);
+
+    @Select("select * from employee where realname=#{realname}")
+    public Employee findByName(String realname);
+
 }

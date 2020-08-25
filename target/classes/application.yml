@@ -1,6 +1,6 @@
 server:
   servlet:
-    context-path: /springboot2  # 根路径，必须是/开头的
+    context-path: /aiyue
   port: 8088
 
 spring:

@@ -51,4 +51,16 @@ public class EmployeeService {
     public Integer updateEmpPwd(Integer eid,String epwd){
         return employeeDao.updateEmpPwd(eid,epwd);
     }
+
+    public Integer addEmp(String ename){
+        return employeeDao.addEmp(ename);
+    }
+
+    public Integer updateEmp(Integer eid,Integer state){
+        return employeeDao.updateEmp(eid,state);
+    }
+
+    public Employee findByName(String realname){
+        return employeeDao.findByName(realname);
+    }
 }

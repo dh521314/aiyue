@@ -46,4 +46,24 @@ public class EmployeeController {
         return employeeService.updateEmpPwd(eid,epwd);
     }
 
+    @RequestMapping("/addEmp")
+    public Integer addEmp(String ename){
+        return employeeService.addEmp(ename);
+    }
+
+    @RequestMapping("/updateEmp")
+    public Integer update(Integer eid,Integer state){
+        return employeeService.updateEmp(eid,state);
+    }
+
+    @RequestMapping("/findAll")
+    public List<Employee> findAll(){
+        return employeeService.findAll();
+    }
+
+    @RequestMapping("/findName")
+    public Employee findByName(String realname){
+        return employeeService.findByName(realname);
+    }
+
 }
