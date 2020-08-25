@@ -2,6 +2,8 @@ package com.aaa.service;
 
 import com.aaa.dao.TypeDao;
 import com.aaa.entity.Type;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -26,5 +28,16 @@ public class TypeService {
 
     public List<Type> findAll() {
         return typeDao.selectAll();
+    }
+
+    public PageInfo<Type> pageFindAll(Integer pageNum,Integer pageSize){
+        if(pageNum != null && pageSize != null){
+            PageHelper.startPage(pageNum,pageSize);
+        }else{
+            PageHelper.startPage(1,10);
+        }
+        List<Type> rs = typeDao.selectAll();
+        PageInfo<Type> p = new PageInfo<Type>(rs);
+        return p;
     }
 }
