@@ -23,4 +23,7 @@ public interface EmployeeDao extends Mapper<Employee> {
 
     @Update("update employee set epwd=#{epwd} where eid=#{eid}")
     public Integer updateEmpPwd(Integer eid,String epwd);
+
+    @Update("update employee set ename=#{ename},realname=#{realname},idcard=#{idcard},ephone=#{ephone},email=#{email} where eid=#{eid}")
+    public Integer updateEmpManager(Integer eid,String ename,String realname,String idcard,String ephone,String email);
 }

@@ -33,8 +33,8 @@ public class EmployeeController {
 
     @RequestMapping("/updateEmpManager")
     public Integer updateEmpManager(Integer eid,String ename,String realname,String idcard,String ephone,String email){
-        Employee employee = new Employee(eid,ename,realname,idcard,ephone,email);
-        return employeeService.updateEmpManager(employee);
+        System.out.println("updateEmpManager");
+        return employeeService.updateEmpManager(eid,ename,realname,idcard,ephone,email);
     }
 
     @RequestMapping("/selectPwd")

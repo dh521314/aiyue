@@ -40,8 +40,8 @@ public class EmployeeService {
         return employeeDao.updateEmpPhoto(ename, epwd, ephoto);
     }
 
-    public Integer updateEmpManager(Employee employee){
-        return employeeDao.updateByPrimaryKey(employee);
+    public Integer updateEmpManager(Integer eid,String ename,String realname,String idcard,String ephone,String email){
+        return employeeDao.updateEmpManager(eid,ename,realname,idcard,ephone,email);
     }
 
     public Employee selectEpwd(Integer eid){
