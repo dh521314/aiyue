@@ -13,36 +13,23 @@ import javax.persistence.Id;
 public class Message implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * 
-	 */
 	@Id
 	@Column
 	@GeneratedValue(generator = "JDBC")
 	private Integer meid;
-	/**
-	 * 
-	 */
+
 	@Column
 	private Integer typeid;
-	/**
-	 * 
-	 */
+
 	@Column
 	private String mename;
-	/**
-	 * 
-	 */
+
 	@Column
 	private String surface;
-	/**
-	 * 
-	 */
+
 	@Column
 	private String synopsis;
-	/**
-	 * 
-	 */
+
 	@Column
 	private Integer writerid;
 
