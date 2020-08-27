@@ -2,6 +2,8 @@ package com.aaa.service;
 
 import com.aaa.dao.WriterDao;
 import com.aaa.entity.Writer;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -24,7 +26,21 @@ public class WriterService {
        return writerDao.insert(writer);
     }
     //修改作家信息（不能修改作家笔名）
-    public int editWriter(Writer writer){
+    public int editWriters(Writer writer){
         return writerDao.updateByPrimaryKeySelective(writer);
+    }
+    public Integer editWriter(Integer wid,String wphoto,String ana){
+        return writerDao.editWriter(wid,wphoto,ana);
+    }
+
+    public PageInfo<Writer> pageFindAll(Integer pageNum, Integer pageSize){
+        if(pageNum != null && pageSize != null){
+            PageHelper.startPage(pageNum,pageSize);
+        }else{
+            PageHelper.startPage(1,10);
+        }
+        List<Writer> rs = writerDao.selectAll();
+        PageInfo<Writer> p = new PageInfo<Writer>(rs);
+        return p;
     }
 }
