@@ -1,7 +1,9 @@
 package com.aaa.controller;
 
+import com.aaa.entity.Type;
 import com.aaa.entity.Writer;
 import com.aaa.service.WriterService;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,16 +36,25 @@ public class WriterController {
         }
 
     }
+    @RequestMapping("QueryByWriterName")
+    public Writer QueryByWriterName(String wname){
+        System.out.println(writerService.QueryByWriterName(wname));
+        return writerService.QueryByWriterName(wname);
+    }
 
     //修改作家信息（不能修改作家笔名）
     @RequestMapping("updateWriter")
-    public int editWriter(Integer wid,String wname,String wphoto,String ana){
-        Writer w = writerService.QueryByWriterName(wname);
-        if (w != null){
-            return 2;
-        }else {
-            Writer writer = new Writer(wid,wname,wphoto,ana);
-            return writerService.editWriter(writer);
-        }
+    public Integer editWriter(Integer wid,String wphoto,String ana){
+        return writerService.editWriter(wid,wphoto,ana);
+    }
+    @RequestMapping("updateWriters")
+    public int editWriters(Integer wid,String wname,String wphoto,String ana){
+        Writer writer = new Writer(wid,wname,wphoto,ana);
+        return writerService.editWriters(writer);
+    }
+
+    @RequestMapping("pageFind")
+    public PageInfo<Writer> pageFindAll(Integer num, Integer size){
+        return writerService.pageFindAll(num,size);
     }
 }

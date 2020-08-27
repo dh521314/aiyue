@@ -2,6 +2,7 @@ package com.aaa.dao;
 
 import com.aaa.entity.Writer;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
@@ -10,4 +11,7 @@ import java.util.List;
 public interface WriterDao extends Mapper<Writer> {
     @Select("select * from writer where wname = #{param1}")
     Writer QueryByWriterName(String wname);
+
+    @Update("update writer set wphoto=#{wphoto},ana=#{ana} where wid=#{wid}")
+    Integer editWriter(Integer wid,String wphoto,String ana);
 }
