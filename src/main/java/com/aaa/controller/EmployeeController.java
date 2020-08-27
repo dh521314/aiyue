@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 
 @CrossOrigin
@@ -60,6 +61,33 @@ public class EmployeeController {
     @RequestMapping("/updateEmpPwd")
     public Integer updateEmpPwd(Integer eid,String epwd){
         return employeeService.updateEmpPwd(eid,epwd);
+    }
+
+    @RequestMapping("/updateEmp")
+    public Integer update(Integer eid,Integer state){
+        return employeeService.updateEmp(eid,state);
+    }
+
+    @RequestMapping("/findAll")
+    public List<Map<String, Object>> findAll(){
+        return employeeService.showAll();
+    }
+
+    @RequestMapping("/findName")
+    public List<Map<String,Object>> findByName(String realname){
+        return employeeService.findByName(realname);
+    }
+
+    @RequestMapping("/addEmp")
+    public Integer addEmp(String ename,String epwd,Integer postid,Integer state){
+        Employee emp = employeeService.queryEmpName(ename);
+        if (emp != null){
+            return 2;
+        }else {
+            Employee employee = new Employee(ename,epwd,postid,state);
+            return employeeService.add(employee);
+        }
+
     }
 
 }

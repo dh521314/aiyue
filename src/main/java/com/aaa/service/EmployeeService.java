@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class EmployeeService {
@@ -50,5 +51,22 @@ public class EmployeeService {
 
     public Integer updateEmpPwd(Integer eid,String epwd){
         return employeeDao.updateEmpPwd(eid,epwd);
+    }
+
+    public Integer updateEmp(Integer eid,Integer state){
+        return employeeDao.updateEmp(eid,state);
+    }
+
+    public List<Map<String,Object>> findByName(String realname){
+        return employeeDao.findByName(realname);
+    }
+
+    public List<Map<String,Object>> showAll(){
+        return employeeDao.showAll();
+    }
+
+    //根据用户名查询
+    public Employee queryEmpName(String ename){
+        return employeeDao.queryEmpName(ename);
     }
 }

@@ -2,6 +2,8 @@ package com.aaa.controller;
 
 import com.aaa.entity.Message;
 import com.aaa.service.MessageService;
+import com.alibaba.fastjson.JSONObject;
+import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,4 +39,10 @@ public class MessageController {
         Message message = new Message(meid,typeid,mename,surface,synopsis,writerid);
         return messageService.updMessage(message);
     }
+
+    @RequestMapping("/findAll")
+    public String findAll(Integer num, Integer size){
+        return JSONObject.toJSON(messageService.findAll(num,size)).toString();
+    }
+
 }
