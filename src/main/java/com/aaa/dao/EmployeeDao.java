@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Update;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 @org.apache.ibatis.annotations.Mapper
 public interface EmployeeDao extends Mapper<Employee> {
@@ -26,13 +27,20 @@ public interface EmployeeDao extends Mapper<Employee> {
     @Update("update employee set epwd=#{epwd} where eid=#{eid}")
     public Integer updateEmpPwd(Integer eid,String epwd);
 
-    @Insert("insert into employee(ename,epwd) values(#{ename},'66668888')")
-    public Integer addEmp(@Param("ename")String ename);
+    @Update("update employee set ename=#{ename},realname=#{realname},idcard=#{idcard},ephone=#{ephone},email=#{email} where eid=#{eid}")
+    public Integer updateEmpManager(Integer eid,String ename,String realname,String idcard,String ephone,String email);
+
+    @Insert("insert into employee(ename,epwd,postid) values(#{ename},#{epwd},#{postid})")
+    public Integer addEmp(String ename,String epwd,Integer postid);
 
     @Update("update employee set state=#{state} where eid=#{eid}")
     public Integer updateEmp(Integer eid,Integer state);
 
-    @Select("select * from employee where realname=#{realname}")
-    public Employee findByName(String realname);
+    @Select("select e.eid,e.ename,e.epwd,e.realname,e.idcard,e.ephoto,e.ephone,e.email,p.pname,e.state from employee e left join post p on e.postid=p.pid where e.realname like '%${realname}%'")
+    public List<Map<String,Object>> findByName(String realname);
+
+
+    @Select("select e.eid,e.ename,e.epwd,e.realname,e.idcard,e.ephoto,e.ephone,e.email,p.pname,e.state from employee e left join post p on e.postid=p.pid")
+    public List<Map<String,Object>> showAll();
 
 }

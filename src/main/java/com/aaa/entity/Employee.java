@@ -13,19 +13,19 @@ public class Employee implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 
+	 *
 	 */
 	@Id
 	@Column
 	@GeneratedValue(generator = "JDBC")
 	private Integer eid;
 	/**
-	 * 
+	 *
 	 */
 	@Column
 	private String ename;
 	/**
-	 * 
+	 *
 	 */
 	@Column
 	private String epwd;
@@ -36,30 +36,32 @@ public class Employee implements Serializable {
 	@Column
 	private String idcard;
 	/**
-	 * 
+	 *
 	 */
 	@Column
 	private String ephoto;
 	/**
-	 * 
+	 *
 	 */
 	@Column
 	private String ephone;
 	/**
-	 * 
+	 *
 	 */
 	@Column
 	private String email;
 	/**
-	 * 
+	 *
 	 */
 	@Column
 	private Integer postid;
 	/**
-	 * 
+	 *
 	 */
 	@Column
 	private Integer state;
+
+	private Post post;
 
 	public Employee() {
 	}
@@ -99,5 +101,13 @@ public class Employee implements Serializable {
 				", postid=" + postid +
 				", state=" + state +
 				'}';
+	}
+
+	public Integer getPostid() {
+		return postid;
+	}
+
+	public void setPostid(Integer postid) {
+		this.postid = postid;
 	}
 }
