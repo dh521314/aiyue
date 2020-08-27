@@ -8,6 +8,6 @@ import java.util.List;
 
 @org.apache.ibatis.annotations.Mapper
 public interface WriterDao extends Mapper<Writer> {
-    @Select("select wname from writer")
+    @Select("select * from writer where wname = #{param1}")
     Writer QueryByWriterName(String wname);
 }
