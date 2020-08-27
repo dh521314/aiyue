@@ -7,7 +7,12 @@ import java.io.IOException;
 import java.util.Date;
 
 public class UploadUtil {
-
+    /**
+     *  文件上传
+     * @param pic  文件
+     * @return  返回存储时的文件名
+     * @throws IOException
+     */
     public static String upload(MultipartFile pic) throws IOException {
         Date date = new Date();
         long time = date.getTime();
