@@ -66,6 +66,13 @@ public class Employee implements Serializable {
 	public Employee() {
 	}
 
+	public Employee(String ename, String epwd, Integer postid,Integer state) {
+		this.ename = ename;
+		this.epwd = epwd;
+		this.postid = postid;
+		this.state = state;
+	}
+
 	public Employee(Integer eid, String ename, String realname, String idcard, String ephone, String email) {
 		this.eid = eid;
 		this.ename = ename;

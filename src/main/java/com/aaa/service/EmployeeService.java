@@ -53,10 +53,6 @@ public class EmployeeService {
         return employeeDao.updateEmpPwd(eid,epwd);
     }
 
-    public Integer addEmp(String ename,String epwd,Integer postid){
-        return employeeDao.addEmp(ename,epwd,postid);
-    }
-
     public Integer updateEmp(Integer eid,Integer state){
         return employeeDao.updateEmp(eid,state);
     }
@@ -67,5 +63,10 @@ public class EmployeeService {
 
     public List<Map<String,Object>> showAll(){
         return employeeDao.showAll();
+    }
+
+    //根据用户名查询
+    public Employee queryEmpName(String ename){
+        return employeeDao.queryEmpName(ename);
     }
 }

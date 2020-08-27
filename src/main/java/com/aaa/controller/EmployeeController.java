@@ -63,11 +63,6 @@ public class EmployeeController {
         return employeeService.updateEmpPwd(eid,epwd);
     }
 
-    @RequestMapping("/addEmp")
-    public Integer addEmp(String ename,String epwd,Integer postid){
-        return employeeService.addEmp(ename,epwd,postid);
-    }
-
     @RequestMapping("/updateEmp")
     public Integer update(Integer eid,Integer state){
         return employeeService.updateEmp(eid,state);
@@ -81,6 +76,18 @@ public class EmployeeController {
     @RequestMapping("/findName")
     public List<Map<String,Object>> findByName(String realname){
         return employeeService.findByName(realname);
+    }
+
+    @RequestMapping("/addEmp")
+    public Integer addEmp(String ename,String epwd,Integer postid,Integer state){
+        Employee emp = employeeService.queryEmpName(ename);
+        if (emp != null){
+            return 2;
+        }else {
+            Employee employee = new Employee(ename,epwd,postid,state);
+            return employeeService.add(employee);
+        }
+
     }
 
 }

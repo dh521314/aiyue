@@ -30,17 +30,20 @@ public interface EmployeeDao extends Mapper<Employee> {
     @Update("update employee set ename=#{ename},realname=#{realname},idcard=#{idcard},ephone=#{ephone},email=#{email} where eid=#{eid}")
     public Integer updateEmpManager(Integer eid,String ename,String realname,String idcard,String ephone,String email);
 
-    @Insert("insert into employee(ename,epwd,postid) values(#{ename},#{epwd},#{postid})")
-    public Integer addEmp(String ename,String epwd,Integer postid);
-
     @Update("update employee set state=#{state} where eid=#{eid}")
     public Integer updateEmp(Integer eid,Integer state);
 
+    //根据姓名查询
     @Select("select e.eid,e.ename,e.epwd,e.realname,e.idcard,e.ephoto,e.ephone,e.email,p.pname,e.state from employee e left join post p on e.postid=p.pid where e.realname like '%${realname}%'")
     public List<Map<String,Object>> findByName(String realname);
 
 
+    //查询员工信息
     @Select("select e.eid,e.ename,e.epwd,e.realname,e.idcard,e.ephoto,e.ephone,e.email,p.pname,e.state from employee e left join post p on e.postid=p.pid")
     public List<Map<String,Object>> showAll();
+
+    //根据用户名查询
+    @Select("select * from employee where ename = #{param1}")
+    public Employee queryEmpName(String ename);
 
 }
