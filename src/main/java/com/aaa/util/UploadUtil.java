@@ -22,6 +22,8 @@ public class UploadUtil {
         String filename = time+fileName.substring(fileName.lastIndexOf("."));
 
         File file = new File("D:/aiyue/img/" + filename);
+
+        file.mkdirs();
         //另存入
         pic.transferTo(file);
         //返回访问路径
