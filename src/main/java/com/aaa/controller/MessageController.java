@@ -36,8 +36,8 @@ public class MessageController {
         if(surface.isEmpty()){
             return 0;
         }
+        //保存文件
         String filepath = UploadUtil.upload(surface);
-
         Message message = new Message(typeid,mename,filepath,synopsis,writerid);
         return messageService.addMessage(message);
     }
@@ -62,6 +62,7 @@ public class MessageController {
 
     @RequestMapping("/findAll")
     public String findAll(String mename,Integer typeid,Integer num, Integer size){
+        //检索 分页
         return JSONObject.toJSON(messageService.findAll(mename,typeid,num,size)).toString();
     }
 
