@@ -29,6 +29,10 @@ public class MessageService {
         return messageDao.updateByPrimaryKey(message);
     }
 
+    public Integer updateByMeidNoSurface(Message message){
+        return messageDao.updateByMeidNoSurface(message);
+    }
+
     public PageInfo<Message> findAll(Integer num, Integer size){
         if(num != null && size != null){
             PageHelper.startPage(num,size);

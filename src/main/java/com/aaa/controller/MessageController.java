@@ -6,6 +6,7 @@ import com.aaa.util.UploadUtil;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -26,7 +27,7 @@ public class MessageController {
     }
 
     @RequestMapping("/addMessage")
-    public Integer addMessage(Integer typeid, String mename, MultipartFile surface, String synopsis, Integer writerid) throws IOException {
+    public Integer addMessage(Integer typeid, String mename,MultipartFile surface, String synopsis, Integer writerid) throws IOException {
         if(surface.isEmpty()){
             return 0;
         }
@@ -42,8 +43,15 @@ public class MessageController {
     }
 
     @RequestMapping("/updMessage")
-    public Integer updMessage(Integer meid,Integer typeid,String mename,String surface,String synopsis,Integer writerid){
-        Message message = new Message(meid,typeid,mename,surface,synopsis,writerid);
+    public Integer updMessage(Integer meid,Integer typeid,String mename,MultipartFile surface,String synopsis,Integer writerid) throws IOException {
+        //文件为空时 不更新surface
+        if(null == surface){
+            Message message = new Message(meid,typeid,mename,null,synopsis,writerid);
+            return messageService.updateByMeidNoSurface(message);
+        }
+        String filepath = UploadUtil.upload(surface);
+
+        Message message = new Message(meid,typeid,mename,filepath,synopsis,writerid);
         return messageService.updMessage(message);
     }
 

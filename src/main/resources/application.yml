@@ -3,6 +3,7 @@ server:
     context-path: /aiyue
   port: 8088
 
+
 spring:
   datasource:  # 数据库配置
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -19,6 +20,11 @@ spring:
 
   resources:
     static-locations: classpath:/META- INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,classpath:/templates/ # 静态资源路径
-
-
-
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+#打印sql
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
