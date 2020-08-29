@@ -33,13 +33,13 @@ public class MessageService {
         return messageDao.updateByMeidNoSurface(message);
     }
 
-    public PageInfo<Message> findAll(Integer num, Integer size){
+    public PageInfo<Message> findAll(String mename,Integer typeid,Integer num, Integer size){
         if(num != null && size != null){
             PageHelper.startPage(num,size);
         }else{
             PageHelper.startPage(1,10);
         }
-        List<Message> rs = messageDao.selectAll();
+        List<Message> rs = messageDao.findBySearch(mename,typeid);
 
         PageInfo<Message> pageInfo = new PageInfo<Message>(rs);
 

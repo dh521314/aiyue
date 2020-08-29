@@ -1,7 +1,9 @@
 package com.aaa.controller;
 
 import com.aaa.entity.Message;
+import com.aaa.entity.Writer;
 import com.aaa.service.MessageService;
+import com.aaa.service.WriterService;
 import com.aaa.util.UploadUtil;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,6 +22,9 @@ import java.util.List;
 public class MessageController {
     @Resource
     MessageService messageService;
+    @Resource
+    WriterService writerService;
+
 
     @RequestMapping("/messageList")
     public List<Message> MessageList(){
@@ -56,8 +61,8 @@ public class MessageController {
     }
 
     @RequestMapping("/findAll")
-    public String findAll(Integer num, Integer size){
-        return JSONObject.toJSON(messageService.findAll(num,size)).toString();
+    public String findAll(String mename,Integer typeid,Integer num, Integer size){
+        return JSONObject.toJSON(messageService.findAll(mename,typeid,num,size)).toString();
     }
 
 }
