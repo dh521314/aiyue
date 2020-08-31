@@ -73,11 +73,6 @@ public class EmployeeController {
         return employeeService.updateEmp(eid,state);
     }
 
-    @RequestMapping("/findAll")
-    public List<Map<String, Object>> findAll(){
-        return employeeService.showAll();
-    }
-
     @RequestMapping("/findName")
     public List<Map<String,Object>> findByName(String realname){
         return employeeService.findByName(realname);
@@ -93,6 +88,11 @@ public class EmployeeController {
             return employeeService.add(employee);
         }
 
+    }
+
+    @RequestMapping("/findAll")
+    public String findAll(Integer num,Integer size){
+        return JSONObject.toJSON(employeeService.showAll(num,size)).toString();
     }
 
 }
