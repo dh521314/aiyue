@@ -33,6 +33,11 @@ public class Message implements Serializable {
 	@Column
 	private Integer writerid;
 
+	private Writer writer;
+
+	private Type type;
+
+
 	public Message() {
 	}
 
@@ -51,6 +56,22 @@ public class Message implements Serializable {
 		this.surface = surface;
 		this.synopsis = synopsis;
 		this.writerid = writerid;
+	}
+
+	public Writer getWriter() {
+		return writer;
+	}
+
+	public void setWriter(Writer writer) {
+		this.writer = writer;
+	}
+
+	public Type getType() {
+		return type;
+	}
+
+	public void setType(Type type) {
+		this.type = type;
 	}
 
 	public Integer getMeid() {

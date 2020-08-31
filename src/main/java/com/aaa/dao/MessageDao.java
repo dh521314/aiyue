@@ -9,7 +9,7 @@ import java.util.List;
 @org.apache.ibatis.annotations.Mapper
 public interface MessageDao extends Mapper<Message> {
     @Select("select * from message")
-    @Results({
+    @Results(id="messagesMap",value= {
             @Result(property = "type", column = "typeid", one = @One(select = "com.aaa.dao.TypeDao.getTypeByTid")),
             @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
     })
@@ -28,6 +28,7 @@ public interface MessageDao extends Mapper<Message> {
             "<if test=\"mename != null and mename != ''\">mename like '%${mename}%'</if>" +
             "<if test=\"typeid != null and typeid != ''\">and typeid = ${typeid}</if>" +
             "</where></script>")
+    @ResultMap("messagesMap")
     public List<Message> findBySearch(String mename,Integer typeid);
 
 }
