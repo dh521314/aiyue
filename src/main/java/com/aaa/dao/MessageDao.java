@@ -30,4 +30,13 @@ public interface MessageDao extends Mapper<Message> {
             "</where></script>")
     public List<Message> findBySearch(String mename,Integer typeid);
 
+    @Select("select mename from message where meid")
+    public String findMenameByMeid(Integer meid);
+
+    @Select("select meid from message where mename=#{param1}")
+    public Integer findMeidByMename(String mename);
+
+    @Select("select mename from message where mename like '%${param1}%'")
+    public String findMenameByMename(String mename);
+
 }

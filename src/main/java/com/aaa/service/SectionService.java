@@ -22,7 +22,7 @@ public class SectionService {
     MessageDao messageDao;
 
     public List<Section> SectionList(){
-        return sectionDao.selectAll();
+        return sectionDao.sectionList();
     }
 
     public Integer addSection(String sname, Integer messageid, String content, Integer number, Date updatetiem){
@@ -43,7 +43,7 @@ public class SectionService {
         }else{
             PageHelper.startPage(1,10);
         }
-        List<Section> rs = sectionDao.selectAll();
+        List<Section> rs = sectionDao.sectionList();
         PageInfo<Section> p = new PageInfo<Section>(rs);
         return p;
     }
@@ -52,11 +52,15 @@ public class SectionService {
         return messageDao.selectAll();
     }
 
-    /*public Integer findMeidByMename(String mename){
+    public Integer findMeidByMename(String mename){
         return messageDao.findMeidByMename(mename);
     }
 
     public String findMenameByMeid(Integer meid){
         return messageDao.findMenameByMeid(meid);
-    }*/
+    }
+
+    public String findMenameByMename(String mename){
+        return messageDao.findMenameByMename(mename);
+    }
 }
