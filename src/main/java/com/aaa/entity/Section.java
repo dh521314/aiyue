@@ -45,6 +45,8 @@ public class Section implements Serializable {
 	@Column
 	private Date updatetiem;
 
+	private Message message;
+
 	public Section() {
 	}
 
@@ -111,5 +113,13 @@ public class Section implements Serializable {
 
 	public void setUpdatetiem(Date updatetiem) {
 		this.updatetiem = updatetiem;
+	}
+
+	public Message getMessage() {
+		return message;
+	}
+
+	public void setMessage(Message message) {
+		this.message = message;
 	}
 }
