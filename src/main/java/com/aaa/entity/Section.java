@@ -67,6 +67,14 @@ public class Section implements Serializable {
 		this.updatetiem = updatetiem;
 	}
 
+	public Section(Integer sid, String sname, String content, Integer number, Date updatetiem) {
+		this.sid = sid;
+		this.sname = sname;
+		this.content = content;
+		this.number = number;
+		this.updatetiem = updatetiem;
+	}
+
 	public Integer getSid() {
 		return sid;
 	}

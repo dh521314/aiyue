@@ -2,6 +2,8 @@ package com.aaa.service;
 
 import com.aaa.dao.EmployeeDao;
 import com.aaa.entity.Employee;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -61,12 +63,23 @@ public class EmployeeService {
         return employeeDao.findByName(realname);
     }
 
-    public List<Map<String,Object>> showAll(){
+    /*public List<Map<String,Object>> showAll(){
         return employeeDao.showAll();
-    }
+    }*/
 
     //根据用户名查询
     public Employee queryEmpName(String ename){
         return employeeDao.queryEmpName(ename);
+    }
+
+    public PageInfo<Employee> showAll(Integer num,Integer size){
+        if (num != null && size != null){
+            PageHelper.startPage(num,size);
+        }else {
+            PageHelper.startPage(1,10);
+        }
+        List<Employee> rs = employeeDao.employeeList();
+        PageInfo<Employee> pageInfo = new PageInfo<Employee>(rs);
+        return pageInfo;
     }
 }

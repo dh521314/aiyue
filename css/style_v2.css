@@ -1,0 +1,255 @@
+.fl {
+    float: left;
+}
+.fl {
+    float: left;
+}
+a, a:active, a:hover, a:link {
+    text-decoration: none;
+}
+.footer .copyright .links a:hover, .footer .copyright p a:hover, .footer .partlink .mail a:hover, .footer .partner a:hover {
+    color: #fa7a20;
+}
+
+.footer-wrapper {
+    background: #fafafa;
+    padding: 0;
+    font-size: 12px;
+}
+.footer .partner,
+.footer .partlink .wrap{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.footer .partner {
+    padding: 30px 0 15px;
+}
+.footer .partlink .title, .footer .partner .title {
+    font-weight: 700;
+    font-size: 14px;
+    color: #333;
+    line-height: 19px;
+    padding-bottom: 7px;
+}
+.footer .partner .partner-first {
+    border-bottom: 1px dotted #ccc;
+    line-height: 22px;
+    padding-bottom: 10px;
+    height: auto;
+    overflow: hidden;
+}
+.footer .partner a {
+    margin-right: 20px;
+    color: #333;
+    letter-spacing: 1px;
+    float: left;
+    white-space: nowrap;
+}
+.footer .partner .partner-second {
+    padding-top: 15px;
+    line-height: 22px;
+    height: auto;
+    overflow: hidden;
+}
+.footer .partlink {
+    background: #f0f0f0;
+}
+.footer .partlink .wrap {
+    padding: 15px 0;
+    position: relative;
+}
+.footer .partlink .mail {
+    color: #3c3d47;
+    line-height: 20px;
+    letter-spacing: .86px;
+}
+.footer .partlink .mail a {
+    margin-right: 30px;
+    margin-left: 20px;
+    color: #3c3d47;
+    background: url(../images/mail.png) no-repeat left center;
+    padding-left: 20px;
+}
+.footer .partlink .help-btn {
+    width: 110px;
+    position: absolute;
+    left: 385px;
+    top: 20px;
+}
+.footer .partlink .help-btn .help_btn {
+    /*width: 68px;*/
+    height: 30px;
+    display: block;
+    line-height: 30px;
+    background: url(../images/q.png) no-repeat 11px center;
+    border: 1px solid #a9aeb7;
+    border-radius: 2px;
+    font-size: 14px;
+    padding-left: 32px;
+    color: #333;
+    letter-spacing: 1px;
+}
+.footer .partlink .help-btn p {
+    color: #666;
+    letter-spacing: .86px;
+    margin-top: 10px;
+}
+.partlink .b1 {
+    left: 505px;
+}
+.partlink .foot-cell {
+    position: absolute;
+    top: 19px;
+    border-left: 1px solid #d6d6d6;
+    padding: 0 10px;
+}
+.partlink .foot-cell div {
+    line-height: 20px;
+    letter-spacing: .86px;
+    color: #333;
+}
+.partlink .foot-cell .tit {
+    color: #000;
+    letter-spacing: 1px;
+    line-height: 1;
+    padding-bottom: 7px;
+}
+.partlink .foot-cell .email, .partlink .foot-cell .qq, .partlink .foot-cell .tel {
+    padding: 1px 0 0 21px;
+}
+.partlink .foot-cell .qq {
+    background: url(../images/qq.png) no-repeat left center;
+}
+.partlink .foot-cell .email {
+    background: url(../images/mail.png) no-repeat left center;
+}
+.partlink .foot-cell div a {
+    color: #333;
+}
+
+.partlink .b2 {
+    left: 682px;
+}
+.partlink .foot-cell .tel {
+    background: url(../images/tel.png) no-repeat left center;
+}
+.partlink .app {
+    right: 160px;
+}
+.partlink .foot-blank {
+    position: absolute;
+    width: 136px;
+    top: 15px;
+}
+.imgbox {
+    font-size: 0;
+    line-height: 0;
+}
+.partlink .foot-blank .imgbox, .partlink .foot-blank .imgbox img {
+    width: 61px;
+    height: 61px;
+}
+.partlink .foot-blank p {
+    color: #000;
+    letter-spacing: 1px;
+    padding: 24px 0 0 71px;
+    line-height: 1;
+}
+.partlink .wchat {
+    right: 0;
+}
+.footer .copyright {
+    margin-top: 0;
+    text-align: center;
+    padding: 20px 0 40px;
+}
+.footer .copyright .links {
+    text-align: center!important;
+    color: #e6e6e6;
+    font-size: 14px;
+    line-height: 28px;
+    padding-bottom: 10px;
+}
+.footer .copyright .links a, .footer .copyright p a {
+    color: #666;
+    margin: 0 6px;
+}
+.footer .copyright p {
+    margin-bottom: 0;
+    color: #999;
+    letter-spacing: 1px;
+    line-height: 23px;
+}
+
+/* 文章引入订阅模块 */
+.chapter_pay{
+    padding: 50px 0 200px 0;
+    margin-top: 50px;
+    border-top: 1px solid #dedede;
+    text-align: center;
+}
+.chapter_pay .pay_title{
+    margin-bottom: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+.chapter_pay .pay_section .pay_item{
+    padding: 12px 0;
+    display: inline-block;
+    margin:0 12px;
+    width: 24%;
+    border: 1px solid #dedede;
+    background: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.chapter_pay .pay_section .pay_item p{
+    margin: 0;
+    padding: 0;
+    line-height: initial;
+    text-indent: 0;
+}
+.chapter_pay .pay_section .pay_item span{
+    display: inline-block;
+    font-size: 11px;
+    color: #66666687;
+    text-indent: 0;
+}
+.chapter_pay .pay_section .pay_item.active{
+    background: #fa7a20;
+    border: 1px solid #fa7a20;
+    color: #fff;
+}
+.chapter_pay .pay_section .pay_item.active p,
+.chapter_pay .pay_section .pay_item.active span{
+    color: #fff;
+}
+.chapter_pay .pay_section .pay_item:hover{
+    border: 1px solid #fa7a20;
+}
+
+/* 登陆 */
+.chapter_login{
+    padding: 30px 0 200px 0;
+    margin-top: 30px;
+    border-top: 1px solid #dedede;
+    text-align: center;
+}
+.chapter_login .pay_title{
+    margin-bottom: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.chapter_login a{
+    border: 1px solid #fa7a20;
+    background: #fa7a20;
+    padding: 17px 99px;
+    color: #fff;
+}

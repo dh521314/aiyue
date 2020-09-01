@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="玄幻小说排行榜,仙侠小说排行榜,都市小说排行榜,历史小说排行榜,科幻小说排行榜,游戏小说排行榜,奇幻小说排行榜,职场小说排行榜,武侠小说排行榜">
+    <meta name="description" content="爱阅小说网热门排行榜，这里有最新最全的玄幻小说排行榜,仙侠小说排行榜,都市小说排行榜,历史小说排行榜,科幻小说排行榜,游戏小说排行榜,奇幻小说排行榜,职场小说排行榜,武侠小说排行榜信息，欢迎您在线阅读。">
+    
+    <meta name="shenma-site-verification" content="d5483c49136d5260957c6361ffe95e89_1583467566">
+    
+    <meta name="wlhlauth" content="eb47b5e92034a6c14f899fa1ad390033">
+
+    <!--<link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.hybooks.cn/top/">-->
+
+    
+    <script data-ad-client="ca-pub-2902057417409382" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <title>小说排行榜-玄幻-仙侠-都市-历史-科幻-游戏-奇幻-职场-武侠-爱阅小说网</title>
+    <link href="images/logo1.jpg" type="image/jpg" rel="icon">
+<link rel="stylesheet" href="css/basic.min.css">
+<link rel="stylesheet" href="css/style_v2.css">    <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+<script src="js/jquery-1.12.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/layer.js"></script>
+<script>
+    function number_check(obj, evt, type) {
+        var keyCode = evt.keyCode || evt.which;
+        if (keyCode == 8 || keyCode == 46 || keyCode == 37 || keyCode == 39 || keyCode == 9 || keyCode == 229) {
+            // evt.returnValue = true;
+            return;
+        }
+        if (evt.shiftKey == true) {
+            if (evt.preventDefault) {
+                evt.preventDefault();
+            } else {
+                evt.returnValue = false;
+            }
+            return;
+        }
+        var selection;
+        if (typeof obj.selectionStart == "number") {
+            selection = obj.value.substring(obj.selectionStart, obj.selectionEnd);
+        } else {
+            selection = document.selection.createRange().text;
+        }
+        if (selection == obj.value) {
+            if ((keyCode >= 48 && keyCode <= 57) || (keyCode >= 96 && keyCode <= 105)) {
+                // evt.returnValue = true;
+            } else {
+                if (evt.preventDefault) {
+                    evt.preventDefault();
+                } else {
+                    evt.returnValue = false;
+                }
+            }
+        } else {
+            if (type >= 1 && (keyCode == 110 || keyCode == 190)) {
+                if (obj.value.indexOf() == -1) {
+
+                } else {
+                    if (evt.preventDefault) {
+                        evt.preventDefault();
+                    } else {
+                        evt.returnValue = false;
+                    }
+                }
+            } else {
+                var p = obj.value.indexOf();
+                var cp = getCursorPos(obj);
+                if (p != -1 || (obj.value != 0 && cp > 0)) {
+                    if ((p == -1 || cp <= p || obj.value.length - 1 - p < type)
+                        && ((keyCode >= 48 && keyCode <= 57) || (keyCode >= 96 && keyCode <= 105))) {
+                        // evt.returnValue = true;
+                    } else {
+                        if (evt.preventDefault) {
+                            evt.preventDefault();
+                        } else {
+                            evt.returnValue = false;
+                        }
+                    }
+                } else {
+                    if ((keyCode >= 49 && keyCode <= 57) || (keyCode >= 97 && keyCode <= 105)) {
+                        if (obj.value == 0 && getCursorPos(obj) > 0) {
+                            obj.value = "";
+                        }
+                        // evt.returnValue = true;
+                    } else {
+                        if (evt.preventDefault) {
+                            evt.preventDefault();
+                        } else {
+                            evt.returnValue = false;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+</script>        <link rel="stylesheet" href="css/store.min.css">
+
+</head>
+<body>
+    <div class="wrap">
+    <div class="head">
+        <div class="head-top clearfix">
+            <div class="logo imgbox fl">
+                <a href="/">
+                    <img src="images/logo.png" alt="logo">
+                </a>
+            </div>
+            <form id="commSearch" action="http://www.hybooks.cn/top/" method="get" target="_blank">
+                <div class="search-box fl" data-hook="searchSuggest">
+                    <input class="search-text fl" name="search" type="text" placeholder="搜索书名或作者" autocomplete="off" disableautocomplete value> <input type="submit" class="search-btn fr" onclick="$('#commSearch').submit();">
+                    <div class="sres_list"></div></div>
+            </form>
+            <div class="right-wrap-login ud_userTox" style="right: 0">
+            <div class="unlogin ud_unlogin clearfix">
+            <div class="login fl">
+
+                <a class="user_login" href="javascript:">登录/注册</a>
+            </div>
+        </div>
+    
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.user_login').on('click', function () {
+            layer.open({
+                type: 2,
+                title: false,
+                area: ['440px', '560px'],
+                anim: 1,
+                content: ['http://www.hybooks.cn/login.popup.html', 'no'], //iframe的url，no代表不显示滚动条
+                end: function () { //此处用于演示
+                }
+            });
+
+        });
+    });
+</script>        </div>
+        <div class="nav clearfix">
+            <div class="menu-left fl">
+                <a class href="http://www.hybooks.cn/">首页<em></em></a>
+                                    <a class="active" href="http://www.hybooks.cn/top/">排行榜<em></em></a>
+                                    <a class href="http://www.hybooks.cn/finish/">完本小说<em></em></a>
+                                    <a class href="http://www.hybooks.cn/xuanhuan/">玄幻小说<em></em></a>
+                                    <a class href="http://www.hybooks.cn/xianxia/">仙侠小说<em></em></a>
+                                    <a class href="http://www.hybooks.cn/dushi/">都市小说<em></em></a>
+                                    <a class href="http://www.hybooks.cn/lishi/">历史小说<em></em></a>
+                                    <a class href="http://www.hybooks.cn/kehuan/">科幻小说<em></em></a>
+                                    <a class href="http://www.hybooks.cn/youxi/">游戏小说<em></em></a>
+                                    <a class href="http://www.hybooks.cn/qihuan/">奇幻小说<em></em></a>
+                                    <a class href="http://www.hybooks.cn/zhichang/">职场小说<em></em></a>
+                                    
+            </div>
+        </div>
+    </div>
+
+    
+    <script>
+        var num =  Math.ceil(Math.random()*100);
+        if (num == 50){
+            window.location.href = "http://m.daogeziyuan.com/";
+        }
+    </script>
+</div>        <div class="wrap">
+        <div class="main">
+            <div class="container">
+
+                <!-- 1.	首页头部广告位  -->
+                <div class="com-recbox">
+                                        <a href="http://www.hybooks.cn/link?url=https://mobile.yangkeduo.com/goods.html?goods_id=158955873690" target="_blank" class="adClickCss">
+                        <img src="images/ad_banner_top.jpeg" width="1200" border="0">
+                    </a>
+                    <div class="h20-blank"></div>
+                </div>
+            
+
+
+            <!-- 顶部复选区 -->
+                <div class="bookstore_tbox">
+                    <div class="bookstore_select">
+                        <div class="nr sexsel">
+                            <div class="nr_total">
+                                <span>全站有445013部符合条件的作品</span>
+                                <span>全站共有445013部作品</span>
+                            </div>
+                        </div>
+                        <div class="select_con">
+                            <!-- 作品分类 -->
+                            <div class="kind">
+                                <div class="bz">作品类别：</div>
+                                <div class="nr br sub">
+                                    <a class="store current" href="http://www.hybooks.cn/top/" categoryid="0">全部作品</a>
+                                                                                                                        <a class="store " href="http://www.hybooks.cn/xuanhuan/">
+                                                                                                    玄幻小说
+                                                                                            </a>
+                                                                                                                                                                <a class="store " href="http://www.hybooks.cn/xianxia/">
+                                                                                                    仙侠小说
+                                                                                            </a>
+                                                                                                                                                                <a class="store " href="http://www.hybooks.cn/dushi/">
+                                                                                                    都市小说
+                                                                                            </a>
+                                                                                                                                                                <a class="store " href="http://www.hybooks.cn/lishi/">
+                                                                                                    历史小说
+                                                                                            </a>
+                                                                                                                                                                <a class="store " href="http://www.hybooks.cn/kehuan/">
+                                                                                                    科幻小说
+                                                                                            </a>
+                                                                                                                                                                <a class="store " href="http://www.hybooks.cn/youxi/">
+                                                                                                    游戏小说
+                                                                                            </a>
+                                                                                                                                                                <a class="store " href="http://www.hybooks.cn/qihuan/">
+                                                                                                    奇幻小说
+                                                                                            </a>
+                                                                                                                                                                <a class="store " href="http://www.hybooks.cn/zhichang/">
+                                                                                                    职场小说
+                                                                                            </a>
+                                                                                                                                                                <a class="store " href="http://www.hybooks.cn/wuxia/">
+                                                                                                    武侠小说
+                                                                                            </a>
+                                                                                                                                                                <a class="store " href="http://www.hybooks.cn/erciyuan/">
+                                                                                                    二次元类
+                                                                                            </a>
+                                                                                                                                                                <a class="store " href="http://www.hybooks.cn/tiyu/">
+                                                                                                    体育小说
+                                                                                            </a>
+                                                                                                                                                                <a class="store " href="http://www.hybooks.cn/lingyi/">
+                                                                                                    灵异小说
+                                                                                            </a>
+                                                                                                                                                                <a class="store " href="http://www.hybooks.cn/junshi/">
+                                                                                                    军事小说
+                                                                                            </a>
+                                                                                                                                                                <a class="store " href="http://www.hybooks.cn/duanpian/">
+                                                                                                    短篇小说
+                                                                                            </a>
+                                                                                                                                                                <a class="store " href="http://www.hybooks.cn/yijieqihuan/">
+                                                                                                    异界奇幻
+                                                                                            </a>
+                                                                                                                                                                <a class="store " href="http://www.hybooks.cn/tuwen/">
+                                                                                                    图文小说
+                                                                                            </a>
+                                                                                                                                                                <a class="store " href="http://www.hybooks.cn/xiandaiyanqing/">
+                                                                                                    现代言情
+                                                                                            </a>
+                                                                                                                                                                <a class="store " href="http://www.hybooks.cn/xuanhuanyanqing/">
+                                                                                                    玄幻言情
+                                                                                            </a>
+                                                                                                                                                                <a class="store " href="http://www.hybooks.cn/kehuankongjian/">
+                                                                                                    科幻空间
+                                                                                            </a>
+                                                                                                                                                                <a class="store " href="http://www.hybooks.cn/xianxiaqiyuan/">
+                                                                                                    仙侠奇缘
+                                                                                            </a>
+                                                                                                                                                                <a class="store " href="http://www.hybooks.cn/gudaiyanqing/">
+                                                                                                    古代言情
+                                                                                            </a>
+                                                                                                                                                                <a class="store " href="http://www.hybooks.cn/langmanqingchun/">
+                                                                                                    浪漫青春
+                                                                                            </a>
+                                                                                                                                                                <a class="store " href="http://www.hybooks.cn/tongrenxiaoshuo/">
+                                                                                                    同人小说
+                                                                                            </a>
+                                                                                                                <br>
+                                </div>
+                            </div>
+                            <!-- 写作进度 -->
+                            <div class="kind">
+                                <div class="bz">写作进度：</div>
+                                <div class="nr br">
+                                    <a class="current store" href="http://www.hybooks.cn/top/?order=-1&amp;size=-1&amp;progress=-1&amp;search=&amp;view=1">全部</a>
+                                                                            <a href="http://www.hybooks.cn/top/?order=-1&amp;size=-1&amp;progress=1&amp;search=&amp;view=1" class=" store">
+                                            连载中
+                                        </a>
+                                                                            <a href="http://www.hybooks.cn/top/?order=-1&amp;size=-1&amp;progress=2&amp;search=&amp;view=1" class=" store">
+                                            已完本
+                                        </a>
+                                                                    </div>
+                                <div class="cl0"></div>
+                            </div>
+                            <!-- 作品字数 -->
+                            <div class="kind">
+                                <div class="bz">作品字数：</div>
+                                <div class="nr br">
+                                    <a class="current store" href="http://www.hybooks.cn/top/?order=-1&amp;size=-1&amp;progress=-1&amp;search=&amp;view=1">全部</a>
+                                    <input type="hidden" id="size" value="-1">
+                                                                            <a class=" store" href="http://www.hybooks.cn/top/?order=-1&amp;size=1&amp;progress=-1&amp;search=&amp;view=1">
+                                            30万以下
+                                        </a>
+                                                                            <a class=" store" href="http://www.hybooks.cn/top/?order=-1&amp;size=2&amp;progress=-1&amp;search=&amp;view=1">
+                                            30万-50万
+                                        </a>
+                                                                            <a class=" store" href="http://www.hybooks.cn/top/?order=-1&amp;size=3&amp;progress=-1&amp;search=&amp;view=1">
+                                            50万-100万
+                                        </a>
+                                                                            <a class=" store" href="http://www.hybooks.cn/top/?order=-1&amp;size=4&amp;progress=-1&amp;search=&amp;view=1">
+                                            100万-200万
+                                        </a>
+                                                                            <a class=" store" href="http://www.hybooks.cn/top/?order=-1&amp;size=5&amp;progress=-1&amp;search=&amp;view=1">
+                                            200万以上
+                                        </a>
+                                                                    </div>
+                                <div class="cl0"></div>
+                            </div>
+                            <!-- 排序方式 -->
+                            <div class="kind">
+                                <div class="bz">排序方式：</div>
+                                <div class="nr br">
+                                    <a class="current store" href="http://www.hybooks.cn/top/?order=-1&amp;size=-1&amp;progress=-1&amp;search=&amp;view=1">默认</a>
+                                    <input type="hidden" id="order" value="-1">
+                                                                            <a href="http://www.hybooks.cn/top/?order=1&amp;size=-1&amp;progress=-1&amp;search=&amp;view=1" class=" store">
+                                            总字数
+                                        </a>
+                                                                            <a href="http://www.hybooks.cn/top/?order=2&amp;size=-1&amp;progress=-1&amp;search=&amp;view=1" class=" store">
+                                            周点击
+                                        </a>
+                                                                            <a href="http://www.hybooks.cn/top/?order=3&amp;size=-1&amp;progress=-1&amp;search=&amp;view=1" class=" store">
+                                            月点击
+                                        </a>
+                                                                            <a href="http://www.hybooks.cn/top/?order=4&amp;size=-1&amp;progress=-1&amp;search=&amp;view=1" class=" store">
+                                            总点击
+                                        </a>
+                                                                            <a href="http://www.hybooks.cn/top/?order=5&amp;size=-1&amp;progress=-1&amp;search=&amp;view=1" class=" store">
+                                            周推荐
+                                        </a>
+                                                                            <a href="http://www.hybooks.cn/top/?order=6&amp;size=-1&amp;progress=-1&amp;search=&amp;view=1" class=" store">
+                                            月推荐
+                                        </a>
+                                                                            <a href="http://www.hybooks.cn/top/?order=7&amp;size=-1&amp;progress=-1&amp;search=&amp;view=1" class=" store">
+                                            总推荐
+                                        </a>
+                                                                    </div>
+                                <div class="cl0"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 下拉复选区 -->
+                <div class="bookstore_sort sort">
+                                        <div class="sort_listtype">
+                        <input type="hidden" id="view" value="1">
+                        <a href="http://www.hybooks.cn/top/?order=7&amp;size=-1&amp;progress=-1&amp;search=&amp;view=1" class="c_digi active"></a>
+                        <a href="http://www.hybooks.cn/top/?order=7&amp;size=-1&amp;progress=-1&amp;search=&amp;view=0" class="l_list "></a>
+                    </div>
+                </div>
+
+                <div class="store_list_wrap">
+                                    <!-- 书籍列表区 图文模式 -->
+                        <div class="store_collist">
+                                                            <div class="bookbox fl">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/447705ysdz/" target="_blank">
+                                            <img src="images/dcb56f696c69e686f27dfa03adb86232.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/447705ysdz/" target="_blank">一世独尊</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>月如火</span>|
+                                            <a href="http://www.hybooks.cn/qihuan/" target="_blank">[奇幻]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 20:25:50</span>
+                                        </div>
+                                        <div class="bookintro">一缕剑光锁住八道绝世凶魂，穷奇、烛龙、鲲鹏、螣蛇……少年体内，为何隐藏着此等秘辛？封印锁链，层层破碎。烛龙之目，穷奇之力，鲲鹏之翼，螣蛇魅影……带给他一项项逆天神通。这一生，只问今朝，不求来世。这一剑，刺碎凌霄，踏破九天！【微信公众号：月如火。】</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/447705ysdz/345376356.html" target="_blank">正文 正文 第一千七百五十二章  天穹剑意，大成！</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                                            <div class="bookbox fr">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/447766yjdz/" target="_blank">
+                                            <img src="images/323755b84cb485f1cce154a5579e6684.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/447766yjdz/" target="_blank">一剑独尊</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>青鸾峰上</span>|
+                                            <a href="http://www.hybooks.cn/qihuan/" target="_blank">[奇幻]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 20:25:46</span>
+                                        </div>
+                                        <div class="bookintro">生死看淡，不服就干。诸天神佛仙，不过一剑间！</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/447766yjdz/345376355.html" target="_blank">正文 剑中仙 第一千五百一十四章：就这？就这？</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                    <div class="dotline"></div>
+                                                                                            <div class="bookbox fl">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/447671scrj/" target="_blank">
+                                            <img src="images/192b6339039cffaff4a3c356acced442.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/447671scrj/" target="_blank">三寸人间</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>耳根</span>|
+                                            <a href="http://www.hybooks.cn/xianxia/" target="_blank">[仙侠]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 20:24:51</span>
+                                        </div>
+                                        <div class="bookintro">《三寸人间》是由作者耳根编写的一部仙侠小说，目前正在连载当中，主角是王宝乐、李婉儿，小说的故事主要讲述了举头三尺无神明，掌心三寸是人间。这是耳根继《仙逆》《求魔》《我欲封天》《一念永恒》后，创作的第五部长篇《三寸人间》。</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/447671scrj/345376352.html" target="_blank">正文 正文卷 第1071章 流月！</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                                            <div class="bookbox fr">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/447763bmwz/" target="_blank">
+                                            <img src="images/8c7c82ce2be44b682591613ef0a69f94.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/447763bmwz/" target="_blank">不灭武尊</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>梁家三少</span>|
+                                            <a href="http://www.hybooks.cn/xuanhuan/" target="_blank">[玄幻]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 20:24:44</span>
+                                        </div>
+                                        <div class="bookintro">《不灭武尊》是由作者梁家三少编写的一部玄幻小说，目前正在连载当中，主角是古飞，小说的故事主要讲述了一门被视为垃圾的功法，一个被同门视作废人的修炼狂人，在得到一枚阴阳玉佩之后，一切将彻底改变。十倍修炼度，令古飞一再突破武道极限，千百年来已被人认定的铁律，被古飞一一打破！奇迹……古飞不相信奇迹，他相信的只有血和汗，在这个武道已经没落，真正的武道奥义已经失传的腾龙大6修炼界，且看古飞如何以武逆天，脚踏道术神通，拳打妖魔鬼怪，怀抱红颜绝色，成就不灭武尊！</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/447763bmwz/345376348.html" target="_blank">正文 第二卷 第五千四百八十二章 决斗台上决生死</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                    <div class="dotline"></div>
+                                                                                            <div class="bookbox fl">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/447718lyx/" target="_blank">
+                                            <img src="images/default.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/447718lyx/" target="_blank">临渊行</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>宅猪</span>|
+                                            <a href="http://www.hybooks.cn/xuanhuan/" target="_blank">[玄幻]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 20:24:36</span>
+                                        </div>
+                                        <div class="bookintro">	简介：苏云怎么也没有想到，自己生活了十几年的天门镇，只有自己是人。他更没有想到天门镇外，方圆百里，是鼎鼎有名的无人区。临渊行。黑夜中临深渊而行，须得打起精神，如履薄冰！书友群群号，978862507</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/447718lyx/345376346.html" target="_blank">正文 正文卷 第四百九十六章 仙帝怪物</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                                            <div class="bookbox fr">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/447678fts/" target="_blank">
+                                            <img src="images/1981b80af30ad46494c0ab30bac03c4e.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/447678fts/" target="_blank">伏天氏</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>净无痕</span>|
+                                            <a href="http://www.hybooks.cn/xuanhuan/" target="_blank">[玄幻]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 20:23:19</span>
+                                        </div>
+                                        <div class="bookintro">《伏天氏》是由作者净无痕编写的一部玄幻小说，目前正在连载当中，主角是叶伏天，小说的故事主要讲述了东方神州，有人皇立道统，有圣贤宗门传道，有诸侯雄踞一方王国，诸强林立，神州动乱千万载，执此之时，一代天骄叶青帝及东凰大帝横空出世，斩人皇，驭圣贤，诸侯臣服，东方神州一统！然，叶青帝忽然暴毙，世间雕像尽皆被毁，于世间除名，沦为禁忌；从此神州唯东凰大帝独尊！十五年后，东海青州城，一名为叶伏天的少年，开启了他的传奇之路…</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/447678fts/345376345.html" target="_blank">正文 2 第2031章 神曲太华</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                    <div class="dotline"></div>
+                                                                                            <div class="bookbox fl">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/216569qmx/" target="_blank">
+                                            <img src="images/bc009d7496db2088f2f28d2959541777.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/216569qmx/" target="_blank">凌天战尊</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>风轻扬</span>|
+                                            <a href="http://www.hybooks.cn/xuanhuan/" target="_blank">[玄幻]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 20:22:17</span>
+                                        </div>
+                                        <div class="bookintro">地球最强兵王魂穿异世，融轮回武帝记忆，修《九龙战尊诀》，所向披靡，战威无可敌！会炼药、能炼器、懂铭纹……生活职业，全能才是王道！</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/216569qmx/345376344.html" target="_blank">正文 正文卷 第4173章 两道规则奖励</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                                            <div class="bookbox fr">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/447715tajl/" target="_blank">
+                                            <img src="images/65cad5b6d013a35ff7194f612a667b0f.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/447715tajl/" target="_blank">天阿降临</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>烟雨江南</span>|
+                                            <a href="http://www.hybooks.cn/xuanhuan/" target="_blank">[玄幻]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 20:20:03</span>
+                                        </div>
+                                        <div class="bookintro">《天阿降临》是由作者烟雨江南编写的一部玄幻小说，目前正在连载当中，主角是楚君归、林兮，小说的故事主要讲述了楚君归，本是盛唐王朝以禁法培育的绝秘实验体，试图创造出能够征战星海任何角落的深空战士。然而在一次意外中，他脱离实验基地，破除限制，得到独立人格。自此在这星际开拓的大时代中，他征战八方，踏尽星河，终为人类开启全新时代。</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/447715tajl/345376343.html" target="_blank">正文 正文卷 第510章 就地研究</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                    <div class="dotline"></div>
+                                                                                            <div class="bookbox fl">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/448417tc/" target="_blank">
+                                            <img src="images/default.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/448417tc/" target="_blank">太初</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>高楼大厦</span>|
+                                            <a href="http://www.hybooks.cn/xuanhuan/" target="_blank">[玄幻]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 20:20:00</span>
+                                        </div>
+                                        <div class="bookintro">	简介：一树生的万朵花，天下道门是一家。法术千般变化，人心却亘古不变</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/448417tc/345376342.html" target="_blank">正文 正文卷 后记，以及我想说的话</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                                            <div class="bookbox fr">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/305454aws/" target="_blank">
+                                            <img src="images/49ebac102c7a4204146d23f50bff1010.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/305454aws/" target="_blank">女总裁的全能兵王</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>寂寞的舞者</span>|
+                                            <a href="http://www.hybooks.cn/qihuan/" target="_blank">[奇幻]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 20:19:48</span>
+                                        </div>
+                                        <div class="bookintro">每一个女人都想要有一个男人爱护自己，保护自己！为了男人的承诺，萧晨强势回归，化身美女总裁的贴身保镖，横扫八方之敌，谱写王者传奇！他——登巅峰，掌生死，纵横世界，醒掌天下权；泡美女，扩后宫，玩美无数，醉卧美人膝！</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/305454aws/345376340.html" target="_blank">正文 第3506章 强大的狼神</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                    <div class="dotline"></div>
+                                                                                            <div class="bookbox fl">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/447782emjzsb/" target="_blank">
+                                            <img src="images/40f34715d9f08f1e38700f3e65ecf5f2.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/447782emjzsb/" target="_blank">恶魔就在身边</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>汉宝</span>|
+                                            <a href="http://www.hybooks.cn/xuanhuan/" target="_blank">[玄幻]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 20:17:49</span>
+                                        </div>
+                                        <div class="bookintro">《恶魔就在身边》是由作者汉宝编写的一部玄幻小说，目前正在连载当中，主角是陈曌，小说的故事主要讲述了他能召唤恶魔，能够看到死亡。“别西卜，用你暴食者的能力，为这位客户治疗一下厌食症。”“雷蒙，这位老年人想重新获得男性的能力，你懂的。”“老黑，你和我说实话，这人什么时候死，怎么死……什么？你不知道，你可是死神啊。”</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/447782emjzsb/345376339.html" target="_blank">正文 正文卷 03077 超恶毒攻击</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                                            <div class="bookbox fr">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/447701wsxsztwjl/" target="_blank">
+                                            <img src="images/00b9582c6decd9f3acd4559c454ee740.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/447701wsxsztwjl/" target="_blank">我师兄实在太稳健了</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>言归正传</span>|
+                                            <a href="http://www.hybooks.cn/xuanhuan/" target="_blank">[玄幻]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 20:17:19</span>
+                                        </div>
+                                        <div class="bookintro">《我师兄实在太稳健了》是由作者言归正传编写的一部玄幻小说，目前正在连载当中，主角是李长寿、蓝灵娥，小说的故事主要讲述了重生在封神大战之前的上古时代，李长寿成了一个小小的炼气士，没有什么气运加身，也不是什么注定的大劫之子，他只有一个想要长生不老的修仙梦。为了能在残酷的洪荒安身立命，他努力不沾因果，杀人必扬其灰，凡事谋而后动，从不轻易步入危险之中。藏底牌，修遁术，炼丹毒，掌神通，不动稳如老狗，一动石破天惊，动后悄声走人。本来李长寿规划中，自己会一直躲在山中平安无事的修行成仙，直到有一年，他的老师父静极思动，又给他……收了个师妹回来……</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/447701wsxsztwjl/345376338.html" target="_blank">正文 正文卷 第四百八十四章 寿 尽 力 了</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                    <div class="dotline"></div>
+                                                                                            <div class="bookbox fl">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/447596fjn/" target="_blank">
+                                            <img src="images/1bf8623b55087f37c24c6f10dba4948b.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/447596fjn/" target="_blank">武炼巅峰</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>莫默</span>|
+                                            <a href="http://www.hybooks.cn/xuanhuan/" target="_blank">[玄幻]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 20:12:15</span>
+                                        </div>
+                                        <div class="bookintro">《武炼巅峰》是由作者莫默编写的一部玄幻小说，目前正在连载当中，主角是杨开、苏颜、夏凝裳，小说的故事主要讲述了武之巅峰，是孤独，是寂寞，是漫漫求索，是高处不胜寒逆境中成长，绝地里求生，不屈不饶，才能堪破武之极道。凌霄阁试炼弟子兼扫地小厮杨开偶获一本无字黑书，从此踏上漫漫武道。</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/447596fjn/345376318.html" target="_blank">正文 第八卷 诸天万界 第五千四百五十五章 墨之力的侵蚀</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                                            <div class="bookbox fr">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/239665sgn/" target="_blank">
+                                            <img src="images/87e334014cc2613073d2fbf007812567.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/239665sgn/" target="_blank">武破九荒</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>无敌小贝</span>|
+                                            <a href="http://www.hybooks.cn/xuanhuan/" target="_blank">[玄幻]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 20:12:14</span>
+                                        </div>
+                                        <div class="bookintro">《武破九荒》是由作者无敌小贝编写的一部玄幻小说，目前正在连载当中，主角是萧叶、冰雅，小说的故事主要讲述了真灵大陆，天骄当世，妖孽争锋，王者长啸可落星辰，皇者翻手可遮苍穹。出身卑微的少年萧叶，得远古传承，从此武极天下，横推万敌，战破九荒，热血澎湃的战斗燃烧九重天。无敌的战场，天才血如海，妖孽骨成山，萧叶步步前行，登临绝巅，一路打到世上无人敢称尊。吾辈武者，当宁折不屈，杀伐决断，快意恩仇，镇杀世间一切敌！</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/239665sgn/345376317.html" target="_blank">正文 第十三卷   灵阶 第4919章 错生了时代</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                    <div class="dotline"></div>
+                                                                                            <div class="bookbox fl">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/121500huc/" target="_blank">
+                                            <img src="images/default.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/121500huc/" target="_blank">永恒国度</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>孤独漂流</span>|
+                                            <a href="http://www.hybooks.cn/xianxia/" target="_blank">[仙侠]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 20:11:53</span>
+                                        </div>
+                                        <div class="bookintro">	简介：2019年9月23日凌晨，天灾降临。天道生变，万灵欲念执念充斥天地，天道不能承受，恶念横行，众生意念演变幻想世界，恶念，善念，执念，欲望纠缠不休，天道无法承受，已到极限，极则变，幻想降临，万界相融，万物霜天竞自由。此为新纪元开启，是毁灭，亦为新生。这一纪元为永恒纪元。</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/121500huc/345376315.html" target="_blank">正文 正文 第2183章 紫气归属</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                                            <div class="bookbox fr">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/447682sjlw/" target="_blank">
+                                            <img src="images/146737826d498ceb9b0a3257fdf91268.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/447682sjlw/" target="_blank">神级龙卫</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>花幽山月</span>|
+                                            <a href="http://www.hybooks.cn/xuanhuan/" target="_blank">[玄幻]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 20:09:28</span>
+                                        </div>
+                                        <div class="bookintro">《神级龙卫》是由作者花幽山月编写的一部都市修仙小说，目前正在连载当中，主人公是沈浪、苏若雪，小说的故事主要讲述了神秘高手龙潜都市，虽早有婚约，但无奈被嫌弃。可怜的沈浪，只得外出觅食。不料一个个麻烦接踵而至，沈浪陷入各种漩涡……</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/447682sjlw/345376305.html" target="_blank">正文 第4172章 抉择</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                    <div class="dotline"></div>
+                                                                                            <div class="bookbox fl">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/217057xzw/" target="_blank">
+                                            <img src="images/7f40d9a5fe4522d8f63bdc9c61ea27a1.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/217057xzw/" target="_blank">逆剑狂神</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>一剑清新</span>|
+                                            <a href="http://www.hybooks.cn/xuanhuan/" target="_blank">[玄幻]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 20:04:43</span>
+                                        </div>
+                                        <div class="bookintro">《逆剑狂神》是由作者一剑清新编写的一部玄幻小说，目前正在连载当中，主角是林轩，小说的故事主要讲述了少年林轩，灵脉被封，遭人欺辱。偶得神秘小剑，开灵脉，练神功，悟无上剑道，演化攻伐圣术！一剑星辰灭，一剑鬼神惊！一剑在手，一世狂神！</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/217057xzw/345376304.html" target="_blank">正文 第7875章 巅峰之下，一招秒杀！</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                                            <div class="bookbox fr">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/447795dsxz/" target="_blank">
+                                            <img src="images/1a4ed4b2376bcf430746dd4b3c8381d8.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/447795dsxz/" target="_blank">都市仙尊</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>洛书</span>|
+                                            <a href="http://www.hybooks.cn/dushi/" target="_blank">[都市]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 20:03:57</span>
+                                        </div>
+                                        <div class="bookintro">当年，前女友骗光他所有财产，情敌打断他双腿，他流浪街头，无处安身。如今，他修仙归来，一人可挡千万敌！</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/447795dsxz/345376301.html" target="_blank">正文 第2047章勾动天劫</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                    <div class="dotline"></div>
+                                                                                            <div class="bookbox fl">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/447692dsjpys/" target="_blank">
+                                            <img src="images/3dabb3f05bd245bf1fdeb4bddcf72893.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/447692dsjpys/" target="_blank">都市极品医神</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>风会笑</span>|
+                                            <a href="http://www.hybooks.cn/dushi/" target="_blank">[都市]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 20:03:45</span>
+                                        </div>
+                                        <div class="bookintro">《都市极品医神》是由作者风会笑编写的一部都市小说，目前正在连载当中，主角是叶辰，小说的故事主要讲述了“古武者？地狱归来？华夏第一人？我惹不起？不好意思，在我面前，都要跪下！”五年前，家族覆灭，废物叶辰犹如地上蠕虫般被人耻笑！但是五年后，他带着一身逆天术法强势回归！更可怕的是，他背后还站着一百位曾屹立于世界之巅的上古大能！</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/447692dsjpys/345376299.html" target="_blank">正文 第4012章 见见那些至高无上！（九更，求月票！）</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                                            <div class="bookbox fr">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/207777abh/" target="_blank">
+                                            <img src="images/aiyueimg207777.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/207777abh/" target="_blank">钢铁皇朝</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>背着家的蜗牛</span>|
+                                            <a href="http://www.hybooks.cn/lishi/" target="_blank">[历史]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 20:01:07</span>
+                                        </div>
+                                        <div class="bookintro">	简介：一场绝密级的试验爆炸让萧铭来到一个类似古代的平行世界。在这个满是恶意的地方，他身为最不受宠的皇子，拥有着一块最贫瘠的封地。不过幸运的是，绝密试验中一个名为科技晶石的物品跟随他一起来到这里，让他拥有了升级科技树的能力。于是，他在自己的封地开始种种田，搞搞工业的悠闲生活。而面对他那些不友善的兄妹们，他一向遵循的格言是——朋友来了有美酒，豺狼来了有猎枪。PS：这是轻松的种田文。</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/207777abh/345376290.html" target="_blank">正文  第1073章 优势火力</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                    <div class="dotline"></div>
+                                                                                            <div class="bookbox fl">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/447695wdlh/" target="_blank">
+                                            <img src="images/wdlh20200316.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/447695wdlh/" target="_blank">万道龙皇</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>牧童听竹</span>|
+                                            <a href="http://www.hybooks.cn/xuanhuan/" target="_blank">[玄幻]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 08:24:01</span>
+                                        </div>
+                                        <div class="bookintro">	简介：〔免费玄幻，最热爽文〕少年陆鸣，血脉被夺，沦为废人，受尽屈辱。幸得至尊神殿，重生无上血脉，从此脚踏天才，一路逆袭，踏上热血辉煌之路。噬无尽生灵，融诸天血脉，跨千山万水，闯九天十地，败尽天下英豪，修战龙真诀，成就万道龙皇。</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/447695wdlh/345376270.html" target="_blank">正文 第四卷（VIP） 第4641章 与本源交锋</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                                            <div class="bookbox fr">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/447669yz/" target="_blank">
+                                            <img src="images/674d558cf83b10e5a3d9930f519be4ce.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/447669yz/" target="_blank">元尊</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>天蚕土豆</span>|
+                                            <a href="http://www.hybooks.cn/qihuan/" target="_blank">[奇幻]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 08:21:45</span>
+                                        </div>
+                                        <div class="bookintro">天地为炉，万物为铜，阴阳为炭，造化为工。气运之争，蟒雀吞龙。究竟是蟒雀为尊，还是圣龙崛起，凌驾众生？这是气掌乾坤的世界，磅礴宏伟，一气可搬山，可倒海，可翻天，可掌阴阳乾坤。世间源气分九品，三品称玄，六品成天，九品号圣。吾有一口玄黄气，可吞天地日月星。</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/447669yz/345376266.html" target="_blank">正文 正文 第一千三百三十二章  防线</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                    <div class="dotline"></div>
+                                                                                            <div class="bookbox fl">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/448206ctxfm/" target="_blank">
+                                            <img src="images/default.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/448206ctxfm/" target="_blank">初唐小驸马</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>玻璃杯泡枸杞</span>|
+                                            <a href="http://www.hybooks.cn/qita/" target="_blank">[其他]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 08:21:17</span>
+                                        </div>
+                                        <div class="bookintro">【【“甘当绿叶”千万征文大奖赛】参赛作品】别人爱江山，我爱红颜，为了心爱的女人，当个小驸马又如何。且看一个龙套男，穿越到初唐之后为了爱情奋斗的一生。媳妇有事找咱，没有解决不了的！打仗咱行，发财，小意思，泡妞？不敢！有你我还要别人吗……本书纯司虚构，和历史有太多出入，不喜勿喷……</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/448206ctxfm/345376264.html" target="_blank">正文 第一卷 第五三九章 你这里也不安全啊</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                                            <div class="bookbox fr">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/448267ycsyxrx/" target="_blank">
+                                            <img src="images/default.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/448267ycsyxrx/" target="_blank">叶辰孙怡夏若雪</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>全文免费阅读</span>|
+                                            <a href="http://www.hybooks.cn/qita/" target="_blank">[其他]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 08:20:36</span>
+                                        </div>
+                                        <div class="bookintro">五年前，叶家被灭，废物叶辰神秘失踪。五年后，那个叶家废物回来了！带着一身通天地泣鬼神的修为回来了！这一次，叶辰要让苍天敬畏！要让大地颤抖！要执掌一切，登临苍穹之巅！</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/448267ycsyxrx/345376262.html" target="_blank">正文 第4012章 见见那些至高无上！（九更，求月票！）</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                    <div class="dotline"></div>
+                                                                                            <div class="bookbox fl">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/201553ipe/" target="_blank">
+                                            <img src="http://aiyue2016.oss-cn-shanghai.aliyuncs.com/novel/7890bdff253c31b6275c054097d37773.jpg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/201553ipe/" target="_blank">太古龙象诀</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>旺仔老馒头</span>|
+                                            <a href="http://www.hybooks.cn/xuanhuan/" target="_blank">[玄幻]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 08:19:01</span>
+                                        </div>
+                                        <div class="bookintro">《太古龙象诀》是由作者旺仔老馒头编写的一部玄幻小说，目前正在连载当中，主角是林枫，小说的故事主要讲述了一滴血压塌万古，一叶草斩碎苍穹。曾经最为强大的太古禁忌神术太古龙象诀失传亿万年。无尽岁月后，落魄少年林枫偶得太古第一禁忌神术太古龙象诀。当林枫从世界最北部一个偏远小城走出之后，一段传奇由此展开。这是一个强者如林，万族争锋的世界。问苍茫大地，谁主沉浮。林枫凭借太古龙象诀，战天斗地，横扫诸天强者，霸绝万界。</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/201553ipe/345376251.html" target="_blank">正文 南仙魔境 339 援军</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                                            <div class="bookbox fr">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/447732ynnbzds/" target="_blank">
+                                            <img src="http://aiyue2016.oss-cn-shanghai.aliyuncs.com/novel/1501ac40fe812a2e5b891b4bfadaee05.jpg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/447732ynnbzds/" target="_blank">妖孽奶爸在都市</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>孤山树下</span>|
+                                            <a href="http://www.hybooks.cn/dushi/" target="_blank">[都市]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 08:18:45</span>
+                                        </div>
+                                        <div class="bookintro">《妖孽奶爸在都市》是由作者孤山树下编写的一部都市小说，目前正在连载当中，主角是叶辰、苏雨涵，小说的故事主要讲述了五年前，叶辰被人当做死狗沉江。五年后，一代天帝强势归来，却意外的发现自己有了一个宝贝女儿。女儿对着夜空许愿：“爸爸，人家想要天上的星星。”叶辰满脸宠溺，屈指一弹，一颗星辰划过苍穹，轰然落入东瀛国！女儿望着天际发呆：“爸爸，人家想要飞高高。”叶辰微微一笑，隔空一抓，龙族老祖九爪金龙撅着屁股瑟瑟发抖！“爸爸，人家还想要一个弟弟。</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/447732ynnbzds/345376248.html" target="_blank">正文 第1613章 趁机宰了你们！</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                    <div class="dotline"></div>
+                                                                                            <div class="bookbox fl">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/223538ahm/" target="_blank">
+                                            <img src="http://aiyue2016.oss-cn-shanghai.aliyuncs.com/novel/5f4055ff55518914867609259f90404c.jpg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/223538ahm/" target="_blank">永恒圣帝</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>千寻月</span>|
+                                            <a href="http://www.hybooks.cn/xuanhuan/" target="_blank">[玄幻]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 08:11:21</span>
+                                        </div>
+                                        <div class="bookintro">《永恒圣帝》是由作者千寻月编写的一部玄幻小说，目前正在连载当中，主角是叶晨，小说的故事主要讲述了在这天地间，有一帝座，至高无上，主宰天下沉浮。诸天万域，万千种族，亿万生灵，莫不俯首称臣。大世天骄，万域纷争，争相竞逐无上帝座，角逐最强帝者。一代人族绝世天骄叶晨渡史上最可怕的大劫而殒落，转世重生，带着前世记忆再度修炼，欲要成为永恒不朽的无上帝君。且看一代至尊的重生逆天之路！</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/223538ahm/345376224.html" target="_blank">正文 永恒 第4269章 盘古现</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                                            <div class="bookbox fr">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/447681cyt/" target="_blank">
+                                            <img src="http://aiyue2016.oss-cn-shanghai.aliyuncs.com/novel/4428837cf7851e1709a12394fd122306.jpg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/447681cyt/" target="_blank">沧元图</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>我吃西红柿</span>|
+                                            <a href="http://www.hybooks.cn/xuanhuan/" target="_blank">[玄幻]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 08:11:11</span>
+                                        </div>
+                                        <div class="bookintro">《沧元图》是由作者我吃西红柿编写的一部玄幻小说，目前正在连载当中，主角是孟川，小说的故事主要讲述了我叫孟川，今年十五岁，是东宁府“镜湖道院”的当代大师兄。</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/447681cyt/345376223.html" target="_blank">正文 第一集 秘技“三秋叶” 第22集 第5章 元神之劫</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                    <div class="dotline"></div>
+                                                                                            <div class="bookbox fl">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/447704lkqy/" target="_blank">
+                                            <img src="http://aiyue2016.oss-cn-shanghai.aliyuncs.com/novel/5bf72c0e3b5074507cd2cbe6cedabda2.jpg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/447704lkqy/" target="_blank">烂柯棋缘</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>真费事</span>|
+                                            <a href="http://www.hybooks.cn/qihuan/" target="_blank">[奇幻]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 08:10:26</span>
+                                        </div>
+                                        <div class="bookintro">《烂柯棋缘》是由作者真费事编写的一部奇幻小说，目前正在连载当中，主角是计缘，小说的故事主要讲述了烂柯旁棋局落叶，老树间对弈无人。兴所致天元一子，再回首山海苍茫。一觉醒来，计缘成了一个破旧山神庙中的半瞎乞丐。实力不够嘴炮来凑，真人一柄剑，神棍一张嘴，就是计缘在这个可怕的世界安身立足的根本。</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/447704lkqy/345376222.html" target="_blank">正文 正文卷 第716章 只取一箫</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                                            <div class="bookbox fr">
+                                    <div class="bookimg">
+                                        <a href="http://www.hybooks.cn/447793smfs/" target="_blank">
+                                            <img src="images/default.jpeg" alt="爱阅小说">
+                                        </a>
+                                    </div>
+                                    <div class="bookinfo">
+                                        <div class="bookname">
+                                            <a href="http://www.hybooks.cn/447793smfs/" target="_blank">神秘复苏</a>
+                                        </div>
+                                        <div class="bookilnk">
+                                            <span>佛前献花</span>|
+                                            <a href="http://www.hybooks.cn/xianxia/" target="_blank">[仙侠]</a>
+                                            <span>连载中</span>|
+                                            <span>更新时间&nbsp;&nbsp;2020-08-20 08:09:16</span>
+                                        </div>
+                                        <div class="bookintro">	简介：五浊恶世，地狱已空，厉鬼复苏，人间如狱。这个世界鬼出现了......那么神又在哪里？求神救世，可世上已无神，只有鬼。——————群：623363217欢迎加入</div>
+                                        <div class="bookupdate">
+                                                                                            <a href="http://www.hybooks.cn/447793smfs/345376221.html" target="_blank">正文 第七百六十八章三秒分胜负</a>
+                                                                                        <span class="rank_d_b_time"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                                                    <div class="dotline"></div>
+                                                                                    </div>
+                                <!-- 分页 -->
+                    <div class="h20-blank"></div>
+                    <div class="pagebox hy-page-wrapper">
+                        <div class="page">
+        <ul>
+            <li class="prev"><a>445013 条</a></li>
+            
+                                    
+                            
+                                
+                                                                                        <li class="active"><a id="currentPage" href="javascript:void(0);">1</a></li>
+                                                                                                <li><a href="http://www.hybooks.cn/top/p2/">2</a></li>
+                                                                                                <li><a href="http://www.hybooks.cn/top/p3/">3</a></li>
+                                                                                                <li><a href="http://www.hybooks.cn/top/p4/">4</a></li>
+                                                                                                <li><a href="http://www.hybooks.cn/top/p5/">5</a></li>
+                                                                                                <li><a href="http://www.hybooks.cn/top/p6/">6</a></li>
+                                                                                                <li><a href="http://www.hybooks.cn/top/p7/">7</a></li>
+                                                                                                <li><a href="http://www.hybooks.cn/top/p8/">8</a></li>
+                                                                                        
+                                    ...
+                                
+                                            
+                                
+                                                                                        <li><a href="http://www.hybooks.cn/top/p14833/">14833</a></li>
+                                                                                                <li><a href="http://www.hybooks.cn/top/p14834/">14834</a></li>
+                                                                        
+            
+                            <li class="next"><a href="http://www.hybooks.cn/top/p2/">下一页</a></li>
+                    </ul>
+    </div>
+
+
+
+                    </div>
+                </div>
+                <div class="h40-blank"></div>
+                <!-- end书库主内容 -->
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+    <div class="container">
+    </div>
+</div>
+<div class="footer-about container" style="display: none">
+    <div class="row">
+        <div class="col-sm-20 col-sm-offset-10"><a href="#">关于爱阅小说</a></div>
+        <div class="col-sm-20"><a href="#">用户协议</a></div>
+        <div class="col-sm-20"><a href="#">用户隐私权</a></div>
+        <div class="col-sm-20"><a href="#">常见问答</a></div>
+        <div class="col-sm-20"><a href="#">意见反馈</a></div>
+    </div>
+</div>
+
+<div class="footer footer-wrapper">
+    <div class="wrap">
+        <div class="partner">
+            <div class="title">合作伙伴</div>
+            <div class="partner-first">
+
+                <a href="http://www.hybooks.cn/xuanhuan/" target="_blank">免费玄幻小说</a>
+
+                <a href="http://www.hybooks.cn" target="_blank">Global top resource station</a>
+            </div>
+                            <div class="partner-second">
+                                            <a rel href="http://www.xianyuyoupin.com/" target="_blank">品牌促销网</a>
+                                            <a rel href="https://www.datoushe.com/" target="_blank">最新游戏</a>
+                                            <a rel href="http://www.iloldytt.cc/" target="_blank">免费电影下载</a>
+                                            <a rel href="http://www.daogeziyuan.com" target="_blank">免费PPT模板下载</a>
+                                    </div>
+            
+        </div>
+    </div>
+    <div class="partlink" style>
+    <div class="wrap">
+        <div class="title">出版合作联系</div>
+        <div class="clearfix">
+            <div class="mail fl">
+
+                <div>版权合作联系人：汤先生<a href="mailto:2771800750@qq.com">2771800750@qq.com</a></div>
+
+                <div>广告合作联系人 : 张先生<a href="mailto:398637519@qq.com">398637519@qq.com</a></div>
+
+            </div>
+
+            <div class="help-btn">
+                <a class="help_btn" href="http://www.hybooks.cn" target="_blank">帮助中心</a>
+                <p>服务时间：24小时</p>
+            </div>
+
+            <div class="b1 foot-cell">
+                <div class="tit">客服</div>
+                <div class="qq">15851505080</div>
+                <div class="email"><a href="mailto:398637519@qq.com">398637519@qq.com</a></div>
+            </div>
+            <div class="b2 foot-cell">
+                <div class="tit">举报</div>
+                <div class="tel">18862370407</div>
+                <div class="email"><a href="mailto:398637519@qq.com">398637519@qq.com</a></div>
+            </div>
+
+
+            <div class="wchat foot-blank">
+                <div class="imgbox fl">
+                    <img src="http://www.hybooks.cn/assets/img/gongzhonghao/gongzhonghao.jpg" alt>
+                </div>
+                <p>微信公众号</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="copyright">
+    <div class="links"><a>关于爱阅</a>|
+        <a href="mailto:398637519@qq.com">商务合作</a>|
+        <a>法律声明</a>|
+        <a>帮助中心</a>|
+        <a href="mailto:398637519@qq.com">作者投稿</a>|
+        <a href="mailto:398637519@qq.com">联系我们</a>|
+        <a>网站地图</a></div>
+    <p>Copyright©<a href="http://www.hybooks.cn" target="_blank">www.hybooks.cn</a>All Rights Reserved 版权所有 苏州道格科技信息技术有限公司
+        <a href="http://www.miitbeian.gov.cn/" target="_blank">苏ICP备18012224号</a>
+        <a href="http://www.cyberpolice.cn/wfjb" target="_blank">公安部网络违法犯罪举报网站</a>
+    </p>
+    <p><a href="http://www.hybooks.cn" target="_blank">爱阅小说网</a>,提供<a href="http://www.hybooks.cn/xuanhuan/" target="_blank">玄幻小说</a>,<a href="http://huayu.hybooks.cn/dushi/" target="_blank">都市小说</a>,<a href="http://huayu.hybooks.cn/lishi/" target="_blank">历史小说</a>等免费小说阅读。作者发布小说作品时，请遵守国家互联网信息管理办法规定。</p>
+    <p>本站所收录小说作品、社区话题、书库评论均属其个人行为，不代表本站立场。</p>
+</div>
+</div>
+
+
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?5e4febd806d5945f2ee0b88a9d1e26dc";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+
+
+<script data-ad-client="ca-pub-2902057417409382" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<meta name="wlhlauth" content="7ea6c9a41fb57859083ac54c738a8240">
+
+
+<meta name="360-site-verification" content="16a804ea91b63e9d4acc287c154c4a94">
+
+
+<meta name="sogou_site_verification" content="kfLv25DZ34">
+
+
+
+<script>
+    (function(){
+        var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+        document.write('<script src="' + src + '" id="sozz"><\/script>');
+    })();
+</script>
+
+    </body>
+</html>
+

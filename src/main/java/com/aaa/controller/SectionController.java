@@ -4,6 +4,7 @@ import com.aaa.entity.Message;
 import com.aaa.entity.Section;
 import com.aaa.service.MessageService;
 import com.aaa.service.SectionService;
+import com.alibaba.fastjson.JSONArray;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,8 +40,8 @@ public class SectionController {
     }
 
     @RequestMapping("/updSection")
-    public Integer updSection(Integer sid, String sname, Integer messageid, String content, Integer number){
-        Section section = new Section(sid,sname,messageid,content,number,new Date());
+    public Integer updSection(Integer sid, String sname, String content, Integer number){
+        Section section = new Section(sid,sname,content,number,new Date());
         return sectionService.updSection(section);
     }
 
@@ -56,15 +57,30 @@ public class SectionController {
         return sectionService.findMessage();
     }
 
-    /*@RequestMapping("findMeidByMename")
-    public Integer findMeidByMename(String mename){
+    @RequestMapping("findMeidByMename")
+    public String findMeidByMename(String mename){
         System.out.println(mename);
-        return sectionService.findMeidByMename(mename);
+        System.out.println(sectionService.findMeidByMename(mename));
+        JSONArray jsonArray = new JSONArray();
+        if(mename == null || mename.equals(' ')){
+            List<Message> list = sectionService.findMessage();
+            jsonArray.add(list);
+            return jsonArray.toJSONString();
+        }else{
+            Integer meidByMename = sectionService.findMeidByMename(mename);
+            jsonArray.add(meidByMename);
+            return jsonArray.toJSONString();
+        }
     }
 
     @RequestMapping("findMenameByMeid")
     public String findMenameByMeid(Integer meid){
         System.out.println(sectionService.findMenameByMeid(meid));
         return sectionService.findMenameByMeid(meid);
-    }*/
+    }
+
+    @RequestMapping("findMenameByMename")
+    public String findMenameByMename(String mename){
+        return sectionService.findMenameByMename(mename);
+    }
 }

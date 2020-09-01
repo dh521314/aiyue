@@ -107,6 +107,7 @@ public class Employee implements Serializable {
 				", email='" + email + '\'' +
 				", postid=" + postid +
 				", state=" + state +
+				",post="+post+
 				'}';
 	}
 

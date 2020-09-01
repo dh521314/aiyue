@@ -26,5 +26,4 @@ public class PostController {
         return postServices.findPost();
     }
 
-
 }
