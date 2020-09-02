@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class EmployeeService {
@@ -59,13 +58,10 @@ public class EmployeeService {
         return employeeDao.updateEmp(eid,state);
     }
 
-    public List<Map<String,Object>> findByName(String realname){
+    //根据姓名查询
+    public List<Employee> findByName(String realname){
         return employeeDao.findByName(realname);
     }
-
-    /*public List<Map<String,Object>> showAll(){
-        return employeeDao.showAll();
-    }*/
 
     //根据用户名查询
     public Employee queryEmpName(String ename){

@@ -14,7 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 
 @CrossOrigin
@@ -74,7 +73,7 @@ public class EmployeeController {
     }
 
     @RequestMapping("/findName")
-    public List<Map<String,Object>> findByName(String realname){
+    public List<Employee> findByName(String realname){
         return employeeService.findByName(realname);
     }
 
