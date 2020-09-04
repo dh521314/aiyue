@@ -33,10 +33,22 @@ public class Message implements Serializable {
 	@Column
 	private Integer writerid;
 
-	private Writer writer;
+	@Column
+	private Integer mestate;
 
 	private Type type;
 
+	private Writer writer;
+
+	private Section section;
+
+	private Dynamic dynamic;
+
+	private Integer count;
+
+	private Integer clickRate1;
+
+	private Integer clickRate2;
 
 	public Message() {
 	}
@@ -56,22 +68,6 @@ public class Message implements Serializable {
 		this.surface = surface;
 		this.synopsis = synopsis;
 		this.writerid = writerid;
-	}
-
-	public Writer getWriter() {
-		return writer;
-	}
-
-	public void setWriter(Writer writer) {
-		this.writer = writer;
-	}
-
-	public Type getType() {
-		return type;
-	}
-
-	public void setType(Type type) {
-		this.type = type;
 	}
 
 	public Integer getMeid() {
@@ -120,5 +116,57 @@ public class Message implements Serializable {
 
 	public void setWriterid(Integer writerid) {
 		this.writerid = writerid;
+	}
+
+	public Integer getMestate() {
+		return mestate;
+	}
+
+	public void setMestate(Integer mestate) {
+		this.mestate = mestate;
+	}
+
+	public Integer getCount() {
+		return count;
+	}
+
+	public void setCount(Integer count) {
+		this.count = count;
+	}
+
+	public Integer getClickRate1() {
+		return clickRate1;
+	}
+
+	public void setClickRate1(Integer clickRate1) {
+		this.clickRate1 = clickRate1;
+	}
+
+	public Integer getClickRate2() {
+		return clickRate2;
+	}
+
+	public void setClickRate2(Integer clickRate2) {
+		this.clickRate2 = clickRate2;
+	}
+
+	@Override
+	public String toString() {
+		return "Message{" +
+				"meid=" + meid +
+				", typeid=" + typeid +
+				", mename='" + mename + '\'' +
+				", surface='" + surface + '\'' +
+				", synopsis='" + synopsis + '\'' +
+				", writerid=" + writerid +
+				", mestate=" + mestate +
+				", type=" + type +
+				", writer=" + writer +
+				", section=" + section +
+				", dynamic=" + dynamic +
+				", count=" + count +
+				", clickRate1=" + clickRate1 +
+				", clickRate2=" + clickRate2 +
+				'}';
 	}
 }

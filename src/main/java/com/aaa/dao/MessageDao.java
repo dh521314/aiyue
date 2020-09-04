@@ -17,7 +17,9 @@ public interface MessageDao extends Mapper<Message> {
 
     @Select("SELECT * FROM message WHERE meid = #{meid}")
     @Results({
-            @Result(property = "mename",  column = "mename")
+            @Result(property = "mename",  column = "mename"),
+            @Result(property = "type", column = "typeid", one = @One(select = "com.aaa.dao.TypeDao.getTypeByTid")),
+            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
     })
     public Message getMessageByMeid(Integer meid);
 
@@ -36,8 +38,5 @@ public interface MessageDao extends Mapper<Message> {
 
     @Select("select meid from message where mename=#{param1}")
     public Integer findMeidByMename(String mename);
-
-    @Select("select mename from message where mename like '%${param1}%'")
-    public String findMenameByMename(String mename);
 
 }

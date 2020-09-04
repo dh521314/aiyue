@@ -47,6 +47,12 @@ public class Section implements Serializable {
 
 	private Message message;
 
+	private Writer writer;
+
+	private Integer sum;
+
+	private Integer count;
+
 	public Section() {
 	}
 
@@ -129,5 +135,45 @@ public class Section implements Serializable {
 
 	public void setMessage(Message message) {
 		this.message = message;
+	}
+
+	public Writer getWriter() {
+		return writer;
+	}
+
+	public void setWriter(Writer writer) {
+		this.writer = writer;
+	}
+
+	public Integer getSum() {
+		return sum;
+	}
+
+	public void setSum(Integer sum) {
+		this.sum = sum;
+	}
+
+	public Integer getCount() {
+		return count;
+	}
+
+	public void setCount(Integer count) {
+		this.count = count;
+	}
+
+	@Override
+	public String toString() {
+		return "Section{" +
+				"sid=" + sid +
+				", sname='" + sname + '\'' +
+				", messageid=" + messageid +
+				", content='" + content + '\'' +
+				", number=" + number +
+				", updatetiem=" + updatetiem +
+				", message=" + message +
+				", writer=" + writer +
+				", sum=" + sum +
+				", count=" + count +
+				'}';
 	}
 }

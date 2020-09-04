@@ -60,7 +60,7 @@ public class SectionService {
         return messageDao.findMenameByMeid(meid);
     }
 
-    public String findMenameByMename(String mename){
-        return messageDao.findMenameByMename(mename);
+    public List<Section> queryUpdateTime(){
+        return sectionDao.queryUpdateTime();
     }
 }

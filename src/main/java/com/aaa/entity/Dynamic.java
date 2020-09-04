@@ -3,6 +3,9 @@ package com.aaa.entity;
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Data
@@ -13,14 +16,97 @@ public class Dynamic implements Serializable {
 	 * 
 	 */
 	@Id
+	@Column
+	@GeneratedValue(generator = "JDBC")
 	private Integer did;
 	/**
 	 * 
 	 */
-	private Integer writerid;
+	@Column
+	private Integer readerid;
 	/**
 	 * 
 	 */
+	@Column
 	private Integer messageid;
 
+	private Reader reader;
+
+	private Message message;
+
+	private Integer count;
+
+	public Dynamic() {
+	}
+
+	public Dynamic(Integer did, Integer readerid, Integer messageid) {
+		this.did = did;
+		this.readerid = readerid;
+		this.messageid = messageid;
+	}
+
+	public Dynamic(Integer writerid, Integer messageid) {
+		this.readerid = writerid;
+		this.messageid = messageid;
+	}
+
+	public Integer getDid() {
+		return did;
+	}
+
+	public void setDid(Integer did) {
+		this.did = did;
+	}
+
+	public Integer getReaderid() {
+		return readerid;
+	}
+
+	public void setReaderid(Integer readerid) {
+		this.readerid = readerid;
+	}
+
+	public Reader getReader() {
+		return reader;
+	}
+
+	public void setReader(Reader reader) {
+		this.reader = reader;
+	}
+
+	public Integer getMessageid() {
+		return messageid;
+	}
+
+	public void setMessageid(Integer messageid) {
+		this.messageid = messageid;
+	}
+
+	public Message getMessage() {
+		return message;
+	}
+
+	public void setMessage(Message message) {
+		this.message = message;
+	}
+
+	public Integer getCount() {
+		return count;
+	}
+
+	public void setCount(Integer count) {
+		this.count = count;
+	}
+
+	@Override
+	public String toString() {
+		return "Dynamic{" +
+				"did=" + did +
+				", readerid=" + readerid +
+				", messageid=" + messageid +
+				", reader=" + reader +
+				", message=" + message +
+				", count=" + count +
+				'}';
+	}
 }

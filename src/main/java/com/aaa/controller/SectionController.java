@@ -79,8 +79,4 @@ public class SectionController {
         return sectionService.findMenameByMeid(meid);
     }
 
-    @RequestMapping("findMenameByMename")
-    public String findMenameByMename(String mename){
-        return sectionService.findMenameByMename(mename);
-    }
 }
