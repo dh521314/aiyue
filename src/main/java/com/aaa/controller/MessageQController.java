@@ -1,8 +1,10 @@
 package com.aaa.controller;
 
+import com.aaa.entity.Comments;
 import com.aaa.entity.Dynamic;
 import com.aaa.entity.Message;
 import com.aaa.entity.Section;
+import com.aaa.service.CommentsService;
 import com.aaa.service.MessageQService;
 import com.aaa.service.MessageService;
 import com.aaa.service.SectionService;
@@ -25,6 +27,9 @@ public class MessageQController {
 
     @Resource
     SectionService sectionService;
+
+    @Resource
+    CommentsService commentsService;
 
     //根据小说名称查询小说，模糊查询
     @RequestMapping("/queryLikeMename")
@@ -183,5 +188,17 @@ public class MessageQController {
         List<Section> NextSection = messageQService.queryNextSection(sid,messageid);
         model.addAttribute("NextSection",NextSection);
         return "ceshi";
+    }
+
+    //首页查询
+    @RequestMapping("/queryIndex")
+    public String queryIndex(Model model){
+        //查询热评小说，按照小说评论量从高到低排序
+        List<Comments> commentsList = commentsService.queryMessageByComments();
+        model.addAttribute("commentsList",commentsList);
+        //查询最近更新的小说（按时间倒序）
+        List<Section> sections = sectionService.queryUpdateTime();
+        model.addAttribute("sections",sections);
+        return "index";
     }
 }

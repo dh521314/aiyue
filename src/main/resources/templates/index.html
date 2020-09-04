@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns:th="http://wwww.thymeleaf.org">
 <head>
+    <base href="http://localhost:8088/aiyue/">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -394,14 +395,14 @@
                             <div class="h10-blank"></div>
                             <div class="lists">
                                 <ul>
-                                                                            <li>
-                                            <span>耳根</span>
-                                            <em class="top1 list_icon">1</em>
-                                            <a href="detial.html" target="_blank">
-                                                三寸人间
-                                            </a>
-                                        </li>
-                                                                            <li>
+                                    <li th:each="c,i:${commentsList}">
+                                        <span><div th:text="${c.message.writer.wname}" style="font-size: 10px"></div></span>
+                                        <em class="top1 list_icon" th:text="${i.count}" style="font-size: 10px"></em>
+                                        <a href="detial.html" target="_blank">
+                                            <div th:text="${c.message.mename}" ></div>
+                                        </a>
+                                    </li>
+                                            <!--                                <li>
                                             <span>爱潜水的</span>
                                             <em class="top2 list_icon">2</em>
                                             <a href="http://www.hybooks.cn/447683gmzz/" target="_blank">
@@ -491,7 +492,7 @@
                                             <a href="http://www.hybooks.cn/447669yz/" target="_blank">
                                                 元尊
                                             </a>
-                                        </li>
+                                        </li>-->
                                     
                                 </ul>
                             </div>
