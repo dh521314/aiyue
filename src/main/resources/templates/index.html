@@ -398,7 +398,7 @@
                                     <li th:each="c,i:${commentsList}">
                                         <span><div th:text="${c.message.writer.wname}" style="font-size: 9px"></div></span>
                                         <em class="top1 list_icon" th:text="${i.count}" style="font-size: 10px"></em>
-                                        <a href="detial.html" target="_blank">
+                                        <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=${c.message.meid},messageid=${c.message.meid},writerid=${c.message.writer.wid},typeid=${c.message.type.tid})}" target="_blank">
                                             <div th:text="${c.message.mename}" style="font-size: 9px"></div>
                                         </a>
                                     </li>
