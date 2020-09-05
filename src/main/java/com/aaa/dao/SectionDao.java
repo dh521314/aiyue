@@ -117,4 +117,13 @@ public interface SectionDao extends Mapper<Section> {
             @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
     })
     public List<Section> queryNextSection(Integer sid,Integer messageid);
+
+    //小说简介页面之小说字数
+    @Select("select *,SUM(number) as sum from section where messageid = #{messageid}")
+    @Results({
+            @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
+            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
+    })
+    public List<Section> queryNumberByMessage(Integer messageid);
+
 }

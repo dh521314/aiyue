@@ -3,10 +3,7 @@ package com.aaa.dao;
 import com.aaa.entity.Dynamic;
 import com.aaa.entity.Message;
 import com.aaa.entity.Type;
-import org.apache.ibatis.annotations.Many;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
@@ -43,4 +40,12 @@ public interface DynamicDao extends Mapper<Dynamic> {
             @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid"))
     })
     public List<Dynamic> queryReadNumberByWriter(Integer writerid);
+
+    //小说页面小说累计阅读数
+    @Select("select *,count(messageid) as count from dynamic where messageid = #{messageid}")
+    @Results({
+            @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
+            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
+    })
+    public List<Dynamic> queryReadNumberByMessage(Integer messageid);
 }

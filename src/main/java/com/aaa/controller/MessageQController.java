@@ -1,20 +1,18 @@
 package com.aaa.controller;
 
-import com.aaa.entity.Comments;
-import com.aaa.entity.Dynamic;
-import com.aaa.entity.Message;
-import com.aaa.entity.Section;
+import com.aaa.entity.*;
 import com.aaa.service.CommentsService;
 import com.aaa.service.MessageQService;
-import com.aaa.service.MessageService;
 import com.aaa.service.SectionService;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @CrossOrigin
@@ -102,6 +100,7 @@ public class MessageQController {
         model.addAttribute("messageCount",messageCount);
         return "ceshi";
     }
+
     //小说页面作家信息之累计字数
     @RequestMapping("/queryNumberByWriter")
     public String queryNumberByWriter(Integer writerid,Model model){
@@ -201,4 +200,105 @@ public class MessageQController {
         model.addAttribute("sections",sections);
         return "index";
     }
+
+    //小说页面之小说信息，作家头像，作家名，作家语录
+    @RequestMapping("/queryWriterByMessage")
+    public String queryWriterByMessage(Integer meid,Model model){
+        List<Message> queryWriter = messageQService.queryWriterByMessage(meid);
+        model.addAttribute("queryWriter",queryWriter);
+        return "ceshi";
+    }
+
+    //小说简介页面之小说字数
+    @RequestMapping("/queryNumberByMessage")
+    public String queryNumberByMessage(Integer messageid,Model model){
+        List<Section> queryNumber = messageQService.queryNumberByMessage(messageid);
+        model.addAttribute("queryNumber",queryNumber);
+        return "ceshi";
+    }
+
+    //小说页面小说累计阅读数
+    @RequestMapping("/queryReadNumberByMessage")
+    public String queryReadNumberByMessage(Integer messageid,Model model){
+        List<Dynamic> queryReadNumber = messageQService.queryReadNumberByMessage(messageid);
+        model.addAttribute("queryReadNumber",queryReadNumber);
+        return "ceshi";
+    }
+
+    //小说详情页面之累计粉丝数（把该小说加入书架的人数）
+    @RequestMapping("/queryFansByMessage")
+    public String queryFansByMessage(Integer messageid,Model model){
+        List<Bookrack> queryFans = messageQService.queryFansByMessage(messageid);
+        model.addAttribute("queryFans",queryFans);
+        return "ceshi";
+    }
+
+    //小说评论区帖子数量
+    @RequestMapping("/queryCountByManager")
+    public String queryCountByManager(Integer messageid,Model model){
+        List<Comments> commentsCount = commentsService.queryCountByManager(messageid);
+        model.addAttribute("commentsCount",commentsCount);
+        return "ceshi";
+    }
+
+    //小说评论区发表评论
+    @RequestMapping("/publicComments")
+    @ResponseBody
+    public Integer publicComments(Integer readerid, Integer messageid, String content){
+        return commentsService.publicComments(readerid,messageid,content,new Date());
+    }
+
+    //小说评论区（根据小说查询评论）
+    @RequestMapping("/queryCommentsByMessage")
+    public String queryCommentsByMessage(Integer messageid,Model model){
+        List<Comments> queryComments = commentsService.queryCommentsByMessage(messageid);
+        model.addAttribute("queryComments",queryComments);
+        return "ceshi";
+    }
+
+    //小说详情页面
+    @RequestMapping("/queryDetail")
+    public String queryDetail(Integer messageid,Model model,Integer meid,Integer writerid,Integer typeid){
+        //小说页面之小说信息，作家头像，作家名，作家语录
+        List<Message> queryWriter = messageQService.queryWriterByMessage(meid);
+        model.addAttribute("queryWriter",queryWriter);
+        //小说简介页面之小说字数
+        List<Section> queryNumber = messageQService.queryNumberByMessage(messageid);
+        model.addAttribute("queryNumber",queryNumber);
+        //小说页面小说累计阅读数
+        List<Dynamic> queryReadNumber = messageQService.queryReadNumberByMessage(messageid);
+        model.addAttribute("queryReadNumber",queryReadNumber);
+        //小说详情页面之累计粉丝数（把该小说加入书架的人数）
+        List<Bookrack> queryFans = messageQService.queryFansByMessage(messageid);
+        model.addAttribute("queryFans",queryFans);
+        //小说页面作家信息之作品总量
+        List<Message> messageCount = messageQService.queryMessageCountByWriter(writerid);
+        model.addAttribute("messageCount",messageCount);
+        //小说页面作家信息之累计字数
+        List<Section> Number = messageQService.queryNumberByWriter(writerid);
+        model.addAttribute("Number",Number);
+        //小说页面作家信息之累计阅读数
+        List<Dynamic> readerNumber = messageQService.queryReadNumberByWriter(writerid);
+        model.addAttribute("readerNumber",readerNumber);
+        //小说页面之最新章节
+        List<Section> newSection = messageQService.queryNewSectionByMessage(messageid);
+        model.addAttribute("newSection",newSection);
+        //根据作者查询小说（显示本作品外最近的六个作品），（作者其他作品）
+        List<Message> byWriter = messageQService.queryMessageByWriter(writerid,meid);
+        model.addAttribute("byWriter",byWriter);
+        //相关小说精彩推荐（显示本作品外同类型小说的最近六个作品）
+        List<Message> byType = messageQService.queryMessageByType(typeid,meid);
+        model.addAttribute("byType",byType);
+        //小说评论区（根据小说查询评论）
+        List<Comments> byMessage = commentsService.queryCommentsByMessage(messageid);
+        model.addAttribute("byMessage",byMessage);
+        //小说评论区帖子数量
+        List<Comments> commentsCount = commentsService.queryCountByManager(messageid);
+        model.addAttribute("commentsCount",commentsCount);
+        //小说评论区（根据小说查询评论）
+        List<Comments> queryComments = commentsService.queryCommentsByMessage(messageid);
+        model.addAttribute("queryComments",queryComments);
+        return "detial";
+    }
+
 }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns:th="http://wwww.thymeleaf.org">
 <head>
+    <base href="http://localhost:8088/aiyue/">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -181,13 +182,16 @@
                     </a>
                     <div class="h20-blank"></div>
                 </div>
-            
 
 
+            <div th:each="d:${queryWriter}">
+                <div hidden id="meid" th:text="${d.meid}"></div>
+                <div hidden id="writerid" th:text="${d.writerid}"></div>
+                <div hidden id="typeid" th:text="${d.typeid}"></div>
             <!-- 书封页start -->
                 <div class="crumb">当前位置： <a href="http://www.hybooks.cn/">爱阅小说</a> >
-                                            <a href="http://www.hybooks.cn/xianxia/">仙侠</a> >
-                                        三寸人间
+                    <a href="http://www.hybooks.cn/xianxia/"><nobr th:text="${d.type.tname}"></nobr></a> >
+                                 <nobr th:text="${d.mename}"></nobr>
                 </div>
                 <div class="book-html-box clearfix book_index">
                     <!-- 书籍详细信息 -->
@@ -203,22 +207,21 @@
                                             </div>
                                         </div>
                                         <div class="book-info">
-                                            <div class="book-name">三寸人间</div>
+                                            <div class="book-name"><div th:text="${d.mename}"></div></div>
                                             <div class="book-label">
                                                 <a href="http://www.hybooks.cn/1/"></a>
-                                                <a href="http://www.hybooks.cn/top/?order=-1&amp;size=-1&amp;progress=1&amp;search=&amp;view=1" class="state" target="_blank">连载中</a>
-                                                                                                    <a href="http://www.hybooks.cn/xianxia/" class="label" target="_blank">仙侠</a> >
+                                                <a href="http://www.hybooks.cn/top/?order=-1&amp;size=-1&amp;progress=1&amp;search=&amp;view=1" class="state" target="_blank"><nobr th:text="${d.mestate == 0 ? '连载中':'已完结'}"></nobr></a>
+                                                                                                    <a href="http://www.hybooks.cn/xianxia/" class="label" target="_blank"><div th:text="${d.type.tname}"></div></a> >
                                                                                                 <span>
                                                                                     </span>
                                             </div>
                                             <div class="nums">
-                                                <span>字数 <i>405.12万字 </i> </span>
-                                                <span>累计阅读数 <i>1.24万次</i> </span>
-                                                <span>累计粉丝数 <i>1036</i> </span>
-                                                <span>推荐指数 <i>0</i> </span>
+                                                <span th:each="d1:${queryNumber}">字数 <i th:text="${d1.sum}"> </i> </span>
+                                                <span th:each="d2:${queryReadNumber}">累计阅读数 <i th:text="${d2.count}"></i> </span>
+                                                <span th:each="d3:${queryFans}">累计粉丝数 <i th:text="${d3.count}"></i> </span>
                                             </div>
                                             <div class="book-dec Jbook-dec">
-                                                <p>《三寸人间》是由作者耳根编写的一部仙侠小说，目前正在连载当中，主角是王宝乐、李婉儿，小说的故事主要讲述了举头三尺无神明，掌心三寸是人间。这是耳根继《仙逆》《求魔》《我欲封天》《一念永恒》后，创作的第五部长篇《三寸人间》。</p>
+                                                <p th:text="${d.synopsis}"></p>
                                             </div>
                                             <div class="btn-group">
                                                                                                     <a class="btn read-btn" style="margin-right: 30px" target="_blank" onclick="_hmt.push(['_trackEvent', 'btn_read', 'click', '三寸人间'])" href="yuedu.html">
@@ -241,14 +244,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="book-new-chapter">
+                                    <div class="book-new-chapter" th:each="d4:${newSection}">
                                         <h4>最新章节</h4>
                                                                                     <div class="tit">
-                                                <a href="http://www.hybooks.cn/447671scrj/345376352.html" target="_blank">正文卷 第1071章 流月！</a>
+                                                <a href="http://www.hybooks.cn/447671scrj/345376352.html" target="_blank"><div th:text="${d4.sname}"></div></a>
                                             </div>
                                             <div class="con"></div>
                                             <div class="time">
-                                                · 2020-08-20 20:24:51<br>
+                                                <div  th:text="${#dates.format(d4.updatetiem, 'yyyy-MM-dd')}"></div>
+
                                             </div>
                                                                             </div>
                                 </div>
@@ -261,16 +265,16 @@
                                         <em>本书作家</em>
                                     </div>
                                     <div class="au-name">
-                                        <span>耳根</span>
+                                        <span th:text="${d.writer.wname}"></span>
                                     </div>
                                     <div class="au-words">
-                                        <span>作品总数<i>6</i></span>
-                                        <span>累计字数<i>2205.79万</i></span>
-                                        <span>累计阅读数<i>8778.28万</i></span>
+                                        <span th:each="d5:${messageCount}">作品总数<i th:text="${d5.count}"></i></span>
+                                        <span th:each="d6:${Number}">累计字数<i th:text="${d6.sum}"></i></span>
+                                        <span th:each="d7:${readerNumber}">累计阅读数<i th:text="${d7.count}"></i></span>
                                     </div>
                                     <div class="au-says">
                                         <h4>作者有话说</h4>
-                                        <div class="con empty">作者大大正在奋力码字哦~~~</div>
+                                        <div class="con empty" th:text="${d.writer.ana}"></div>
                                     </div>
                                 </div>
 
@@ -296,16 +300,16 @@
                                 <h3 class="h3-tit">作者其他作品
                                     
                                 </h3>
-                                <ul class="book-recommend-list clearfix Jrecommend" style="display: block;">
+                                <ul class="book-recommend-list clearfix Jrecommend" style="display: block;" th:each="d8:${messageCount}">
                                                                             <li>
                                             <a href="http://www.hybooks.cn/180514qaz/" title target="_blank">
                                                 <div class="bImg">
                                                     <img src="images/aiyueimg180514.jpeg" alt="爱阅小说" width="120" height="150">
                                                 </div>
-                                                <span>一念永恒</span>
+                                                <span th:text="${d8.mename}"></span>
                                             </a>
                                         </li>
-                                                                            <li>
+                                            <!--                                <li>
                                             <a href="http://www.hybooks.cn/216565drv/" title target="_blank">
                                                 <div class="bImg">
                                                     <img src="images/aiyueimg216565.jpeg" alt="爱阅小说" width="120" height="150">
@@ -336,23 +340,23 @@
                                                 </div>
                                                 <span>天逆</span>
                                             </a>
-                                        </li>
+                                        </li>-->
                                                                     </ul>
                             </div>
                             <!-- 作者其他作品end -->
                                                                 <!-- 精彩推荐start -->
                             <div class="book-recommend">
                                 <h3 class="h3-tit">精彩推荐</h3>
-                                <ul class="book-recommend-list clearfix Jrecommend" style="display: block;">
+                                <ul class="book-recommend-list clearfix Jrecommend" style="display: block;" th:each="d9:${messageCount}">
                                                                             <li>
                                             <a href="http://www.hybooks.cn/450051lxywz/" title target="_blank">
                                                 <div class="bImg">
                                                     <img src="images/a2a5b7f76fe987207cc42ce9da6ad50f.jpeg" alt="爱阅小说" width="120" height="150">
                                                 </div>
-                                                <span>龙血玉外传</span>
+                                                <span th:text="${d9.mename}"></span>
                                             </a>
                                         </li>
-                                                                            <li>
+                                            <!--                                <li>
                                             <a href="http://www.hybooks.cn/449973qmxd/" title target="_blank">
                                                 <div class="bImg">
                                                     <img src="images/default.jpeg" alt="爱阅小说" width="120" height="150">
@@ -391,16 +395,34 @@
                                                 </div>
                                                 <span>长生天阙</span>
                                             </a>
-                                        </li>
+                                        </li>-->
                                                                     </ul>
                             </div>
                             <!-- 精彩推荐end -->
-                    
+        <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+        <script>
+            function publicComment() {
+                var reader = JSON.parse(sessionStorage.getItem("reader"));
+                console.log(reader);
+                var readerid = reader.rid;
+                var messageid = document.getElementById("meid").innerText;
+                var writerid = document.getElementById("writerid").innerText;
+                var typeid = document.getElementById("typeid").innerText;
+
+                var content = document.getElementsByName("comment")[0].value;
+                $.post("MessageQ/publicComments?readerid="+readerid+"&messageid="+messageid+"&content="+content).then(data=>{
+                    console.log(data);
+                    $.post("MessageQ/queryDetail?meid="+messageid+"&messageid="+messageid+"&writerid="+writerid+"&typeid="+typeid).then(data=>{
+                        window.location.reload();
+                    })
+                })
+            }
+        </script>
                     <!-- 圈子start -->
                         <div class="book-forums">
                             <h3 class="h3-tit clearfix">
-                                《三寸人间》圈子
-                                <span class="all-in">全部帖子<i id="JthreadNum">1</i><em class="arrow-r"></em></span>
+                                《<nobr th:text="${d.mename}"></nobr>》圈子
+                                <span class="all-in" th:each="d10:${commentsCount}">全部帖子<i id="JthreadNum" th:text="${d10.count}"></i><em class="arrow-r"></em></span>
                             </h3>
                             <div class="forums-txt" id="Jforums-txt">
                                 <div class="post-input">
@@ -409,7 +431,7 @@
                                     </div>
                                     <div class="thr-publish  clearfix">
                                         <div class="fr">
-                                            <div class="btn gray" id="JpostBtn">发表</div>
+                                            <button  class="btn gray" onclick="publicComment()">发表</button>
                                         </div>
                                     </div>
                                 </div>
@@ -420,13 +442,13 @@
                                                                                             <img src="images/default_avatar.png" alt width="50" height="50">
                                                                                     </span>
                                                 </div>
-                                                <div class="for-rp-con">
-                                                    <div class="name">aiyue_5e97f850059c5</div>
+                                                <div class="for-rp-con" th:each="d11:${queryComments}">
+                                                    <div class="name" th:text="${d11.reader.rname}"></div>
                                                     <div class="dec clearfix JdecAll ">
-                                                        <span class="aLabel">的风景很高不开机撒旦过来看撒大家高考历史大家管理卡萨丁交流； 舰队司令看见过萨拉丁苦尽甘来上看到；见过的是电话噶速度干撒的</span>
+                                                        <span class="aLabel" th:text="${d11.content}"></span>
                                                     </div>
                                                     <div class="other">
-                                                        <div class="date fl">2020-04-16 14:17:10</div>
+                                                        <div class="date fl" th:text="${#dates.format(d11.commenttime, 'yyyy-MM-dd')}"></div>
                                                     </div>
                                                 </div>
                                             </li>
@@ -485,40 +507,7 @@
     <div class="partlink" style>
     <div class="wrap">
         <div class="title">出版合作联系</div>
-        <div class="clearfix">
-            <div class="mail fl">
-
-                <div>版权合作联系人：汤先生<a href="mailto:2771800750@qq.com">2771800750@qq.com</a></div>
-
-                <div>广告合作联系人 : 张先生<a href="mailto:398637519@qq.com">398637519@qq.com</a></div>
-
-            </div>
-
-            <div class="help-btn">
-                <a class="help_btn" href="http://www.hybooks.cn" target="_blank">帮助中心</a>
-                <p>服务时间：24小时</p>
-            </div>
-
-            <div class="b1 foot-cell">
-                <div class="tit">客服</div>
-                <div class="qq">15851505080</div>
-                <div class="email"><a href="mailto:398637519@qq.com">398637519@qq.com</a></div>
-            </div>
-            <div class="b2 foot-cell">
-                <div class="tit">举报</div>
-                <div class="tel">18862370407</div>
-                <div class="email"><a href="mailto:398637519@qq.com">398637519@qq.com</a></div>
-            </div>
-
-
-            <div class="wchat foot-blank">
-                <div class="imgbox fl">
-                    <img src="images/gongzhonghao.jpeg" alt>
-                </div>
-                <p>微信公众号</p>
-            </div>
-        </div>
-    </div>
+        <div class="clearfix">th:text="${d11.reader.rname}"</div>
 </div>
 <div class="copyright">
     <div class="links"><a>关于爱阅</a>|
@@ -617,11 +606,6 @@
                 });
         });
 
-        
-        $(document).on('click', '#JpostBtn', function () {
-                                layer.msg('未登录~', {shift: 3});
-            window.location.href = '/login'
-                    });
     </script>
 </body>
 </html>

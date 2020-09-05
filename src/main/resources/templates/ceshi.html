@@ -57,5 +57,18 @@
 
 <div th:text="${queryMode}"></div>
 
+<div th:text="${queryWriter}"></div>
+
+<div th:text="${queryNumber}"></div>
+
+<div th:text="${queryReadNumber}"></div>
+
+<div th:each="q:${queryWriter}">
+    <div th:text="${q.type.tname}"></div>
+    <div th:text="${q.mename}"></div>
+</div>
+
+<div th:text="${queryFans}"></div>
+
 </body>
 </html>

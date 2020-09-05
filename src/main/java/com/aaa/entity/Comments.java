@@ -44,6 +44,8 @@ public class Comments implements Serializable {
 
 	private Reader reader;
 
+	private Integer count;
+
 	public Comments() {
 	}
 
@@ -122,6 +124,14 @@ public class Comments implements Serializable {
 		this.reader = reader;
 	}
 
+	public Integer getCount() {
+		return count;
+	}
+
+	public void setCount(Integer count) {
+		this.count = count;
+	}
+
 	@Override
 	public String toString() {
 		return "Comments{" +
@@ -132,6 +142,7 @@ public class Comments implements Serializable {
 				", commenttime=" + commenttime +
 				", message=" + message +
 				", reader=" + reader +
+				", count=" + count +
 				'}';
 	}
 }

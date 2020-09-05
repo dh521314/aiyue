@@ -4,6 +4,7 @@ import com.aaa.entity.Comments;
 import org.apache.ibatis.annotations.*;
 import tk.mybatis.mapper.common.Mapper;
 
+import java.util.Date;
 import java.util.List;
 
 @org.apache.ibatis.annotations.Mapper
@@ -30,4 +31,15 @@ public interface CommentsDao extends Mapper<Comments> {
             @Result(property = "reader", column = "readerid", many = @Many(select = "com.aaa.dao.ReaderDao.getReaderByRid"))
     })
     public List<Comments> queryCommentsByMessage(Integer messageid);
+
+    //小说评论区帖子数量
+    @Select("select *,count(*) as count from comments where messageid=#{messageid}")
+    @Results({
+            @Result(property = "message", column = "messageid", one = @One(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
+            @Result(property = "reader", column = "readerid", many = @Many(select = "com.aaa.dao.ReaderDao.getReaderByRid"))
+    })
+    public List<Comments> queryCountByManager(Integer messageid);
+    //小说评论区发表评论
+    @Insert("insert into comments(readerid,messageid,content,commenttime) values(#{readerid},#{messageid},#{content},#{commenttime})")
+    public Integer publicComments(Integer readerid, Integer messageid, String content, Date commenttime);
 }

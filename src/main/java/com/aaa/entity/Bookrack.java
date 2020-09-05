@@ -35,6 +35,8 @@ public class Bookrack implements Serializable {
 
 	private Message message;
 
+	private Integer count;
+
 	public Bookrack() {
 	}
 
@@ -93,6 +95,14 @@ public class Bookrack implements Serializable {
 		this.message = message;
 	}
 
+	public Integer getCount() {
+		return count;
+	}
+
+	public void setCount(Integer count) {
+		this.count = count;
+	}
+
 	@Override
 	public String toString() {
 		return "Bookrack{" +
@@ -101,6 +111,7 @@ public class Bookrack implements Serializable {
 				", messageid=" + messageid +
 				", reader=" + reader +
 				", message=" + message +
+				", count=" + count +
 				'}';
 	}
 }

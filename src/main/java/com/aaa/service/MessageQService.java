@@ -1,8 +1,10 @@
 package com.aaa.service;
 
+import com.aaa.dao.BookrackDao;
 import com.aaa.dao.DynamicDao;
 import com.aaa.dao.MessageQDao;
 import com.aaa.dao.SectionDao;
+import com.aaa.entity.Bookrack;
 import com.aaa.entity.Dynamic;
 import com.aaa.entity.Message;
 import com.aaa.entity.Section;
@@ -22,6 +24,9 @@ public class MessageQService {
 
     @Resource
     SectionDao sectionDao;
+
+    @Resource
+    BookrackDao bookrackDao;
 
     public List<Message> queryLikeMename(String mename){
         return messageQDao.queryLikeMename(mename);
@@ -96,5 +101,21 @@ public class MessageQService {
 
     public List<Message> queryMode(Integer typeid, Integer mestate, Integer clickRate1, Integer clickRate2){
         return messageQDao.queryMode(typeid,mestate,clickRate1,clickRate2);
+    }
+
+    public List<Message> queryWriterByMessage(Integer meid){
+        return messageQDao.queryWriterByMessage(meid);
+    }
+
+    public List<Section> queryNumberByMessage(Integer messageid){
+        return sectionDao.queryNumberByMessage(messageid);
+    }
+
+    public List<Dynamic> queryReadNumberByMessage(Integer messageid){
+        return dynamicDao.queryReadNumberByMessage(messageid);
+    }
+
+    public List<Bookrack> queryFansByMessage(Integer messageid){
+        return bookrackDao.queryFansByMessage(messageid);
     }
 }
