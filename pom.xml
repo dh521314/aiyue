@@ -101,7 +101,7 @@
             <scope>test</scope>
         </dependency>
 
-<!--        aili 短信服务-->
+        <!--        aili 短信服务-->
         <dependency>
             <groupId>com.aliyun</groupId>
             <artifactId>aliyun-java-sdk-core</artifactId>
@@ -109,5 +109,4 @@
         </dependency>
 
     </dependencies>
-
 </project>
