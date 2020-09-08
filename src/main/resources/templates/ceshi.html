@@ -19,7 +19,9 @@
 
 <div th:text="${byTypeid}"></div>
 
-<div th:text="${byMestate}"></div>
+<div th:each="m:${byMestate}">
+    <div th:text="${m.type}"></div>
+</div>
 
 <div th:text="${byDynamic}"></div>
 
@@ -37,7 +39,12 @@
 
 <div th:text="${readerNumber}"></div>
 
-<div th:text="${sectionAsc}"></div>
+<!--<div th:text="${sectionAsc}"></div>-->
+<div th:each="item,info:${sectionAsc}">
+    <div th:if="${info.count eq: 2}">
+        <div th:text="${return}"></div>
+    </div>
+</div>
 
 <div th:text="${sectionDesc}"></div>
 
@@ -70,5 +77,15 @@
 
 <div th:text="${queryFans}"></div>
 
+<!--<div th:text="${Mode}"></div>-->
+
+<div th:each="m:${Mode}">
+    <div th:each="l:${m.list}">
+        <div th:text="${l.mename}"></div>
+    </div>
+
+</div>
+
+<div th:text="${manChannelM}"></div>
 </body>
 </html>

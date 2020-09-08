@@ -4,7 +4,9 @@ import com.aaa.entity.*;
 import com.aaa.service.CommentsService;
 import com.aaa.service.MessageQService;
 import com.aaa.service.SectionService;
-import org.apache.ibatis.annotations.*;
+import com.aaa.service.TypeService;
+import com.github.pagehelper.PageInfo;
+import org.springframework.data.relational.core.sql.In;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 @CrossOrigin
@@ -28,6 +32,9 @@ public class MessageQController {
 
     @Resource
     CommentsService commentsService;
+
+    @Resource
+    TypeService typeService;
 
     //根据小说名称查询小说，模糊查询
     @RequestMapping("/queryLikeMename")
@@ -71,9 +78,9 @@ public class MessageQController {
 
     //小说检索页面(小说类型，小说状态，小说点击量)
     @RequestMapping("/queryMode")
-    public String queryMode(Integer typeid, Integer mestate, Integer clickRate1, Integer clickRate2,Model model){
-        List<Message> queryMode = messageQService.queryMode(typeid,mestate,clickRate1,clickRate2);
-        model.addAttribute("queryMode",queryMode);
+    public String queryMode(Integer typeid, Integer mestate, Integer clickRate1, Integer clickRate2,Model model,Integer pageNum,Integer pageSize){
+        PageInfo<Message> Mode = messageQService.queryMode(typeid,mestate,clickRate1,clickRate2,pageNum,pageSize);
+        model.addAttribute("Mode",Mode);
         return "ceshi";
     }
 
@@ -152,17 +159,17 @@ public class MessageQController {
     //小说简介阅读页面之开始阅读（直接跳到第一章节）
     @RequestMapping("/queryOneSectionByMessageid")
     public String queryOneSectionByMessageid(Integer messageid,Model model){
-        List<Section> queryOneSection = messageQService.queryOneSectionByMessageid(messageid);
-        model.addAttribute("queryOneSection",queryOneSection);
-        return "ceshi";
+        List<Section> Section = messageQService.queryOneSectionByMessageid(messageid);
+        model.addAttribute("Section",Section);
+        return "yuedu";
     }
 
     //小说简介页面之最新章节阅读（直接跳到最后一章）
     @RequestMapping("/queryEndSectionByMessageid")
     public String queryEndSectionByMessageid(Integer messageid,Model model){
-        List<Section> queryEndSection = messageQService.queryEndSectionByMessageid(messageid);
-        model.addAttribute("queryEndSection",queryEndSection);
-        return "ceshi";
+        List<Section> Section = messageQService.queryEndSectionByMessageid(messageid);
+        model.addAttribute("Section",Section);
+        return "yuedu";
     }
 
     //小说目录页面（点击对应的章节，进入小说阅读页面）
@@ -176,17 +183,17 @@ public class MessageQController {
     //小说阅读页面之上一章
     @RequestMapping("/queryLastSection")
     public String queryLastSection(Integer sid,Integer messageid,Model model){
-        List<Section> LastSection = messageQService.queryLastSection(sid,messageid);
-        model.addAttribute("LastSection",LastSection);
-        return "ceshi";
+        List<Section> Section = messageQService.queryLastSection(sid,messageid);
+        model.addAttribute("Section",Section);
+        return "yuedu";
     }
 
     //小说阅读页面之下一章
     @RequestMapping("/queryNextSection")
     public String queryNextSection(Integer sid,Integer messageid,Model model){
-        List<Section> NextSection = messageQService.queryNextSection(sid,messageid);
-        model.addAttribute("NextSection",NextSection);
-        return "ceshi";
+        List<Section> Section = messageQService.queryNextSection(sid,messageid);
+        model.addAttribute("Section",Section);
+        return "yuedu";
     }
 
     //首页查询
@@ -198,6 +205,27 @@ public class MessageQController {
         //查询最近更新的小说（按时间倒序）
         List<Section> sections = sectionService.queryUpdateTime();
         model.addAttribute("sections",sections);
+        //男频类型
+        List<Type> manChannel = typeService.queryManChannel();
+        model.addAttribute("manChannel",manChannel);
+        //女频类型
+        List<Type> womanChannel = typeService.queryWomanChannel();
+        model.addAttribute("womanChannel",womanChannel);
+        //男频强力推荐小说
+        List<Message> man = messageQService.queryMessByMan();
+        model.addAttribute("man",man);
+        //女频强力推荐小说
+        List<Message> woman = messageQService.queryMessByWoman();
+        model.addAttribute("woman",woman);
+        //小说简介页面之小说字数
+        List<Section> queryNumber = messageQService.queryNumberByMessage(man.get(0).getMeid());
+        model.addAttribute("queryNumber",queryNumber);
+        //男频小说
+        List<Message> manChannelM = messageQService.queryManMessByType();
+        model.addAttribute("manChannelM",manChannelM);
+        //女频小说
+        List<Message> womanChannelM = messageQService.queryWomanMessByType();
+        model.addAttribute("womanChannelM",womanChannelM);
         return "index";
     }
 
@@ -299,6 +327,48 @@ public class MessageQController {
         List<Comments> queryComments = commentsService.queryCommentsByMessage(messageid);
         model.addAttribute("queryComments",queryComments);
         return "detial";
+    }
+
+    //小说检索页面(符合条件的小说数量)
+    @RequestMapping("/queryModeCount")
+    public String queryModeCount(Integer typeid, Integer mestate, Integer clickRate1, Integer clickRate2,Model model){
+        List<Message> Mode = messageQService.queryModeCount(typeid,mestate,clickRate1,clickRate2);
+        model.addAttribute("Mode",Mode);
+        return "search";
+    }
+
+    //小说检索页面(小说总数量)
+    @RequestMapping("/queryModeNumber")
+    public String queryModeNumber(Model model){
+        List<Message> Mode = messageQService.queryModeNumber();
+        model.addAttribute("Mode",Mode);
+        return "search";
+    }
+
+    //小说检索页面(小说类型)
+    @RequestMapping("/queryModeType")
+    public String queryModeType(Model model){
+        List<Message> Mode = messageQService.queryModeType();
+        model.addAttribute("Mode",Mode);
+        return "search";
+    }
+
+    //小说检索页面
+    @RequestMapping("/querySearch")
+    public String querySearch(Model model,Integer typeid, Integer mestate, Integer clickRate1, Integer clickRate2,Integer pageNum,Integer pageSize){
+        //小说检索页面(小说类型，小说状态，小说点击量)
+        PageInfo<Message> Mode = messageQService.queryMode(typeid,mestate,clickRate1,clickRate2,pageNum,pageSize);
+        model.addAttribute("Mode",Mode);
+        //小说检索页面(符合条件的小说数量)
+        List<Message> ModeCount = messageQService.queryModeCount(typeid,mestate,clickRate1,clickRate2);
+        model.addAttribute("ModeCount",ModeCount);
+        //小说检索页面(小说总数量)
+        List<Message> ModeNumber = messageQService.queryModeNumber();
+        model.addAttribute("ModeNumber",ModeNumber);
+        //小说检索页面(小说类型)
+        List<Message> ModeType = messageQService.queryModeType();
+        model.addAttribute("ModeType",ModeType);
+        return "search";
     }
 
 }

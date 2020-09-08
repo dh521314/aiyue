@@ -40,4 +40,12 @@ public class TypeService {
         PageInfo<Type> p = new PageInfo<Type>(rs);
         return p;
     }
+
+    public List<Type> queryManChannel(){
+        return typeDao.queryManChannel();
+    }
+
+    public List<Type> queryWomanChannel(){
+        return typeDao.queryWomanChannel();
+    }
 }

@@ -16,4 +16,8 @@ public class DynamicService {
     public List<Dynamic> queryDynamicByReaderid(Integer readerid){
         return dynamicDao.queryDynamicByReaderid(readerid);
     }
+
+    public Integer addDynamic(Integer readerid,Integer messageid){
+        return dynamicDao.addDynamic(readerid,messageid);
+    }
 }

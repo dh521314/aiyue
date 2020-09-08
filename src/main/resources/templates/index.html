@@ -159,17 +159,18 @@
 </script>        </div>
         <div class="nav clearfix">
             <div class="menu-left fl">
-                <a class="active" href="http://www.hybooks.cn/">首页<em></em></a>
-                                                    <a class href="search.html">排行榜<em></em></a>
-                                    <a class href="http://www.hybooks.cn/finish/">完本小说<em></em></a>
-                                    <a class href="http://www.hybooks.cn/xuanhuan/">玄幻小说<em></em></a>
-                                    <a class href="http://www.hybooks.cn/xianxia/">仙侠小说<em></em></a>
-                                    <a class href="http://www.hybooks.cn/dushi/">都市小说<em></em></a>
-                                    <a class href="http://www.hybooks.cn/lishi/">历史小说<em></em></a>
-                                    <a class href="http://www.hybooks.cn/kehuan/">科幻小说<em></em></a>
-                                    <a class href="http://www.hybooks.cn/youxi/">游戏小说<em></em></a>
-                                    <a class href="http://www.hybooks.cn/qihuan/">奇幻小说<em></em></a>
-                                    <a class href="http://www.hybooks.cn/zhichang/">灵异小说<em></em></a>
+                <a class="active" href="http://localhost:8088/aiyue/MessageQ/queryIndex">首页<em></em></a>
+
+                                                    <a class href="http://localhost:8088/aiyue/MessageQ/querySearch?pageNum=1&pageSize=20">排行榜<em></em></a>
+                                    <a class href="http://localhost:8088/aiyue/MessageQ/querySearch?pageNum=1&pageSize=20&mestate=1">完本小说<em></em></a>
+                                    <a class href="http://localhost:8088/aiyue/MessageQ/querySearch?pageNum=1&pageSize=20&typeid=1">玄幻小说<em></em></a>
+                                    <a class href="http://localhost:8088/aiyue/MessageQ/querySearch?pageNum=1&pageSize=20&typeid=2">仙侠小说<em></em></a>
+                                    <a class href="http://localhost:8088/aiyue/MessageQ/querySearch?pageNum=1&pageSize=20&typeid=3">都市小说<em></em></a>
+                                    <a class href="http://localhost:8088/aiyue/MessageQ/querySearch?pageNum=1&pageSize=20&typeid=4">历史小说<em></em></a>
+                                    <a class href="http://localhost:8088/aiyue/MessageQ/querySearch?pageNum=1&pageSize=20&typeid=5">科幻小说<em></em></a>
+                                    <a class href="http://localhost:8088/aiyue/MessageQ/querySearch?pageNum=1&pageSize=20&typeid=6">游戏小说<em></em></a>
+                                    <a class href="http://localhost:8088/aiyue/MessageQ/querySearch?pageNum=1&pageSize=20&typeid=7">职场小说<em></em></a>
+                                    <a class href="http://localhost:8088/aiyue/MessageQ/querySearch?pageNum=1&pageSize=20&typeid=12">军事小说<em></em></a>
             </div>
         </div>
     </div>
@@ -222,31 +223,31 @@
                         <div class="h5-blank"></div>
                         <div class="left-news">
                             <div class="top-news">
-                                <a style="color: #b01f2e;" href="http://www.hybooks.cn/76096mzy" target="_blank" title>独家作品：安成贤</a>
+                                <a style="color: #b01f2e;" th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=64,messageid=64,writerid=64,typeid=12)}" target="_blank" title>独家作品：中国猎人</a>
                             </div>
                             <ul class="news-lists">
                                                                     <li>
                                         <span class="cate">[玄幻]</span>
-                                        <a href="http://www.hybooks.cn/237641xwo/" target="_blank">
+                                        <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=40,messageid=40,writerid=1,typeid=1)}" target="_blank">
                                             唐家三少_斗罗大陆
                                         </a>
                                     </li>
                                                                     <li>
                                         <span class="cate">[玄幻]</span>
-                                        <a href="http://www.hybooks.cn/447676jxbtj/" target="_blank">
-                                            平凡魔术师_九星霸体诀
+                                        <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=16,messageid=16,writerid=30,typeid=1)}" target="_blank">
+                                            武动乾坤
                                         </a>
                                     </li>
                                                                     <li>
                                         <span class="cate">[科幻]</span>
-                                        <a href="http://www.hybooks.cn/141944nfq/" target="_blank">
-                                            墨海蓝冰_愤怒的尸兄
+                                        <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=57,messageid=57,writerid=57,typeid=5)}" target="_blank">
+                                            狼啸苍穹
                                         </a>
                                     </li>
                                                                     <li>
                                         <span class="cate">[玄幻]</span>
-                                        <a href="http://www.hybooks.cn/447677xwdrcsh/" target="_blank">
-                                            枯玄_仙王的日常生活
+                                        <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=15,messageid=15,writerid=29,typeid=1)}" target="_blank">
+                                            完美世界
                                         </a>
                                     </li>
                                                             </ul>
@@ -288,13 +289,13 @@
                             
                             <div class="mid-news-left fl">
                                 <div class="top-news">
-                                    <a href="http://www.hybooks.cn/447671scrj/" target="_blank" title="三寸人间_耳根">重磅力作，三寸人间_耳根</a>
+                                    <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=1,messageid=1,writerid=2,typeid=3)}" target="_blank" title="都市战神之怒">重磅力作，都市战神之怒</a>
                                 </div>
                                 <ul class="news-lists">
                                                                             <li>
                                             <span class="cate">[玄幻]</span>
-                                            <a href="http://www.hybooks.cn/217667eyj/" target="_blank">
-                                                斗破苍穹
+                                            <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=13,messageid=13,writerid=27,typeid=1)}" target="_blank">
+                                                归来第一剑
                                                                                                     <span>
                                                          最新章节： 土豆大局结局感言
                                                     </span>
@@ -302,8 +303,8 @@
                                         </li>
                                                                             <li>
                                             <span class="cate">[历史]</span>
-                                            <a href="http://www.hybooks.cn/447670dmcs/" target="_blank">
-                                                大明春色
+                                            <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=25,messageid=25,writerid=17,typeid=4)}" target="_blank">
+                                                赵云
                                                                                                     <span>
                                                          最新章节： 第1083章
                                                     </span>
@@ -311,26 +312,26 @@
                                         </li>
                                                                             <li>
                                             <span class="cate">[仙侠]</span>
-                                            <a href="http://www.hybooks.cn/216530kph/" target="_blank">
-                                                凡人修仙传
+                                            <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=20,messageid=20,writerid=25,typeid=2)}" target="_blank">
+                                                万世剑冢
                                                                                                     <span>
                                                          最新章节： 第七卷 纵横人界
                                                     </span>
                                                                                             </a>
                                         </li>
                                                                             <li>
-                                            <span class="cate">[玄幻]</span>
-                                            <a href="http://www.hybooks.cn/447680frxxcxjp/" target="_blank">
-                                                凡人修仙传仙界篇
+                                            <span class="cate">[仙侠]</span>
+                                            <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=19,messageid=19,writerid=24,typeid=2)}" target="_blank">
+                                                剑帝谱
                                                                                                     <span>
                                                          最新章节： 《大梦主》字数已经十万多了！
                                                     </span>
                                                                                             </a>
                                         </li>
                                                                             <li>
-                                            <span class="cate">[玄幻]</span>
-                                            <a href="http://www.hybooks.cn/447669yz/" target="_blank">
-                                                元尊
+                                            <span class="cate">[仙侠]</span>
+                                            <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=21,messageid=21,writerid=26,typeid=2)}" target="_blank">
+                                                仙道横行
                                                                                                     <span>
                                                          最新章节： 正文 第一千两百九十一章  第四纹
                                                     </span>
@@ -342,13 +343,13 @@
                             
                             <div class="mid-news-left fr">
                                 <div class="top-news">
-                                    <a target="_blank" href="http://www.hybooks.cn/434231tap/" title="圣墟_辰东">隆重推出，圣墟_辰东</a>
+                                    <a target="_blank" th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=69,messageid=69,writerid=69,typeid=7)}" title="享受人生">隆重推出，享受人生</a>
                                 </div>
                                 <ul class="news-lists">
                                                                             <li>
                                             <span class="cate">[历史]</span>
-                                            <a href="http://www.hybooks.cn/234609zwy/" target="_blank">
-                                                朱雀霸世
+                                            <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=23,messageid=23,writerid=15,typeid=4)}" target="_blank">
+                                                谋圣张良
                                                                                                     <span>
                                                          最新章节： 第二十六章商妇
                                                     </span>
@@ -356,8 +357,8 @@
                                         </li>
                                                                             <li>
                                             <span class="cate">[历史]</span>
-                                            <a href="http://www.hybooks.cn/221714xub/" target="_blank">
-                                                庆余年
+                                            <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=24,messageid=24,writerid=16,typeid=4)}" target="_blank">
+                                                千秋谋士
                                                                                                     <span>
                                                          最新章节： 新书间客，书号：1223147，欢迎大家践踏……
                                                     </span>
@@ -365,26 +366,26 @@
                                         </li>
                                                                             <li>
                                             <span class="cate">[都市]</span>
-                                            <a href="http://www.hybooks.cn/447674dszwzdwd/" target="_blank">
-                                                都市之我真的无敌
+                                            <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=2,messageid=2,writerid=3,typeid=3)}" target="_blank">
+                                                绝世名医
                                                                                                     <span>
                                                          最新章节： 第847章 迁移星系，最终身份【大结局
                                                     </span>
                                                                                             </a>
                                         </li>
                                                                             <li>
-                                            <span class="cate">[玄幻]</span>
-                                            <a href="http://www.hybooks.cn/447684fjwd/" target="_blank">
-                                                飞剑问道
+                                            <span class="cate">[玄幻言情]</span>
+                                            <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=36,messageid=36,writerid=37,typeid=15)}" target="_blank">
+                                                傲世重生
                                                                                                     <span>
                                                          最新章节： 番茄的新书《沧元图》已经正式上传！新书需要大家的支持~~~
                                                     </span>
                                                                                             </a>
                                         </li>
                                                                             <li>
-                                            <span class="cate">[玄幻]</span>
-                                            <a href="http://www.hybooks.cn/447678fts/" target="_blank">
-                                                伏天氏
+                                            <span class="cate">[古代言情]</span>
+                                            <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=7,messageid=7,writerid=8,typeid=16)}" target="_blank">
+                                                太子妃翻车现场
                                                                                                     <span>
                                                          最新章节： 2 第1949章 破境
                                                     </span>
@@ -414,90 +415,7 @@
                                             <div th:text="${c.message.mename}" style="font-size: 9px"></div>
                                         </a>
                                     </li>
-                                            <!--                                <li>
-                                            <span>爱潜水的</span>
-                                            <em class="top2 list_icon">2</em>
-                                            <a href="http://www.hybooks.cn/447683gmzz/" target="_blank">
-                                                诡秘之主
-                                            </a>
-                                        </li>
-                                                                            <li>
-                                            <span>古龙</span>
-                                            <em class="top3 list_icon">3</em>
-                                            <a href="http://www.hybooks.cn/447673jdsj/" target="_blank">
-                                                绝代双骄
-                                            </a>
-                                        </li>
-                                                                            <li>
-                                            <span>善良的蜜</span>
-                                            <em class="top4 list_icon">4</em>
-                                            <a href="http://www.hybooks.cn/447679xlws/" target="_blank">
-                                                修罗武神
-                                            </a>
-                                        </li>
-                                                                            <li>
-                                            <span>烈焰滔滔</span>
-                                            <em class="top5 list_icon">5</em>
-                                            <a href="http://www.hybooks.cn/447672zqkb/" target="_blank">
-                                                最强狂兵
-                                            </a>
-                                        </li>
-                                                                            <li>
-                                            <span>我吃西红</span>
-                                            <em class="top6 list_icon">6</em>
-                                            <a href="http://www.hybooks.cn/447681cyt/" target="_blank">
-                                                沧元图
-                                            </a>
-                                        </li>
-                                                                            <li>
-                                            <span>飞天鱼</span>
-                                            <em class="top7 list_icon">7</em>
-                                            <a href="http://www.hybooks.cn/238634msn/" target="_blank">
-                                                万古神帝
-                                            </a>
-                                        </li>
-                                                                            <li>
-                                            <span>忘语</span>
-                                            <em class="top8 list_icon">8</em>
-                                            <a href="http://www.hybooks.cn/447680frxxcxjp/" target="_blank">
-                                                凡人修仙传仙
-                                            </a>
-                                        </li>
-                                                                            <li>
-                                            <span>徒步独行</span>
-                                            <em class="top9 list_icon">9</em>
-                                            <a href="http://www.hybooks.cn/176330hti/" target="_blank">
-                                                逆天邪神
-                                            </a>
-                                        </li>
-                                                                            <li>
-                                            <span>池落</span>
-                                            <em class="top10 list_icon">10</em>
-                                            <a href="http://www.hybooks.cn/398406mql/" target="_blank">
-                                                剑来
-                                            </a>
-                                        </li>
-                                                                            <li>
-                                            <span>莫默</span>
-                                            <em class="top11 list_icon">11</em>
-                                            <a href="http://www.hybooks.cn/447596fjn/" target="_blank">
-                                                武炼巅峰
-                                            </a>
-                                        </li>
-                                                                            <li>
-                                            <span>净无痕</span>
-                                            <em class="top12 list_icon">12</em>
-                                            <a href="http://www.hybooks.cn/447678fts/" target="_blank">
-                                                伏天氏
-                                            </a>
-                                        </li>
-                                                                            <li>
-                                            <span>辰东</span>
-                                            <em class="top13 list_icon">13</em>
-                                            <a href="http://www.hybooks.cn/434231tap/" target="_blank">
-                                                圣墟
-                                            </a>
-                                        </li>
+                                            <!--
                                                                             <li>
                                             <span>天蚕土豆</span>
                                             <em class="top14 list_icon">14</em>
@@ -528,38 +446,38 @@
                         </div>
                         <div class="h10-blank"></div>
                         <!-- 男频滚书 -->
-                        <div class="fl pic-blank-scroll">
+                        <div class="fl pic-blank-scroll" >
                             <div class="compile malebook">
                                 <div class=" small-swiper">
                                                                             <ul class="swiper-container sclbook-female" style="height: 170px">
                                             <li class="swiper-item" style="z-index: 5; left: 68px; width: 100px; height: 132px; bottom: 23px; display: list-item;">
-                                                <a href="http://www.hybooks.cn/447814tyds/" target="_blank" title="通幽大圣">
+                                                <a href="http://www.hybooks.cn/447814tyds/" target="_blank" title="斗罗大陆">
                                                     <img src="images/ae7996833de0a734a1a6455c050f2703.jpeg">
                                                 </a>
                                             </li>
                                         </ul>
-                                        <div class="swiper-book swiper-infobox">
+                                        <div class="swiper-book swiper-infobox" th:each="i1:${man}">
                                             <div class="itemInfo">
-                                                <a href="http://www.hybooks.cn/447814tyds/" class="name" target="_blank">通幽大圣</a>
-                                                <a href="http://www.hybooks.cn/447814tyds/" class="author-text" title="通幽大圣" target="_blank">玄幻</a>
+                                                <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryOneSectionByMessageid(messageid=${i1.meid})}" class="name" target="_blank"><div th:text="${i1.mename}"></div></a>
+                                                <a href="http://www.hybooks.cn/447814tyds/" class="author-text" title="斗罗大陆" target="_blank"><div th:text="${i1.type.tname}"></div></a>
                                                 <p class="cate-text">
-                                                    <a href="http://www.hybooks.cn/447814tyds/" target="_blank" title="封七月">作者:封七月</a>
-                                                    | <span>3584671&nbsp;字</span>
+                                                    <a href="http://www.hybooks.cn/447814tyds/" target="_blank" title="封七月">作者：<nobr th:text="${i1.writer.wname}"></nobr></a>
+                                                    | <span><i th:each="i2:${queryNumber}"><nobr th:text="${i2.sum}"></nobr></i>&nbsp;字</span>
                                                 </p>
-                                                <span class="intr intr-text">《通幽大圣》是由作者封七月编写的一部玄幻小说，目前正在连载当中，主角是顾诚，小说的故事主要讲述了诡秘江湖，妖异频出，朝堂腐朽，武林世家，群雄并起。这是一个没有神佛的世界武道、术法、玄修、神通…………顾诚于幽暗中降临，踏平这纷乱世间。“既然这世界没有神佛，那我，便是神佛！”美人画皮难画骨，庙中妖僧饲修罗。桃花源内心慌惶，黑山老妖占幽冥。我叫顾诚，诚信的诚。</span>
-                                                <a href="http://www.hybooks.cn/447814tyds/" class="a-link animation_opacity" target="_blank">立即阅读</a>
+                                                <span class="intr intr-text" th:text="${i1.synopsis}"></span>
+                                                <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryOneSectionByMessageid(messageid=${i1.meid})}" class="a-link animation_opacity" target="_blank">立即阅读</a>
                                             </div>
                                         </div>
                                                                     </div>
                             </div>
                         </div>
                         <!-- 男频滚书结束 -->
-                        <div class="cate-blank fr clearfix">
+                        <div class="cate-blank fr clearfix" >
                             
-                                <div class="cate-cell">
+                                <div class="cate-cell" th:each="i3:${manChannel.get(0)}">
                                     <div class="top-title-two clearfix">
                                         <div class="title fl">
-                                            <span class="cate01"></span>军事
+                                            <span class="cate01"></span><nobr th:text="${i3.tname}"></nobr>
                                         </div>
                                         <div class="more fr">
                                             <a class="more-link" href="/junshi" target="_blank">更多</a>
@@ -568,11 +486,11 @@
                                     <div class="h20-blank"></div>
                                     <div class="lists">
                                         <ul>
-                                                                                            <li>
-                                                    <span>[仙鹤草]</span>
-                                                    <a href="http://www.hybooks.cn/55989jrs/" target="_blank">抗战之铁血悍将</a>
+                                                                                            <li th:each="i4:${manChannelM.subList(0,5)}">
+                                                    [<span th:text="${i4.writer.wname}"></span>]
+                                                    <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=${i4.meid},messageid=${i4.meid},writerid=${i4.writer.wid},typeid=${i4.type.tid})}" target="_blank"><nobr th:text="${i4.mename}"></nobr></a>
                                                 </li>
-                                                                                            <li>
+                                                   <!--                                         <li>
                                                     <span>[飘逸De飞雨]</span>
                                                     <a href="http://www.hybooks.cn/228881wmu/" target="_blank">红色警戒之卫国商人</a>
                                                 </li>
@@ -587,30 +505,30 @@
                                                                                             <li>
                                                     <span>[钢铁轰鸣]</span>
                                                     <a href="http://www.hybooks.cn/245725wtr/" target="_blank">铁甲轰鸣</a>
-                                                </li>
-                                            
+                                                </li>-->
+
                                         </ul>
                                     </div>
                                 </div>
 
-                            
-                                <div class="cate-cell">
-                                    <div class="top-title-two clearfix">
-                                        <div class="title fl">
-                                            <span class="cate01"></span>游戏
-                                        </div>
-                                        <div class="more fr">
-                                            <a class="more-link" href="/youxi" target="_blank">更多</a>
-                                        </div>
+
+                            <div class="cate-cell" th:each="i5:${manChannel.get(1)}">
+                                <div class="top-title-two clearfix">
+                                    <div class="title fl">
+                                        <span class="cate01"></span><nobr th:text="${i5.tname}"></nobr>
                                     </div>
-                                    <div class="h20-blank"></div>
-                                    <div class="lists">
-                                        <ul>
-                                                                                            <li>
-                                                    <span>[无忧的小猪]</span>
-                                                    <a href="http://www.hybooks.cn/245147tif/" target="_blank">全面征服者</a>
-                                                </li>
-                                                                                            <li>
+                                    <div class="more fr">
+                                        <a class="more-link" href="/junshi" target="_blank">更多</a>
+                                    </div>
+                                </div>
+                                <div class="h20-blank"></div>
+                                <div class="lists">
+                                    <ul>
+                                        <li th:each="i6:${manChannelM.subList(6,10)}">
+                                            [<span th:text="${i6.writer.wname}"></span>]
+                                            <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=${i6.meid},messageid=${i6.meid},writerid=${i6.writer.wid},typeid=${i6.type.tid})}" target="_blank"><nobr th:text="${i6.mename}"></nobr></a>
+                                        </li>
+                                                    <!--                                        <li>
                                                     <span>[棋山鬼仙]</span>
                                                     <a href="http://www.hybooks.cn/191440apn/" target="_blank">梦幻之诡域奇谈</a>
                                                 </li>
@@ -625,30 +543,30 @@
                                                                                             <li>
                                                     <span>[沐相随]</span>
                                                     <a href="http://www.hybooks.cn/167860rpa/" target="_blank">网易之火法帝</a>
-                                                </li>
+                                                </li>-->
                                             
                                         </ul>
                                     </div>
                                 </div>
 
-                            
-                                <div class="cate-cell">
-                                    <div class="top-title-two clearfix">
-                                        <div class="title fl">
-                                            <span class="cate01"></span>奇幻
-                                        </div>
-                                        <div class="more fr">
-                                            <a class="more-link" href="/qihuan" target="_blank">更多</a>
-                                        </div>
+
+                            <div class="cate-cell" th:each="i7:${manChannel.get(2)}">
+                                <div class="top-title-two clearfix">
+                                    <div class="title fl">
+                                        <span class="cate01"></span><nobr th:text="${i7.tname}"></nobr>
                                     </div>
-                                    <div class="h20-blank"></div>
-                                    <div class="lists">
-                                        <ul>
-                                                                                            <li>
-                                                    <span>[lizhihao519]</span>
-                                                    <a href="http://www.hybooks.cn/145170ehd/" target="_blank">顾盼伊人</a>
-                                                </li>
-                                                                                            <li>
+                                    <div class="more fr">
+                                        <a class="more-link" href="/junshi" target="_blank">更多</a>
+                                    </div>
+                                </div>
+                                <div class="h20-blank"></div>
+                                <div class="lists">
+                                    <ul>
+                                        <li th:each="i8:${manChannelM.subList(10,14)}">
+                                            [<span th:text="${i8.writer.wname}"></span>]
+                                            <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=${i8.meid},messageid=${i8.meid},writerid=${i8.writer.wid},typeid=${i8.type.tid})}" target="_blank"><nobr th:text="${i8.mename}"></nobr></a>
+                                        </li>
+                                                 <!--                                           <li>
                                                     <span>[八月寒]</span>
                                                     <a href="http://www.hybooks.cn/70890iam/" target="_blank">血统召唤</a>
                                                 </li>
@@ -663,30 +581,30 @@
                                                                                             <li>
                                                     <span>[远处的思念]</span>
                                                     <a href="http://www.hybooks.cn/76861znq/" target="_blank">异世总裁</a>
-                                                </li>
+                                                </li>-->
                                             
                                         </ul>
                                     </div>
                                 </div>
 
                             
-                                <div class="cate-cell">
-                                    <div class="top-title-two clearfix">
-                                        <div class="title fl">
-                                            <span class="cate01"></span>灵异
-                                        </div>
-                                        <div class="more fr">
-                                            <a class="more-link" href="/lingyi" target="_blank">更多</a>
-                                        </div>
+                                <div class="cate-cell" th:each="i9:${manChannel.get(3)}">
+                                <div class="top-title-two clearfix">
+                                    <div class="title fl">
+                                        <span class="cate01"></span><nobr th:text="${i9.tname}"></nobr>
                                     </div>
-                                    <div class="h20-blank"></div>
-                                    <div class="lists">
-                                        <ul>
-                                                                                            <li>
-                                                    <span>[随新十八]</span>
-                                                    <a href="http://www.hybooks.cn/221900dty/" target="_blank">酒泉镇</a>
-                                                </li>
-                                                                                            <li>
+                                    <div class="more fr">
+                                        <a class="more-link" href="/junshi" target="_blank">更多</a>
+                                    </div>
+                                </div>
+                                <div class="h20-blank"></div>
+                                <div class="lists">
+                                    <ul>
+                                        <li th:each="i10:${manChannelM.subList(14,19)}">
+                                            [<span th:text="${i10.writer.wname}"></span>]
+                                            <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=${i10.meid},messageid=${i10.meid},writerid=${i10.writer.wid},typeid=${i10.type.tid})}" target="_blank"><nobr th:text="${i10.mename}"></nobr></a>
+                                        </li>
+                                                 <!--                                           <li>
                                                     <span>[千觞墨雨]</span>
                                                     <a href="http://www.hybooks.cn/120654enz/" target="_blank">罪后终结</a>
                                                 </li>
@@ -701,30 +619,30 @@
                                                                                             <li>
                                                     <span>[念乔扶苏]</span>
                                                     <a href="http://www.hybooks.cn/286772nqr/" target="_blank">消失的短信</a>
-                                                </li>
+                                                </li>-->
                                             
                                         </ul>
                                     </div>
                                 </div>
 
-                            
-                                <div class="cate-cell">
-                                    <div class="top-title-two clearfix">
-                                        <div class="title fl">
-                                            <span class="cate01"></span>玄幻
-                                        </div>
-                                        <div class="more fr">
-                                            <a class="more-link" href="/xuanhuan" target="_blank">更多</a>
-                                        </div>
+
+                            <div class="cate-cell" th:each="i11:${manChannel.get(4)}">
+                                <div class="top-title-two clearfix">
+                                    <div class="title fl">
+                                        <span class="cate01"></span><nobr th:text="${i11.tname}"></nobr>
                                     </div>
-                                    <div class="h20-blank"></div>
-                                    <div class="lists">
-                                        <ul>
-                                                                                            <li>
-                                                    <span>[妄魔]</span>
-                                                    <a href="http://www.hybooks.cn/265528jxv/" target="_blank">亡魔记</a>
-                                                </li>
-                                                                                            <li>
+                                    <div class="more fr">
+                                        <a class="more-link" href="/junshi" target="_blank">更多</a>
+                                    </div>
+                                </div>
+                                <div class="h20-blank"></div>
+                                <div class="lists">
+                                    <ul>
+                                        <li th:each="i12:${manChannelM.subList(19,23)}">
+                                            [<span th:text="${i12.writer.wname}"></span>]
+                                            <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=${i12.meid},messageid=${i12.meid},writerid=${i12.writer.wid},typeid=${i12.type.tid})}" target="_blank"><nobr th:text="${i12.mename}"></nobr></a>
+                                        </li>
+                                                   <!--                                         <li>
                                                     <span>[无人拥暖]</span>
                                                     <a href="http://www.hybooks.cn/332910vmh/" target="_blank">神皇苍穹</a>
                                                 </li>
@@ -740,29 +658,29 @@
                                                     <span>[江南李]</span>
                                                     <a href="http://www.hybooks.cn/136184yuh/" target="_blank">我的混沌宇宙</a>
                                                 </li>
-                                            
+                                            -->
                                         </ul>
                                     </div>
                                 </div>
 
-                            
-                                <div class="cate-cell">
-                                    <div class="top-title-two clearfix">
-                                        <div class="title fl">
-                                            <span class="cate01"></span>武侠
-                                        </div>
-                                        <div class="more fr">
-                                            <a class="more-link" href="/wuxia" target="_blank">更多</a>
-                                        </div>
+
+                            <div class="cate-cell" th:each="i13:${manChannel.get(5)}">
+                                <div class="top-title-two clearfix">
+                                    <div class="title fl">
+                                        <span class="cate01"></span><nobr th:text="${i13.tname}"></nobr>
                                     </div>
-                                    <div class="h20-blank"></div>
-                                    <div class="lists">
-                                        <ul>
-                                                                                            <li>
-                                                    <span>[新月火狐]</span>
-                                                    <a href="http://www.hybooks.cn/177789yuv/" target="_blank">凤舞昆仑雪</a>
-                                                </li>
-                                                                                            <li>
+                                    <div class="more fr">
+                                        <a class="more-link" href="/junshi" target="_blank">更多</a>
+                                    </div>
+                                </div>
+                                <div class="h20-blank"></div>
+                                <div class="lists">
+                                    <ul>
+                                        <li th:each="i14:${manChannelM.subList(23,25)}">
+                                            [<span th:text="${i14.writer.wname}"></span>]
+                                            <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=${i14.meid},messageid=${i14.meid},writerid=${i14.writer.wid},typeid=${i14.type.tid})}" target="_blank"><nobr th:text="${i14.mename}"></nobr></a>
+                                        </li>
+                                                          <!--                                  <li>
                                                     <span>[暮雨沧风]</span>
                                                     <a href="http://www.hybooks.cn/331948uwk/" target="_blank">浪尽风云</a>
                                                 </li>
@@ -777,30 +695,30 @@
                                                                                             <li>
                                                     <span>[血手佛心]</span>
                                                     <a href="http://www.hybooks.cn/335228jam/" target="_blank">重生倚天陈友谅</a>
-                                                </li>
+                                                </li>-->
                                             
                                         </ul>
                                     </div>
                                 </div>
 
-                            
-                                <div class="cate-cell">
-                                    <div class="top-title-two clearfix">
-                                        <div class="title fl">
-                                            <span class="cate01"></span>科幻
-                                        </div>
-                                        <div class="more fr">
-                                            <a class="more-link" href="/kehuan" target="_blank">更多</a>
-                                        </div>
+
+                            <div class="cate-cell" th:each="i15:${manChannel.get(6)}">
+                                <div class="top-title-two clearfix">
+                                    <div class="title fl">
+                                        <span class="cate01"></span><nobr th:text="${i15.tname}"></nobr>
                                     </div>
-                                    <div class="h20-blank"></div>
-                                    <div class="lists">
-                                        <ul>
-                                                                                            <li>
-                                                    <span>[守护爱情]</span>
-                                                    <a href="http://www.hybooks.cn/183793tyf/" target="_blank">神通再现</a>
-                                                </li>
-                                                                                            <li>
+                                    <div class="more fr">
+                                        <a class="more-link" href="/junshi" target="_blank">更多</a>
+                                    </div>
+                                </div>
+                                <div class="h20-blank"></div>
+                                <div class="lists">
+                                    <ul>
+                                        <li th:each="i16:${manChannelM.subList(25,30)}">
+                                            [<span th:text="${i16.writer.wname}"></span>]
+                                            <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=${i16.meid},messageid=${i16.meid},writerid=${i16.writer.wid},typeid=${i16.type.tid})}" target="_blank"><nobr th:text="${i16.mename}"></nobr></a>
+                                        </li>
+                                                   <!--                                         <li>
                                                     <span>[久东晨]</span>
                                                     <a href="http://www.hybooks.cn/327415rub/" target="_blank">无限之最强王座</a>
                                                 </li>
@@ -816,11 +734,48 @@
                                                     <span>[苍云苦海]</span>
                                                     <a href="http://www.hybooks.cn/179817bhi/" target="_blank">末世沉沦</a>
                                                 </li>
-                                            
+                                            -->
                                         </ul>
                                     </div>
                                 </div>
 
+                            <div class="cate-cell" th:each="i17:${manChannel.get(7)}">
+                                <div class="top-title-two clearfix">
+                                    <div class="title fl">
+                                        <span class="cate01"></span><nobr th:text="${i17.tname}"></nobr>
+                                    </div>
+                                    <div class="more fr">
+                                        <a class="more-link" href="/junshi" target="_blank">更多</a>
+                                    </div>
+                                </div>
+                                <div class="h20-blank"></div>
+                                <div class="lists">
+                                    <ul>
+                                        <li th:each="i18:${manChannelM.subList(30,34)}">
+                                            [<span th:text="${i18.writer.wname}"></span>]
+                                            <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=${i18.meid},messageid=${i18.meid},writerid=${i18.writer.wid},typeid=${i18.type.tid})}" target="_blank"><nobr th:text="${i18.mename}"></nobr></a>
+                                        </li>
+                                        <!--                                         <li>
+                                         <span>[久东晨]</span>
+                                         <a href="http://www.hybooks.cn/327415rub/" target="_blank">无限之最强王座</a>
+                                     </li>
+                                                                                 <li>
+                                         <span>[敲烂木鱼]</span>
+                                         <a href="http://www.hybooks.cn/163399xnt/" target="_blank">超时空进化</a>
+                                     </li>
+                                                                                 <li>
+                                         <span>[雪落天狱]</span>
+                                         <a href="http://www.hybooks.cn/261784jse/" target="_blank">我的誓约英雄</a>
+                                     </li>
+                                                                                 <li>
+                                         <span>[苍云苦海]</span>
+                                         <a href="http://www.hybooks.cn/179817bhi/" target="_blank">末世沉沦</a>
+                                     </li>
+                                 -->
+                                    </ul>
+                                </div>
+                            </div>
+<!--
                                                         <div class="hot-author fr">
                                 <div class="author-blank">
                                     <div class="tit">
@@ -841,7 +796,7 @@
                                     </div>
                                     <a class="btn" href="/131206vnz" target="_blank">作者详情</a>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -873,16 +828,16 @@
                                             </li>
 
                                         </ul>
-                                        <div class="swiper-book swiper-infobox">
+                                        <div class="swiper-book swiper-infobox" th:each="i19:${woman}">
                                             <div class="itemInfo">
-                                                <a href="http://www.hybooks.cn/447721zqsyhds/" class="name" target="_blank">最强神医混都市</a>
-                                                <a href="http://www.hybooks.cn/447721zqsyhds/" class="author-text" target="_blank">都市</a>
+                                                <a href="http://www.hybooks.cn/447721zqsyhds/" class="name" target="_blank"><div th:text="${i19.mename}"></div></a>
+                                                <a href="http://www.hybooks.cn/447721zqsyhds/" class="author-text" target="_blank"><div th:text="${i19.type.tname}"></div></a>
                                                 <p class="cate-text">
-                                                    <a href="http://www.hybooks.cn/447721zqsyhds/" target="_blank">九歌</a>
-                                                    | <span>4344260字</span>
+                                                    <a href="http://www.hybooks.cn/447721zqsyhds/" target="_blank"><nobr th:text="${i19.writer.wname}"></nobr></a>
+                                                    | <span><i th:each="i20:${queryNumber}"><nobr th:text="${i20.sum}"></nobr></i> 字</span>
                                                 </p>
-                                                <span class="intr intr-text">《通幽大圣》是由作者封七月编写的一部玄幻小说，目前正在连载当中，主角是顾诚，小说的故事主要讲述了诡秘江湖，妖异频出，朝堂腐朽，武林世家，群雄并起。这是一个没有神佛的世界武道、术法、玄修、神通…………顾诚于幽暗中降临，踏平这纷乱世间。“既然这世界没有神佛，那我，便是神佛！”美人画皮难画骨，庙中妖僧饲修罗。桃花源内心慌惶，黑山老妖占幽冥。我叫顾诚，诚信的诚。</span>
-                                                <a href="http://www.hybooks.cn/447721zqsyhds/" class="a-link animation_opacity" target="_blank">立即阅读</a>
+                                                <span class="intr intr-text"><div th:text="${i19.synopsis}"></div></span>
+                                                <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryOneSectionByMessageid(messageid=${i19.meid})}" class="a-link animation_opacity" target="_blank">立即阅读</a>
                                             </div>
                                         </div>
                                                                     </div>
@@ -891,10 +846,10 @@
                         <!-- 女频滚书结束 -->
                         <div class="cate-blank fr clearfix">
 
-                                                            <div class="cate-cell">
+                                                            <div class="cate-cell" th:each="i21:${womanChannel.get(0)}">
                                     <div class="top-title-two clearfix">
                                         <div class="title fl">
-                                            浪漫青春
+                                            <nobr th:text="${i21.tname}"></nobr>
                                         </div>
                                         <div class="more fr">
                                             <a class="more-link" href=" langmanqingchun" target="_blank">更多</a>
@@ -904,31 +859,30 @@
                                     <div class="lists">
 
 
-                                        <ul>
-                                            
-                                                
-                                                    <div class="top-book clearfix">
+                                        <ul th:each="i22:${womanChannelM.subList(0,4)}">
+
+                                                    <!--<div class="top-book clearfix">
                                                         <div class="imgbox fl">
                                                             <a href="http://www.hybooks.cn/449708cjzzs/" target="_blank">
                                                                 <img src="images/7f0866a21f45b3bea62481ee6cfc7cb1.jpeg" alt="超级制造商">
                                                             </a>
                                                         </div>
                                                         <h2 class="title">
-                                                            <a href="http://www.hybooks.cn/449708cjzzs/" target="_blank">超级制造商</a>
+                                                            <a href="http://www.hybooks.cn/449708cjzzs/" target="_blank"><nobr th:text="${i22.mename}"></nobr></a>
                                                         </h2>
                                                         <p></p>
-                                                    </div>
+                                                    </div>-->
                                                 
 
-                                            
-                                                
+
+
                                                     <li>
-                                                        <span>[天真小馒头]</span>
-                                                        <a href="http://www.hybooks.cn/389732peu/" target="_blank">网恋的诱惑</a>
+                                                        <span>[<nobr th:text="${i22.writer.wname}"></nobr>]</span>
+                                                        <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=${i22.meid},messageid=${i22.meid},writerid=${i22.writer.wid},typeid=${i22.type.tid})}" target="_blank"><nobr th:text="${i22.mename}"></nobr></a>
                                                     </li>
                                                 
 
-                                            
+                                            <!--
                                                 
                                                     <li>
                                                         <span>[风吹小白菜]</span>
@@ -967,26 +921,32 @@
                                                         <a href="http://www.hybooks.cn/449983xg/" target="_blank">香港1968</a>
                                                     </li>
                                                 
-
+-->
                                                                                     </ul>
                                     </div>
                                 </div>
-                                                            <div class="cate-cell">
-                                    <div class="top-title-two clearfix">
-                                        <div class="title fl">
-                                            现代言情
-                                        </div>
-                                        <div class="more fr">
-                                            <a class="more-link" href=" xiandaiyanqing" target="_blank">更多</a>
-                                        </div>
+
+
+                            <div class="cate-cell" th:each="i23:${womanChannel.get(1)}">
+                                <div class="top-title-two clearfix">
+                                    <div class="title fl">
+                                        <nobr th:text="${i23.tname}"></nobr>
                                     </div>
-                                    <div class="h20-blank"></div>
-                                    <div class="lists">
+                                    <div class="more fr">
+                                        <a class="more-link" href=" langmanqingchun" target="_blank">更多</a>
+                                    </div>
+                                </div>
+                                <div class="h20-blank"></div>
+                                <div class="lists">
 
 
-                                        <ul>
-                                            
-                                                
+                                    <ul th:each="i24:${womanChannelM.subList(4,8)}">
+
+                                        <li>
+                                            <span>[<nobr th:text="${i24.writer.wname}"></nobr>]</span>
+                                            <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=${i24.meid},messageid=${i24.meid},writerid=${i24.writer.wid},typeid=${i24.type.tid})}" target="_blank"><nobr th:text="${i24.mename}"></nobr></a>
+                                        </li>
+                                                <!--
                                                     <div class="top-book clearfix">
                                                         <div class="imgbox fl">
                                                             <a href="http://www.hybooks.cn/447815zsbljxjh/" target="_blank">
@@ -1008,7 +968,7 @@
                                                     </li>
                                                 
 
-                                            
+
                                                 
                                                     <li>
                                                         <span>[一条黄金鱼]</span>
@@ -1047,26 +1007,31 @@
                                                         <a href="http://www.hybooks.cn/447727xnwzgmh/" target="_blank">许你万丈光芒好</a>
                                                     </li>
                                                 
-
+-->
                                                                                     </ul>
                                     </div>
                                 </div>
-                                                            <div class="cate-cell">
-                                    <div class="top-title-two clearfix">
-                                        <div class="title fl">
-                                            古代言情
-                                        </div>
-                                        <div class="more fr">
-                                            <a class="more-link" href=" gudaiyanqing" target="_blank">更多</a>
-                                        </div>
+                            <div class="cate-cell" th:each="i25:${womanChannel.get(2)}">
+                                <div class="top-title-two clearfix">
+                                    <div class="title fl">
+                                        <nobr th:text="${i25.tname}"></nobr>
                                     </div>
-                                    <div class="h20-blank"></div>
-                                    <div class="lists">
+                                    <div class="more fr">
+                                        <a class="more-link" href=" langmanqingchun" target="_blank">更多</a>
+                                    </div>
+                                </div>
+                                <div class="h20-blank"></div>
+                                <div class="lists">
 
 
-                                        <ul>
-                                            
-                                                
+                                    <ul th:each="i26:${womanChannelM.subList(8,12)}">
+
+                                        <li>
+                                            <span>[<nobr th:text="${i26.writer.wname}"></nobr>]</span>
+                                            <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=${i26.meid},messageid=${i26.meid},writerid=${i26.writer.wid},typeid=${i26.type.tid})}" target="_blank"><nobr th:text="${i26.mename}"></nobr></a>
+                                        </li>
+                                            <!--
+
                                                     <div class="top-book clearfix">
                                                         <div class="imgbox fl">
                                                             <a href="http://www.hybooks.cn/337151utx/" target="_blank">
@@ -1078,7 +1043,7 @@
                                                         </h2>
                                                         <p></p>
                                                     </div>
-                                                
+
 
                                             
                                                 
@@ -1088,7 +1053,7 @@
                                                     </li>
                                                 
 
-                                            
+
                                                 
                                                     <li>
                                                         <span>[默默旭]</span>
@@ -1127,25 +1092,30 @@
                                                         <a href="http://www.hybooks.cn/45567uox/" target="_blank">阴阳蝴蝶命</a>
                                                     </li>
                                                 
-
+-->
                                                                                     </ul>
                                     </div>
                                 </div>
-                                                            <div class="cate-cell">
-                                    <div class="top-title-two clearfix">
-                                        <div class="title fl">
-                                            仙侠奇缘
-                                        </div>
-                                        <div class="more fr">
-                                            <a class="more-link" href=" xianxiaqiyuan" target="_blank">更多</a>
-                                        </div>
+                            <div class="cate-cell" th:each="i27:${womanChannel.get(1)}">
+                                <div class="top-title-two clearfix">
+                                    <div class="title fl">
+                                        <nobr th:text="${i27.tname}"></nobr>
                                     </div>
-                                    <div class="h20-blank"></div>
-                                    <div class="lists">
+                                    <div class="more fr">
+                                        <a class="more-link" href=" langmanqingchun" target="_blank">更多</a>
+                                    </div>
+                                </div>
+                                <div class="h20-blank"></div>
+                                <div class="lists">
 
 
-                                        <ul>
-                                            
+                                    <ul th:each="i28:${womanChannelM.subList(12,16)}">
+
+                                        <li>
+                                            <span>[<nobr th:text="${i28.writer.wname}"></nobr>]</span>
+                                            <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=${i28.meid},messageid=${i28.meid},writerid=${i28.writer.wid},typeid=${i28.type.tid})}" target="_blank"><nobr th:text="${i28.mename}"></nobr></a>
+                                        </li>
+                                            <!--
                                                 
                                                     <div class="top-book clearfix">
                                                         <div class="imgbox fl">
@@ -1158,7 +1128,7 @@
                                                         </h2>
                                                         <p></p>
                                                     </div>
-                                                
+
 
                                             
                                                 
@@ -1206,8 +1176,8 @@
                                                         <span>[大灰郎兄]</span>
                                                         <a href="http://www.hybooks.cn/15443rvm/" target="_blank">江灵儿杀</a>
                                                     </li>
-                                                
 
+-->
                                                                                     </ul>
                                     </div>
                                 </div>
@@ -1251,13 +1221,13 @@
                                         </span>
 
                                         <span class="bookname">
-                                            <a href="detial.html" target="_blank">
+                                            <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=${s.message.meid},messageid=${s.message.meid},writerid=${s.message.writer.wid},typeid=${s.message.type.tid})}" target="_blank">
                                                 <div th:text="${s.message.mename}"></div>
                                             </a>
                                         </span>
 
                                         <span class="chap">
-                                            <a href="#" target="_blank">
+                                            <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryEndSectionByMessageid(messageid=${s.message.meid})}" target="_blank">
                                                 <div th:text="${s.sname}"></div >
                                             </a>
                                         </span>

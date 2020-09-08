@@ -38,7 +38,7 @@ public interface MessageQDao extends Mapper<Message> {
 
     //小说检索页面(小说类型，小说状态，小说点击量)
     @Select("<script> select * from message <where>" +
-            "<if test=\"mestate != null and mestate != ''\"> mestate = #{mestate}'</if>" +
+            "<if test=\"mestate != null and mestate != ''\"> mestate = #{mestate}</if>" +
             "<if test=\"typeid != null and typeid != ''\"> and typeid = #{typeid}</if>" +
             "<if test=\"clickRate1 != null and clickRate1 != 0\"> and meid in (select dynamic.messageid from (select messageid,count(*) as count from dynamic group by messageid) dynamic where count between #{clickRate1} and #{clickRate2})</if>" +
             "</where></script>")
@@ -81,7 +81,70 @@ public interface MessageQDao extends Mapper<Message> {
     })
     public List<Message> queryMessageCountByWriter(Integer writerid);
 
+    //小说检索页面(符合条件的小说数量)
+    @Select("<script> select *,count(*) as count from message <where>" +
+            "<if test=\"mestate != null and mestate != ''\"> mestate = #{mestate}</if>" +
+            "<if test=\"typeid != null and typeid != ''\"> and typeid = #{typeid}</if>" +
+            "<if test=\"clickRate1 != null and clickRate1 != 0\"> and meid in (select dynamic.messageid from (select messageid,count(*) as count from dynamic group by messageid) dynamic where count between #{clickRate1} and #{clickRate2})</if>" +
+            "</where></script>")
+    @Results({
+            @Result(property = "type", column = "typeid", one = @One(select = "com.aaa.dao.TypeDao.getTypeByTid")),
+            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid")),
+            @Result(property = "dynamic", column = "did", one = @One(select = "com.aaa.dao.DynamicDao.getDynamicByDid"))
+    })
+    public List<Message> queryModeCount(Integer typeid, Integer mestate, Integer clickRate1, Integer clickRate2);
 
+    //小说检索页面(小说总数量)
+    @Select("select *,count(*) as count from message")
+    @Results({
+            @Result(property = "type", column = "typeid", one = @One(select = "com.aaa.dao.TypeDao.getTypeByTid")),
+            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid")),
+            @Result(property = "dynamic", column = "did", one = @One(select = "com.aaa.dao.DynamicDao.getDynamicByDid"))
+    })
+    public List<Message> queryModeNumber();
 
+    //小说检索页面(小说类型)
+    @Select("select * from message group by typeid")
+    @Results({
+            @Result(property = "type", column = "typeid", one = @One(select = "com.aaa.dao.TypeDao.getTypeByTid")),
+            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid")),
+            @Result(property = "dynamic", column = "did", one = @One(select = "com.aaa.dao.DynamicDao.getDynamicByDid"))
+    })
+    public List<Message> queryModeType();
 
+    //男频小说
+    @Select("select * from message where typeid in (select tid from type where tid in(select tid from type where channel = 0))")
+    @Results({
+            @Result(property = "type", column = "typeid", one = @One(select = "com.aaa.dao.TypeDao.getTypeByTid")),
+            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid")),
+            @Result(property = "dynamic", column = "did", one = @One(select = "com.aaa.dao.DynamicDao.getDynamicByDid"))
+    })
+    public List<Message> queryManMessByType();
+
+    //女频小说
+    @Select("select * from message where typeid in (select tid from type where tid in(select tid from type where channel = 1))")
+    @Results({
+            @Result(property = "type", column = "typeid", one = @One(select = "com.aaa.dao.TypeDao.getTypeByTid")),
+            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid")),
+            @Result(property = "dynamic", column = "did", one = @One(select = "com.aaa.dao.DynamicDao.getDynamicByDid"))
+    })
+    public List<Message> queryWomanMessByType();
+
+    //男频强力推荐小说
+    @Select("select * from message where typeid in (select tid from type where tid=1 and channel = 0) order by meid desc limit 0,1")
+    @Results({
+            @Result(property = "type", column = "typeid", one = @One(select = "com.aaa.dao.TypeDao.getTypeByTid")),
+            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid")),
+            @Result(property = "dynamic", column = "did", one = @One(select = "com.aaa.dao.DynamicDao.getDynamicByDid"))
+    })
+    public List<Message> queryMessByMan();
+
+    //女频强力推荐小说
+    @Select("select * from message where typeid in (select tid from type where tid=14 and channel = 1) order by meid desc limit 0,1")
+    @Results({
+            @Result(property = "type", column = "typeid", one = @One(select = "com.aaa.dao.TypeDao.getTypeByTid")),
+            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid")),
+            @Result(property = "dynamic", column = "did", one = @One(select = "com.aaa.dao.DynamicDao.getDynamicByDid"))
+    })
+    public List<Message> queryMessByWoman();
 }

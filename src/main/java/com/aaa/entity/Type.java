@@ -31,4 +31,53 @@ public class Type implements Serializable {
 	@Column
 	private Integer channel;
 
+	private Message message;
+
+	public Type() {
+	}
+
+	public Type(Integer tid, String tname, Integer channel, Message message) {
+		this.tid = tid;
+		this.tname = tname;
+		this.channel = channel;
+		this.message = message;
+	}
+
+	public Type(String tname, Integer channel, Message message) {
+		this.tname = tname;
+		this.channel = channel;
+		this.message = message;
+	}
+
+	public Integer getTid() {
+		return tid;
+	}
+
+	public void setTid(Integer tid) {
+		this.tid = tid;
+	}
+
+	public String getTname() {
+		return tname;
+	}
+
+	public void setTname(String tname) {
+		this.tname = tname;
+	}
+
+	public Integer getChannel() {
+		return channel;
+	}
+
+	public void setChannel(Integer channel) {
+		this.channel = channel;
+	}
+
+	public Message getMessage() {
+		return message;
+	}
+
+	public void setMessage(Message message) {
+		this.message = message;
+	}
 }

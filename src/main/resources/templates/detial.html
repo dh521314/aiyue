@@ -223,15 +223,46 @@
                                             <div class="book-dec Jbook-dec">
                                                 <p th:text="${d.synopsis}"></p>
                                             </div>
+                                            <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+                                            <script>
+                                                function diyizhang() {
+                                                    var messageid = document.getElementById("meid").innerText;
+                                                    window.location = "MessageQ/queryOneSectionByMessageid?messageid="+messageid;
+                                                }
+                                                function addBookrack(obj) {
+                                                    var reader = JSON.parse(sessionStorage.getItem("reader"));
+                                                    var readerid = reader.rid;
+                                                    var messageid = document.getElementById("meid").innerText;
+                                                    $.post("Bookrack/addBookRack?readerid="+readerid+"&messageid="+messageid).then(data=>{
+                                                        if (data == 1){
+                                                            obj.innerHTML = "已在书架";
+                                                        }else{
+                                                            obj.innerHTML = "加入书架"
+                                                        }
+                                                    })
+                                                }
+                                            </script>
                                             <div class="btn-group">
-                                                                                                    <a class="btn read-btn" style="margin-right: 30px" target="_blank" onclick="_hmt.push(['_trackEvent', 'btn_read', 'click', '三寸人间'])" href="yuedu.html">
+                                                                                                    <a class="btn read-btn" style="margin-right: 30px" target="_blank" onclick="diyizhang()">
                                                         免费阅读
                                                     </a>
-                                                                                                <div class="btn store-btn Jaddshelf">
-                                                    加入书架
+                                                                                                <div class="btn store-btn ">
+                                                    <span id="str" onclick="addBookrack(this)">加入书架</span>
                                                 </div>
 
+                                                <script>
+                                                        var reader = JSON.parse(sessionStorage.getItem("reader"));
+                                                        var readerid = reader.rid;
+                                                        var messageid = document.getElementById("meid").innerText;
+                                                        $.post("Bookrack/ifAddBookrack?readerid="+readerid+"&messageid="+messageid).then(data=>{
+                                                            if(data != null && data != ''){
+                                                                document.getElementById("str").innerHTML = "已在书架";
+                                                            }else{
+                                                                document.getElementById("str").innerHTML = "加入书架";
+                                                            }
+                                                        })
 
+                                                </script>
 
 
 
@@ -247,7 +278,7 @@
                                     <div class="book-new-chapter" th:each="d4:${newSection}">
                                         <h4>最新章节</h4>
                                                                                     <div class="tit">
-                                                <a href="http://www.hybooks.cn/447671scrj/345376352.html" target="_blank"><div th:text="${d4.sname}"></div></a>
+                                                <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryEndSectionByMessageid(messageid=${d4.message.meid})}" target="_blank"><div th:text="${d4.sname}"></div></a>
                                             </div>
                                             <div class="con"></div>
                                             <div class="time">

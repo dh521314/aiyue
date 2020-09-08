@@ -31,7 +31,7 @@ public interface SectionDao extends Mapper<Section> {
     public Integer addSection(String sname, Integer messageid, String content, Integer number, Date updatetiem);
 
     //查询最近更新的小说（按时间倒序）
-    @Select("select * from section where sid in (select max(sid) from section group by messageid)")
+    @Select("select * from section where sid in (select max(sid) from section group by messageid) limit 25")
     @Results({
             @Result(property = "message", column = "messageid", one = @One(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
             @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
@@ -87,7 +87,7 @@ public interface SectionDao extends Mapper<Section> {
     public List<Section> queryNewSectionByMessage(Integer messageid);
 
     //小说简介页面之最新章节阅读（直接跳到最后一章）
-    @Select("select *,max(sid) from section where messageid=#{messageid}")
+    @Select("select * from section where sid in (select max(sid) from section group by messageid) and messageid = #{messageid}")
     @Results({
             @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
             @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))

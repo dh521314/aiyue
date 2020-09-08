@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -30,5 +31,12 @@ public class DynamicController {
         List<Dynamic> dynamics = dynamicService.queryDynamicByReaderid(reader.getRid());
         model.addAttribute("dynamics",dynamics);
         return "zuijinyuedu";
+    }
+
+    //记录阅读记录
+    @RequestMapping("/addDynamic")
+    @ResponseBody
+    public Integer addDynamic(Integer readerid,Integer messageid){
+        return dynamicService.addDynamic(readerid,messageid);
     }
 }

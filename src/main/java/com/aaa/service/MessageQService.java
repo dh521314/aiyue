@@ -4,10 +4,9 @@ import com.aaa.dao.BookrackDao;
 import com.aaa.dao.DynamicDao;
 import com.aaa.dao.MessageQDao;
 import com.aaa.dao.SectionDao;
-import com.aaa.entity.Bookrack;
-import com.aaa.entity.Dynamic;
-import com.aaa.entity.Message;
-import com.aaa.entity.Section;
+import com.aaa.entity.*;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -99,8 +98,15 @@ public class MessageQService {
         return sectionDao.queryNextSection(sid,messageid);
     }
 
-    public List<Message> queryMode(Integer typeid, Integer mestate, Integer clickRate1, Integer clickRate2){
-        return messageQDao.queryMode(typeid,mestate,clickRate1,clickRate2);
+    public PageInfo<Message> queryMode(Integer pageNum, Integer pageSize,Integer typeid, Integer mestate, Integer clickRate1, Integer clickRate2){
+        if(pageNum != null && pageSize != null){
+            PageHelper.startPage(pageNum,pageSize);
+        }else{
+            PageHelper.startPage(1,20);
+        }
+        List<Message> rs = messageQDao.queryMode(typeid,mestate,clickRate1,clickRate2);
+        PageInfo<Message> p = new PageInfo<Message>(rs);
+        return p;
     }
 
     public List<Message> queryWriterByMessage(Integer meid){
@@ -117,5 +123,33 @@ public class MessageQService {
 
     public List<Bookrack> queryFansByMessage(Integer messageid){
         return bookrackDao.queryFansByMessage(messageid);
+    }
+
+    public List<Message> queryModeCount(Integer typeid, Integer mestate, Integer clickRate1, Integer clickRate2){
+        return messageQDao.queryModeCount(typeid,mestate,clickRate1,clickRate2);
+    }
+
+    public List<Message> queryModeNumber(){
+        return messageQDao.queryModeNumber();
+    }
+
+    public List<Message> queryModeType(){
+        return messageQDao.queryModeType();
+    }
+
+    public List<Message> queryManMessByType(){
+        return messageQDao.queryManMessByType();
+    }
+
+    public List<Message> queryWomanMessByType(){
+        return messageQDao.queryWomanMessByType();
+    }
+
+    public List<Message> queryMessByMan(){
+        return messageQDao.queryMessByMan();
+    }
+
+    public List<Message> queryMessByWoman(){
+        return messageQDao.queryMessByWoman();
     }
 }

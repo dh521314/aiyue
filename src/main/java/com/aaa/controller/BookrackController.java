@@ -37,4 +37,19 @@ public class BookrackController {
         bookrackService.del(list);
         return 1;
     }
+
+    //加入书架
+    @RequestMapping("/addBookRack")
+    @ResponseBody
+    public Integer addBookRack(Integer readerid,Integer messageid){
+        return bookrackService.addBookRack(readerid,messageid);
+    }
+
+    //判断读者将小说是否加入书架
+    @RequestMapping("/ifAddBookrack")
+    public String ifAddBookrack(Integer readerid,Integer messageid,Model model){
+        List<Bookrack> ifAdd = bookrackService.ifAddBookrack(readerid,messageid);
+        model.addAttribute("ifAdd",ifAdd);
+        return "detial";
+    }
 }

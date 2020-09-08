@@ -24,4 +24,14 @@ public interface BookrackDao extends Mapper<Bookrack> {
             @Result(property = "reader", column = "readerid", many = @Many(select = "com.aaa.dao.ReaderDao.getReaderByRid"))
     })
     public List<Bookrack> queryFansByMessage(Integer messageid);
+
+    //加入书架
+    @Insert("insert into bookrack(readerid,messageid) values(#{readerid},#{messageid})")
+    public Integer addBookRack(Integer readerid,Integer messageid);
+
+    //判断读者将小说是否加入书架
+    @Select("select * from bookrack where readerid=#{readerid} and messageid=#{messageid}")
+    public List<Bookrack> ifAddBookrack(Integer readerid,Integer messageid);
+
+
 }

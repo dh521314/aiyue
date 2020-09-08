@@ -48,4 +48,8 @@ public interface DynamicDao extends Mapper<Dynamic> {
             @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
     })
     public List<Dynamic> queryReadNumberByMessage(Integer messageid);
+
+    //记录用户阅读记录
+    @Insert("insert into dynamic(readerid,messageid) values(#{readerid},#{messageid})")
+    public Integer addDynamic(Integer readerid,Integer messageid);
 }

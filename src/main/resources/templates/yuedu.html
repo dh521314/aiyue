@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns:th="http://wwww.thymeleaf.org">
 <head>
+    <base href="http://localhost:8088/aiyue/">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="一世独尊-正文 第一千七百五十二章  天穹剑意，大成！">
-    <meta name="description" content="    第一千七百五十二章    九莲圣图中，林云站在圣仙池上，身后接近一万七千丈龙脉遮天蔽日。    “我的天穹剑意已经达到小成临界点，只要度过这次龙劫，应该就可以大大成之境了。”    天穹剑意一共四个境界，初成、小成、大成、巅峰圆满。    初成到小成还好，剑意威力提升没有那么明显，小成到大成就是跨越式的暴涨。    至于最后的巅峰圆满，将会何等恐怖，林云现在还无法想象。">
+    <meta name="description" content="    第一千七百五十二章
+
+    九莲圣图中，林云站在圣仙池上，身后接近一万七千丈龙脉遮天蔽日。
+
+    “我的天穹剑意已经达到小成临界点，只要度过这次龙劫，应该就可以大大成之境了。”
+
+    天穹剑意一共四个境界，初成、小成、大成、巅峰圆满。
+
+    初成到小成还好，剑意威力提升没有那么明显，小成到大成就是跨越式的暴涨。
+
+    至于最后的巅峰圆满，将会何等恐怖，林云现在还无法想象。">
 
     <!--<link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.hybooks.cn/447705ysdz/345376356.html">-->
 
@@ -110,7 +121,7 @@
                 </div>
             </form>
             <div class="menu clearfix">
-                <a class href="http://www.hybooks.cn/">首页</a>
+                <a class href="http://localhost:8088/aiyue/MessageQ/queryIndex">首页</a>
                 <div class="cate tabA" style="padding-bottom: 15px">
                     <a href="##">分类<em class="icon"></em></a>
                     <div class="tabA-float cate-cell">
@@ -158,16 +169,16 @@
     });
 </script>        </div>
     </div>
-</div>    <!-- 大包 -->
-    <div class="readerPageWrap">
+</div >    <!-- 大包 -->
+    <div class="readerPageWrap" th:each="y:${Section}" >
         <div class="h20-blank"></div>
         <!-- 主内容 -->
         <div class="rw_3" id="reader_warp">
             <!-- 阅读页start -->
             <!--1.	目录页头部推荐位end -->
-            <div class="reader_crumb">当前位置： <a href="http://www.hybooks.cn/"> 首页 </a>>
-                                    <a href="http://www.hybooks.cn/qihuan/">奇幻 </a> >
-                                <a href="http://www.hybooks.cn/447705ysdz/">一世独尊</a> > 正文 第一千七百五十二章  天穹剑意，大成！
+            <div class="reader_crumb">当前位置： <a href="http://localhost:8088/aiyue/MessageQ/queryIndex"> 首页 </a>>
+                                    <a href="http://www.hybooks.cn/qihuan/"><nobr th:text="${y.message.type.tname}"></nobr> </a> >
+                                <a href="http://www.hybooks.cn/447705ysdz/"><nobr th:text="${y.message.mename}"></nobr></a> > <nobr th:text="${y.sname}"></nobr>
             </div>
 
             <!-- 包裹层 -->
@@ -179,25 +190,39 @@
                         <div class="iconbox">
                             <em class></em>
                         </div>
-                        <div class="title_txtbox">正文 第一千七百五十二章  天穹剑意，大成！</div>
+                        <div class="title_txtbox" th:text="${y.sname}"></div>
                     </div>
                     <div class="bookinfo">
-                        作者：<span>月如火</span>&nbsp;&nbsp;|&nbsp;&nbsp;字数：<span>4445</span>&nbsp;&nbsp;|&nbsp;&nbsp;更新时间：<span>2020-08-20 20:25:50</span>
+                        作者：<span th:text="${y.message.writer.wname}"></span>&nbsp;&nbsp;|&nbsp;&nbsp;字数：<span th:text="${y.number}"></span>&nbsp;&nbsp;|&nbsp;&nbsp;更新时间：<span th:text="${#dates.format(y.updatetiem, 'yyyy-MM-dd')}"></span>
                     </div>
 
                     <div class="reader_line"></div>
-                    <div class="content" itemprop="acticleBody">
-                                                        第一千七百五十二章<br><br>    九莲圣图中，林云站在圣仙池上，身后接近一万七千丈龙脉遮天蔽日。<br><br>    “我的天穹剑意已经达到小成临界点，只要度过这次龙劫，应该就可以大大成之境了。”<br><br>    天穹剑意一共四个境界，初成、小成、大成、巅峰圆满。<br><br>    初成到小成还好，剑意威力提升没有那么明显，小成到大成就是跨越式的暴涨。<br><br>    至于最后的巅峰圆满，将会何等恐怖，林云现在还无法想象。<br><br>    “除此之外，我的苍龙圣体和青龙圣体，始终无法真正融合，这次也是一个契机。”<br><br>    林云暗自想道，只要没有死在龙劫下，肉身肯定会得到脱胎换骨的变化。<br><br>    没有什么风水宝地，比的不上龙劫淬体。<br><br>    只不过大多数人，对龙劫闻之色变，别说在龙劫中主动淬体，连想都不太敢想。<br><br>    唰！<br><br>    林云从储物手镯中，将万鳞甲取了出来，他目光闪烁，最终还是无奈的摇了摇头。<br><br>    若是能够穿上这万鳞甲，渡过龙劫的几率无疑会大增。<br><br>    但藏在里面的圣者烙印，却是个大麻烦。<br><br>    圣印不除，万鳞甲还无法为他所用。<br><br>    “可惜了。”<br><br>    林云将万鳞甲重新收好，目光沉了下去，而后快速走出了九莲圣图。<br><br>    唰！<br><br>    林云出现在海面上，画卷飘在半空，他伸手将画卷招了过来。<br><br>    九莲圣图卷成轴，晃晃悠悠飘到了他的手中。<br><br>    几乎是瞬间，林云就感应到莫大压力落在自己身上，抬头看去天上的云层似乎在一点点变低。<br><br>    和他预料的一样，什么都没做雷劫都快落下来了。<br><br>    主要是他现在的修为，已经完全溢出龙脉八重了，肉身无法龙脉完全容纳便会引起天道注意。<br><br>    除了晋升龙脉九重以外，没有其他任何方法。<br><br>    龟神变可以藏匿气息，却无法规避天际。<br><br>    “来吧。”<br><br>    林云咬了咬牙，眼中闪过抹罕见的凶狠之色，脚掌在海面上狠狠一踏。<br><br>    他的身体呼啸而去，直接朝天上正在聚集的雷云冲了过去，身后龙脉不断浮现出来。<br><br>    等八道龙脉尽数绽放时，天穹间聚集的劫云连绵千里，宛若山岳般重重叠叠。<br><br>    察觉到林云身上的锋芒，天道之威，怒不可揭。<br><br>    轰！<br><br>    九道雷光朝他落下，那些雷光很可怕，在将要靠近之时化为人形雷电。<br><br>    它们仿佛有生命般，浑身全都由雷电熔浆组成，凹陷的眼眶中点燃着璀璨雷火。<br><br>    轰隆隆！<br><br>    天穹间爆响不止，像是一声声怒吼在林云耳边回荡，仿佛在说大胆二字。<br><br>    林云俊秀的脸上，闪过抹狠戾之色，葬花出鞘朝着九道雷电人影杀了过去。<br><br>    锵锵锵！<br><br>    在交手之中，天上不断有雷霆落在他身上，他浑身上下都噼里啪啦的电光。<br><br>    紫金龙纹不断碎裂，又从青龙神骨中不断新生。<br><br>    “滚！”<br><br>    林云一剑挥出，弧形剑光一闪而逝，将九道雷霆人影全部斩碎。<br><br>    “青龙破天！”<br><br>    林云又是声冷喝，十万道青玉龙纹，在他身上一点点浮现，两种龙纹在肉身上不断游走。<br><br>    砰！<br><br>    而后猛的炸开，将身上电光尽数炸碎，当电光碎裂的刹那，两种龙纹离体而出。<br><br>    然后青玉龙纹凝聚成一条青龙，紫金龙纹则凝聚成一条苍龙，双龙在他身后，龙头垂落在左右肩膀上方。<br><br>    林云双眼微眯，盯着劫云核心漩涡，那里是一片雷浆组成的恐怖空间。<br><br>    他的目标就是杀过去，而后以雷浆淬体，凭借剑意对抗雷劫。<br><br>    不然一味的被动挨揍必死无疑，剑客就得有自己的风骨，即便是龙劫，也得有一剑斩碎的气魄。<br><br>    半个时辰后，林云浑身浴血，总算杀到了那片雷浆处，那是龙劫雷池。<br><br>    雷浆中蕴含的龙劫之力，是外界的十多倍都不止。<br><br>    他站在云端，思索片刻后直接跳了进去。<br><br>    当跳进去的刹那，林云痛的面色扭曲，忍不住发出一声怒吼。<br><br>    雷浆像是火山熔岩般可怕，滚烫炙热不停跳跃，不一会这些雷霆熔浆就将他整个人淹没。<br><br>    林云困在其中盘膝闭目，以自身天穹剑意，抵抗着雷霆熔浆中的劫威。<br><br>    有金色光芒在他眉心处绽放，彰显着剑客的锋芒。<br><br>    这一次的龙劫，比武道茶话会上的龙劫要恐怖许多倍。<br><br>    整整持续了七天时间，海面上大浪滔天，时不时有闪电垂落下来，异象显得极为骇人。<br><br>    七天之后，这片海域苍穹发出一声爆响，惊天剑吟震碎漫天雷云。<br><br>    砰！<br><br>    当劫云被震碎的刹那，黑暗消散，阳光普照，大海之上晴空万里。<br><br>    苍穹之间，林云端坐在白云之上，他缓缓张开双目，吐出一口浊气。<br><br>    “总算扛过来了。”<br><br>    和以往不同，林云眼中疲惫之色尽显，苍白的脸色仿佛失血过多。<br><br>    与天搏命，多少有些劫后余生。<br><br>    林云深吸口气重新闭上双目，青龙破天诀缓缓运转，身上青光涌动，青玉神纹内外游走。<br><br>    唰唰唰！<br><br>    他身上颓靡的气息很快消散，一种昂扬的生机，像是大雪过后漫天碧绿的草原，草原之上万物凶猛生长。<br><br>    轰！<br><br>    等到林云再次睁开眼时，身后九道龙脉虚影同时绽放，每道龙脉长达两万丈。<br><br>    两万丈接近七万米的距离，这是极为惊人的声势，横旦虚空，遮天蔽日。<br><br>    比不上他师兄剑惊天，可在同辈之中，也是冠绝群雄。<br><br>    “真不知道师兄的十万龙脉是如何撑住的……”<br><br>    林云轻声自语，眼中露出敬佩之色。<br><br>    他现在才两万丈龙脉，就感觉肉身难以支撑，渡劫之时九死一生。<br><br>    师兄却是画地为牢，硬生生憋了十八年。<br><br>    若是无法迈出天王那一步，眼下恐怕早已陨落，天玄子的手段确实高明，杀人不见血。<br><br>    剑惊天的路林云没法走，他等不了十年，他的肉身也无法支撑十万丈的龙脉。<br><br>    对方肯定有自己的机遇，很大可能与剑宗失去的两座山峰有关。<br><br>    林云有自己的路走，极境，龙脉十重！<br><br>    他在天池山庄的化龙池中，达到了十星之境，早已为龙脉十重极境打下了基础。<br><br>    “出鞘！”<br><br>    林云心有所动，右手屈指一弹，葬花夺鞘而出。一股磅礴剑意在他身上暴起，直冲云霄，下一刻天幕被层层撕裂，三十六层天被整整撕裂了十三层。<br><br>    天穹剑意，大成！<br><br>    眨眼间，葬花就飞出了十里，依旧去势不止。他的脑海中出现一幅幅快速闪过的画面，葬花所见之物就是他所见之物。<br><br>    轰！<br><br>    整整飞出七十里之后，葬花才停了下来，林云眼中露出抹喜色，与之前相比御剑的范围增加七倍。<br><br>    “师兄，御剑万里怎么做到的？”<br><br>    林云他在苍玄魔域吹箫杀人时，师兄从浮云剑宗一剑横飞万里，帮他将尾巴清理干净。<br><br>    师兄的剑意，只怕远超我想象。<br><br>    也就是说十八年时间，剑惊天修为没涨，可剑意却一直都在进步。<br><br>    六品？七品？<br><br>    林云喃喃自语，应该不是七品，掌教沐玄空也才七品剑意。<br><br>    当然，也许没有林云想的这么夸张。<br><br>    他的葬花剑离了七十里后，依旧还能勉强朝前飞，只是速度和威力都会弱上许多。<br><br>    有被人打断夺走的危险！<br><br>    或者师兄为了救我，强行冒险延长了自己御剑的距离？<br><br>    “回来！”<br><br>    林云伸手一招，葬花呼啸而至，不一会就重新飞回来，在他周身灵动如龙般游走。<br><br>    真的是修为越往上走，越感觉师兄的强大，难怪他被称作最有可能让剑宗成为圣地的妖孽。<br><br>    嗖！<br><br>    林云忽然伸手猛的一抓，葬花闪烁跳跃，让他抓了一空。<br><br>    “你也变得调皮了吗？”<br><br>    林云不由哑然一笑，葬花像是能听懂他的话，微微颤动，浑身绽放着青色微光，似乎在也在笑着回应。<br><br>    嗖嗖嗖！<br><br>    林云连抓三次，终于将它握在手心，嗡，当五指紧紧握住剑柄的一瞬。<br><br>    他浑身颤动，四肢百骸都充斥着恐怖的剑意，长发无风自动，眉心中有可怕的锋芒迸发出去。<br><br>    仿佛一个眼神，就能将虚空轻易撕裂。<br><br>    嗡！<br><br>    剑身颤动，剑柄与剑身交接之处的金之星曜，宛若深渊般凝练着锋利的锐气。<br><br>    “如果我现在催动葬花星曜，应<br><br>    该有把握刺破一些星曜圣甲。”<br><br>    林云轻声说道，明显感受剑意大成后，葬花锋芒强大了许多。<br><br>    催动星曜，所消耗的龙元，也不至于如以前那般惊人。<br><br>    之前催动一下星曜，至少得四分之一的的龙元，怕是连星曜百分之一的威力都难以释放出来。<br><br>    林云将剑意探入星曜内部，轰，他视野豁然开朗，发现了一片无比恢弘的星空。<br><br>    在这片漆黑的星空中，有一团星曜无比刺目，等到剑意冲进星曜之中。<br><br>    有七颗星辰璀璨无比，金之星曜，就是由这七颗星辰组成。<br><br>    而每颗的表面都烙印着数万道交织的圣纹，难怪之前催动时无比费力，密密麻麻的圣纹想要全部点亮，光是看一眼就头皮发麻。<br><br>    “我之前应该是一颗星辰都无法点亮……”<br><br>    林云心中自语，恍惚间有些明白，为何圣境强者都会惦记星曜圣器。<br><br>    星曜圣器的强大，在生玄境手中完全无法发挥出来，至于龙脉之境也就只能勉强一用。<br><br>    林云打量这片空间，发现周围区域有一些模糊的星曜，黯淡无光一片灰色。<br><br>    他的剑意想要冲过去，几次尝试都无功而返。<br><br>    那些应该是葬花剑隐藏的星曜，若让葬花继续晋升，这些星曜迟早会一一点亮。<br><br>    如果全部点亮的话，不知道会是怎样的画面。<br><br>    有些太遥远了。<br><br>    林云估摸着，他现在也就点亮金之星曜一颗星辰的水平，若是全力而为的话，不计代价的话兴许能点亮。<br><br>    想到便做！<br><br>    林云剑意退了出来，紫府处龙元翻滚，下一刻这诸多龙元在剑意的加持下，源源不断注入金之星曜中。<br><br>    其中一颗星辰的表面，诸多圣纹不断绽放，大约消耗十分之一的龙元后。<br><br>    葬花表面就绽放出刺眼的剑光，金之星曜闪烁出夺魄般的寒芒，已经达到了他之前催动的星曜极限。<br><br>    但林云自己知道，那颗星辰才刚刚点亮一小半，还远远未到极限。<br><br>    当他耗尽三分之一龙元后，星辰点亮，葬花爆发出无法想象的恐怖力量，在他手中不断挣扎。<br><br>    嗡嗡嗡！<br><br>    葬花颤鸣，一股股恐怖的力量蔓延出去，咔咔咔，空气不断炸开。<br><br>    剑中蕴含的力量已经到了，不得不宣泄的地步。<br><br>    林云深吸口气，一剑挥了出去。<br><br>    砰！<br><br>    连绵数百里的云层被一剑荡开，远远看去，就像是苍穹被斩成了两半。<br><br>    轰！<br><br>    剑光劈落下去，海水像是地面般被撕成两半，而后则裂缝不断扩大，达到了三丈之巨。<br><br>    而裂缝的深度更是惊人无比，达到了数千米的恐怖境地，隐约之间能看到海沟的存在。<br><br>    林云人在苍穹，瞧见此幕有些不寒而栗。<br><br>    轰隆隆！<br><br>    下一刻，被分开的海水重新并拢，海面剧烈的震荡传递到虚空之上。<br><br>    身处云层中的林云，身体都不由自主的颤抖起来，这片空间都被震撼了。<br><br>    等到海面上的裂缝彻底弥合，砰的一声，海面之上出现一个个巨大无比的漩涡，而后漩涡中暴起数千丈的水柱。<br><br>    这一幕无比震撼，林云自己都惊住了，才仅仅一颗星辰罢了。<br><br>    金之星曜的威力，只被他释放出了七分之一，若是全部催动，葬花剑的威力该有多恐怖。<br><br>    林云看向手中葬花剑，第一次有产生了陌生感。<br><br>    葬花剑光芒黯淡了许多，可却颇为得意，林云与它心意相通，能够感受到它身上那股傲骨。<br><br>    以及小孩子般的炫耀，林云微微一笑，以往太委屈它了。<br><br>    “好啦，切不开万鳞甲是我不行，不是你不行。”<br><br>    林云知道它在想什么，轻声安慰道。<br><br>    葬花这才满意，林云笑了笑，收剑归鞘，双臂一展从天而落，如落叶般飘在了海面上。<br><br>    海面上剑意余威仍在，依旧让人惊心动魄。<br><br>    休息片刻，林云并未着急动身离去。<br><br>    龙劫雷池七日淬体，青龙圣体和苍龙圣体虽然并未融合成功，可却给林云带来了许多感悟。<br><br>    他可以动用至尊龙印，让两大圣体短暂融合，在至尊龙印存在的这段时间，可以摸到苍龙神体的门槛。<br><br>    弊端很多，也只是一种取巧的手段。<br><br>    可短时间内，确实会让自身实力爆发增长，绝对值得一试。<br><br>    【这章算昨天的，晚上还有一章。】<br><br><br><br>
+                    <div class="content" itemprop="acticleBody" th:text="${y.content}">
 
                 
 
                                                                         </div>
                     <!-- 操作区 -->
+                    <div hidden id="sid" th:text="${y.sid}"></div>
+                    <div hidden id="messageid" th:text="${y.message.meid}"></div>
+                    <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+                    <script>
+                        function shangyizhang() {
+                            var sid = document.getElementById("sid").innerText;
+                            var messageid = document.getElementById("messageid").innerText;
+                            window.location="MessageQ/queryLastSection?sid="+sid+"&messageid="+messageid
+                        }
+                        function xiayizhang() {
+                            var sid = document.getElementById("sid").innerText;
+                            var messageid = document.getElementById("messageid").innerText;
+                            window.location="MessageQ/queryNextSection?sid="+sid+"&messageid="+messageid;
+                        }
+                    </script>
                     <div class="chap_btnbox">
                         <a href="http://www.hybooks.cn/447705ysdz/catalog/">目录</a>
-                                                    <a title="正文 第一千七百五十一章  实力大进！" class="prechapter" href="http://www.hybooks.cn/447705ysdz/345376123.html">上一章</a>
+                                                    <a title="正文 第一千七百五十一章  实力大进！" class="prechapter" onclick="shangyizhang()">上一章</a>
                         
-                                                    <a href="javascript:;" onclick="layer.msg('没有下一章了');" class="nextchapter">
+                                                    <a onclick="layer.msg('没有下一章了');xiayizhang()" class="nextchapter">
                                 下一章
                             </a>
                                             </div>
@@ -208,16 +233,42 @@
             </div>
             <!-- /包裹层 -->
         </div>
-
+        <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+        <script>
+            function addBookrack(obj) {
+                var reader = JSON.parse(sessionStorage.getItem("reader"));
+                var readerid = reader.rid;
+                var messageid = document.getElementById("messageid").innerText;
+                $.post("Bookrack/addBookRack?readerid="+readerid+"&messageid="+messageid).then(data=>{
+                    if (data == 1){
+                        obj.innerHTML = "已加入";
+                    }else{
+                        obj.innerHTML = "书架"
+                    }
+                })
+            }
+        </script>
         <!-- 控制手柄 -->
         <div class="gamepad" style="display: block">
             <!-- 阅读手柄，左侧目录弹出列表层 -->
             <div id="uiGPReaderAct">
                 <div class="gpd_btnpal">
                     <a class="chapterList" href="http://www.hybooks.cn/447705ysdz/catalog/" target="_blank">目录</a>
-                    <a class="bookShelf Jaddshelf" href="javascript:void(0)">书架</a>
+                    <a class="bookShelf"><span id="str" onclick="addBookrack(this)">加入书架</span></a>
                     <a class="readerSetting" href="javascript:void(0)">设置</a>
                 </div>
+                <script>
+                    var reader = JSON.parse(sessionStorage.getItem("reader"));
+                    var readerid = reader.rid;
+                    var messageid = document.getElementById("messageid").innerText;
+                    $.post("Bookrack/ifAddBookrack?readerid="+readerid+"&messageid="+messageid).then(data=>{
+                        if(data != null && data != ''){
+                            document.getElementById("str").innerHTML = "已加入";
+                        }else{
+                            document.getElementById("str").innerHTML = "书架";
+                        }
+                    })
+                </script>
                 <div class="gpd_flt_chapterlist"></div>
                 <!-- 控制面板 -->
                 <div class="gpd_flt_setting" data-pname="readerSetting">
