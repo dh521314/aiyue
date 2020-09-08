@@ -220,18 +220,20 @@
         }
 
     </style>
-    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/layer.js"></script>
+    <link href="css/layer.css" rel="stylesheet">
     <script type="text/javascript">
 
         function login(){
+            layer.msg("请稍等...");
             var phone = document.getElementsByName("phone")[0].value;
             var model = document.getElementsByName("model")[0].value;
 
             if(phone.length != 11){
-                alert("手机号不正确");
+                layer.msg("手机号不正确");
             }
             if(model.length != 6){
-                alert("验证码不正确");
+                layer.msg("验证码不正确");
             }
             $.post("Reader/register?rphone="+phone+"&model="+model).then(data=>{
                 console.log(data);
@@ -248,14 +250,14 @@
         function verifytel(){
             var tel = document.getElementsByName("phone")[0];
             if(tel.value.length == 0){
-                alert("请输入手机号");
+                layer.msg("请输入手机号");
                 tel.focus();
                 return;
             }
             if(tel.value.length == 11){
                 $.post("Reader/findByPhone",{"rphone":tel.value},function(data){
                     if(data != ""){
-                        alert("该手机号已注册");
+                        layer.msg("该手机号已注册");
                     }else{
                         $.ajax({
                             type:"post",
@@ -267,16 +269,16 @@
                                 if(m.Message == "OK"){
                                     a();
                                 }else{
-                                    alert("发送失败\n请确认手机号是否正常可用");
+                                    layer.msg("发送失败\n请确认手机号是否正常可用");
                                 }
                             },error:function(){
-                                alert("发送失败");
+                                layer.msg("发送失败");
                             }
                         });
                     }
                 });
             }else{
-                alert("手机号不正确");
+                layer.msg("手机号不正确");
             }
         }
         //验证码倒计时
