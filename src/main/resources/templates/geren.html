@@ -155,10 +155,10 @@
             </section>
 </header>    <!-- 列表和分类 -->
         <nav class="account-nav">
-            <i><a href="http://www.hybooks.cn/user/bookshelf/readfootprint/"  class="nav-arr nav-ah">我的书架</a></i>
-            <i><a href="http://www.hybooks.cn/user/account/subscribe/">最近阅读</a></i>
+            <i><a href="http://localhost:8088/aiyue/Bookrack/queryBookrackByReaderid"  class="nav-arr nav-ah">我的书架</a></i>
+            <i><a href="http://localhost:8088/aiyue/Comments/queryCommentsByReader">最近阅读</a></i>
 
-            <i><a href="http://www.hybooks.cn/user/dynamic/replies/">我的动态</a></i>
+            <i><a href="http://localhost:8088/aiyue/Dynamic/queryDynamicByReaderid">我的评论</a></i>
 
         </nav>
         <section class="nav-content order-wrpper">
@@ -180,26 +180,26 @@
 
                 <ul>
 
-                    <li class="shelf_bookLine listType_a">
-                        <div class="bookSelecter">
-                            <input type="checkbox" name="ck_shelf" style="margin-left: 10px" autocomplete="off" class="chapter-checkbox" data-bookid="447671" value="447671">
-                        </div>
-                        <div class="catName"><a href="http://www.hybooks.cn/xianxia/" target="_blank">[仙侠]</a></div>
-                        <div class="bookName"><a href="http://www.hybooks.cn/447671scrj/" target="_blank" class="txtove">三寸人间</a>
-                            <em class=""></em></div>
-                        <div class="author"><a href="http://www.hybooks.cn/447671scrj/" target="_blank" class="txtove">耳根</a></div>
-                        <div class="upDateChapter" title=""><a href="http://www.hybooks.cn/447671scrj/345377845.html" target="_blank" class="txtove">
-                            正文卷 第1094章 天命之书使用手册！
-                        </a></div>
-                        <div class="bookMark">
-                            <a>无</a>
-                        </div>
-                        <div class="bookStatus">连载中</div>
-                        <div class="updateTime">2020-09-06</div>
-                        <div class="ctrlBook">
-                            <a href="http://www.hybooks.cn/447671scrj/345377845.html" target="_blank" class="redbtn">开始阅读</a>
-                        </div>
-                    </li>
+<!--                    <li class="shelf_bookLine listType_a">-->
+<!--                        <div class="bookSelecter">-->
+<!--                            <input type="checkbox" name="ck_shelf" style="margin-left: 10px" autocomplete="off" class="chapter-checkbox" data-bookid="447671" value="447671">-->
+<!--                        </div>-->
+<!--                        <div class="catName"><a href="http://www.hybooks.cn/xianxia/" target="_blank">[仙侠]</a></div>-->
+<!--                        <div class="bookName"><a href="http://www.hybooks.cn/447671scrj/" target="_blank" class="txtove">三寸人间</a>-->
+<!--                            <em class=""></em></div>-->
+<!--                        <div class="author"><a href="http://www.hybooks.cn/447671scrj/" target="_blank" class="txtove">耳根</a></div>-->
+<!--                        <div class="upDateChapter" title=""><a href="http://www.hybooks.cn/447671scrj/345377845.html" target="_blank" class="txtove">-->
+<!--                            正文卷 第1094章 天命之书使用手册！-->
+<!--                        </a></div>-->
+<!--                        <div class="bookMark">-->
+<!--                            <a>无</a>-->
+<!--                        </div>-->
+<!--                        <div class="bookStatus">连载中</div>-->
+<!--                        <div class="updateTime">2020-09-06</div>-->
+<!--                        <div class="ctrlBook">-->
+<!--                            <a href="http://www.hybooks.cn/447671scrj/345377845.html" target="_blank" class="redbtn">开始阅读</a>-->
+<!--                        </div>-->
+<!--                    </li>-->
 
                     <li class="shelf_bookLine listType_a" th:each="item:${bookracks}">
                         <div class="bookSelecter">
