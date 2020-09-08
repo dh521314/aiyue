@@ -73,5 +73,17 @@ public class ReaderController {
 
     }
 
+    @RequestMapping("getUser")
+    @ResponseBody
+    public Reader getReader(HttpServletRequest request){
+        Reader reader = (Reader) request.getSession().getAttribute("reader");
+        return reader;
+    }
+
+    @RequestMapping("loginOut")
+    public String loginOut(HttpServletRequest request){
+        request.getSession().setAttribute("reader",null);
+        return "redirect:../MessageQ/queryIndex";
+    }
 
 }
