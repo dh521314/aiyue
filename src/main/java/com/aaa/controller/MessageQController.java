@@ -7,6 +7,7 @@ import com.aaa.service.SectionService;
 import com.aaa.service.TypeService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.data.relational.core.sql.In;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -128,16 +129,34 @@ public class MessageQController {
     @RequestMapping("/querySectionAscByMessage")
     public String querySectionAscByMessage(Integer messageid,Model model){
         List<Section> sectionAsc = messageQService.querySectionAscByMessage(messageid);
-        model.addAttribute("sectionAsc",sectionAsc);
-        return "ceshi";
+        model.addAttribute("sectionAscOrDesc",sectionAsc);
+        //小说页面之小说信息，作家头像，作家名，作家语录
+        List<Message> queryWriter = messageQService.queryWriterByMessage(messageid);
+        model.addAttribute("queryWriter",queryWriter);
+        //小说目录页面之已更新章节数量
+        List<Section> queryCount = messageQService.queryCountByMessage(messageid);
+        model.addAttribute("queryCount",queryCount);
+        //小说简介页面之小说字数
+        List<Section> queryNumber = messageQService.queryNumberByMessage(messageid);
+        model.addAttribute("queryNumber",queryNumber);
+        return "zhangjieAsc";
     }
 
     //小说页面之全部目录（倒序）
     @RequestMapping("/querySectionDescByMessage")
     public String querySectionDescByMessage(Integer messageid,Model model){
         List<Section> sectionDesc = messageQService.querySectionDescByMessage(messageid);
-        model.addAttribute("sectionDesc",sectionDesc);
-        return "ceshi";
+        model.addAttribute("sectionAscOrDesc",sectionDesc);
+        //小说页面之小说信息，作家头像，作家名，作家语录
+        List<Message> queryWriter = messageQService.queryWriterByMessage(messageid);
+        model.addAttribute("queryWriter",queryWriter);
+        //小说目录页面之已更新章节数量
+        List<Section> queryCount = messageQService.queryCountByMessage(messageid);
+        model.addAttribute("queryCount",queryCount);
+        //小说简介页面之小说字数
+        List<Section> queryNumber = messageQService.queryNumberByMessage(messageid);
+        model.addAttribute("queryNumber",queryNumber);
+        return "zhangjieDesc";
     }
 
     //小说页面之最新章节
@@ -176,8 +195,8 @@ public class MessageQController {
     @RequestMapping("/querySectionBySidAndMessageid")
     public String querySectionBySidAndMessageid(Integer sid,Integer messageid,Model model){
         List<Section> BySidAndMessageid = messageQService.querySectionBySidAndMessageid(sid,messageid);
-        model.addAttribute("BySidAndMessageid",BySidAndMessageid);
-        return "ceshi";
+        model.addAttribute("Section",BySidAndMessageid);
+        return "yuedu";
     }
 
     //小说阅读页面之上一章
