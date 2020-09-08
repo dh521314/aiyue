@@ -19,8 +19,10 @@ public class ReaderController {
 
     @RequestMapping("login")
     @ResponseBody
-    public Reader login(String rname, String rpwd){
-        return readerService.login(rname,rpwd);
+    public Reader login(String rname, String rpwd,HttpSession session){
+        Reader reader = readerService.login(rname, rpwd);
+        session.setAttribute("reader",reader);
+        return reader;
     }
 
     @RequestMapping("phonelogin")
@@ -32,7 +34,9 @@ public class ReaderController {
 
         if(attribute.equals(model)){
             //把指定用户返回
-            return readerService.findByPhone(rphone);
+            Reader reader = readerService.findByPhone(rphone);
+            session.setAttribute("reader",reader);
+            return reader;
         }else{
             //验证码错误
             return null;
@@ -55,10 +59,11 @@ public class ReaderController {
         System.out.println(model);
         if(attribute.equals(model)){
             //注册
-            Reader reader = new Reader(null,"","",rphone,"");
+            Reader reader = new Reader(null,null,null,rphone,"");
             Integer str = (int)(Math.random()*999);
             reader.setRname("abc"+str);
             readerService.register(reader);
+            session.setAttribute("reader",reader);
 
             return reader;
         }else{

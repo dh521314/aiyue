@@ -12,7 +12,14 @@ public class BookrackService {
     @Resource
     BookrackDao bookrackDao;
 
-    public List<Bookrack> queryBookrackByReaderid(Integer readerid){
+    public List<Bookrack> queryBookrackByReaderid(Integer readerid) {
         return bookrackDao.queryBookrackByReaderid(readerid);
+    }
+
+    public Integer del(Integer[] list) {
+        for (int i = 0; i < list.length; i++) {
+            bookrackDao.deleteByPrimaryKey(list[i]);
+        }
+        return 1;
     }
 }

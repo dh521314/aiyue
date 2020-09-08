@@ -15,7 +15,7 @@ public interface WriterDao extends Mapper<Writer> {
     Writer QueryByWriterName(String wname);
 
     @Update("update writer set wphoto=#{wphoto},ana=#{ana} where wid=#{wid}")
-    Integer editWriter(Integer wid,String wphoto,String ana);
+    Integer editWriter(Integer wid, String wphoto, String ana);
 
     @Select("SELECT * FROM writer WHERE wid = #{wid}")
     @Results({

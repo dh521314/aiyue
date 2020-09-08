@@ -1,6 +1,7 @@
 package com.aaa.controller;
 
 import com.aaa.entity.Comments;
+import com.aaa.entity.Reader;
 import com.aaa.service.CommentsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +9,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @CrossOrigin
@@ -28,10 +31,12 @@ public class CommentsController {
 
     //根据读者查询小说，（我的评论）
     @RequestMapping("/queryCommentsByReader")
-    public String queryCommentsByReader(Integer readerid,Model model){
-        List<Comments> byReader = commentsService.queryCommentsByReader(readerid);
+    public String queryCommentsByReader(HttpServletRequest request, Model model){
+        HttpSession session = request.getSession();
+        Reader reader = (Reader) session.getAttribute("reader");
+        List<Comments> byReader = commentsService.queryCommentsByReader(reader.getRid());
         model.addAttribute("byReader",byReader);
-        return "ceshi";
+        return "pinglun";
     }
 
     //小说评论区（根据小说查询评论）

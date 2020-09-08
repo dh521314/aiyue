@@ -31,7 +31,7 @@ public interface MessageDao extends Mapper<Message> {
             "<if test=\"typeid != null and typeid != ''\">and typeid = ${typeid}</if>" +
             "</where></script>")
     @ResultMap("messagesMap")
-    public List<Message> findBySearch(String mename,Integer typeid);
+    public List<Message> findBySearch(String mename, Integer typeid);
 
     @Select("select mename from message where meid")
     public String findMenameByMeid(Integer meid);

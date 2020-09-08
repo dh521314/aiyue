@@ -55,7 +55,7 @@ public interface MessageQDao extends Mapper<Message> {
             @Result(property = "type", column = "typeid", one = @One(select = "com.aaa.dao.TypeDao.getTypeByTid")),
             @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
     })
-    public List<Message> queryMessageByWriter(Integer writerid,Integer meid);
+    public List<Message> queryMessageByWriter(Integer writerid, Integer meid);
 
     //相关小说精彩推荐（显示本作品外同类型小说的最近六个作品）
     @Select("select * from message where typeid = #{typeid} and meid not in(#{meid}) order by meid desc limit 0,6")
@@ -63,7 +63,7 @@ public interface MessageQDao extends Mapper<Message> {
             @Result(property = "type", column = "typeid", one = @One(select = "com.aaa.dao.TypeDao.getTypeByTid")),
             @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
     })
-    public List<Message> queryMessageByType(Integer typeid,Integer meid);
+    public List<Message> queryMessageByType(Integer typeid, Integer meid);
 
     //小说页面作家信息之头像，作家名，作家语录
     @Select("select * from message where meid=#{meid}")

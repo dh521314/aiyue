@@ -100,7 +100,7 @@ public interface SectionDao extends Mapper<Section> {
             @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
             @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
     })
-    public List<Section> querySectionBySidAndMessageid(Integer sid,Integer messageid);
+    public List<Section> querySectionBySidAndMessageid(Integer sid, Integer messageid);
 
     //小说阅读页面之上一章
     @Select("select * from section where sid = (select sid from section where sid < #{sid}  order by sid desc limit 1) and messageid=#{messageid}")
@@ -108,7 +108,7 @@ public interface SectionDao extends Mapper<Section> {
             @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
             @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
     })
-    public List<Section> queryLastSection(Integer sid,Integer messageid);
+    public List<Section> queryLastSection(Integer sid, Integer messageid);
 
     //小说阅读页面之下一章
     @Select("select * from section where sid = (select sid from section where sid > #{sid} order by sid asc limit 1) and messageid=#{messageid}")
@@ -116,7 +116,7 @@ public interface SectionDao extends Mapper<Section> {
             @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
             @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
     })
-    public List<Section> queryNextSection(Integer sid,Integer messageid);
+    public List<Section> queryNextSection(Integer sid, Integer messageid);
 
     //小说简介页面之小说字数
     @Select("select *,SUM(number) as sum from section where messageid = #{messageid}")

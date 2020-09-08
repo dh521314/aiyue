@@ -16,7 +16,7 @@ public interface ReaderDao extends Mapper<Reader> {
     public Reader getReaderByRid(Integer rid);
 
     @Select("select * from reader where rname = #{param1} and rpwd = #{param2}")
-    public Reader login(String rname,String rpwd);
+    public Reader login(String rname, String rpwd);
 
     @Select("select * from reader where rphone = #{param1}")
     public Reader findByPhone(String rphone);
