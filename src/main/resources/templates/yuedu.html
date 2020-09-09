@@ -210,12 +210,20 @@
                         function shangyizhang() {
                             var sid = document.getElementById("sid").innerText;
                             var messageid = document.getElementById("messageid").innerText;
-                            window.location="MessageQ/queryLastSection?sid="+sid+"&messageid="+messageid
+                            window.location="Dynamic/addDynamicLastSection?sid="+sid+"&messageid="+messageid
                         }
                         function xiayizhang() {
                             var sid = document.getElementById("sid").innerText;
                             var messageid = document.getElementById("messageid").innerText;
-                            window.location="MessageQ/queryNextSection?sid="+sid+"&messageid="+messageid;
+                            window.location="Dynamic/addDynamicNextSection?sid="+sid+"&messageid="+messageid;
+                        }
+                        window.onload = function () {
+                            var reader = JSON.parse(sessionStorage.getItem("reader"));
+                            var readerid = reader.rid;
+                            var messageid = document.getElementById("messageid").innerText;
+                            $.post("Bookrack/ifAddBookrack?readerid="+readerid+"&messageid="+messageid).then(data=>{
+
+                            })
                         }
                     </script>
                     <div class="chap_btnbox">

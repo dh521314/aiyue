@@ -36,17 +36,15 @@ public class Type implements Serializable {
 	public Type() {
 	}
 
-	public Type(Integer tid, String tname, Integer channel, Message message) {
+	public Type(Integer tid, String tname, Integer channel) {
 		this.tid = tid;
 		this.tname = tname;
 		this.channel = channel;
-		this.message = message;
 	}
 
-	public Type(String tname, Integer channel, Message message) {
+	public Type(String tname, Integer channel) {
 		this.tname = tname;
 		this.channel = channel;
-		this.message = message;
 	}
 
 	public Integer getTid() {
@@ -73,11 +71,4 @@ public class Type implements Serializable {
 		this.channel = channel;
 	}
 
-	public Message getMessage() {
-		return message;
-	}
-
-	public void setMessage(Message message) {
-		this.message = message;
-	}
 }

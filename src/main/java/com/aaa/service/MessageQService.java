@@ -75,6 +75,10 @@ public class MessageQService {
         return sectionDao.queryNewSectionByMessage(messageid);
     }
 
+    public List<Section> bookrackNewSectionByMessage(String messageid){
+        return sectionDao.bookrackNewSectionByMessage(messageid);
+    }
+
     public List<Section> queryCountByMessage(Integer messageid){
         return sectionDao.queryCountByMessage(messageid);
     }

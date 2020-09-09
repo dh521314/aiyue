@@ -1,7 +1,6 @@
 package com.aaa.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 import lombok.Data;
 
 import javax.persistence.Column;
@@ -30,24 +29,31 @@ public class Dynamic implements Serializable {
 	@Column
 	private Integer messageid;
 
+	@Column
+	private Integer sectionid;
+
 	private Reader reader;
 
 	private Message message;
 
 	private Integer count;
 
+	private Section section;
+
 	public Dynamic() {
 	}
 
-	public Dynamic(Integer did, Integer readerid, Integer messageid) {
+	public Dynamic(Integer did, Integer readerid, Integer messageid,Integer sectionid) {
 		this.did = did;
 		this.readerid = readerid;
 		this.messageid = messageid;
+		this.sectionid = sectionid;
 	}
 
-	public Dynamic(Integer writerid, Integer messageid) {
+	public Dynamic(Integer writerid, Integer messageid,Integer sectionid) {
 		this.readerid = writerid;
 		this.messageid = messageid;
+		this.sectionid = sectionid;
 	}
 
 	public Integer getDid() {
@@ -98,15 +104,34 @@ public class Dynamic implements Serializable {
 		this.count = count;
 	}
 
+	public Integer getSectionid() {
+		return sectionid;
+	}
+
+	public void setSectionid(Integer sectionid) {
+		this.sectionid = sectionid;
+	}
+
+
+	public Section getSection() {
+		return section;
+	}
+
+	public void setSection(Section section) {
+		this.section = section;
+	}
+
 	@Override
 	public String toString() {
 		return "Dynamic{" +
 				"did=" + did +
 				", readerid=" + readerid +
 				", messageid=" + messageid +
+				", sectionid=" + sectionid +
 				", reader=" + reader +
 				", message=" + message +
 				", count=" + count +
+				", section=" + section +
 				'}';
 	}
 }

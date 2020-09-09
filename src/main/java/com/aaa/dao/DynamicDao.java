@@ -14,23 +14,36 @@ public interface DynamicDao extends Mapper<Dynamic> {
     @Select("SELECT * FROM dynamic WHERE did = #{did}")
     @Results({
             @Result(property = "readerid",  column = "readerid"),
-            @Result(property = "messageid",  column = "messageid")
+            @Result(property = "messageid",  column = "messageid"),
+            @Result(property = "sectionid",  column = "sectionid")
     })
     public Type getDynamicByDid(Integer did);
 
     //根据读者查询小说（我的阅读记录）
-    @Select("select * from dynamic where readerid=#{readerid} group by messageid")
+    @Select("select * from dynamic where did in (select max(did) from dynamic group by messageid) and readerid = #{readerid}")
     @Results({
             @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
-            @Result(property = "reader", column = "readerid", many = @Many(select = "com.aaa.dao.ReaderDao.getReaderByRid"))
+            @Result(property = "reader", column = "readerid", many = @Many(select = "com.aaa.dao.ReaderDao.getReaderByRid")),
+            @Result(property = "section", column = "sectionid", many = @Many(select = "com.aaa.dao.SectionDao.getSectionBySid"))
     })
     public List<Dynamic> queryDynamicByReaderid(Integer readerid);
+
+    //根据读者查询小说id（我的阅读记录）
+    @Select("select messageid from dynamic where readerid=#{readerid} group by messageid")
+    @Results({
+            @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
+            @Result(property = "reader", column = "readerid", many = @Many(select = "com.aaa.dao.ReaderDao.getReaderByRid")),
+            @Result(property = "section", column = "sectionid", many = @Many(select = "com.aaa.dao.SectionDao.getSectionBySid"))
+    })
+    public List<Integer> queryMessageByReaderid(Integer readerid);
+
 
     //根据点击量查询小说，是一个范围如点击量在1000，2000
     @Select("select dynamic.messageid,dynamic.count from (select messageid,count(*) as count from dynamic group by messageid) dynamic where count between #{clickRate1} and #{clickRate2}")
     @Results({
             @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
-            @Result(property = "reader", column = "readerid", many = @Many(select = "com.aaa.dao.ReaderDao.getReaderByRid"))
+            @Result(property = "reader", column = "readerid", many = @Many(select = "com.aaa.dao.ReaderDao.getReaderByRid")),
+            @Result(property = "section", column = "sectionid", many = @Many(select = "com.aaa.dao.SectionDao.getSectionBySid"))
     })
     public List<Dynamic> queryMessageByDynamic(Integer clickRate1, Integer clickRate2);
 
@@ -45,11 +58,12 @@ public interface DynamicDao extends Mapper<Dynamic> {
     @Select("select *,count(messageid) as count from dynamic where messageid = #{messageid}")
     @Results({
             @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
-            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
+            @Result(property = "reader", column = "readerid", many = @Many(select = "com.aaa.dao.ReaderDao.getReaderByRid")),
+            @Result(property = "section", column = "sectionid", many = @Many(select = "com.aaa.dao.SectionDao.getSectionBySid"))
     })
     public List<Dynamic> queryReadNumberByMessage(Integer messageid);
 
     //记录用户阅读记录
-    @Insert("insert into dynamic(readerid,messageid) values(#{readerid},#{messageid})")
-    public Integer addDynamic(Integer readerid,Integer messageid);
+    @Insert("insert into dynamic(readerid,messageid,sectionid) values(#{readerid},#{messageid},#{sectionid})")
+    public Integer addDynamic(Integer readerid,Integer messageid,Integer sectionid);
 }

@@ -153,6 +153,24 @@
 
         </nav>        <section class="nav-content order-wrpper">
             <div class="h25-blank"></div>
+        <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+        <script>
+            function addBookrack(obj) {
+                var reader = JSON.parse(sessionStorage.getItem("reader"));
+                var readerid = reader.rid;
+                var messageid = document.getElementById("meid").innerText;
+                $.post("Bookrack/addBookRack?readerid="+readerid+"&messageid="+messageid).then(data=>{
+                    if (data == 1){
+                        obj.innerHTML = "已在书架";
+                    }else{
+                        obj.innerHTML = "加入书架"
+                    }
+                })
+            }
+        </script>
+        <div th:each="item1:${dynamics}">
+            <div hidden id="meid" th:text="${item1.message.meid}"></div>
+        </div>
             <!-- 列表箱体 -->
             <div class="home_innerwrap" style="padding-top: 25px;display: block">
                 <div class="h25-blank"></div>
@@ -165,28 +183,23 @@
                     <div class="updateTime">更新时间</div>
                     <div class="ctrlBook">操作</div>
                 </div>
-
                 <ul>
                     <li class="shelf_bookLine listType_a" th:each="item:${dynamics}">
                         <div class="catName"><a href="http://www.hybooks.cn/xianxia/" target="_blank" th:text="${item.message.type.tname}"></a></div>
-                        <div class="bookName"><a href="http://www.hybooks.cn/447671scrj/" target="_blank" class="txtove" th:text="${item.message.mename}"></a>
+                        <div class="bookName"><a th:href="@{http://localhost:8088/aiyue/MessageQ/queryDetail(meid=${item.message.meid},messageid=${item.message.meid},writerid=${item.message.writer.wid},typeid=${item.message.type.tid})}" target="_blank" class="txtove" th:text="${item.message.mename}"></a>
                             <em class=""></em></div>
                         <div class="author"><a href="http://www.hybooks.cn/447671scrj/" target="_blank" class="txtove" th:text="${item.message.writer.wname}"></a></div>
-                        <div class="upDateChapter" title=""><a href="http://www.hybooks.cn/447671scrj/345377845.html" target="_blank" class="txtove">
-                            正文卷 第1094章 天命之书使用手册！test
+                        <div class="upDateChapter" title=""><a th:href="@{http://localhost:8088/aiyue/Dynamic/addDynamicSection(messageid=${item.message.meid},sid=${item.section.sid},sectionid=${item.section.sid})}" target="_blank" class="txtove">
+                            <span th:text="${item.section.sname}"></span>
                         </a></div>
-                        <div class="bookMark">
-                            <a>无</a>
-                        </div>
                         <div class="bookStatus" th:text="${item.message.mestate==1?'完结':'连载中'}"></div>
-                        <div class="updateTime">2020-09-06 test</div>
+                        <div class="updateTime" th:text="${#dates.format(item.section.updatetiem,'YYYY-MM-dd')}"></div>
                         <div class="ctrlBook">
-                            <span class="redbtn Jaddshelf" onclick="addShelf(this ,447671)">  加入书架</span>
+                            <span class="redbtn" id="str" onclick="addBookrack(this)">  加入书架</span>
                         </div>
                     </li>
                     
                 </ul>
-
             </div>
 
             <div class="home_innerbot pagenumber clear">
@@ -196,7 +209,19 @@
             </div>
         </section>
     </div>
+    <script>
+        var reader = JSON.parse(sessionStorage.getItem("reader"));
+        var readerid = reader.rid;
+        var messageid = document.getElementById("meid").innerText;
+        $.post("Bookrack/ifAddBookrack?readerid="+readerid+"&messageid="+messageid).then(data=>{
+            if(data != null && data != ''){
+                document.getElementById("str").innerHTML = "已在书架";
+            }else{
+                document.getElementById("str").innerHTML = "加入书架";
+            }
+        })
 
+    </script>
 
     <div class="h40-blank"></div>
 <div class="footer footer-wrapper">

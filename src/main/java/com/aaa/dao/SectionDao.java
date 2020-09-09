@@ -18,12 +18,11 @@ public interface SectionDao extends Mapper<Section> {
     @Results({
             @Result(property = "sname",  column = "sname")
     })
-    public Type getSectionBySid(Integer sid);
+    public Section getSectionBySid(Integer sid);
 
     @Select("select * from section")
     @Results({
             @Result(property = "message", column = "messageid", one = @One(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
-            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
     })
     public List<Section> sectionList();
 
@@ -33,40 +32,35 @@ public interface SectionDao extends Mapper<Section> {
     //查询最近更新的小说（按时间倒序）
     @Select("select * from section where sid in (select max(sid) from section group by messageid) limit 25")
     @Results({
-            @Result(property = "message", column = "messageid", one = @One(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
-            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
+            @Result(property = "message", column = "messageid", one = @One(select = "com.aaa.dao.MessageDao.getMessageByMeid"))
     })
     public List<Section> queryUpdateTime();
 
     //小说小说简介页面作家信息之累计字数
     @Select("select *,SUM(number) as sum from section where messageid in (select meid from message where writerid = #{writer})")
     @Results({
-            @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
-            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
+            @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid"))
     })
     public List<Section> queryNumberByWriter(Integer writerid);
 
     //小说目录页面之全部目录(正序)
     @Select("select * from section where messageid = #{messageid} order by sid asc")
     @Results({
-            @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
-            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
+            @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid"))
     })
     public List<Section> querySectionAscByMessage(Integer messageid);
 
     //小说目录页面之全部目录(倒序)
     @Select("select * from section where messageid = #{messageid} order by sid desc")
     @Results({
-            @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
-            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
+            @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid"))
     })
     public List<Section> querySectionDescByMessage(Integer messageid);
 
     //小说目录页面之已更新章节数量
     @Select("select *,count(*) as count from section where messageid=#{messageid}")
     @Results({
-            @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
-            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
+            @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid"))
     })
     public List<Section> queryCountByMessage(Integer messageid);
 
@@ -74,7 +68,6 @@ public interface SectionDao extends Mapper<Section> {
     @Select("select *,min(sid) from section where messageid=#{messageid}")
     @Results({
             @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
-            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
     })
     public List<Section> queryOneSectionByMessageid(Integer messageid);
 
@@ -82,9 +75,15 @@ public interface SectionDao extends Mapper<Section> {
     @Select("select * from section where sid in (select max(sid) from section group by messageid) and messageid = #{messageid}")
     @Results({
             @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
-            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
     })
     public List<Section> queryNewSectionByMessage(Integer messageid);
+
+    //我的书架页面之最新章节
+    @Select("select * from section where sid in (select max(sid) from section group by messageid) and messageid in (${list})")
+    @Results({
+            @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
+    })
+    public List<Section> bookrackNewSectionByMessage(String messageid);
 
     //小说简介页面之最新章节阅读（直接跳到最后一章）
     @Select("select * from section where sid in (select max(sid) from section group by messageid) and messageid = #{messageid}")

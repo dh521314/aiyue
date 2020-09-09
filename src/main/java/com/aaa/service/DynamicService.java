@@ -17,7 +17,11 @@ public class DynamicService {
         return dynamicDao.queryDynamicByReaderid(readerid);
     }
 
-    public Integer addDynamic(Integer readerid,Integer messageid){
-        return dynamicDao.addDynamic(readerid,messageid);
+    public Integer addDynamic(Integer readerid,Integer messageid,Integer sectionid){
+        return dynamicDao.addDynamic(readerid,messageid,sectionid);
+    }
+
+    public List<Integer> queryMessageByReaderid(Integer readerid){
+        return dynamicDao.queryMessageByReaderid(readerid);
     }
 }

@@ -208,7 +208,7 @@
                         <div id="AscOrDesc">
                             <ul class="chapter-list clearfix">
                                 <li class="col-4" th:each="z5:${sectionAscOrDesc}">
-                                    <a th:href="@{http://localhost:8088/aiyue/MessageQ/querySectionBySidAndMessageid(sid=${z5.sid},messageid=${z5.message.meid})}" target="_blank" >
+                                    <a th:href="@{http://localhost:8088/aiyue/Dynamic/addDynamicSection(sid=${z5.sid},messageid=${z5.message.meid})}" target="_blank" >
                                         <div th:text="${z5.sname}"></div>
                                     </a>
                                 </li>

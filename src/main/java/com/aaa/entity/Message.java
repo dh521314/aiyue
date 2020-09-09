@@ -40,8 +40,6 @@ public class Message implements Serializable {
 
 	private Writer writer;
 
-	private Section section;
-
 	private Dynamic dynamic;
 
 	private Integer count;
@@ -162,7 +160,6 @@ public class Message implements Serializable {
 				", mestate=" + mestate +
 				", type=" + type +
 				", writer=" + writer +
-				", section=" + section +
 				", dynamic=" + dynamic +
 				", count=" + count +
 				", clickRate1=" + clickRate1 +

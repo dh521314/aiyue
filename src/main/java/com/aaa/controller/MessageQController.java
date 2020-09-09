@@ -327,6 +327,9 @@ public class MessageQController {
         //小说页面作家信息之累计阅读数
         List<Dynamic> readerNumber = messageQService.queryReadNumberByWriter(writerid);
         model.addAttribute("readerNumber",readerNumber);
+        //第一章节
+        List<Section> oneSection = messageQService.queryOneSectionByMessageid(messageid);
+        model.addAttribute("oneSection",oneSection);
         //小说页面之最新章节
         List<Section> newSection = messageQService.queryNewSectionByMessage(messageid);
         model.addAttribute("newSection",newSection);

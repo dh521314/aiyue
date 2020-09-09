@@ -2,6 +2,7 @@ package com.aaa.service;
 
 import com.aaa.dao.BookrackDao;
 import com.aaa.entity.Bookrack;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -29,5 +30,9 @@ public class BookrackService {
 
     public List<Bookrack> ifAddBookrack(Integer readerid,Integer messageid){
         return bookrackDao.ifAddBookrack(readerid,messageid);
+    }
+
+    public List<Integer> queryMessageByReaderid(Integer readerid){
+        return bookrackDao.queryMessageByReaderid(readerid);
     }
 }

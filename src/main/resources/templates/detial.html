@@ -193,6 +193,9 @@
                     <a href="http://www.hybooks.cn/xianxia/"><nobr th:text="${d.type.tname}"></nobr></a> >
                                  <nobr th:text="${d.mename}"></nobr>
                 </div>
+                <div th:each="dd:${oneSection}">
+                    <div hidden id="sid1" th:text="${dd.sid}">
+                    </div>
                 <div class="book-html-box clearfix book_index">
                     <!-- 书籍详细信息 -->
 
@@ -227,7 +230,8 @@
                                             <script>
                                                 function diyizhang() {
                                                     var messageid = document.getElementById("meid").innerText;
-                                                    window.location = "MessageQ/queryOneSectionByMessageid?messageid="+messageid;
+                                                    var sectionid = document.getElementById("sid1").innerText;
+                                                    window.location = "Dynamic/addDynamicOneSection?messageid="+messageid+"&sectionid="+sectionid;
                                                 }
                                                 function addBookrack(obj) {
                                                     var reader = JSON.parse(sessionStorage.getItem("reader"));
@@ -254,7 +258,7 @@
                                                         var reader = JSON.parse(sessionStorage.getItem("reader"));
                                                         var readerid = reader.rid;
                                                         var messageid = document.getElementById("meid").innerText;
-                                                        $.post("Bookrack/ifAddBookrack?readerid="+readerid+"&messageid="+messageid).then(data=>{
+                                                        $.post("Bookrack/addDynamic?readerid="+readerid+"&messageid="+messageid).then(data=>{
                                                             if(data != null && data != ''){
                                                                 document.getElementById("str").innerHTML = "已在书架";
                                                             }else{
@@ -276,9 +280,10 @@
                                         </div>
                                     </div>
                                     <div class="book-new-chapter" th:each="d4:${newSection}">
+                                        <div hidden id="sid" th:text="${d4.sid}"></div>
                                         <h4>最新章节</h4>
                                                                                     <div class="tit">
-                                                <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryEndSectionByMessageid(messageid=${d4.message.meid})}" target="_blank"><div th:text="${d4.sname}"></div></a>
+                                                <a th:href="@{http://localhost:8088/aiyue/Dynamic/addDynamicEndSection(messageid=${d4.message.meid},sectionid=${d4.sid})}" target="_blank"><div th:text="${d4.sname}"></div></a>
                                             </div>
                                             <div class="con"></div>
                                             <div class="time">

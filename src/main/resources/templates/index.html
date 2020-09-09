@@ -144,15 +144,15 @@
 <script>
     $(document).ready(function () {
         $('.user_login').on('click', function () {
-            // layer.open({
-            //     type: 2,
-            //     title: false,
-            //     area: ['440px', '560px'],
-            //     anim: 1,
-            //     content: ['http://www.hybooks.cn/login.popup.html', 'no'], //iframe的url，no代表不显示滚动条
-            //     end: function () { //此处用于演示
-            //     }
-            // });
+             layer.open({
+                 type: 2,
+                 title: false,
+                 area: ['440px', '560px'],
+                 anim: 1,
+                 content: ['http://www.hybooks.cn/login.popup.html', 'no'], //iframe的url，no代表不显示滚动条
+                 end: function () { //此处用于演示
+                 }
+             });
 
         });
     });
@@ -1227,7 +1227,7 @@
                                         </span>
 
                                         <span class="chap">
-                                            <a th:href="@{http://localhost:8088/aiyue/MessageQ/queryEndSectionByMessageid(messageid=${s.message.meid})}" target="_blank">
+                                            <a th:href="@{http://localhost:8088/aiyue/Dynamic/addDynamicEndSection(messageid=${s.message.meid},sectionid=${s.sid})}" target="_blank">
                                                 <div th:text="${s.sname}"></div >
                                             </a>
                                         </span>
