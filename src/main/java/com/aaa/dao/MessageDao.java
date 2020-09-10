@@ -39,4 +39,19 @@ public interface MessageDao extends Mapper<Message> {
     @Select("select meid from message where mename=#{param1}")
     public Integer findMeidByMename(String mename);
 
+
+    //查询小说 按照名称查找 类型 写作进度
+    @Select("<script> select * from message <where>" +
+            "<if test=\"search != null and search != ''\">mename like '%${search}%'</if>" +
+            "<if test=\"type != null and type != ''\">and typeid = ${type}</if>" +
+            "<if test=\"update != null and update != ''\">and mestate = ${update}</if>" +
+            "</where>" +
+            "</script>")
+    @Results({
+            @Result(property = "type", column = "typeid", one = @One(select = "com.aaa.dao.TypeDao.getTypeByTid")),
+            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
+    })
+    public List<Message> findBySearch1(String search,Integer type,Integer update,Integer order);
+
+
 }

@@ -46,4 +46,23 @@ public class MessageService {
         return pageInfo;
     }
 
+
+    //前台查询 按照小说名称 类型  写作进度查找
+    public PageInfo<Message> findBySearch1(Integer num,Integer size,String search,Integer type,Integer update,Integer order) {
+        if(num == null || num < 0){
+            num = 1;
+        }
+        if(size == null || size < 0){
+            size = 20;
+        }
+
+        PageHelper.startPage(num,size);
+
+        List<Message> bySearch = messageDao.findBySearch1(search, type, update, order);
+
+        PageInfo<Message> pageInfo = new PageInfo<>(bySearch);
+
+        return pageInfo;
+    }
+
 }
