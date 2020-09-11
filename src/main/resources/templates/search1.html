@@ -324,15 +324,15 @@
                         <ul>
                             <li class="prev"><a th:text="${'共'+pageinfo.pages +'页'}"></a></li>
                             <li class="next"><a th:href="${pageinfo.pageNum == 1?'javascript:void(0);':'javascript:query(1)'}">首页</a></li>
-                            <li class="next"><a th:href="${pageinfo.pageNum == 1?'javascript:void(0);':'javascript:query(pageinfo.prePage)'}">上一页</a></li>
+                            <li class="next"><a th:href="${pageinfo.pageNum == 1?'javascript:void(0);':'javascript:query('+pageinfo.prePage+')'}">上一页</a></li>
                             <li th:if="${pageinfo.pages < 5}" th:each="i:${#numbers.sequence(1,pageinfo.pages==0?1:pageinfo.pages)}"  >
-                                <a href="${i == pageinfo.pageNum?'javascript:void(0);':''}" th:id="${i == pageinfo.pageNum?'currentPage':''}" th:text="${i}"></a>
+                                <a th:href="${i == pageinfo.pageNum?'javascript:void(0);':'javascript:query('+i+');'}" th:id="${i == pageinfo.pageNum?'currentPage':''}" th:text="${i}"></a>
                             </li>
                             <li th:if="${pageinfo.pages > 5}" th:each="i:${#numbers.sequence(pageinfo.pageNum-2,pageinfo.pageNum+3)}"  >
-                                <a href="${i == pageinfo.pageNum?'javascript:void(0);':''}" th:id="${i == pageinfo.pageNum?'currentPage':''}" th:text="${i}"></a>
+                                <a th:href="${i == pageinfo.pageNum?'javascript:void(0);':'javascript:query('+i+');'}" th:id="${i == pageinfo.pageNum?'currentPage':''}" th:text="${i}"></a>
                             </li>
-                            <li class="next"><a th:href="${pageinfo.pageNum == pageinfo.pages?'javascript:void(0);':'javascript:query(pageinfo.nextPage)' }">下一页</a></li>
-                            <li class="next"><a th:href="${pageinfo.pageNum == pageinfo.pages?'javascript:void(0);':'javascript:query(pageinfo.pages)' }">尾页</a></li>
+                            <li class="next"><a th:href="${pageinfo.pageNum == pageinfo.pages?'javascript:void(0);':'javascript:query('+pageinfo.nextPage+')' }">下一页</a></li>
+                            <li class="next"><a th:href="${pageinfo.pageNum == pageinfo.pages?'javascript:void(0);':'javascript:query('+pageinfo.pages+')' }">尾页</a></li>
                         </ul>
                     </div>
 
