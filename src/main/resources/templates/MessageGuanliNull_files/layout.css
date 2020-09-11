@@ -1,0 +1,102 @@
+@charset "UTF-8";
+/**
+ * @author yangye
+ * @design wangjiale;
+ */
+/**
+ * @author yangye
+ * @design xurui;
+ */
+/**
+ * @author yangye
+ * @design xurui;
+ */
+/* 居中容器 */
+/*边框*/
+/*下边距 默认mb就是10px*/
+/* 不折行截字 */
+/* 折行截字 */
+/* 嵌套小三角 往上 */
+/* 嵌套小三角 往下 */
+/* 嵌套小三角 往左 */
+/* 实体小三角 */
+/* 过渡动画 默认0.3秒 */
+/* 平面书封hover放大到1.1倍 */
+/* 父容器清浮动 */
+/* 标题下边框线 */
+/* 居中容器 */
+.box-center {
+  width: 1032px;
+  margin-left: auto;
+  margin-right: auto; }
+
+.fl {
+  float: left; }
+
+.fr {
+  float: right; }
+
+.mr0 {
+  margin-right: 0; }
+
+.mr10 {
+  margin-right: 10px; }
+
+.mr30 {
+  margin-right: 30px; }
+
+.mb10 {
+  margin-bottom: 10px; }
+
+.mb20 {
+  margin-bottom: 20px; }
+
+.mb30 {
+  margin-bottom: 30px; }
+
+.mb35 {
+  margin-bottom: 35px; }
+
+.mb40 {
+  margin-bottom: 40px; }
+
+.mb45 {
+  margin-bottom: 45px; }
+
+.mb50 {
+  margin-bottom: 50px; }
+
+.mb60 {
+  margin-bottom: 60px; }
+
+.hidden {
+  display: none; }
+
+.rel {
+  position: relative; }
+
+.abs {
+  position: absolute; }
+
+/* 父容器清浮动 */
+.cf {
+  zoom: 1; }
+  .cf:before, .cf:after {
+    display: table;
+    content: ''; }
+  .cf:after {
+    clear: both; }
+
+/* inline-block 去除元素之间空隙 */
+.dib-wrap {
+  font-size: 0;
+  *word-spacing: -1px; }
+  .dib-wrap li {
+    float: left;  }
+  .dib-wrap a, .dib-wrap span, .dib-wrap li {
+    display: inline-block;
+    vertical-align: middle;
+    letter-spacing: normal;
+    word-spacing: normal; }
+
+/*# sourceMappingURL=layout.css.map */

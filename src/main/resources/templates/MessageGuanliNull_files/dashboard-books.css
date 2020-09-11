@@ -1,0 +1,46 @@
+/**
+ * 如果你项目需要使用原生的CSS变量，
+ * 请写在 ./common/variable.css中
+ * 这里CSS变量会重复引入，且不会保留（通过设置!;）
+ * 这里适合需要兼容IE浏览器的项目
+ * add：shanyerong
+ * add-desc：全局字体大小、字行间距、字重&颜色值
+*/
+/* 申请解禁弹窗 */
+.apply-non-ban {
+    /*margin-top: -10px;*/
+    color: #7a7a7a;
+    color: rgba(21, 26, 48, .7);
+    margin-bottom: -16px;
+}
+.apply-non-ban .write-form-li {
+    margin: 0 0 16px;
+    min-height: 32px;
+}
+.apply-non-ban .write-form-label {
+    padding-top: 0;
+}
+.apply-non-ban .write-info {
+    color: #292929;
+    color: rgba(21, 26, 48, .9);
+    line-height: 32px;
+}
+.apply-non-ban .ui-textarea-x {
+    margin-bottom: 8px;
+}
+.apply-non-ban .write-form-li:first-child {
+    margin-top: 6px;
+}
+.book-relate-more {
+    padding-right: 10px;
+}
+.book-relate-more > .icon-font {
+    color: #7a7a7a;
+    color: rgba(21, 26, 48, .7);
+    font-size: 14px;
+    vertical-align: -1px;
+    margin-left: 4px;
+}
+.book-relate-more:hover > .icon-font {
+    color: #0067e5;
+}

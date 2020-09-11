@@ -1,0 +1,183 @@
+@font-face {
+  font-family: "icomoon";
+  src: url("/portal/public/iconfont/icomoon.eot?version=20200826");
+  /* IE9*/
+  src: url("/portal/public/iconfont/icomoon.eot?#iefix") format("embedded-opentype"), url("/portal/public/iconfont/icomoon.woff?version=20200826") format("woff"), url("/portal/public/iconfont/icomoon.ttf?version=20200826") format("truetype"), url("/portal/public/iconfont/icomoon.svg#iconfont") format("svg");
+  /* iOS 4.1- */ }
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-access_time_24px {
+  content: "\e900"; }
+
+.icon-add_24px {
+  content: "\e901"; }
+
+.icon-add_circle_outline_24px {
+  content: "\e902"; }
+
+.icon-add_photo_alternate_24px {
+  content: "\e903"; }
+
+.icon-arrow_drop_down_24px {
+  content: "\e904"; }
+
+.icon-attach_file_24px {
+  content: "\e905"; }
+
+.icon-autorenew_24px {
+  content: "\e906"; }
+
+.icon-barcode_24px {
+  content: "\e907"; }
+
+.icon-book_24px {
+  content: "\e908"; }
+
+.icon-calendar_today_24px {
+  content: "\e909"; }
+
+.icon-cancel_24px {
+  content: "\e90a"; }
+
+.icon-check_circle_24px {
+  content: "\e90b"; }
+
+.icon-chevron_left_24px {
+  content: "\e90c"; }
+
+.icon-chevron_right_24px {
+  content: "\e90d"; }
+
+.icon-clear_24px {
+  content: "\e90e"; }
+
+.icon-collections_bookmark_24px {
+  content: "\e90f"; }
+
+.icon-delete_outline_24px {
+  content: "\e910"; }
+
+.icon-desktop_windows_24px {
+  content: "\e911"; }
+
+.icon-edit_24px {
+  content: "\e912"; }
+
+.icon-error_outline_24px {
+  content: "\e913"; }
+
+.icon-face_24px {
+  content: "\e914"; }
+
+.icon-format_bold_24px {
+  content: "\e915"; }
+
+.icon-format_headline_24px-copy-2 {
+  content: "\e916"; }
+
+.icon-format_indent_decrease_24px {
+  content: "\e917"; }
+
+.icon-format_indent_increase_24px {
+  content: "\e918"; }
+
+.icon-format_list_bulleted_24px {
+  content: "\e919"; }
+
+.icon-format_quote_24px {
+  content: "\e91a"; }
+
+.icon-help_outline_24px {
+  content: "\e91b"; }
+
+.icon-history_24px {
+  content: "\e91c"; }
+
+.icon-info_24px {
+  content: "\e91d"; }
+
+.icon-insert_chart_24px {
+  content: "\e91e"; }
+
+.icon-live_help_24px {
+  content: "\e91f"; }
+
+.icon-message_24px {
+  content: "\e920"; }
+
+.icon-mic_none_24px {
+  content: "\e921"; }
+
+.icon-mode_comment_24px {
+  content: "\e922"; }
+
+.icon-more_horiz_24px {
+  content: "\e923"; }
+
+.icon-note_add_24px {
+  content: "\e924"; }
+
+.icon-notifications_24px {
+  content: "\e925"; }
+
+.icon-outlines_24px {
+  content: "\e926"; }
+
+.icon-redo_24px {
+  content: "\e927"; }
+
+.icon-send_24px {
+  content: "\e928"; }
+
+.icon-settings_24px {
+  content: "\e929"; }
+
+.icon-share_24px {
+  content: "\e92a"; }
+
+.icon-thumb_up_alt_24px {
+  content: "\e92b"; }
+
+.icon-thumb_up_alt_not_24px {
+  content: "\e92c"; }
+
+.icon-turned_in_24px {
+  content: "\e92d"; }
+
+.icon-turned_in_not_24px {
+  content: "\e92e"; }
+
+.icon-undo_24px {
+  content: "\e92f"; }
+
+.icon-upload_24px {
+  content: "\e930"; }
+
+.icon-vertical_align_top_24px {
+  content: "\e931"; }
+
+.icon-youtube_searched_for_24px-copy {
+  content: "\e932"; }
+
+.icon-youtube_searched_for_24px {
+  content: "\e933"; }
+.icon-vote {
+  content: "\e942"; }
+.icon-vote {
+  content: "\e942"; }
+.icon-money {
+  content: "\e943"; }
+
+/*# sourceMappingURL=font.css.map */
