@@ -245,22 +245,22 @@
                 function getType(t){
                     type = t;
                     console.log(type);
-                    query();
+                    query(1);
                 }
 
                 function getUpdate(u){
                     update = u;
                     console.log(update);
-                    query();
+                    query(1);
                 }
 
                 function getOrder(o){
                     order = o;
                     console.log(order);
-                    query();
+                    query(1);
                 }
 
-                function query(){
+                function query(num){
                     let url = "http://localhost:8088/aiyue/Message/findAll1?"
                     if(search.length == 0)
                         url = url+"search=";
@@ -281,7 +281,8 @@
                         url = url+"&order=";
                     else
                         url = url+"&order="+order;
-                    window.location = url;
+
+                    window.location = url+"&num="+num;
                 }
 
 
@@ -322,16 +323,16 @@
                     <div class="page">
                         <ul>
                             <li class="prev"><a th:text="${'共'+pageinfo.pages +'页'}"></a></li>
-                            <li class="next"><a th:href="${pageinfo.pageNum == 1?'javascript:void(0);':''}">首页</a></li>
-                            <li class="next"><a th:href="${pageinfo.pageNum == 1?'javascript:void(0);':''}">上一页</a></li>
-                            <li th:if="${pageinfo.pages < 5}" th:each="i:${#numbers.sequence(1,pageinfo.pages)}"  >
+                            <li class="next"><a th:href="${pageinfo.pageNum == 1?'javascript:void(0);':'javascript:query(1)'}">首页</a></li>
+                            <li class="next"><a th:href="${pageinfo.pageNum == 1?'javascript:void(0);':'javascript:query(pageinfo.prePage)'}">上一页</a></li>
+                            <li th:if="${pageinfo.pages < 5}" th:each="i:${#numbers.sequence(1,pageinfo.pages==0?1:pageinfo.pages)}"  >
                                 <a href="${i == pageinfo.pageNum?'javascript:void(0);':''}" th:id="${i == pageinfo.pageNum?'currentPage':''}" th:text="${i}"></a>
                             </li>
                             <li th:if="${pageinfo.pages > 5}" th:each="i:${#numbers.sequence(pageinfo.pageNum-2,pageinfo.pageNum+3)}"  >
                                 <a href="${i == pageinfo.pageNum?'javascript:void(0);':''}" th:id="${i == pageinfo.pageNum?'currentPage':''}" th:text="${i}"></a>
                             </li>
-                            <li class="next"><a th:href="${pageinfo.pageNum == pageinfo.pages?'javascript:void(0);':'' }">下一页</a></li>
-                            <li class="next"><a th:href="${pageinfo.pageNum == pageinfo.pages?'javascript:void(0);':'' }">尾页</a></li>
+                            <li class="next"><a th:href="${pageinfo.pageNum == pageinfo.pages?'javascript:void(0);':'javascript:query(pageinfo.nextPage)' }">下一页</a></li>
+                            <li class="next"><a th:href="${pageinfo.pageNum == pageinfo.pages?'javascript:void(0);':'javascript:query(pageinfo.pages)' }">尾页</a></li>
                         </ul>
                     </div>
 
