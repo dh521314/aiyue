@@ -114,9 +114,9 @@
                     <img src="images/logo.png" alt="logo">
                 </a>
             </div>
-            <form id="commSearch" action="http://www.hybooks.cn/top/" method="get" target="_blank">
+            <form id="commSearch" action="Message/findAll1" method="get" target="_blank">
                 <div class="search-box fl" data-hook="searchSuggest">
-                    <input class="search-text fl" name="search" type="text" placeholder="搜索书名或作者" autocomplete="off" disableautocomplete value> <input type="submit" class="search-btn fr" onclick="$('#commSearch').submit();">
+                    <input class="search-text fl" name="search" type="text" placeholder="搜索书名或作者" autocomplete="off" disableautocomplete 0> <input type="submit" class="search-btn fr" onclick="$('#commSearch').submit();">
                     <div class="sres_list"></div></div>
             </form>
             <div class="right-wrap-login ud_userTox" style="right: 0">
@@ -142,20 +142,7 @@
 </div>
 
 <script>
-    $(document).ready(function () {
-        $('.user_login').on('click', function () {
-             layer.open({
-                 type: 2,
-                 title: false,
-                 area: ['440px', '560px'],
-                 anim: 1,
-                 content: ['http://www.hybooks.cn/login.popup.html', 'no'], //iframe的url，no代表不显示滚动条
-                 end: function () { //此处用于演示
-                 }
-             });
 
-        });
-    });
 </script>        </div>
         <div class="nav clearfix">
             <div class="menu-left fl">
