@@ -26,12 +26,12 @@ public class WriterController {
 
     //添加作家信息（校验是否已存在该作家）
     @RequestMapping("addWriter")
-    public int addWriter(String wname,String wphoto,String ana){
+    public int addWriter(String wname,String wphoto,String ana,Integer readerid){
         Writer w = writerService.QueryByWriterName(wname);
         if (w != null){
             return 2;
         }else {
-            Writer writer = new Writer(wname,wphoto,ana);
+            Writer writer = new Writer(wname,wphoto,ana,readerid);
             return writerService.addWriter(writer);
         }
 
@@ -48,8 +48,8 @@ public class WriterController {
         return writerService.editWriter(wid,wphoto,ana);
     }
     @RequestMapping("updateWriters")
-    public int editWriters(Integer wid,String wname,String wphoto,String ana){
-        Writer writer = new Writer(wid,wname,wphoto,ana);
+    public int editWriters(Integer wid,String wname,String wphoto,String ana,Integer readerid){
+        Writer writer = new Writer(wid,wname,wphoto,ana,readerid);
         return writerService.editWriters(writer);
     }
 

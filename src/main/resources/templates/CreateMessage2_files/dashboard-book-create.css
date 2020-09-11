@@ -1,0 +1,409 @@
+/**
+ * 如果你项目需要使用原生的CSS变量，
+ * 请写在 ./common/variable.css中
+ * 这里CSS变量会重复引入，且不会保留（通过设置!;）
+ * 这里适合需要兼容IE浏览器的项目
+ * add：shanyerong
+ * add-desc：全局字体大小、字行间距、字重&颜色值
+*/
+/* 创建作品-长篇、短篇、对话，征文 */
+/* 通用样式覆盖 */
+.wc-form {
+    margin: 0 148px;
+    padding: 16px 0 36px;
+}
+.work-create ._info .input-vertified.icon_info {
+    position: relative;
+    display: inline-block;
+    
+    vertical-align: 3px;
+    right: 0;
+    font-size: 16px;
+}
+.pre-collect-note._info .icon-font.icon_info {
+    vertical-align: 0;
+}
+.work-create .write-form-li.write-form-button {
+    margin-left: 112px;
+}
+.work-create textarea:focus {
+    box-shadow: none;
+}
+.write-form-li {
+    margin: 24px auto;
+}
+/* 完善信息start */
+/*.work-create > .g-col-8 {
+    float: none;
+    margin: 0 auto;
+}*/
+.work-create input::placeholder,
+.work-create textarea::placeholder {
+    font-size: 14px;
+    line-height: 22px;
+    color: #BFBFBF;
+}
+.work-create .ui-select-text:empty::before {
+    content: '请选择';
+    font-size: 14px;
+    line-height: 22px;
+    color: #BFBFBF;
+}
+/* 页面单选框 */
+.lrc-item {
+    display: block;
+    position: relative;
+}
+i.icon-idb {
+    display: inline-block;
+    min-height: 20px;
+}
+.lrc-item + .lrc-item {
+    /* margin-top: 15px; */
+}
+.lrc-item .ui-radio {
+    box-sizing: border-box;
+}
+.lrc-item .radio-txt {
+    display: inline-block;
+    line-height: 32px;
+    margin-left: 8px;
+    color: #292929;
+    color: rgba(21, 26, 48, .9);
+}
+.write-input.lrc-item {
+    margin-right: 4px;
+}
+.write-form-cell ._twocolumn .ui-input {
+    width: 208px;
+}
+.shortstory-cat ._twocolumn .ui-input:first-child {
+    display: none;
+}
+.rc-con {
+    margin-left: 24px;
+    margin-bottom: 16px;
+}
+.write-info {
+    font-size: 14px;
+    line-height: 32px;
+    color: #292929;
+    padding-top: 0;
+}
+.pre-collect-note {
+    font-size: 12px;
+    line-height: 20px;
+    color: #7a7a7a;
+}
+.pre-collect-note .icon-font {
+    top: 3px;
+    font-size: 14px;
+}
+.pre-collect-note .icon-idb {
+    margin-left: 4px;
+}
+.rc-con .input-caution {
+    margin-top: 0;
+}
+/*._error > input,
+._error > input.ui-input,*/
+._error > ._twocolumn .ui-select-button,
+._error > .ui-input > input,
+._error > .ui-textarea>textarea {
+    border-color: #f2463d;
+}
+.work-create .input-error {
+    display: none;
+}
+._error > .input-error {
+    display: block;
+}
+._error > .input-caution {
+    display: none;
+}
+a.input-caution {
+    /*display: inline-block;*/
+    color: #0067e5;
+}
+._error >.ui-select .ui-select-button {
+    border-color: #f2463d;
+}
+/*._error > input,
+._error > input.ui-input,
+._error > .ui-input>input {
+    border-color: #f2463d;
+}*/
+.wc-progress {
+    width: 724px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.wcp-item {
+    float: left;
+    position: relative;
+    height: 24px;
+}
+.wcp-item + .wcp-item {
+    margin-left: 214px;
+}
+.wcp-item + .wcp-item::before {
+    position: absolute;
+    top: 12px; left: -202px;
+    content: '';
+    width: 190px;
+    /* width: 120px; height: 1px; */
+    border-top: 1px solid #E0E0E0;
+    box-sizing: border-box;
+    /* background-color: #E0E0E0; */
+}
+.bc-act .bc-act-link {
+    color: #0067e5;
+    margin-left: 8px;
+}
+.wcp-status {
+    position: absolute;
+    width: 24px; height: 24px;
+    margin-right: 8px;
+}
+/* 不同步骤1～3的状态切换 */
+.wc-progress._step1 ._num {
+    display: block;
+} 
+.wc-progress._step1 ._one ._numbg {
+    display: block;
+}
+.wc-progress._step2 ._one ._num {
+    display: none;
+}
+.wc-progress._step1 ._one .wcp-txt {
+    color: #292929;
+}
+.wc-progress._step2 ._one ._finished {
+    display: block;
+}
+.wc-progress._step2 ._two ._numbg {
+    display: block;
+}
+.wc-progress._step2 ._two .wcp-txt {
+    color: #292929;
+}
+.wc-progress._step2 ._two::before {
+    border-color: #0067e5;
+}
+.wc-progress._step3 ._finished {
+    display: block;
+}
+.wc-progress._step3 ._num {
+    display: none;
+}
+.wc-progress._step3 ._three ._numbg {
+    display: block;
+    z-index: 3;
+}
+.wc-progress._step3 > ::before {
+    border-color: #0067e5;
+}
+.wcp-icon {
+    position: absolute;
+    width: 24px; height: 24px;
+    display: block;
+    top: 0; left: 0;
+    font-style: normal;
+    border-radius: 100%;
+    font-size: 14px;
+    line-height: 22px;
+    /* letter-spacing: 0.4em; */
+    text-indent: 7px;
+}
+.wcp-icon._finished {
+    display: none;
+    text-indent: 0;
+    color: #0067e5;
+}
+.wcp-icon._finished .input-vertified {
+    font-size: 24px;
+}
+.wcp-icon._numbg {
+    display: none;
+    background: #0067e5;
+    color: #fff;
+    border: 1px solid #0067e5;
+    box-sizing: border-box;
+}
+.wcp-icon._num {
+    /* display: none; */
+    border: 1px solid #BFBFBF;
+    color: #BFBFBF;
+    box-sizing: border-box;
+}
+.wcp-txt {
+    margin-left: 32px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #7A7A7A;
+}
+/* 编辑分组 */
+.bc-check-group {
+    line-height: 32px;
+    margin-bottom: -8px;
+}
+.bc-cg-operate {
+    color: #0067e5;
+}
+.bc-editor-con {
+    font-size: 12px;
+    line-height: 20px;
+    color: #7a7a7a;
+    color: rgba(21, 26, 48, .5)
+}
+.editor-select-body .ui-dialog-body {
+    padding: 0 24px;
+    margin: 16px 0;
+    overflow: hidden;
+}
+.editor-select-body .ui-button-secondary {
+    border: none;
+}
+.bc-ec-ul {
+    /* overflow: hidden; */
+    /* max-height: 550px; */
+    /* margin: -6px; */
+    margin-bottom: -12px;
+    margin-right: -22px;
+}
+/* .bc-ec-ul::before {
+    display: table;
+    content: '';
+    clear: both;
+} */
+.bc-ec-li {
+    width: 144px;
+    min-height: 168px;
+    float: left;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    position: relative;
+}
+/* 当编辑组仅有1～2个优化，IE9+ */
+.bc-ec-li:only-child {
+    width: 456px;
+}
+.bc-ec-li:nth-child(2):last-child, .bc-ec-li:nth-last-child(2):first-child {
+    width: 222px;
+}
+.editor-icon-checked {
+    width: 24px; height: 24px;
+    background-image: url("../images/i_checked.png");
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 4a4 4 0 0 1 4-4h20v20a4 4 0 0 1-4 4H0V4z' fill='%230067E6'/%3E%3Cpath d='M16.59 7.58L10 14.17l-2.59-2.58L6 13l4 4 8-8-1.41-1.42z' fill='%23fff'/%3E%3C/svg%3E"), none;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: none;
+}
+.current .bc-ec-item .editor-icon-checked {
+    display: block;
+}
+.bc-ec-item {
+    display: block;
+    padding: 16px;
+    border: 1px solid #e0e0e0;
+    border-color: rgba(21, 26, 48, .16);
+    border-radius: 4px;
+    min-height: 134px;
+}
+.bc-ec-item:hover {
+    color: currentColor;
+}
+.current > .bc-ec-item {
+    background-color: #ebf3fd;
+    background-color: rgba(0, 103, 229, .08);
+    border-color: #0067e5;
+}
+.bc-ec-title {
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 8px;
+    color: #292929;
+    color: rgba(21, 26, 48, .9);
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+}
+.bc-ec-txt {
+    max-height: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    white-space: pre-line;
+}
+:hover > .bc-ec-txt {
+    color: #7a7a7a;;
+}
+.bc-ec-icon.icon-font {
+    /* background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTguMTQxNjcgMTIuMkw2LjU2NjY3IDEzLjc4MzRDNi4xNzkwMSAxNC4xNyA1LjcxODk0IDE0LjQ3NjUgNS4yMTI3NSAxNC42ODUzQzQuNzA2NTcgMTQuODk0MSA0LjE2NDIxIDE1LjAwMSAzLjYxNjY3IDE1SDIuOTE2NjdDMi44MDYxNiAxNSAyLjcwMDE4IDE0Ljk1NjEgMi42MjIwNCAxNC44NzhDMi41NDM5IDE0Ljc5OTggMi41IDE0LjY5MzkgMi41IDE0LjU4MzRWMTMuNzVDMi41IDEzLjYzOTUgMi41NDM5IDEzLjUzMzUgMi42MjIwNCAxMy40NTU0QzIuNzAwMTggMTMuMzc3MyAyLjgwNjE2IDEzLjMzMzQgMi45MTY2NyAxMy4zMzM0SDMuNjE2NjdDNC4yNzk0OCAxMy4zMzI4IDQuOTE0OTQgMTMuMDY5IDUuMzgzMzMgMTIuNkw2Ljk2NjY3IDExLjAyNUw4LjE0MTY3IDEyLjJaTTExLjc2NjcgMTMuNzgzNEMxMi40MTkzIDE0LjQyMTggMTMuMjYxNSAxNC44MzEyIDE0LjE2NjcgMTQuOTVWMTYuNjY2N0MxNC4xNjc4IDE2Ljc0ODIgMTQuMTkyOSAxNi44Mjc3IDE0LjIzODcgMTYuODk1MUMxNC4yODQ2IDE2Ljk2MjYgMTQuMzQ5MiAxNy4wMTUxIDE0LjQyNDYgMTcuMDQ2MUMxNC41MDAxIDE3LjA3NzIgMTQuNTgyOSAxNy4wODU0IDE0LjY2MyAxNy4wNjk4QzE0Ljc0MyAxNy4wNTQyIDE0LjgxNjggMTcuMDE1NSAxNC44NzUgMTYuOTU4NEwxNy4zNzUgMTQuNDU4NEMxNy40NTE5IDE0LjM3OTEgMTcuNDk0OSAxNC4yNzMgMTcuNDk0OSAxNC4xNjI1QzE3LjQ5NDkgMTQuMDUyMSAxNy40NTE5IDEzLjk0NiAxNy4zNzUgMTMuODY2N0wxNC44NzUgMTEuMzY2N0MxNC44MTYzIDExLjMwOTEgMTQuNzQxOCAxMS4yNzAyIDE0LjY2MSAxMS4yNTQ5QzE0LjU4MDEgMTEuMjM5NSAxNC40OTY2IDExLjI0ODUgMTQuNDIwOCAxMS4yODA2QzE0LjM0NTEgMTEuMzEyNyAxNC4yODA1IDExLjM2NjQgMTQuMjM1MyAxMS40MzUyQzE0LjE5MDEgMTEuNTAzOSAxNC4xNjYyIDExLjU4NDQgMTQuMTY2NyAxMS42NjY3VjEzLjI2NjdDMTMuNzA2MyAxMy4xNjM3IDEzLjI4NDUgMTIuOTMyNiAxMi45NSAxMi42TDEwLjM0MTcgMTBMMTIuOTUgNy40MDAwM0MxMy4yODQ1IDcuMDY3NDcgMTMuNzA2MyA2LjgzNjM1IDE0LjE2NjcgNi43MzMzNlY4LjMzMzM2QzE0LjE2NzggOC40MTQ5MSAxNC4xOTI5IDguNDk0MzQgMTQuMjM4NyA4LjU2MTc4QzE0LjI4NDYgOC42MjkyMyAxNC4zNDkyIDguNjgxNzQgMTQuNDI0NiA4LjcxMjc5QzE0LjUwMDEgOC43NDM4NCAxNC41ODI5IDguNzUyMDggMTQuNjYzIDguNzM2NDhDMTQuNzQzIDguNzIwODggMTQuODE2OCA4LjY4MjEzIDE0Ljg3NSA4LjYyNTAzTDE3LjM3NSA2LjEyNTAzQzE3LjQ1MTkgNi4wNDU3NCAxNy40OTQ5IDUuOTM5NjMgMTcuNDk0OSA1LjgyOTE5QzE3LjQ5NDkgNS43MTg3NSAxNy40NTE5IDUuNjEyNjUgMTcuMzc1IDUuNTMzMzZMMTQuODc1IDMuMDMzMzZDMTQuODE2MyAyLjk3NTc3IDE0Ljc0MTggMi45MzY4NyAxNC42NjEgMi45MjE1NEMxNC41ODAxIDIuOTA2MjEgMTQuNDk2NiAyLjkxNTE2IDE0LjQyMDggMi45NDcyNEMxNC4zNDUxIDIuOTc5MzIgMTQuMjgwNSAzLjAzMzExIDE0LjIzNTMgMy4xMDE4MkMxNC4xOTAxIDMuMTcwNTMgMTQuMTY2MiAzLjI1MTEgMTQuMTY2NyAzLjMzMzM2VjUuMDUwMDNDMTMuMjYxNSA1LjE2ODg0IDEyLjQxOTMgNS41NzgyNCAxMS43NjY3IDYuMjE2NjlMOS4xNjY2NyA4LjgyNTAzTDYuNTY2NjcgNi4yMTY2OUM2LjE3OTAxIDUuODMwMDEgNS43MTg5NCA1LjUyMzUzIDUuMjEyNzUgNS4zMTQ3NkM0LjcwNjU3IDUuMTA2IDQuMTY0MjEgNC45OTkwNSAzLjYxNjY3IDUuMDAwMDNIMi45MTY2N0MyLjgwNjE2IDUuMDAwMDMgMi43MDAxOCA1LjA0MzkzIDIuNjIyMDQgNS4xMjIwN0MyLjU0MzkgNS4yMDAyMSAyLjUgNS4zMDYxOSAyLjUgNS40MTY2OVY2LjI1MDAzQzIuNSA2LjM2MDUzIDIuNTQzOSA2LjQ2NjUxIDIuNjIyMDQgNi41NDQ2NUMyLjcwMDE4IDYuNjIyOCAyLjgwNjE2IDYuNjY2NjkgMi45MTY2NyA2LjY2NjY5SDMuNjE2NjdDNC4yNzk0OCA2LjY2NzI4IDQuOTE0OTQgNi45MzEwNSA1LjM4MzMzIDcuNDAwMDNMMTEuNzY2NyAxMy43ODM0WiIgZmlsbD0iIzI5MjkyOSIvPgo8L3N2Zz4K"); */
+    font-size: 20px;
+    display: inline-block;
+    margin-right: 6px;
+    /* width: 20px; height: 20px; */
+    vertical-align: -4px;
+}
+.current > .bc-ec-item .bc-ec-txt {
+    /* display: block; */
+    /* max-height: none; */
+}
+.editor-more-info {
+    margin-top: 4px;
+    color: #0067e5;
+    display: inline-block;
+}
+.editor-more-info .icon-font {
+    font-size: 14px;
+    vertical-align: -2px;
+}
+/* 完善信息end */
+/* 创建作品成功start */
+.wc-success {
+    margin-top: 34px;
+}
+.wc-success.mt80 {
+    margin-top: 80px;
+}
+.wc-success .pw-h3 {
+    margin-top: 12px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #292929;
+    color: rgba(21, 26, 48, .9);
+    font-weight: 600;
+    text-align: center;
+}
+.pw-txt {
+    font-size: 12px;
+    line-height: 20px;
+    color: #7a7a7a;
+    color: rgba(21, 26, 48, .5);
+    text-align: center;
+}
+.pw-txt:first-child {
+    margin: 8px auto;
+}
+._warningred {
+    color: #f2463d;
+}
+.pw-section {
+    width: 424px;
+    margin: 0 auto;
+}
+/*section + section {
+    margin-top: 8px;
+}*/
+.wc-success-btns {
+    text-align: center;
+    margin-top: 36px;
+}
+/* 创建作品成功start */

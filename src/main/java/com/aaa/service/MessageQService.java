@@ -156,4 +156,11 @@ public class MessageQService {
     public List<Message> queryMessByWoman(){
         return messageQDao.queryMessByWoman();
     }
+
+    public List<Message> queryMessByWriter(Integer writerid){
+        return messageQDao.queryMessByWriter(writerid);
+    }
+    public List<Message> queryAllMessByWriter(Integer writerid){
+        return messageQDao.queryAllMessByWriter(writerid);
+    }
 }

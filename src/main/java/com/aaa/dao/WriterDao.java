@@ -1,10 +1,7 @@
 package com.aaa.dao;
 
 import com.aaa.entity.Writer;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
@@ -22,4 +19,11 @@ public interface WriterDao extends Mapper<Writer> {
             @Result(property = "wname",  column = "wname")
     })
     public Writer getWriterByWid(Integer wid);
+
+    //查询作家信息（根据readerid）
+    @Select("select * from writer where readerid = #{readerid}")
+    @Results({
+            @Result(property = "reader", column = "readerid", one = @One(select = "com.aaa.dao.ReaderDao.getReaderByRid"))
+    })
+    public List<Writer> queryWriterByReader(Integer readerid);
 }

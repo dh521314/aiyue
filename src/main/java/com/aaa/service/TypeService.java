@@ -48,4 +48,8 @@ public class TypeService {
     public List<Type> queryWomanChannel(){
         return typeDao.queryWomanChannel();
     }
+
+    public List<Type> queryOtherChannel(){
+        return typeDao.queryOtherChannel();
+    }
 }

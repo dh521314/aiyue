@@ -34,21 +34,29 @@ public class Writer implements Serializable {
 	 */
 	@Column
 	private String ana;
+	@Column
+	private Integer readerid;
+
+	private Reader reader;
+
+
 
 	public Writer() {
 	}
 
-	public Writer(String wname, String wphoto, String ana) {
+	public Writer(String wname, String wphoto, String ana,Integer readerid) {
 		this.wname = wname;
 		this.wphoto = wphoto;
 		this.ana = ana;
+		this.readerid = readerid;
 	}
 
-	public Writer(Integer wid, String wname, String wphoto, String ana) {
+	public Writer(Integer wid, String wname, String wphoto, String ana,Integer readerid) {
 		this.wid = wid;
 		this.wname = wname;
 		this.wphoto = wphoto;
 		this.ana = ana;
+		this.readerid = readerid;
 	}
 
 	public static long getSerialVersionUID() {
@@ -87,6 +95,14 @@ public class Writer implements Serializable {
 		this.ana = ana;
 	}
 
+	public Integer getReaderid() {
+		return readerid;
+	}
+
+	public void setReaderid(Integer readerid) {
+		this.readerid = readerid;
+	}
+
 	@Override
 	public String toString() {
 		return "Writer{" +
@@ -94,6 +110,7 @@ public class Writer implements Serializable {
 				", wname='" + wname + '\'' +
 				", wphoto='" + wphoto + '\'' +
 				", ana='" + ana + '\'' +
+				", readerid=" + readerid +
 				'}';
 	}
 }

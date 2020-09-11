@@ -21,4 +21,7 @@ public interface TypeDao extends Mapper<Type> {
 
     @Select("select * from type where channel = 1")
     public List<Type> queryWomanChannel();
+
+    @Select("select * from type where channel = 2")
+    public List<Type> queryOtherChannel();
 }

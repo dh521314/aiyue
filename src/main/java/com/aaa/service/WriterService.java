@@ -43,4 +43,8 @@ public class WriterService {
         PageInfo<Writer> p = new PageInfo<Writer>(rs);
         return p;
     }
+
+    public List<Writer> queryWriterByReader(Integer readerid){
+        return writerDao.queryWriterByReader(readerid);
+    }
 }

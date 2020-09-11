@@ -63,4 +63,8 @@ public class SectionService {
     public List<Section> queryUpdateTime(){
         return sectionDao.queryUpdateTime();
     }
+
+    public List<Section> queryNewSectionByWriterMessage(Integer writerid){
+        return sectionDao.queryNewSectionByWriterMessage(writerid);
+    }
 }

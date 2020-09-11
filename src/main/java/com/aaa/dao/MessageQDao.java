@@ -74,7 +74,7 @@ public interface MessageQDao extends Mapper<Message> {
     public List<Message> queryWriterByMessage(Integer meid);
 
     //小说页面作家信息之作品总量
-    @Select("select writerid,count(*) as count from  message where writerid=#{writerid} group by writerid")
+    @Select("select count(*) as count from  message where writerid=#{writerid} group by writerid")
     @Results({
             @Result(property = "type", column = "typeid", one = @One(select = "com.aaa.dao.TypeDao.getTypeByTid")),
             @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
@@ -147,4 +147,20 @@ public interface MessageQDao extends Mapper<Message> {
             @Result(property = "dynamic", column = "did", one = @One(select = "com.aaa.dao.DynamicDao.getDynamicByDid"))
     })
     public List<Message> queryMessByWoman();
+
+    //根据作家查询小说（作家最新小说）
+    @Select("select * from message where writerid=#{writerid} and meid in (select max(meid) from message group by writerid)")
+    @Results({
+            @Result(property = "type", column = "typeid", one = @One(select = "com.aaa.dao.TypeDao.getTypeByTid")),
+            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
+    })
+    public List<Message> queryMessByWriter(Integer writerid);
+
+    //根据作家查询小说（作家所有小说）
+    @Select("select * from message where writerid=#{writerid}")
+    @Results({
+            @Result(property = "type", column = "typeid", one = @One(select = "com.aaa.dao.TypeDao.getTypeByTid")),
+            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
+    })
+    public List<Message> queryAllMessByWriter(Integer writerid);
 }

@@ -48,7 +48,7 @@ public interface DynamicDao extends Mapper<Dynamic> {
     public List<Dynamic> queryMessageByDynamic(Integer clickRate1, Integer clickRate2);
 
     //小说页面作家信息之累计阅读数
-    @Select("select *,count(messageid) as count from dynamic where messageid in (select meid from message where writerid = #{writer})")
+    @Select("select count(messageid) as count from dynamic where messageid in (select meid from message where writerid = #{writer})")
     @Results({
             @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid"))
     })

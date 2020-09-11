@@ -37,7 +37,7 @@ public interface SectionDao extends Mapper<Section> {
     public List<Section> queryUpdateTime();
 
     //小说小说简介页面作家信息之累计字数
-    @Select("select *,SUM(number) as sum from section where messageid in (select meid from message where writerid = #{writer})")
+    @Select("select SUM(number) as sum from section where messageid in (select meid from message where writerid = #{writer})")
     @Results({
             @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid"))
     })
@@ -124,5 +124,11 @@ public interface SectionDao extends Mapper<Section> {
             @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
     })
     public List<Section> queryNumberByMessage(Integer messageid);
-
+    //查询一个作家所有小说的最新章节
+    @Select("select * from section where sid in (select max(sid) from section group by messageid) and messageid in (select meid from message where writerid=#{writerid})")
+    @Results({
+            @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
+            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
+    })
+    public List<Section> queryNewSectionByWriterMessage(Integer writerid);
 }
