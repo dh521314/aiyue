@@ -41,11 +41,12 @@ public interface MessageDao extends Mapper<Message> {
 
 
     //查询小说 按照名称查找 类型 写作进度
-    @Select("<script> select * from message <where>" +
+    @Select("<script> select m.*,count(d.did) as count from message m inner join dynamic d on d.messageid = m.meid <where>" +
             "<if test=\"search != null and search != ''\">mename like '%${search}%'</if>" +
             "<if test=\"type != null and type != ''\">and typeid = ${type}</if>" +
             "<if test=\"update != null and update != ''\">and mestate = ${update}</if>" +
-            "</where>" +
+            "</where>  group by m.meid " +
+            "<if test=\"order != null and order == 1\"> order by count desc</if>" +
             "</script>")
     @Results({
             @Result(property = "type", column = "typeid", one = @One(select = "com.aaa.dao.TypeDao.getTypeByTid")),

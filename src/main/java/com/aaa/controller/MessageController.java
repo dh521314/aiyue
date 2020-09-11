@@ -86,6 +86,7 @@ public class MessageController {
         model.addAttribute("search",search);
         model.addAttribute("type",type);
         model.addAttribute("update",update);
+        model.addAttribute("order",order);
 
        return "search1";
         //return JSONObject.toJSON(pageInfo).toString();
