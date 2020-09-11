@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)https://write.qq.com/portal/dashboard -->
+<html lang="zh-CN" xmlns:th="http://wwww.thymeleaf.org">
+<head>
+    <base href="http://localhost:8088/aiyue/">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="robots" content="all">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="description" content="作家专区是阅文集团致力于原创作家孵化、培育、创作、挖掘的网络文学平台，作家可以通过作家学院在线课程的学习，使用作家专区及作家助手移动端APP发布与管理小说、查看数据、与读者互动。">
+    <meta name="keywords" content="写小说，作家学院，作家专区，原创文学，网络文学，网络小说，在线写作，作家助手，起点中文网，创世中文网，云起书院，起点女生网，起点文学网，阅文集团">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <title>
+      工作台-阅文作家专区
+    </title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://write.qq.com/portal/public/images/favicon.ico">
+    <link rel="Bookmark" type="image/x-icon" href="https://write.qq.com/portal/public/images/favicon.ico">
+    <!--   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />-->
+    <link rel="stylesheet" href="JobPlaceNull_files/reset.css">
+    <link rel="stylesheet" href="JobPlaceNull_files/index.css">
+    <link rel="stylesheet" href="JobPlaceNull_files/font.css">
+    <link rel="stylesheet" href="JobPlaceNull_files/module.css">
+    <link rel="stylesheet" href="JobPlaceNull_files/layout.css">
+    <link rel="stylesheet" href="JobPlaceNull_files/header.css">
+    <link rel="stylesheet" href="JobPlaceNull_files/footer.css">
+    <link rel="stylesheet" href="JobPlaceNull_files/dialog.css">
+
+    
+    
+<link rel="stylesheet" href="JobPlaceNull_files/common.css">
+<link rel="stylesheet" href="JobPlaceNull_files/ui.css">
+<link rel="stylesheet" href="JobPlaceNull_files/plugin-drawer.css">
+<link rel="stylesheet" href="JobPlaceNull_files/dashboard-common.css">
+<link rel="stylesheet" href="JobPlaceNull_files/dashboard.css">
+<link rel="stylesheet" href="JobPlaceNull_files/fullcalendar.css">
+<link rel="stylesheet" href="JobPlaceNull_files/style.css">
+<link rel="stylesheet" href="JobPlaceNull_files/jquery.qtip.min.css">
+
+
+
+
+
+    
+    <script src="JobPlaceNull_files/stats.js" name="MTAH5" sid="500659219" cid="500664628"></script><script async="" src="JobPlaceNull_files/yep.js"></script><script type="text/javascript" src="JobPlaceNull_files/aq_common.js"></script>
+
+    
+    <!--<script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['QDAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://noah2-1252317822.file.myqcloud.com/npm/@noah-common/yep@0.0.46/dist/yep.js','yep');
+      yep('set', {
+        appid: 10040,
+        rate: .1
+      }),
+      yep('custom', {
+        w_darkmode: ( !!window.matchMedia ) && window.matchMedia("(prefers-color-scheme: dark)").matches ? 1 : 0
+      });
+    </script>-->
+  </head>
+  <body style="zoom: 1;">
+    
+    
+
+
+
+<div class="g-header">
+    <div class="header " id="j-siteHeader">
+  <!--<div class="box-center cf">
+    &lt;!&ndash; 未登录 &ndash;&gt;
+    <div class="no-login">
+      
+    </div>
+    &lt;!&ndash; 图标列表，包含用户信息 &ndash;&gt;
+    <div class="icon-list j-slideDownList">
+      <ul>
+        
+        <li>
+          <a class="icon-font" href="https://write.qq.com/portal/dashboard"><cite class="icon-hover-tip down">工作台</cite></a>
+        </li>
+        
+        <li>
+          <a class="icon-font" href="javascript:"></a>
+          <div class="slide-down-wrap list">
+            <cite><span><i></i></span></cite>
+            <dl>
+              <dd onclick="tucao()"><a href="javascript:;">意见反馈</a></dd>
+              <dd><a href="https://write.qq.com/contentv2/about/help_center.html" target="_blank">帮助中心</a></dd>
+              <dd><a href="https://write.qq.com/portal/version" target="_blank">更新说明</a></dd>
+            </dl>
+          </div>
+        </li>
+        
+        <li class="j-notify">
+          
+          <a class="icon-font" href="https://write.qq.com/portal/dashboard/authorConsult">
+            
+            <cite class="icon-hover-tip down">通知</cite>
+          </a>
+        </li>
+        <li class="user-info">
+          <a class="avatar-box" href="javascript:" id="j-avatarBox">
+            <img class="avatar" src="./工作台-阅文作家专区_files/photo_default.png" onerror="javascript:this.src=&#39;https://ccstatic-1252317822.file.myqcloud.com/portraitimg/2019-09-19/5d82ecf354f0d.png&#39;;">
+          </a>
+          <div class="slide-down-wrap user-detail">
+            <cite><span><i></i></span></cite>
+            <div class="detail-wrap">
+              <div class="level-info">
+                <h3>
+                  <i>原创作家</i>
+                  
+                  <em>普通</em>
+                </h3>
+                
+              </div>
+              <div class="menu-list">
+                <dl>
+                  <dd><a href="https://write.qq.com/portal/dashboard/books" target="_blank">作品管理</a></dd>
+                  <dd><a href="https://write.qq.com/portal/booknovels/chaptertmp/CBID/17958922108504204" target="_blank">立即写作</a></dd>
+                </dl>
+                <dl>
+                  <dd><a href="https://write.qq.com/portal/collect">我收藏的文章</a></dd>
+                  <dd><a href="https://write.qq.com/portal/mycolumn">我关注的专栏</a></dd>
+                </dl>
+                <dl>
+                  <dd><a href="https://write.qq.com/portal/dashboard/authorInfo" target="_blank"><span>完整度 50%</span>个人资料</a></dd>
+                  <dd><a href="https://write.qq.com/portal/mod-vip-password" target="_blank">修改 VIP 密码</a></dd>
+                  <dd><a href="javascript:" id="logout">退出登录</a></dd>
+                </dl>
+              </div>
+
+            </div>
+          </div>
+        </li>
+        
+      </ul>
+    </div>-->
+    <!-- logo -->
+    <!--<div class="logo">
+      <h1 title="阅文作家专区"><a href="https://write.qq.com/"></a></h1>
+      
+      <div class="nav-item j-slideDownList">
+        <ul>
+          <li>
+            
+            <div class="slide-down-wrap list">
+              <cite><span><i></i></span></cite>
+              <dl>
+                <dd><a href="https://write.qq.com/">首页</a></dd>
+                <dd><a href="https://write.qq.com/portal/article">文章</a></dd>
+                <dd><a href="https://write.qq.com/portal/spcolumn">专栏</a></dd>
+                <dd><a href="https://write.qq.com/portal/news">资讯</a></dd>
+              </dl>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>-->
+  </div>
+</div>
+<script src="JobPlaceNull_files/ywlogin_v1.js"></script>
+<script>
+  yw.setParams({
+    "appId": "34",
+    "areaId": "1006",
+    "popup_close":1,
+    "ticket":1,
+    // 可选回调页面
+    "returnUrl": "/public/logout.html" ,
+    "autoshow": 1 ,
+    "unionshow":11111,
+    "auto":1,
+    "autotime":7
+  });
+  var logoutEl = document.getElementById("logout");
+  if (logoutEl) {
+    if (logoutEl.addEventListener) {
+      logoutEl.addEventListener("click", function() {
+        yw.logout(function(){
+          location.href = '/public/logout.html';
+        });
+      });
+    } else {
+      logoutEl.attachEvent("onclick", function() {
+        yw.logout(function(){
+          location.href = '/public/logout.html';
+        });
+      });
+    }
+  }
+</script>
+    <script src="JobPlaceNull_files/jquery.js"></script>
+    <script src="JobPlaceNull_files/all.js"></script>
+
+</div>
+<div class="g-row mt24">
+    <div class="g-col g-col-2 g-side">
+        <div class="g-side-con">
+            
+<div class="g-nav g-section-bg">
+    <ul>
+        <li data-event-id="1">
+            <!-- 高亮添加这个class -->
+            <a href="https://write.qq.com/portal/dashboard" class="_current"><em class="icon-font"></em><em class="icon-font active"></em>工作台</a>
+        </li>
+        <li data-event-id="2">
+            <a href="https://write.qq.com/portal/dashboard/books"><em class="icon-font"></em><em class="icon-font active"></em>作品管理</a>
+        </li>
+        <!--<li data-event-id="3">
+            <a href="https://write.qq.com/booknovelsvip/takeindex.html"><em class="icon-font"></em><em class="icon-font active"></em>数据中心</a>
+        </li>
+        <li data-event-id="4">
+            <a href="https://write.qq.com/income/index.html"><em class="icon-font"></em><em class="icon-font active"></em>稿酬收入</a>
+        </li>
+        <li data-event-id="5">
+            <a href="https://write.qq.com/labor.html"><em class="icon-font"></em><em class="icon-font active"></em>劳务收入</a>
+        </li>
+        <li data-event-id="6" class="sidebar-interactive">
+            <a href="https://write.qq.com/portal/dashboard/interactive-manage"><em class="icon-font"></em><em class="icon-font active"></em>互动管理</a>
+            <div class="interactive-guide">
+                <p class="interactive-guide-txt"><em class="interactive-guide-star icon-font"></em>新版<span class="c-primary">评论管理</span>全新上线，快来看看</p>
+                <div class="interactive-guide-footer"><a href="https://write.qq.com/portal/dashboard/interactive-manage" class="ui-button ui-button-primary">去看看</a></div>
+            </div>
+        </li>
+        <li data-event-id="7">
+            <a href="https://write.qq.com/portal/dashboard/exchange">
+                <em class="icon-font"></em><em class="icon-font active"></em>积分兑换
+                
+            </a>
+        </li>
+        <li data-event-id="8">
+            <a href="https://write.qq.com/portal/dashboard/authorConsult"><em class="icon-font"></em><em class="icon-font active"></em>作家咨询</a>
+        </li>-->
+        
+    </ul>
+</div>
+
+
+<!--<script>
+    $(".g-nav li").on("click", function() {
+        var $this = $(this);
+        var cauthorid = "17752236906517001";
+        var eventID = $this.data("event-id");
+        dataReport({
+            pageid: "ZQ_common",
+            eventid: "ZQ_E0" + eventID,
+            cauthorid: cauthorid
+        });
+    });
+
+    function showReviewManageGuide() {
+        $.ajax({
+            dataType: 'json',
+            contentType: "application/json",
+            url: '/portal/domesticsite?service=guideservice&action=isGuide&type=69&t=' + Date.now(),
+            success: function(res) {
+                if (res.returnCode == 200 && !res.result) {
+                    $(".interactive-guide").show();
+                }
+            }
+        });
+    }
+    $.ajax({
+        dataType: 'json',
+        contentType: "application/json",
+        url: '/ccauthorweb/reviewmanager/getGrayLevelControl?t=' + Date.now(),
+        success: function(res) {
+            if (res.returnCode == 2000 && res.result == 1) {
+                showReviewManageGuide();
+            }
+        }
+    });
+</script>-->
+
+ 
+        </div>
+    </div>
+    <div class="g-col g-col-10 g-body-main">
+        <div class="g-section-bg mb16">
+            <div class="g-title-h2">
+                <h2 class="g-h2">个人信息</h2>
+            </div>
+            <div class="g-row-inside user-info">
+                <div class="g-col g-col-5">
+                    <div class="fl mr16 br100p g-avatar _middle">
+                        <img src="JobPlaceNull_files/photo_default.png" width="64" height="64" alt="" onerror="javascript:this.src=&#39;https://ccstatic-1252317822.file.myqcloud.com/portraitimg/2019-09-19/5d82ecf354f0d.png&#39;;">
+                    </div>
+                    <div class="oh">
+                        <p class="user-info-desc lh28 mb8 fs0 c-main" th:each="jn1:${writers}">
+                            <strong class="dib fw600 vam fs20 mr4 user-name ell" th:text="${jn1.wname}"></strong>
+                            <br/>
+                            <small class="vam label-min" th:text="${jn1.ana}">
+                                </small>
+                        </p>
+                        
+                    </div>
+                </div>
+                <div class="g-col g-col-5">
+                    <!--<ul class="g-data-bar ml16">
+                        <li>
+                            <span><strong>0</strong></span>
+                            <small>创作天数</small>
+                        </li>
+                        <li>
+                            <span><strong>0 </strong></span>
+                            <small>累计字数</small>
+                        </li>
+
+                        <li>
+                            <span><strong>0 </strong></span>
+                            <small>作品粉丝</small>
+                        </li>
+                    </ul>-->
+                    <ul class="g-data-bar ml16">
+                        <li >
+                            <span><strong th:text="${messageCount}"></strong></span>
+                            <small>作品总量</small>
+                        </li>
+                        <li>
+                            <span><strong th:text="${Number}"></strong></span>
+                            <small>累计字数</small>
+                        </li>
+                        <li>
+                            <span><strong th:text="${readerNumber}"></strong></span>
+                            <small>作品粉丝</small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="g-section-bg mb16">
+
+            
+            <div class="g-title-h2 mb24">
+                <h2 class="g-h2">作品管理</h2>
+                <div class="g-title-sd">
+                    
+                    <a href="/aiyue/writerQ/createMessage" class="g-link "><em class="icon-font mr4"></em>新建作品</a>
+                    <a href="/aiyue/MessageGuanliNull.html" class="g-link _sub">更多<em class="icon-font"></em></a>
+                </div>
+            </div>
+            <!--data-cbid="17958946001429904" data-item="{&quot;CBID&quot;:&quot;17958946001429904&quot;,&quot;title&quot;:&quot;sdgdzf&quot;,&quot;bookTitleUrl&quot;:&quot;https://www.hongxiu.com/book/17958946001429904&quot;,&quot;coverurl&quot;:&quot;https://ccstatic-1252317822.image.myqcloud.com/bookcoverimg/2020-09-09/default_a45ca1654671e48c4795994ae59bff2f.png?imageMogr2/thumbnail/150x200!&quot;,&quot;lastchaptertitle&quot;:null,&quot;ChapterUrl&quot;:&quot;https://www.hongxiu.com/chapter/17958946001429904/-1&quot;,&quot;newchapterid&quot;:&quot;-1&quot;,&quot;lastnewchaptertime&quot;:&quot;2020-09-09 13:57&quot;,&quot;categoryName&quot;:&quot;第二编辑组&quot;,&quot;favNum&quot;:null,&quot;statusName&quot;:&quot;新建&quot;,&quot;show_flag&quot;:0,&quot;is_buy_out&quot;:0,&quot;auditstatus&quot;:&quot;1&quot;,&quot;lockStatus&quot;:-1,&quot;isfinelayout&quot;:&quot;-1&quot;,&quot;lockTime&quot;:&quot;2020-09-09 16:35:49&quot;,&quot;allwords&quot;:&quot;0&quot;,&quot;hasApplyLastDay&quot;:-1,&quot;isSignBook&quot;:0,&quot;addChapterUrl&quot;:&quot;/contentv3/booknovels/chaptertmp/CBID/17958946001429904/addType/1.html&quot;,&quot;categoryid&quot;:&quot;30008&quot;,&quot;ManageChapterUrl&quot;:&quot;/contentv3/booknovels/chaptermanage/CBID/17958946001429904.html&quot;,&quot;isShowNewExperience&quot;:1,&quot;newaddChapterUrl&quot;:&quot;/portal/booknovels/chaptertmp/CBID/17958946001429904&quot;,&quot;buyout_url&quot;:&quot;&quot;,&quot;isprecollection&quot;:&quot;-1&quot;,&quot;articleid&quot;:null}"-->
+            <div class="g-prodution-item fix pb24" >
+
+                <div class="g-section-bg g-body-h1">
+                    <div class="g-body-h2">
+
+                        <div class="g-empty mt80">
+                            <img class="g-empty-pic" src="MessageGuanliNull_files/2.png" width="160" height="160" alt="没有数据">
+                            <h5 class="g-empty-title">您目前还没有作品</h5>
+                            <p class="g-empty-txt">快去创作您的第一部作品吧</p>
+
+                            <a href="/aiyue/writerQ/createMessage" class="g-empty-btn ui-button ui-button-primary ui-large" role="button">新建作品</a>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!--<div class="g-prodution-item-sd">
+                    <div class="g-book-cover">
+                        
+                        <a href="https://www.hongxiu.com/book/17958946001429904" target="_blank">
+                            <img class="" src="JobPlaceNull_files/default_a45ca1654671e48c4795994ae59bff2f.png" width="108" height="144" alt="sdgdzf" onerror="javascript:this.src=&#39;https://ccstatic-1252317822.file.myqcloud.com/bookcoverimg/2019-09-19/5d82ee153b040.jpg&#39;;">
+                            <div class="g-book-tag">
+                                
+                                
+                            </div>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div class="g-prodution-item-lf pr">
+                    <div class="g-prodution-item-title">
+                        <div class="fr ml8 label-mins">
+                            &lt;!&ndash; <label class="label-min">玄幻编辑组</label> &ndash;&gt;
+                            &lt;!&ndash; <label class="label-min _sub">连载</label>
+                                <label class="label-min _warning">玄幻编辑组</label>
+                                <label class="label-min _new">连载</label>
+                                <label class="label-min _finish">玄幻编辑组</label> &ndash;&gt;
+                            &lt;!&ndash; <label class="label-min _flat">连载</label> &ndash;&gt;
+                            
+                            <label class="label-min _sub">第二编辑组</label>
+                            
+                            
+                            <label class="label-min _new">新建</label>
+                            
+
+                        </div>
+                        
+                        <a class="g-book-title" href="https://www.hongxiu.com/book/17958946001429904" target="_blank">
+                            <h3 class="ell fs20 fw600">sdgdzf</h3>
+                        </a>
+                        
+                    </div>
+                    <p class="g-prodution-chapter">
+                        
+                            <a href="https://www.hongxiu.com/chapter/17958946001429904/-1" target="_blank"></a>
+                        
+                    </p>
+                    
+                    <p class="g-prodution-update">无最新章节</p>
+                    
+                    <span class="g-prodution-collect">收藏 <span class="collectNum">0</span></span>
+-->
+                    <!-- <span class="ml12">2300 人订阅本章</span> -->
+
+                    <!-- <div class="mb16">
+                            <span class="g-radio-group">
+                                <label><strong class="_checked">昨日数据</strong></label>
+                                <label><strong>总数据</strong></label>
+                            </span>
+                        </div> -->
+                    <!-- <ul class="g-data-bar">
+                            <li>
+                                <small>昨日字数</small>
+                                <span><strong>38.3</strong>万字</span>
+                            </li>
+                            <li>
+                                <small>昨日排行</small>
+                                <span><strong>675</strong></span>
+                            </li>
+                            <li>
+                                <small>昨日数据</small>
+                                <span><strong>53</strong>人</span>
+                            </li>
+                            <li>
+                                <small>昨日粉丝</small>
+                                <span><strong>53</strong>人</span>
+                            </li>
+                        </ul> -->
+
+                    <!--<div class="pa r0 b0 ui-buttons">
+                        <a href="javascript:" class="ui-button book-relate-more j_more_operation" id="j_more_operation" role="button" data-cbid="" data-target="id_1075196914958092" aria-expanded="false">作品相关<em class="icon-font"></em></a>
+                        
+                        <a href="https://write.qq.com/portal/booknovels/chaptertmp/CBID/17958946001429904?entry=publish" class="ui-button" role="button" target="_blank">已发布</a>
+                        <a href="https://write.qq.com/portal/booknovels/chaptertmp/CBID/17958946001429904/addType/1.html" class="ui-button ui-button-primary" role="button" target="_blank">去写作</a>
+                    </div>
+                </div>
+            </div>-->
+            
+        </div>
+        <!--<div class="g-row-mn-sd mb16">
+            <div class="g-col g-col-mn g-section-bg">
+                <div class="g-title-h2">
+                    <h2 class="g-h2">码字日历</h2>
+                    <div class="g-title-sd">
+                        <select class="j_select" id="calendarYear" style="display: none;">
+                            <option value="2020" selected="">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                        </select><div role="combobox" class="j_select ui-select" style="width: 78px;"><a href="javascript:" data-target="calendarYear" role="button" aria-expanded="false" aria-owns="calendarYear" class="ui-select-button"><span class="ui-select-text">2020</span><em class="icon-font-arrowdown"></em></a><div id="calendarYear" role="listbox" aria-expanded="true" class="ui-select-datalist"><a href="javascript:" class="ui-select-datalist-li  selected" data-index="0" data-target="calendarYear" role="option" aria-selected="true">2020</a><a href="javascript:" class="ui-select-datalist-li " data-index="1" data-target="calendarYear" role="option" aria-selected="false">2019</a><a href="javascript:" class="ui-select-datalist-li " data-index="2" data-target="calendarYear" role="option" aria-selected="false">2018</a></div></div>
+                        <select class="j_select" id="calendarMonth" style="display: none;">
+                            <option value="01">1月</option>
+                            <option value="02">2月</option>
+                            <option value="03">3月</option>
+                            <option value="04">4月</option>
+                            <option value="05">5月</option>
+                            <option value="06">6月</option>
+                            <option value="07">7月</option>
+                            <option value="08">8月</option>
+                            <option value="09" selected="">9月</option>
+                            <option value="10">10月</option>
+                            <option value="11">11月</option>
+                            <option value="12">12月</option>
+                        </select><div role="combobox" class="j_select ui-select" style="width: 78px;"><a href="javascript:" data-target="calendarMonth" role="button" aria-expanded="false" aria-owns="calendarMonth" class="ui-select-button"><span class="ui-select-text">9月</span><em class="icon-font-arrowdown"></em></a><div id="calendarMonth" role="listbox" aria-expanded="true" class="ui-select-datalist"><a href="javascript:" class="ui-select-datalist-li " data-index="0" data-target="calendarMonth" role="option" aria-selected="false">1月</a><a href="javascript:" class="ui-select-datalist-li " data-index="1" data-target="calendarMonth" role="option" aria-selected="false">2月</a><a href="javascript:" class="ui-select-datalist-li " data-index="2" data-target="calendarMonth" role="option" aria-selected="false">3月</a><a href="javascript:" class="ui-select-datalist-li " data-index="3" data-target="calendarMonth" role="option" aria-selected="false">4月</a><a href="javascript:" class="ui-select-datalist-li " data-index="4" data-target="calendarMonth" role="option" aria-selected="false">5月</a><a href="javascript:" class="ui-select-datalist-li " data-index="5" data-target="calendarMonth" role="option" aria-selected="false">6月</a><a href="javascript:" class="ui-select-datalist-li " data-index="6" data-target="calendarMonth" role="option" aria-selected="false">7月</a><a href="javascript:" class="ui-select-datalist-li " data-index="7" data-target="calendarMonth" role="option" aria-selected="false">8月</a><a href="javascript:" class="ui-select-datalist-li  selected" data-index="8" data-target="calendarMonth" role="option" aria-selected="true">9月</a><a href="javascript:" class="ui-select-datalist-li " data-index="9" data-target="calendarMonth" role="option" aria-selected="false">10月</a><a href="javascript:" class="ui-select-datalist-li " data-index="10" data-target="calendarMonth" role="option" aria-selected="false">11月</a><a href="javascript:" class="ui-select-datalist-li " data-index="11" data-target="calendarMonth" role="option" aria-selected="false">12月</a></div></div>
+                    </div>
+                </div>
+                <div class="dashboard-calender">
+
+                    <div class="calendar-cus">
+                        <div id="calendar" class="fc fc-unthemed fc-ltr"><div class="fc-toolbar"><div class="fc-left"><div class="fc-button-group"><button type="button" class="fc-prev-button fc-button fc-state-default fc-corner-left"><span class="fc-icon fc-icon-left-single-arrow"></span></button><button type="button" class="fc-next-button fc-button fc-state-default fc-corner-right"><span class="fc-icon fc-icon-right-single-arrow"></span></button></div></div><div class="fc-right"></div><div class="fc-center"><h2>2020年 09月</h2></div><div class="fc-clear"></div></div><div class="fc-view-container" style=""><div class="fc-view fc-month-view fc-basic-view" style=""><table><thead class="fc-head"><tr><td class="fc-head-container fc-widget-header"><div class="fc-row fc-widget-header"><table><thead><tr><th class="fc-day-header fc-widget-header fc-mon"><span>一</span></th><th class="fc-day-header fc-widget-header fc-tue"><span>二</span></th><th class="fc-day-header fc-widget-header fc-wed"><span>三</span></th><th class="fc-day-header fc-widget-header fc-thu"><span>四</span></th><th class="fc-day-header fc-widget-header fc-fri"><span>五</span></th><th class="fc-day-header fc-widget-header fc-sat"><span>六</span></th><th class="fc-day-header fc-widget-header fc-sun"><span>日</span></th></tr></thead></table></div></td></tr></thead><tbody class="fc-body"><tr><td class="fc-widget-content"><div class="fc-scroller fc-day-grid-container" style="overflow: hidden; height: 257px;"><div class="fc-day-grid fc-unselectable"><div class="fc-row fc-week fc-widget-content" style="height: 42px;"><div class="fc-bg"><table><tbody><tr><td class="fc-day fc-widget-content fc-mon fc-other-month fc-past" data-date="2020-08-31"></td><td class="fc-day fc-widget-content fc-tue fc-past" data-date="2020-09-01"></td><td class="fc-day fc-widget-content fc-wed fc-past" data-date="2020-09-02"></td><td class="fc-day fc-widget-content fc-thu fc-past" data-date="2020-09-03"></td><td class="fc-day fc-widget-content fc-fri fc-past" data-date="2020-09-04"></td><td class="fc-day fc-widget-content fc-sat fc-past" data-date="2020-09-05"></td><td class="fc-day fc-widget-content fc-sun fc-past" data-date="2020-09-06"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><thead><tr><td class="fc-day-top fc-mon fc-other-month fc-past" data-date="2020-08-31"><span class="fc-day-number">31</span></td><td class="fc-day-top fc-tue fc-past" data-date="2020-09-01"><span class="fc-day-number">1</span></td><td class="fc-day-top fc-wed fc-past" data-date="2020-09-02"><span class="fc-day-number">2</span></td><td class="fc-day-top fc-thu fc-past" data-date="2020-09-03"><span class="fc-day-number">3</span></td><td class="fc-day-top fc-fri fc-past" data-date="2020-09-04"><span class="fc-day-number">4</span></td><td class="fc-day-top fc-sat fc-past" data-date="2020-09-05"><span class="fc-day-number">5</span></td><td class="fc-day-top fc-sun fc-past" data-date="2020-09-06"><span class="fc-day-number">6</span></td></tr></thead><tbody><tr><td></td><td class="fc-event-container"><a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end _unUpdate"><div class="fc-content"> <span class="fc-title">01</span></div></a></td><td class="fc-event-container"><a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end _unUpdate"><div class="fc-content"> <span class="fc-title">02</span></div></a></td><td class="fc-event-container"><a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end _unUpdate"><div class="fc-content"> <span class="fc-title">03</span></div></a></td><td class="fc-event-container"><a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end _unUpdate"><div class="fc-content"> <span class="fc-title">04</span></div></a></td><td class="fc-event-container"><a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end _unUpdate"><div class="fc-content"> <span class="fc-title">05</span></div></a></td><td class="fc-event-container"><a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end _unUpdate"><div class="fc-content"> <span class="fc-title">06</span></div></a></td></tr></tbody></table></div></div><div class="fc-row fc-week fc-widget-content" style="height: 42px;"><div class="fc-bg"><table><tbody><tr><td class="fc-day fc-widget-content fc-mon fc-past" data-date="2020-09-07"></td><td class="fc-day fc-widget-content fc-tue fc-past" data-date="2020-09-08"></td><td class="fc-day fc-widget-content fc-wed fc-today fc-state-highlight" data-date="2020-09-09"></td><td class="fc-day fc-widget-content fc-thu fc-future" data-date="2020-09-10"></td><td class="fc-day fc-widget-content fc-fri fc-future" data-date="2020-09-11"></td><td class="fc-day fc-widget-content fc-sat fc-future" data-date="2020-09-12"></td><td class="fc-day fc-widget-content fc-sun fc-future" data-date="2020-09-13"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><thead><tr><td class="fc-day-top fc-mon fc-past" data-date="2020-09-07"><span class="fc-day-number">7</span></td><td class="fc-day-top fc-tue fc-past" data-date="2020-09-08"><span class="fc-day-number">8</span></td><td class="fc-day-top fc-wed fc-today fc-state-highlight" data-date="2020-09-09"><span class="fc-day-number">9</span></td><td class="fc-day-top fc-thu fc-future" data-date="2020-09-10"><span class="fc-day-number">10</span></td><td class="fc-day-top fc-fri fc-future" data-date="2020-09-11"><span class="fc-day-number">11</span></td><td class="fc-day-top fc-sat fc-future" data-date="2020-09-12"><span class="fc-day-number">12</span></td><td class="fc-day-top fc-sun fc-future" data-date="2020-09-13"><span class="fc-day-number">13</span></td></tr></thead><tbody><tr><td class="fc-event-container"><a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end _unUpdate"><div class="fc-content"> <span class="fc-title">07</span></div></a></td><td class="fc-event-container"><a class="fc-day-grid-event fc-h-event fc-event fc-start fc-end _unUpdate"><div class="fc-content"> <span class="fc-title">08</span></div></a></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></div><div class="fc-row fc-week fc-widget-content" style="height: 42px;"><div class="fc-bg"><table><tbody><tr><td class="fc-day fc-widget-content fc-mon fc-future" data-date="2020-09-14"></td><td class="fc-day fc-widget-content fc-tue fc-future" data-date="2020-09-15"></td><td class="fc-day fc-widget-content fc-wed fc-future" data-date="2020-09-16"></td><td class="fc-day fc-widget-content fc-thu fc-future" data-date="2020-09-17"></td><td class="fc-day fc-widget-content fc-fri fc-future" data-date="2020-09-18"></td><td class="fc-day fc-widget-content fc-sat fc-future" data-date="2020-09-19"></td><td class="fc-day fc-widget-content fc-sun fc-future" data-date="2020-09-20"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><thead><tr><td class="fc-day-top fc-mon fc-future" data-date="2020-09-14"><span class="fc-day-number">14</span></td><td class="fc-day-top fc-tue fc-future" data-date="2020-09-15"><span class="fc-day-number">15</span></td><td class="fc-day-top fc-wed fc-future" data-date="2020-09-16"><span class="fc-day-number">16</span></td><td class="fc-day-top fc-thu fc-future" data-date="2020-09-17"><span class="fc-day-number">17</span></td><td class="fc-day-top fc-fri fc-future" data-date="2020-09-18"><span class="fc-day-number">18</span></td><td class="fc-day-top fc-sat fc-future" data-date="2020-09-19"><span class="fc-day-number">19</span></td><td class="fc-day-top fc-sun fc-future" data-date="2020-09-20"><span class="fc-day-number">20</span></td></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></div><div class="fc-row fc-week fc-widget-content" style="height: 42px;"><div class="fc-bg"><table><tbody><tr><td class="fc-day fc-widget-content fc-mon fc-future" data-date="2020-09-21"></td><td class="fc-day fc-widget-content fc-tue fc-future" data-date="2020-09-22"></td><td class="fc-day fc-widget-content fc-wed fc-future" data-date="2020-09-23"></td><td class="fc-day fc-widget-content fc-thu fc-future" data-date="2020-09-24"></td><td class="fc-day fc-widget-content fc-fri fc-future" data-date="2020-09-25"></td><td class="fc-day fc-widget-content fc-sat fc-future" data-date="2020-09-26"></td><td class="fc-day fc-widget-content fc-sun fc-future" data-date="2020-09-27"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><thead><tr><td class="fc-day-top fc-mon fc-future" data-date="2020-09-21"><span class="fc-day-number">21</span></td><td class="fc-day-top fc-tue fc-future" data-date="2020-09-22"><span class="fc-day-number">22</span></td><td class="fc-day-top fc-wed fc-future" data-date="2020-09-23"><span class="fc-day-number">23</span></td><td class="fc-day-top fc-thu fc-future" data-date="2020-09-24"><span class="fc-day-number">24</span></td><td class="fc-day-top fc-fri fc-future" data-date="2020-09-25"><span class="fc-day-number">25</span></td><td class="fc-day-top fc-sat fc-future" data-date="2020-09-26"><span class="fc-day-number">26</span></td><td class="fc-day-top fc-sun fc-future" data-date="2020-09-27"><span class="fc-day-number">27</span></td></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></div><div class="fc-row fc-week fc-widget-content" style="height: 42px;"><div class="fc-bg"><table><tbody><tr><td class="fc-day fc-widget-content fc-mon fc-future" data-date="2020-09-28"></td><td class="fc-day fc-widget-content fc-tue fc-future" data-date="2020-09-29"></td><td class="fc-day fc-widget-content fc-wed fc-future" data-date="2020-09-30"></td><td class="fc-day fc-widget-content fc-thu fc-other-month fc-future" data-date="2020-10-01"></td><td class="fc-day fc-widget-content fc-fri fc-other-month fc-future" data-date="2020-10-02"></td><td class="fc-day fc-widget-content fc-sat fc-other-month fc-future" data-date="2020-10-03"></td><td class="fc-day fc-widget-content fc-sun fc-other-month fc-future" data-date="2020-10-04"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><thead><tr><td class="fc-day-top fc-mon fc-future" data-date="2020-09-28"><span class="fc-day-number">28</span></td><td class="fc-day-top fc-tue fc-future" data-date="2020-09-29"><span class="fc-day-number">29</span></td><td class="fc-day-top fc-wed fc-future" data-date="2020-09-30"><span class="fc-day-number">30</span></td><td class="fc-day-top fc-thu fc-other-month fc-future" data-date="2020-10-01"><span class="fc-day-number">1</span></td><td class="fc-day-top fc-fri fc-other-month fc-future" data-date="2020-10-02"><span class="fc-day-number">2</span></td><td class="fc-day-top fc-sat fc-other-month fc-future" data-date="2020-10-03"><span class="fc-day-number">3</span></td><td class="fc-day-top fc-sun fc-other-month fc-future" data-date="2020-10-04"><span class="fc-day-number">4</span></td></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></div><div class="fc-row fc-week fc-widget-content" style="height: 47px;"><div class="fc-bg"><table><tbody><tr><td class="fc-day fc-widget-content fc-mon fc-other-month fc-future" data-date="2020-10-05"></td><td class="fc-day fc-widget-content fc-tue fc-other-month fc-future" data-date="2020-10-06"></td><td class="fc-day fc-widget-content fc-wed fc-other-month fc-future" data-date="2020-10-07"></td><td class="fc-day fc-widget-content fc-thu fc-other-month fc-future" data-date="2020-10-08"></td><td class="fc-day fc-widget-content fc-fri fc-other-month fc-future" data-date="2020-10-09"></td><td class="fc-day fc-widget-content fc-sat fc-other-month fc-future" data-date="2020-10-10"></td><td class="fc-day fc-widget-content fc-sun fc-other-month fc-future" data-date="2020-10-11"></td></tr></tbody></table></div><div class="fc-content-skeleton"><table><thead><tr><td class="fc-day-top fc-mon fc-other-month fc-future" data-date="2020-10-05"><span class="fc-day-number">5</span></td><td class="fc-day-top fc-tue fc-other-month fc-future" data-date="2020-10-06"><span class="fc-day-number">6</span></td><td class="fc-day-top fc-wed fc-other-month fc-future" data-date="2020-10-07"><span class="fc-day-number">7</span></td><td class="fc-day-top fc-thu fc-other-month fc-future" data-date="2020-10-08"><span class="fc-day-number">8</span></td><td class="fc-day-top fc-fri fc-other-month fc-future" data-date="2020-10-09"><span class="fc-day-number">9</span></td><td class="fc-day-top fc-sat fc-other-month fc-future" data-date="2020-10-10"><span class="fc-day-number">10</span></td><td class="fc-day-top fc-sun fc-other-month fc-future" data-date="2020-10-11"><span class="fc-day-number">11</span></td></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div></div></div></div></td></tr></tbody></table></div></div></div>
+                    </div>
+                    <div class="fix">
+                        <div class="fl">
+                            <span class="g-calender-text _sub">未更新</span>
+                            <span class="g-calender-text _main">有更新 <a class="calender-update-note jsThemeTips" title="不含作品相关和感言章节"><em class="icon-font"></em></a></span>
+                            <span class="g-calender-text _extra">请假条</span>
+                        </div>
+                        <div class="fr">当月更新 <strong class="c-primary fwn ">0</strong> 字</div>
+                    </div>
+                </div>
+            </div>
+            <div class="g-col g-col-mn g-section-bg">
+                <div class="g-title-h2">
+                    <h2 class="g-h2">作家新闻</h2>
+                    
+                    <div class="g-title-sd">
+                        <span href="#" class="g-title-link g-page-toggle">
+                            <a href="javascript:"><em class="icon-font" id="leftarrow"></em></a>
+                            <strong>
+                                <span class="current">1</span>／<span class="total">39</span>
+                            </strong>
+                            <a href="javascript:"><em class="icon-font" id="rightarrow"></em></a>
+                        </span>
+                    </div>
+                    
+                </div>
+                <ul class="g-list-info">
+                    
+                    <li>
+                        <a href="https://write.qq.com/portal/dashboard/authorNewsDetail?id=1073486" target="_blank" data-url="/portal/dashboard/authorNewsDetail?id=1073486" class="j-news jsTips" title="起点客户端全新榜单“战力榜”调整公告" data-newsid="1073486" data-mark="0"><i class="g-dot  _danger"></i>起点客户端全新榜单“战力榜”调整公告</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://write.qq.com/portal/dashboard/authorNewsDetail?id=1073485" target="_blank" data-url="/portal/dashboard/authorNewsDetail?id=1073485" class="j-news jsTips" title="“婚恋文”新媒体向征文大奖赛征文获奖名单" data-newsid="1073485" data-mark="0"><i class="g-dot  _danger"></i>“婚恋文”新媒体向征文大奖赛征文获奖名单</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://write.qq.com/portal/dashboard/authorNewsDetail?id=1073482" target="_blank" data-url="/portal/dashboard/authorNewsDetail?id=1073482" class="j-news jsTips" title="阅文集团编辑服务模式升级公告" data-newsid="1073482" data-mark="0"><i class="g-dot  _danger"></i>阅文集团编辑服务模式升级公告</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://write.qq.com/portal/dashboard/authorNewsDetail?id=1073481" target="_blank" data-url="/portal/dashboard/authorNewsDetail?id=1073481" class="j-news jsTips" title="文笔苦手的福音——对话小说（附“千字万金”征文第二批获奖名单）" data-newsid="1073481" data-mark="0"><i class="g-dot  _danger"></i>文笔苦手的福音——对话小说（附“千字万金”征文第二批获奖名单）</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://write.qq.com/actarticle/detail/artidx/601" target="_blank" data-url="https://write.qq.com/actarticle/detail/artidx/601" class="j-news jsTips" title="2020NEXTIDEA短篇创意征文大赛" data-newsid="1073480" data-mark="0"><i class="g-dot  _danger"></i>2020NEXTIDEA短篇创意征文大赛</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://write.qq.com/portal/dashboard/authorNewsDetail?id=1073479" target="_blank" data-url="/portal/dashboard/authorNewsDetail?id=1073479" class="j-news jsTips" title="《和平精英》全新征文活动正式启动，快来报名参赛吧！" data-newsid="1073479" data-mark="0"><i class="g-dot  _danger"></i>《和平精英》全新征文活动正式启动，快来报名参赛吧！</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://write.qq.com/portal/dashboard/authorNewsDetail?id=1073477" target="_blank" data-url="/portal/dashboard/authorNewsDetail?id=1073477" class="j-news jsTips" title="起点客户端全新榜单“战力榜”上线公告" data-newsid="1073477" data-mark="0"><i class="g-dot  _danger"></i>起点客户端全新榜单“战力榜”上线公告</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://write.qq.com/portal/dashboard/authorNewsDetail?id=1073476" target="_blank" data-url="/portal/dashboard/authorNewsDetail?id=1073476" class="j-news jsTips" title="2019泛悬疑秋季征文宣奖" data-newsid="1073476" data-mark="0"><i class="g-dot  _danger"></i>2019泛悬疑秋季征文宣奖</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="g-section-bg">
+            <div class="g-title-h2 mb24">
+                <h2 class="g-h2">征文活动</h2>
+                <div class="g-title-sd">
+                    <a href="https://write.qq.com/portal/dashboard/activities" class="g-link _sub" target="_blank">更多<em class="icon-font"></em></a>
+                </div>
+            </div>
+            <div class="activity-list">
+                <ul class="fix pb24">
+                    
+                    <li>
+                        <a title="红袖纯爱暑期大作战" href="https://write.qq.com/portal/dashboard/activityDetail?id=606" class="g-card" target="_blank">
+                            <div class="g-card-img">
+                                <img class="" src="./工作台-阅文作家专区_files/5f2d21d2dbbf8.jpg" width="264" height="114" alt="红袖纯爱暑期大作战">
+                            </div>
+                            <h3 class="g-card-title">红袖纯爱暑期大作战</h3>
+                            <p class="g-card-text">夏天不止有空调、wifi、西瓜，还需要沙发、手机、好文！ Duang~“红袖读书暑期纯爱大作战”副本正式开启！ 无论你是身经百战的成熟写手，还是初次尝试的萌新菜鸟，都能在这个副本里找到属于自己的通关攻略。 红袖纯爱已形成自己的品牌优势，几十位业绩作家上百本精品佳作，吸引了更多优秀的作者和作品前来加入我们。而暑期，红袖又将迎来站内流量的新高峰，版权改编也是蓄势待发，已经向外输送了若干IP的我们还需要更多的新鲜血液！ 届时阅文集团的金牌编辑运营团队也会参与其中，为参赛的优秀选手提供一对一指导，助力各位作者披荆斩棘，乘风破浪。 小扇引微凉，悠悠夏日长。 本次征文不限题材，不论风格。夏日漫长苦夜短，正是适合勤奋写作的好时候。只要你有故事，征文大赛就一定有你的一席之地！ 往期优秀作品鉴赏 1.幻想纯爱-快穿之谁还不是个妖精了/磬歌 2.现代纯爱-霸总家的小奶狼/无妖殿下 3.古代纯爱-穿书之每天醒来师尊都在崩人设/沉涣</p>
+                            <p class="g-card-text-sub c-primary">62 天后截止 </p>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a title="“脑洞大开”征文大奖赛" href="https://write.qq.com/portal/dashboard/activityDetail?id=605" class="g-card" target="_blank">
+                            <div class="g-card-img">
+                                <img class="" src="./工作台-阅文作家专区_files/5f227210c116a.jpg" width="264" height="114" alt="“脑洞大开”征文大奖赛">
+                            </div>
+                            <h3 class="g-card-title">“脑洞大开”征文大奖赛</h3>
+                            <p class="g-card-text">脑洞大开，创意为王！ 随着网络文学的不断发展，脑洞向作品越来越受读者尤其是年轻读者的青睐，“这个有点意思，我没见过”日益成为读者选择自己喜爱作品的依据。 百花齐放，出奇制胜！ 系统可以每天随机一个，职业亦可以。开局可以签到一个荒古圣体，也可以签到一栋亿万豪宅。摊牌了我就是首富，甚至修仙都可以直播。一开始就是无敌的师叔祖，如若敌方太强，老祖遗体借来挡一挡。主角可以是极限运功员，也可以是一头威风凛凛的雄狮！ 总之，本次征文主题就是四个字-脑洞大开。 请广大作者发挥想象力，充分展开自己的脑洞，寻找合适的题材进行创作。</p>
+                            <p class="g-card-text-sub c-primary">82 天后截止 </p>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a title="2020年起点历史头脑风暴第二轮征文大赛" href="https://write.qq.com/portal/dashboard/activityDetail?id=604" class="g-card" target="_blank">
+                            <div class="g-card-img">
+                                <img class="" src="./工作台-阅文作家专区_files/5efb04c0c25b7.jpg" width="264" height="114" alt="2020年起点历史头脑风暴第二轮征文大赛">
+                            </div>
+                            <h3 class="g-card-title">2020年起点历史头脑风暴第二轮征文大赛</h3>
+                            <p class="g-card-text">作家在自己作品的创意和风格上，如能充分发挥个性，与众不同，定会给读者耳目一新的感觉！ 头脑风暴征文寻求创意新颖的历史题材小说，敬请作者展开联想，加入到这场PK盛宴之中！ 征稿题材举例，包括但不限于以下这些题材： ①穿越成功，但却拿了反派剧本怎么办？ ②有一群宠弟狂魔姐姐，却被姐姐追求者敌视怎么办？ ③考试必过，英俊潇洒，优秀得让人嫉妒，我就是学霸中的霸中霸 ④爸爸养成记的拓展版，爹你要争气啊——如何帮助某位亲戚走上成功之路 ⑤急！隔壁邻居得了主角模板，而我得了路人模板怎么办？渣渣也要有春天 ⑥遇到大家族里那些乱七八糟的事，我该怎么破？ ⑦我家亲戚是穿越的，被我发现了，我该怎么办？ ⑧看徒儿们成才，为师就心满意足了，为师就不赴考了吧…… 期待作者找到更多的创意，发挥书写。 所有题材背景既可完全架空，也可放在任意朝代。</p>
+                            <p class="g-card-text-sub c-primary">82 天后截止 </p>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="footer-new" id="j-siteFooter">-->
+  <!-- <div class="box-center"> -->
+    <!-- <div class="footer-ft"> -->
+      <!-- <p class="copy-right fr">© 2020 阅文集团 版权所有</p> -->
+      <!--<div class="footer-info">
+          <a class="footer-link" href="https://write.qq.com/contentv2/about/help_center.html" target="_blank">帮助中心</a>
+          <a class="footer-link" href="https://www.yuewen.com/service.html" target="_blank">联系我们</a>
+          <a class="footer-link" href="http://join.book.qq.com/introduction.html" target="_blank">关于我们</a>
+          <a class="footer-link" href="http://join.book.qq.com/social.html" target="_blank">诚聘英才</a>
+          <a class="footer-link" href="https://write.qq.com/contentv2/about/copyright.html" target="_blank">版权信息</a>
+          <p class="footer-link">© 2020 阅文集团 版权所有</p>
+      </div>-->
+    <!-- </div> -->
+  <!-- </div> -->
+</div>
+    </div>
+</div>
+
+<!-- 公用js -->
+<script src="JobPlaceNull_files/jquery.js"></script>
+<script src="JobPlaceNull_files/jquery.cookie.js"></script>
+
+
+
+<script src="JobPlaceNull_files/util.js"></script>
+<script src="JobPlaceNull_files/dialog.js"></script>
+<script src="JobPlaceNull_files/ajax.js"></script>
+<script src="JobPlaceNull_files/header.js"></script>
+<script src="JobPlaceNull_files/common.js"></script>
+<script src="JobPlaceNull_files/qrcode.min.js"></script>
+<script src="JobPlaceNull_files/browser.js"></script>
+<script src="JobPlaceNull_files/tucao.js"></script>
+<script>
+  /*function tucao() {
+    var cauthorid = '17752236906517001'
+    if (cauthorid == null || cauthorid == '') {
+      window.location.href = '/public/login.html?artidx=-100';
+    } else {
+      var _browser = CS.browser;
+
+      var data = {
+        "nickname": '原创作家',
+        "avatar": "https://ccstatic-1252317822.file.myqcloud.com/writer/p1/contentv2/photo_default.png",
+        "openid": '17752236906517001',
+        "os": _browser.detectOS(),
+        "clientInfo": _browser.browserType(),
+        "clientVersion": _browser.browserType(),
+        "customInfo": '原创作家' + '17752236906517001'
+      };
+      var productId = 1924;
+      Tucao.request(productId, data);
+    }
+  }*/
+
+</script>
+<script>
+  function getCookie(name) { 
+    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+ 
+    if(arr=document.cookie.match(reg))
+      return unescape(arr[2]); 
+    else 
+      return ''; 
+  }
+  $(document).ready(function() {
+    $(document).ajaxSend(function(event, jqxhr, settings) {
+      jqxhr.setRequestHeader('X-TOKEN', getCookie("pubtoken"));
+    });
+  });
+</script>
+<script src="JobPlaceNull_files/data-report.js"></script>
+
+
+<!-- 创建作品-选择类型弹窗 -->
+<!--<script id="bookCreateType" type="text/html">
+    <div class="select-type j-select-book-type">
+        <ul class="select-type-con cf">
+            <li class="type-item" data-type="1" data-url="/portal/dashboard/create-novel">
+                <div class="pw-box">
+                    <i class="pw-icon-type"><em class="icon-font">&#xe95a;</em></i>
+                    <h3 class="pw-h3">长篇小说</h3>
+                    <p class="pw-txt">长篇连载，邀你挑战！</p>
+                </div>
+                <i class="pw-icon-checked icon-checked"></i>
+            </li>
+            <li class="type-item" data-type="2" data-url="/portal/dashboard/create-novel?isshortstory=true">
+                <div class="pw-box">
+                    <i class="pw-icon-type"><em class="icon-font">&#xe95b;</em></i>
+                    <h3 class="pw-h3">短篇故事</h3>
+                    <p class="pw-txt">我有故事，你有酒吗？</p>
+                </div>
+                <i class="pw-icon-checked icon-checked"></i>
+            </li>
+            <li class="type-item" data-type="3" data-url="/portal/dashboard/create-dialog-novel">
+                <div class="pw-box">
+                    <i class="pw-icon-type"><em class="icon-font">&#xe95c;</em></i>
+                    <h3 class="pw-h3">对话小说</h3>
+                    <p class="pw-txt">来秀一下你的脑洞吧！</p>
+                </div>
+                <i class="pw-icon-checked icon-checked"></i>
+            </li>
+        </ul>
+    </div>
+</script>-->
+<script src="JobPlaceNull_files/jquery.js"></script>
+<script src="JobPlaceNull_files/all.js"></script>
+
+<script src="JobPlaceNull_files/ieversiondetect.js"></script>
+<!--<script>
+  var islowversionie = IEVersion() < 10 && IEVersion() != -1;
+  if (islowversionie) {
+    $.ajax({
+      type: 'GET',
+      url: '/portal/domesticsite?service=guideservice&action=isGuide&type=63&timestamp=' + Date.now(),
+      dataType: 'json',
+      success: function (data) {
+        if (data.returnCode == 200 && !data.result) {
+            new Dialog().alert('\
+                <h6>浏览器需要升级</h6>\
+                <p>你的浏览器版本较低，为保障页面的正常使用，请点击下方浏览器设置按钮查看具体步骤或下载使用<a class="ui-color-blue" target="_blank" href="https://www.google.cn/intl/zh-CN/chrome/">谷歌浏览器</a></p>'
+                , {
+                type: 'remind',
+                buttons: [{
+                    value: '浏览器设置',
+                    events: function (event) {
+                    window.location.href = '/portal/browserguide'
+                    }
+                }, {
+                    value: '不再提醒',
+                    events: function (event) {
+                    event.data.dialog.remove()
+                    }
+                }]
+            })
+        }
+      }
+    })
+    
+  }
+</script>
+<script>
+    // JSON polyfill 支持IE6+
+    if (!window.JSON) {
+      window.JSON = {
+        parse: function(sJSON) { return eval('(' + sJSON + ')'); },
+        stringify: (function () {
+          var toString = Object.prototype.toString;
+          var isArray = Array.isArray || function (a) { return toString.call(a) === '[object Array]'; };
+          var escMap = {'"': '\\"', '\\': '\\\\', '\b': '\\b', '\f': '\\f', '\n': '\\n', '\r': '\\r', '\t': '\\t'};
+          var escFunc = function (m) { return escMap[m] || '\\u' + (m.charCodeAt(0) + 0x10000).toString(16).substr(1); };
+          var escRE = /[\\"\u0000-\u001F\u2028\u2029]/g;
+          return function stringify(value) {
+            if (value == null) {
+              return 'null';
+            } else if (typeof value === 'number') {
+              return isFinite(value) ? value.toString() : 'null';
+            } else if (typeof value === 'boolean') {
+              return value.toString();
+            } else if (typeof value === 'object') {
+              if (typeof value.toJSON === 'function') {
+                return stringify(value.toJSON());
+              } else if (isArray(value)) {
+                var res = '[';
+                for (var i = 0; i < value.length; i++)
+                  res += (i ? ', ' : '') + stringify(value[i]);
+                return res + ']';
+              } else if (toString.call(value) === '[object Object]') {
+                var tmp = [];
+                for (var k in value) {
+                  if (value.hasOwnProperty(k))
+                    tmp.push(stringify(k) + ': ' + stringify(value[k]));
+                }
+                return '{' + tmp.join(', ') + '}';
+              }
+            }
+            return '"' + value.toString().replace(escRE, escFunc) + '"';
+          };
+        })()
+      };
+    }
+</script>
+<script>
+    $(function () {
+    // 日历有更新说明&#45;&#45;页面的tips说明
+    new Tips($('.jsThemeTips'), {
+        align: 'reverse',
+        theme: 'white'
+    });
+
+        // dropdown list
+    $('.j_more_operation').each(function (index, el) {
+        var data = JSON.parse($(this).closest('.g-prodution-item').attr('data-item'))
+            var dropArr = []
+            if(data.is_buy_out == 1){
+                dropArr.splice(3,0,{
+                href: data.buyout_url,
+                value: "买断交稿",
+                target: "_blank"
+            })
+            }
+            if(data.isfinelayout ==2 ){
+                dropArr.unshift({
+                    href: "/bookdialognovels/bookmodify/CBID/"+ data.CBID+ ".html",
+                    value: "作品设置",
+                    target: "_blank"
+                },{
+                    href: "/portal/dashboard/booksetting?cbid=" + data.CBID,
+                    value: '作品设定',
+                    target: "_blank"
+                });
+            } else {
+                dropArr.unshift({
+                    href: "/portal/dashboard/application-list?cbid=" + data.CBID,
+                    value: "申请管理",
+                    target: "_blank"
+                },{
+                    href: "/booknovels/bookmodify/CBID/" + data.CBID + ".html",
+                    value: "作品设置",
+                    target: "_blank"
+                },{
+                    href: "/portal/dashboard/booksetting?cbid=" + data.CBID,
+                    value: '作品设定',
+                    target: "_blank"
+                });
+                if (data.isSignBook == 1) {
+                    dropArr.splice(1,0,{
+                        href: "/portal/dashboard/productionMng?cbid=" + data.CBID,
+                        value: "角色管理",
+                        target: "_blank"
+                        }
+                    )
+                }
+            }
+
+            new DropList($(this), dropArr, {
+            // width: 88,
+            eventType: 'hover',
+            position: "7-5",
+            onShow: function(trigger, target) {
+                target.css('z-index', 9);
+                target.css('max-width', 116);
+            }
+        });
+        });
+     }
+    );
+</script>-->
+
+<script src="JobPlaceNull_files/util1.js"></script>
+<script src="JobPlaceNull_files/moment.min.js"></script>
+<script src="JobPlaceNull_files/fullcalendar.min.js"></script>
+<script src="JobPlaceNull_files/calendar.js"></script>
+<script src="JobPlaceNull_files/jquery.qtip.min.js"></script>
+<script src="JobPlaceNull_files/zh-cn.js"></script>
+<script src="JobPlaceNull_files/index.js"></script>
+<script src="JobPlaceNull_files/createBook.js"></script>
+
+
+
+
+  <!--  <script>
+      window.yconfig = {
+        isLogin: true,
+        ttd: '17752236906517001'
+      }
+    </script>
+    <script type="text/javascript">
+      var _mtac = {
+        "performanceMonitor": 1
+      };
+      (function () {
+        var mta = document.createElement("script");
+        mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "500659219");
+        mta.setAttribute("cid", "500664628");
+        var s = document.getElementsByTagName("script")[0];
+        s
+          .parentNode
+          .insertBefore(mta, s);
+      })();
+    </script>-->
+    
+  
+</body></html>

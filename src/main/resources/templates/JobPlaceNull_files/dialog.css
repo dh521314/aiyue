@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/*对话框*/
+
+/*提示浮层*/
+.page-tips {
+    line-height: 4rem;
+    position: fixed;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    max-width: 90%;
+    max-width: calc(100% - 2rem);
+    padding: 0 3.75rem;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    color: #fff;
+    border-radius: .5rem;
+    font-size: 1rem;
+    background: rgba(23, 25, 26, 0.8); 
+}

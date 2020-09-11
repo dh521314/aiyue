@@ -1,0 +1,116 @@
+.nu_dialog_close {
+	text-align:center;
+	text-decoration:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+	/*放到 .yf_dialog 右上角*/
+ position:absolute;
+	top:0;
+	right:0;
+}
+.nu_dialog {
+	background-color:#fff;
+	position:relative;
+	-webkit-transition:-webkit-transform 200ms;
+	transition:-webkit-transform 200ms;
+	transition:transform 200ms;
+	transition:transform 200ms,-webkit-transform 200ms;
+}
+.nu_dialog_mask {
+	/* 铺满全屏 */
+ position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	/* 黑色半透明 */
+ background-color:rgba(0,0,0,0.5);
+ filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#CC191c22, endcolorstr=#CC191c22);
+}
+.nu_dialog_wrap {
+	/* 模态框铺满全屏 */
+ position:fixed;
+	top:0;
+	left:0;
+	bottom:0;
+	width:100%;
+	/* 建议使用全局参数 $z_dialog */
+ z-index:200;
+	/* 内容超高的时候，显示滚动条 */
+ overflow:auto;
+	/* 默认不显示 */
+ visibility:hidden;
+	opacity:0;
+	pointer-events:none;
+}
+.nu_dialog_wrap._open {
+	visibility:visible;
+	opacity:1;
+	pointer-events:auto;
+}
+/* 控制 body 或者 html 滚动条 */
+ .nu_dialog_open {
+	overflow:hidden;
+}
+/*====== 右对齐弹窗*/
+._right .nu_dialog {
+	position:absolute;
+	right:0;
+	top:0;
+	height:100%;
+	width:80%;
+	max-width:400px;
+  bottom:0;
+  transform: translateX(100%);  
+}
+
+.nu_dialog_wrap, .nu_dialog{
+  transition: 200ms;
+}
+.nu_dialog_wrap._right._open .nu_dialog{
+  transform: translateX(0);
+}
+
+/* 抽屉弹窗 */
+.g-drawer{
+	overflow: hidden;
+}
+.g-drawer-hd {
+	height:24px;
+	line-height:24px;
+	padding:24px;
+	border-bottom:1px solid #E0E0E0;
+	position:relative;
+}
+.g-drawer-title {
+	font-size:16px;
+	line-height:24px;
+	font-weight:500;
+}
+.g-drawer-hd-sd {
+	position:absolute;
+	top:24px;
+	right:24px;
+}
+.g-drawer-bd {
+	position:absolute;
+	top:72px;
+	bottom:72px;
+	overflow-y:auto;
+	left:0;
+	right:0;
+}
+.g-drawer-ft {
+	padding:24px;
+	height:32px;
+	position:absolute;
+	bottom:0;
+	left:0;
+	right:0;
+}
+.g-drawer .nu_dialog {
+	width:640px;
+	max-width:80%;
+}

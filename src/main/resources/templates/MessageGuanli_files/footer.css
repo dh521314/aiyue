@@ -1,0 +1,78 @@
+@charset "UTF-8";
+/**
+ * @author yangye
+ * @design wangjiale;
+ */
+/**
+ * @author yangye
+ * @design xurui;
+ */
+/**
+ * @author yangye
+ * @design xurui;
+ */
+/* 居中容器 */
+/*边框*/
+/*下边距 默认mb就是10px*/
+/* 不折行截字 */
+/* 折行截字 */
+/* 嵌套小三角 往上 */
+/* 嵌套小三角 往下 */
+/* 嵌套小三角 往左 */
+/* 实体小三角 */
+/* 过渡动画 默认0.3秒 */
+/* 平面书封hover放大到1.1倍 */
+/* 父容器清浮动 */
+/* 标题下边框线 */
+.footer {
+  background: #F5F5F5;
+  padding-top: 36px;
+  margin-top: 60px; }
+  .footer.min {
+    padding-top: 0; }
+    .footer.min .footer-ft {
+      border-top: none; }
+  .footer .site-list {
+    position: relative;
+    z-index: 1; }
+    .footer .site-list h3 {
+      font-size: 16px;
+      margin-bottom: 12px; }
+    .footer .site-list ul {
+      width: 680px;
+      font-size: 0;
+      padding-bottom: 32px;
+      overflow: hidden; }
+    .footer .site-list li {
+      display: inline-block;
+      vertical-align: middle;
+      width: 60px;
+      white-space: nowrap;
+      margin: 0 72px 12px 0;
+      float: left; }
+      .footer .site-list li a {
+        font-size: 12px;
+        color: #7A7A7A; }
+    .footer .site-list .foot-logo {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 160px;
+      height: 47px;
+      background: url("../images/foot_logo.png");
+      background: center/100% url("../images/foot_logo@2x.png"); }
+  .footer .footer-ft {
+    color: #7A7A7A;
+    line-height: 36px;
+    height: 36px;
+    font-size: 12px;
+    border-top: 1px solid #E0E0E0; }
+    .footer .footer-ft a {
+      color: #7A7A7A;
+      margin-left: 20px; }
+      .footer .footer-ft a:first-child {
+        margin-left: 0; }
+      .footer .footer-ft a:hover {
+        color: #0067E6; }
+
+/*# sourceMappingURL=footer.css.map */
