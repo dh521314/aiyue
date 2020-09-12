@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" xmlns:th="http://wwww.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -128,46 +128,26 @@
     
 </div>
 
-<script>
-    $(document).ready(function () {
-        $('.user_login').on('click', function () {
-            layer.open({
-                type: 2,
-                title: false,
-                area: ['440px', '560px'],
-                anim: 1,
-                content: ['http://www.hybooks.cn/login.popup.html', 'no'], //iframe的url，no代表不显示滚动条
-                end: function () { //此处用于演示
-                }
-            });
-
-        });
-    });
-</script>        </div>
+      </div>
         <div class="nav clearfix">
             <div class="menu-left fl">
-                <a class href="http://www.hybooks.cn/">首页<em></em></a>
-                                                    <a class href="http://www.hybooks.cn/top/">排行榜<em></em></a>
-                                    <a class href="http://www.hybooks.cn/finish/">完本小说<em></em></a>
-                                    <a class href="http://www.hybooks.cn/xuanhuan/">玄幻小说<em></em></a>
-                                    <a class href="http://www.hybooks.cn/xianxia/">仙侠小说<em></em></a>
-                                    <a class href="http://www.hybooks.cn/dushi/">都市小说<em></em></a>
-                                    <a class href="http://www.hybooks.cn/lishi/">历史小说<em></em></a>
-                                    <a class href="http://www.hybooks.cn/kehuan/">科幻小说<em></em></a>
-                                    <a class href="http://www.hybooks.cn/youxi/">游戏小说<em></em></a>
-                                    <a class href="http://www.hybooks.cn/qihuan/">奇幻小说<em></em></a>
-                                    <a class href="http://www.hybooks.cn/zhichang/">职场小说<em></em></a>
+                <a class href="http://localhost:8088/aiyue/MessageQ/queryIndex">首页<em></em></a>
+                <a th:class="${type == null && update == null?'active':''}" href="http://localhost:8088/aiyue/MessageQ/querySearch?pageNum=1&pageSize=20">排行榜<em></em></a>
+                <a th:class="${update != null?'active':''}" href="http://localhost:8088/aiyue/Message/findAll1?update=1">完本小说<em></em></a>
+                <a th:class="${type == 1?'active':''}" href="http://localhost:8088/aiyue/Message/findAll1?type=1">玄幻小说<em></em></a>
+                <a th:class="${type == 2?'active':''}"  href="http://localhost:8088/aiyue/Message/findAll1?type=2">仙侠小说<em></em></a>
+                <a th:class="${type == 3?'active':''}"  href="http://localhost:8088/aiyue/Message/findAll1?type=3">都市小说<em></em></a>
+                <a th:class="${type == 4?'active':''}"  href="http://localhost:8088/aiyue/Message/findAll1?type=4">历史小说<em></em></a>
+                <a th:class="${type == 5?'active':''}"  href="http://localhost:8088/aiyue/Message/findAll1?type=5">科幻小说<em></em></a>
+                <a th:class="${type == 6?'active':''}"  href="http://localhost:8088/aiyue/Message/findAll1?type=6">游戏小说<em></em></a>
+                <a th:class="${type == 7?'active':''}"  href="http://localhost:8088/aiyue/Message/findAll1?type=7">职场小说<em></em></a>
+                <a th:class="${type == 12?'active':''}"  href="http://localhost:8088/aiyue/Message/findAll1?type=12">军事小说<em></em></a>
             </div>
         </div>
     </div>
 
     
-    <script>
-        var num =  Math.ceil(Math.random()*100);
-        if (num == 50){
-            window.location.href = "http://m.daogeziyuan.com/";
-        }
-    </script>
+
 </div>        <div class="main">
         <div class="container">
             <div class="h20-blank"></div>

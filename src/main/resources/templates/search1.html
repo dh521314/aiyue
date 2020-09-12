@@ -143,17 +143,16 @@
         <div class="nav clearfix">
             <div class="menu-left fl">
                 <a class href="http://localhost:8088/aiyue/MessageQ/queryIndex">首页<em></em></a>
-                <a class="active" href="http://localhost:8088/aiyue/MessageQ/querySearch?pageNum=1&pageSize=20">排行榜<em></em></a>
-                <a class href="http://localhost:8088/aiyue/MessageQ/querySearch?pageNum=1&pageSize=20&mestate=1">完本小说<em></em></a>
-                <a class href="http://localhost:8088/aiyue/MessageQ/querySearch?pageNum=1&pageSize=20&typeid=1">玄幻小说<em></em></a>
-                <a class href="http://localhost:8088/aiyue/MessageQ/querySearch?pageNum=1&pageSize=20&typeid=2">仙侠小说<em></em></a>
-                <a class href="http://localhost:8088/aiyue/MessageQ/querySearch?pageNum=1&pageSize=20&typeid=3">都市小说<em></em></a>
-                <a class href="http://localhost:8088/aiyue/MessageQ/querySearch?pageNum=1&pageSize=20&typeid=4">历史小说<em></em></a>
-                <a class href="http://localhost:8088/aiyue/MessageQ/querySearch?pageNum=1&pageSize=20&typeid=5">科幻小说<em></em></a>
-                <a class href="http://localhost:8088/aiyue/MessageQ/querySearch?pageNum=1&pageSize=20&typeid=6">游戏小说<em></em></a>
-                <a class href="http://localhost:8088/aiyue/MessageQ/querySearch?pageNum=1&pageSize=20&typeid=7">职场小说<em></em></a>
-                <a class href="http://localhost:8088/aiyue/MessageQ/querySearch?pageNum=1&pageSize=20&typeid=12">军事小说<em></em></a>
-
+                <a th:class="${type == null && update == null?'active':''}" href="http://localhost:8088/aiyue/MessageQ/querySearch?pageNum=1&pageSize=20">排行榜<em></em></a>
+                <a th:class="${update != null?'active':''}" href="http://localhost:8088/aiyue/Message/findAll1?update=1">完本小说<em></em></a>
+                <a th:class="${type == 1?'active':''}" href="http://localhost:8088/aiyue/Message/findAll1?type=1">玄幻小说<em></em></a>
+                <a th:class="${type == 2?'active':''}"  href="http://localhost:8088/aiyue/Message/findAll1?type=2">仙侠小说<em></em></a>
+                <a th:class="${type == 3?'active':''}"  href="http://localhost:8088/aiyue/Message/findAll1?type=3">都市小说<em></em></a>
+                <a th:class="${type == 4?'active':''}"  href="http://localhost:8088/aiyue/Message/findAll1?type=4">历史小说<em></em></a>
+                <a th:class="${type == 5?'active':''}"  href="http://localhost:8088/aiyue/Message/findAll1?type=5">科幻小说<em></em></a>
+                <a th:class="${type == 6?'active':''}"  href="http://localhost:8088/aiyue/Message/findAll1?type=6">游戏小说<em></em></a>
+                <a th:class="${type == 7?'active':''}"  href="http://localhost:8088/aiyue/Message/findAll1?type=7">职场小说<em></em></a>
+                <a th:class="${type == 12?'active':''}"  href="http://localhost:8088/aiyue/Message/findAll1?type=12">军事小说<em></em></a>
             </div>
         </div>
     </div>
@@ -322,7 +321,6 @@
                 <div class="pagebox hy-page-wrapper">
                     <div class="page">
                         <ul>
-                            <li th:text="${pageinfo}"></li>
                             <li class="prev"><a th:text="${'共'+pageinfo.pages +'页'}"></a></li>
                             <li class="next"><a th:href="${pageinfo.pageNum == 1?'javascript:void(0);':'javascript:query(1)'}">首页</a></li>
                             <li class="next"><a th:href="${pageinfo.pageNum == 1?'javascript:void(0);':'javascript:query('+pageinfo.prePage+')'}">上一页</a></li>
