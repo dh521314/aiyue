@@ -48,7 +48,7 @@ public class DynamicController {
             Integer integer = dynamicService.addDynamic(readerid,messageid,sectionid);
             return "redirect:/MessageQ/queryOneSectionByMessageid?messageid="+messageid;
         }else{
-            return null;
+            return "redirect:/MessageQ/queryOneSectionByMessageid?messageid="+messageid;
         }
     }
 
@@ -61,7 +61,7 @@ public class DynamicController {
             Integer integer = dynamicService.addDynamic(readerid,messageid,sectionid);
             return "redirect:/MessageQ/queryEndSectionByMessageid?messageid="+messageid;
         }else{
-            return null;
+            return "redirect:/MessageQ/queryEndSectionByMessageid?messageid="+messageid;
         }
     }
 
@@ -74,7 +74,7 @@ public class DynamicController {
             Integer integer = dynamicService.addDynamic(readerid,messageid,sectionid);
             return "redirect:/MessageQ/querySectionBySidAndMessageid?sid="+sid+"&messageid="+messageid;
         }else{
-            return null;
+            return "redirect:/MessageQ/querySectionBySidAndMessageid?sid="+sid+"&messageid="+messageid;
         }
     }
 
