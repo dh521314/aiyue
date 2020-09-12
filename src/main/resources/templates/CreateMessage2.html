@@ -449,27 +449,6 @@
                                                         </li>
                                                         <li data-id="271" data-parentid="270" class="hidden">
                                                             <em>异能 • 幻想</em>
-                                                        </li>
-                                                        <li data-id="272" data-parentid="270" class="hidden">
-                                                            <em>校园 • 青春</em>
-                                                        </li>
-                                                        <li data-id="273" data-parentid="270" class="hidden">
-                                                            <em>动漫 • 同人</em>
-                                                        </li>
-                                                        <li data-id="274" data-parentid="270" class="hidden">
-                                                            <em>日常 • 变身</em>
-                                                        </li>
-                                                        <li data-id="275" data-parentid="270" class="hidden">
-                                                            <em>剑与魔法</em>
-                                                        </li>
-                                                        <li data-id="281" data-parentid="98">
-                                                            <em>短篇小说</em>
-                                                        </li>
-                                                        <li data-id="288" data-parentid="122" class="hidden">
-                                                            <em>悬疑小说</em>
-                                                        </li>
-                                                        <li data-id="291" data-parentid="122" class="hidden">
-                                                            <em>短篇小说</em>
                                                         </li>-->
                                                     </ul>
                                                 </div>
@@ -582,10 +561,10 @@
                                     var surface = document.getElementById('file').files[0];
                                     console.log(surface);
                                     let fd = new FormData();
-                                    fd.append("mename",mename);
                                     fd.append("typeid",typeid);
-                                    fd.append("synopsis",synopsis);
+                                    fd.append("mename",mename);
                                     fd.append("surface",surface);
+                                    fd.append("synopsis",synopsis);
 
                                     $.ajax({
                                         url: "http://localhost:8088/aiyue/writerQ/addMessage",
