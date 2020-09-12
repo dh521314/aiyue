@@ -325,16 +325,18 @@
                             <li class="prev"><a th:text="${'共'+pageinfo.pages +'页'}"></a></li>
                             <li class="next"><a th:href="${pageinfo.pageNum == 1?'javascript:void(0);':'javascript:query(1)'}">首页</a></li>
                             <li class="next"><a th:href="${pageinfo.pageNum == 1?'javascript:void(0);':'javascript:query('+pageinfo.prePage+')'}">上一页</a></li>
-                            <li th:if="${pageinfo.pageNum <= 5}" th:each="i,info:${#numbers.sequence(pageinfo.pageNum,pageinfo.pageNum+5>pageinfo.pages?pageinfo.pages:pageNum+5)}">
+
+                            <li th:if="${pageinfo.pageNum < 5}" th:each="i:${#numbers.sequence(pageinfo.pageNum>=3?pageinfo.pageNum-2:1,pageinfo.pageNum>=3?pageinfo.pageNum+2:5)}">
                                 <a th:href="${i==pageinfo.pageNum ?'javascript:void(0);':'javascript:query('+i+');'}" th:id="${i == pageinfo.pageNum?'currentPage':''}" th:text="${i}"></a>
                             </li>
 
-                            <li th:if="${pageinfo.pageNum > 5}" th:each="i,info:${#numbers.sequence(pageinfo.pageNum,pageinfo.pageNum+5>pageinfo.pages?pageinfo.pages:pageNum+5)}">
+                            <li th:if="${pageinfo.pageNum >= 5 && pageinfo.pageNum <= pageinfo.pages}" th:each="i:${#numbers.sequence(pageinfo.pageNum-2,pageinfo.pageNum+3>pageinfo.pages?pageinfo.pages:pageinfo.pageNum+2)}">
                                 <a th:href="${i==pageinfo.pageNum ?'javascript:void(0);':'javascript:query('+i+');'}" th:id="${i == pageinfo.pageNum?'currentPage':''}" th:text="${i}"></a>
                             </li>
 
                             <li class="next"><a th:href="${pageinfo.pageNum == pageinfo.pages?'javascript:void(0);':'javascript:query('+pageinfo.nextPage+')' }">下一页</a></li>
                             <li class="next"><a th:href="${pageinfo.pageNum == pageinfo.pages?'javascript:void(0);':'javascript:query('+pageinfo.pages+')' }">尾页</a></li>
+
                         </ul>
                     </div>
 
