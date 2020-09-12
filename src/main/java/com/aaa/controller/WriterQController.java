@@ -56,6 +56,18 @@ public class WriterQController {
     }
 
     //添加作家信息（校验是否已存在该作家）
+    @RequestMapping("verifyByWname")
+    @ResponseBody
+    public String verifyByWname(String wname){
+        Writer w = writerService.QueryByWriterName(wname);
+        if (w != null){
+            return "1";
+        }else {
+            return "0";
+        }
+    }
+
+    //添加作家信息（校验是否已存在该作家）
     @RequestMapping("addWriter")
     public String addWriter(HttpSession httpSession, String wname, String ana){
         Reader reader = (Reader) httpSession.getAttribute("reader");

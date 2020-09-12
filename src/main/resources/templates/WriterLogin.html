@@ -39,7 +39,7 @@
                 <!--<span class="lang"><em class="iconfont"></em>注册成功</span>-->
             </div>
             <div class="reg-form-wrap">
-                <form action="/aiyue/writerQ/addWriter">
+                <form action="/aiyue/writerQ/addWriter" id="form">
                     <div class="reg-form-list form-list">
                         <dl>
                            <!-- <dd class="top" id="phone"><em>手机号</em>
@@ -82,7 +82,7 @@
                             <label for="deal" class="ui-checkbox"></label><label for="deal">我已阅读并同意 </label><a href="https://passport.yuewen.com/pact.html?mobile=0" target="_blank">《用户服务协议》</a> <label>和</label> <a target="_blank" href="https://passport.yuewen.com/privacy_policy.html">《隐私政策》</a>
                         </div>-->
                         <!--<button type="submit" value="立即注册"></button>-->
-                        <input class="blue-btn go-reg btn-yuewen" type="submit" value="立即注册">
+                        <input class="blue-btn go-reg btn-yuewen" type="button" onclick="verifyByWname()" value="立即注册">
                     </div>
                 </form>
             </div>
@@ -90,6 +90,20 @@
         </div>
         <!-- end 注册模块 -->
     </div>
+    <script type="text/javascript">
+        function verifyByWname(){
+            let wname = document.getElementsByName("wname")[0].value;
+            $.post("/aiyue/writerQ/verifyByWname",{"wname":wname},function(data){
+                console.log(data);
+                if(data == "1"){
+                    alert("作家名已存在");
+                }else{
+                    let form = document.getElementById("form").submit();
+                }
+            })
+        }
+
+    </script>
     <!-- end 整体居中 -->
     <script src="WriterLogin_files/jquery-1.9.1.min.js"></script>
     <script src="WriterLogin_files/Checkbox.js"></script>
