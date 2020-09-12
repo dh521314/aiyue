@@ -293,23 +293,23 @@
                 <div class="store_collist">
                         <div  th:each="item,info:${pageinfo.list}" th:class="${info.count % 2 == 1?'bookbox fl':'bookbox fr'}">
                             <div class="bookimg">
-                                <a href="http://www.hybooks.cn/447705ysdz/" target="_blank">
+                                <a th:href="'http://localhost:8088/aiyue/MessageQ/queryDetail?messageid='+${item.meid}+'&meid='+${item.meid}+'&writerid='+${item.writer.wid}+'&typeid='+${item.type.tid}" target="_blank">
                                     <img th:src="${'http://localhost:8088/aiyue'+item.surface}" alt="爱阅小说">
                                 </a>
                             </div>
                             <div class="bookinfo">
                                 <div class="bookname">
-                                    <a href="" target="_blank" th:text="${item.mename}"></a>
+                                    <a th:href="'http://localhost:8088/aiyue/MessageQ/queryDetail?messageid='+${item.meid}+'&meid='+${item.meid}+'&writerid='+${item.writer.wid}+'&typeid='+${item.type.tid}" target="_blank" th:text="${item.mename}"></a>
                                 </div>
                                 <div class="bookilnk">
-                                    <span>月如火</span>|
-                                    <a href="" target="_blank" th:text="${item.type.tname}"></a>
+                                    <span th:text="${item.writer.wname}"></span>|
+                                    <a th:href="'http://localhost:8088/aiyue/Message/findAll1?type='+${item.type.tid}" target="_blank" th:text="${item.type.tname}"></a>
                                     <span th:text="${item.mestate == 0?'连载中':'已完本'}"></span>|
-                                    <span>更新时间&nbsp;&nbsp;2020-08-20 20:25:50</span>
+                                    <span th:text="${item.section != null?#dates.format(item.section.updatetiem,'YYYY-MM-dd HH:mm'):''}"></span>
                                 </div>
                                 <div class="bookintro" th:text="${item.synopsis}"></div>
                                 <div class="bookupdate">
-                                    <a href="" target="_blank">正文 正文 第一千七百五十二章  天穹剑意，大成！</a>
+                                    <a th:href="'http://localhost:8088/aiyue/MessageQ/queryEndSectionByMessageid?messageid='+${item.meid}" target="_blank" th:text="${item.section != null?item.section.sname:''}"></a>
                                     <span class="rank_d_b_time"></span>
                                 </div>
                             </div>
@@ -322,6 +322,7 @@
                 <div class="pagebox hy-page-wrapper">
                     <div class="page">
                         <ul>
+                            <li th:text="${pageinfo}"></li>
                             <li class="prev"><a th:text="${'共'+pageinfo.pages +'页'}"></a></li>
                             <li class="next"><a th:href="${pageinfo.pageNum == 1?'javascript:void(0);':'javascript:query(1)'}">首页</a></li>
                             <li class="next"><a th:href="${pageinfo.pageNum == 1?'javascript:void(0);':'javascript:query('+pageinfo.prePage+')'}">上一页</a></li>

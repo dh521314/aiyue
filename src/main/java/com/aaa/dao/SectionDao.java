@@ -131,4 +131,8 @@ public interface SectionDao extends Mapper<Section> {
             @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
     })
     public List<Section> queryNewSectionByWriterMessage(Integer writerid);
+
+    //查询小说最新章节
+    @Select("select * from section where messageid = #{messageid} order by sid desc limit 1")
+    public Section querySectionByMessage(Integer messageid);
 }

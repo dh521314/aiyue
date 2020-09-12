@@ -49,8 +49,10 @@ public interface MessageDao extends Mapper<Message> {
             "<if test=\"order != null and order == 1\"> order by count desc</if>" +
             "</script>")
     @Results({
+            @Result(property = "meid", column = "meid"),
             @Result(property = "type", column = "typeid", one = @One(select = "com.aaa.dao.TypeDao.getTypeByTid")),
-            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
+            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid")),
+            @Result(property = "section", column = "meid", one = @One(select = "com.aaa.dao.SectionDao.querySectionByMessage"))
     })
     public List<Message> findBySearch1(String search,Integer type,Integer update,Integer order);
 

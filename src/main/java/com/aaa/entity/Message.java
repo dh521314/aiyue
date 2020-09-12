@@ -48,6 +48,9 @@ public class Message implements Serializable {
 
 	private Integer clickRate2;
 
+	//最新章节
+	private Section section;
+
 	public Message() {
 	}
 
@@ -148,6 +151,7 @@ public class Message implements Serializable {
 		this.clickRate2 = clickRate2;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Message{" +
@@ -164,6 +168,7 @@ public class Message implements Serializable {
 				", count=" + count +
 				", clickRate1=" + clickRate1 +
 				", clickRate2=" + clickRate2 +
+				", section=" + section +
 				'}';
 	}
 }
