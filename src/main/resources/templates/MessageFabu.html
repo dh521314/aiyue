@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <!-- saved from url=(0059)https://author.17k.com/manage/published.html?bookid=3225328 -->
-<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="zh-CN" xmlns:th="http://wwww.thymeleaf.org">
+<head>
+	<base href="http://localhost:8088/aiyue/">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
@@ -20,14 +23,175 @@
 	<link href="MessageFubu_files/manage.css" rel="stylesheet">
 	<script defer="" src="MessageFubu_files/published.js" type="text/javascript"></script>
 <script src="MessageFubu_files/log.php"></script><script charset="utf-8" async="" src="MessageFubu_files/pk1.js" id="LBFnode"></script><script charset="utf-8" async="" src="MessageFubu_files/i.js" id="_da"></script></head>
-<body><iframe src="javascript:false" title="" frameborder="0" tabindex="-1" style="position: absolute; width: 0px; height: 0px; border: 0px;" src="MessageFubu_files/saved_resource.html"></iframe><style type="text/css">.WPA3-SELECT-PANEL { z-index:2147483647; width:463px; height:292px; margin:0; padding:0; border:1px solid #d4d4d4; background-color:#fff; border-radius:5px; box-shadow:0 0 15px #d4d4d4;}  .WPA3-SELECT-PANEL * { position:static; z-index:auto; top:auto; left:auto; right:auto; bottom:auto; width:auto; height:auto; max-height:auto; max-width:auto; min-height:0; min-width:0; margin:0; padding:0; border:0; clear:none; clip:auto; background:transparent; color:#333; cursor:auto; direction:ltr; filter:; float:none; font:normal normal normal 12px "Helvetica Neue", Arial, sans-serif; line-height:16px; letter-spacing:normal; list-style:none; marks:none; overflow:visible; page:auto; quotes:none; -o-set-link-source:none; size:auto; text-align:left; text-decoration:none; text-indent:0; text-overflow:clip; text-shadow:none; text-transform:none; vertical-align:baseline; visibility:visible; white-space:normal; word-spacing:normal; word-wrap:normal; -webkit-box-shadow:none; -moz-box-shadow:none; -ms-box-shadow:none; -o-box-shadow:none; box-shadow:none; -webkit-border-radius:0; -moz-border-radius:0; -ms-border-radius:0; -o-border-radius:0; border-radius:0; -webkit-opacity:1; -moz-opacity:1; -ms-opacity:1; -o-opacity:1; opacity:1; -webkit-outline:0; -moz-outline:0; -ms-outline:0; -o-outline:0; outline:0; -webkit-text-size-adjust:none; font-family:Microsoft YaHei,Simsun;}  .WPA3-SELECT-PANEL a { cursor:auto;}  .WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-TOP { height:25px;}  .WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-CLOSE { float:right; display:block; width:47px; height:25px; background:url(http://combo.b.qq.com/crm/wpa/release/3.3/wpa/views/SelectPanel-sprites.png) no-repeat;}  .WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-CLOSE:hover { background-position:0 -25px;}  .WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-MAIN { padding:23px 20px 45px;}  .WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-GUIDE { margin-bottom:42px; font-family:"Microsoft Yahei"; font-size:16px;}  .WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-SELECTS { width:246px; height:111px; margin:0 auto;}  .WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-CHAT { float:right; display:block; width:88px; height:111px; background:url(http://combo.b.qq.com/crm/wpa/release/3.3/wpa/views/SelectPanel-sprites.png) no-repeat 0 -80px;}  .WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-CHAT:hover { background-position:-88px -80px;}  .WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-AIO-CHAT { float:left;}  .WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-QQ { display:block; width:76px; height:76px; margin:6px; background:url(http://combo.b.qq.com/crm/wpa/release/3.3/wpa/views/SelectPanel-sprites.png) no-repeat -50px 0;}  .WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-QQ-ANONY { background-position:-130px 0;}  .WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-LABEL { display:block; padding-top:10px; color:#00a2e6; text-align:center;}  .WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-BOTTOM { padding:0 20px; text-align:right;}  .WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-INSTALL { color:#8e8e8e;}</style>
+<body>
+
+<style type="text/css">.WPA3-SELECT-PANEL {
+	z-index: 2147483647;
+	width: 463px;
+	height: 292px;
+	margin: 0;
+	padding: 0;
+	border: 1px solid #d4d4d4;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 0 15px #d4d4d4;
+}
+
+.WPA3-SELECT-PANEL * {
+	position: static;
+	z-index: auto;
+	top: auto;
+	left: auto;
+	right: auto;
+	bottom: auto;
+	width: auto;
+	height: auto;
+	max-height: auto;
+	max-width: auto;
+	min-height: 0;
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	clear: none;
+	clip: auto;
+	background: transparent;
+	color: #333;
+	cursor: auto;
+	direction: ltr;
+	filter:;
+	float: none;
+	font: normal normal normal 12px "Helvetica Neue", Arial, sans-serif;
+	line-height: 16px;
+	letter-spacing: normal;
+	list-style: none;
+	marks: none;
+	overflow: visible;
+	page: auto;
+	quotes: none;
+	-o-set-link-source: none;
+	size: auto;
+	text-align: left;
+	text-decoration: none;
+	text-indent: 0;
+	text-overflow: clip;
+	text-shadow: none;
+	text-transform: none;
+	vertical-align: baseline;
+	visibility: visible;
+	white-space: normal;
+	word-spacing: normal;
+	word-wrap: normal;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	-ms-box-shadow: none;
+	-o-box-shadow: none;
+	box-shadow: none;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-ms-border-radius: 0;
+	-o-border-radius: 0;
+	border-radius: 0;
+	-webkit-opacity: 1;
+	-moz-opacity: 1;
+	-ms-opacity: 1;
+	-o-opacity: 1;
+	opacity: 1;
+	-webkit-outline: 0;
+	-moz-outline: 0;
+	-ms-outline: 0;
+	-o-outline: 0;
+	outline: 0;
+	-webkit-text-size-adjust: none;
+	font-family: Microsoft YaHei, Simsun;
+}
+
+.WPA3-SELECT-PANEL a {
+	cursor: auto;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-TOP {
+	height: 25px;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-CLOSE {
+	float: right;
+	display: block;
+	width: 47px;
+	height: 25px;
+	background: url(http://combo.b.qq.com/crm/wpa/release/3.3/wpa/views/SelectPanel-sprites.png) no-repeat;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-CLOSE:hover {
+	background-position: 0 -25px;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-MAIN {
+	padding: 23px 20px 45px;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-GUIDE {
+	margin-bottom: 42px;
+	font-family: "Microsoft Yahei";
+	font-size: 16px;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-SELECTS {
+	width: 246px;
+	height: 111px;
+	margin: 0 auto;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-CHAT {
+	float: right;
+	display: block;
+	width: 88px;
+	height: 111px;
+	background: url(http://combo.b.qq.com/crm/wpa/release/3.3/wpa/views/SelectPanel-sprites.png) no-repeat 0 -80px;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-CHAT:hover {
+	background-position: -88px -80px;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-AIO-CHAT {
+	float: left;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-QQ {
+	display: block;
+	width: 76px;
+	height: 76px;
+	margin: 6px;
+	background: url(http://combo.b.qq.com/crm/wpa/release/3.3/wpa/views/SelectPanel-sprites.png) no-repeat -50px 0;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-QQ-ANONY {
+	background-position: -130px 0;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-LABEL {
+	display: block;
+	padding-top: 10px;
+	color: #00a2e6;
+	text-align: center;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-BOTTOM {
+	padding: 0 20px;
+	text-align: right;
+}
+
+.WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-INSTALL {
+	color: #8e8e8e;
+}</style>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   Copyright (c) 中文在线 www.col.com
   Last Review  Zhang Yongfeng <artwc@outlook.com> modified by 2020/8/4 下午1:25
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 <link rel="stylesheet" href="MessageFubu_files/chineseall_header.css">
-<div class="chineseall_header">
+<!--<div class="chineseall_header">
 	<dl class="user">
 		<dd>
 			<a href="https://user.17k.com/www/bookshelf/read.html">
@@ -69,11 +233,11 @@
 		<input value="近战狂兵" type="text" name="c.q" placeholder="请输入您要查找的书名、作者" onfocus="this.value==this.defaultValue&amp;&amp;this.select()">
 		<input class="btn" type="submit" value="搜索">
 	</form>
-</div>
+</div>-->
 <script type="text/javascript" src="MessageFubu_files/chineseall_header.js"></script>
 
 <div class="Context">
-	<div class="Left">
+	<!--<div class="Left">
 		<link href="MessageFubu_files/leftMenu.css" rel="stylesheet">
 <dl class="leftMenu">
 
@@ -130,16 +294,75 @@
 	k.domain === '17k.com' && (window['menu_rewardedVideos'].style.display = 'block');
 </script>
 
-	</div>
+	</div>-->
 	<div class="Right">
-		<dl class="QUIEND Modile Tabbox"><dt>作品管理 / 《DNHX》</dt><dd><div class="Tab"><a class="now" href="https://author.17k.com/manage/published.html?bookid=3225328">已发布章节</a>/<a class="" href="https://author.17k.com/manage/draft.html?bookid=3225328">草稿箱</a>/<a class="" href="https://author.17k.com/manage/recycle.html?bookid=3225328">垃圾箱</a>/<a class="" href="https://author.17k.com/manage/detail.html?bookid=3225328">作品信息</a>/<a class="" href="https://author.17k.com/manage/applicant.html?bookid=3225328">签约&amp;上架</a>/<a class="" href="https://author.17k.com/manage/buyoutBook.html?bookid=3225328">买断稿件录入</a>
-</div></dd></dl>
+		<dl class="QUIEND Modile Tabbox">
+			<dt>作品管理 / 《DNHX》</dt>
+			<dd>
+				<div class="Tab">
+					<a class="now" href="https://author.17k.com/manage/published.html?bookid=3225328">已发布章节</a>
+					<a class="" href="https://author.17k.com/manage/draft.html?bookid=3225328">草稿箱</a>
+					<!--<a class="" href="https://author.17k.com/manage/recycle.html?bookid=3225328">垃圾箱</a>-->
+					<a class="" href="https://author.17k.com/manage/detail.html?bookid=3225328">作品信息</a>
+					<!--<a class="" href="https://author.17k.com/manage/applicant.html?bookid=3225328">签约&amp;上架</a>
+					<a class="" href="https://author.17k.com/manage/buyoutBook.html?bookid=3225328">买断稿件录入</a>-->
+				</div>
+			</dd>
+		</dl>
 		<div class="Table ChapterEdit">
-			<div class="QUIEND Cell list"><div class="title">本书共4巻,1章 <span class="btn" onclick="newVolume()">[新建卷]</span></div><div class="leftScroll"><dl class="volumes"><dt class="volume open"><p class="sign">第一巻 共1章</p><p class="name">正文 </p></dt><dd class="chapters open"><div class="item now" onclick="loadChapterContext.call(this, &#39;41382560&#39;)"><a href="javascript:">第一章<span class="red"></span></a><p><span>2020-09-09 19:14:04</span>2字 </p></div></dd></dl><dl class="volumes"><dt class="volume "><p class="sign"> 共0章</p><p class="name">作品相关 </p></dt><dd class="chapters "></dd></dl><dl class="volumes"><dt class="volume "><p class="sign"> 共0章</p><p class="name">外传 </p></dt><dd class="chapters "></dd></dl><dl class="volumes"><dt class="volume "><p class="sign"> 共0章</p><p class="name">客户端番外 </p></dt><dd class="chapters "></dd></dl></div></div>
-			<div class="QUIEND Cell cont"><div class="title"><div class="tool" id="editTools" style="display: none"><button onclick="unEditChapter()">取消修改</button><button onclick="submitChapter()">发布</button></div><div class="tool" id="defaultTools"><button onclick="editChapter(this)">修改</button><button onclick="removeChapter()">删除</button><button onclick="newChapter()">新章节</button></div><span class="gray">类型:</span> 公共章节 <span class="gray">/ 分巻:</span> 正文</div><div class="tips">tips：不能出现涉黄、涉政、涉暴、危害社会稳定、违反法律法规等有害信息的内容。
-</div>
-<div class="chapterInput"><label class="chapterName"><em class="count">标题<span id="titleCount">3</span>/20,正文<span id="contentCount">2</span>字</em><input id="titleContentInput" type="text" value="第一章" readonly="" placeholder="未命名新章节"></label><label class="chapterContent"><textarea autofocus="" id="chapterContentInput" readonly="" placeholder="新章节正文">　　完美</textarea></label><label class="authorSpeak"><em>作者说<span id="authorSpeakCount">0</span>/200</em><textarea id="authorSpeak" maxlength="300" readonly="" placeholder="和读者们说点啥吧"></textarea></label>
-</div></div>
+			<div class="QUIEND Cell list">
+				<div class="title">本书共4巻,1章 <span class="btn" onclick="newVolume()">[新建卷]</span></div>
+				<div class="leftScroll">
+					<dl class="volumes">
+						<dt class="volume open"><p class="sign">第一巻 共1章</p>
+							<p class="name">正文 </p></dt>
+						<dd class="chapters open">
+							<div class="item now" onclick="loadChapterContext.call(this, &#39;41382560&#39;)"><a
+									href="javascript:">第一章<span class="red"></span></a>
+								<p><span>2020-09-09 19:14:04</span>2字 </p></div>
+						</dd>
+					</dl>
+					<dl class="volumes">
+						<dt class="volume "><p class="sign"> 共0章</p>
+							<p class="name">作品相关 </p></dt>
+						<dd class="chapters "></dd>
+					</dl>
+					<dl class="volumes">
+						<dt class="volume "><p class="sign"> 共0章</p>
+							<p class="name">外传 </p></dt>
+						<dd class="chapters "></dd>
+					</dl>
+					<dl class="volumes">
+						<dt class="volume "><p class="sign"> 共0章</p>
+							<p class="name">客户端番外 </p></dt>
+						<dd class="chapters "></dd>
+					</dl>
+				</div>
+			</div>
+			<div class="QUIEND Cell cont">
+				<div class="title">
+					<div class="tool" id="editTools" style="display: none">
+						<button onclick="unEditChapter()">取消修改</button>
+						<button onclick="submitChapter()">发布</button>
+					</div>
+					<div class="tool" id="defaultTools">
+						<button onclick="editChapter(this)">修改</button>
+						<button onclick="removeChapter()">删除</button>
+						<button onclick="newChapter()">新章节</button>
+					</div>
+					<span class="gray">类型:</span> 公共章节 <span class="gray">/ 分巻:</span> 正文
+				</div>
+				<div class="tips">tips：不能出现涉黄、涉政、涉暴、危害社会稳定、违反法律法规等有害信息的内容。
+				</div>
+				<div class="chapterInput"><label class="chapterName"><em class="count">标题<span id="titleCount">3</span>/20,正文<span
+						id="contentCount">2</span>字</em><input id="titleContentInput" type="text" value="第一章"
+															   readonly="" placeholder="未命名新章节"></label><label
+						class="chapterContent"><textarea autofocus="" id="chapterContentInput" readonly=""
+														 placeholder="新章节正文">　　完美</textarea></label><label
+						class="authorSpeak"><em>作者说<span id="authorSpeakCount">0</span>/200</em><textarea
+						id="authorSpeak" maxlength="300" readonly="" placeholder="和读者们说点啥吧"></textarea></label>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

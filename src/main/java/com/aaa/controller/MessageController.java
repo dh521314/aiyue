@@ -37,7 +37,7 @@ public class MessageController {
         return messageService.MessageList();
     }
 
-    @RequestMapping("/addMessage")
+    /*@RequestMapping("/addMessage")
     @ResponseBody
     public Integer addMessage(Integer typeid, String mename,MultipartFile surface, String synopsis, Integer writerid) throws IOException {
         if(surface.isEmpty()){
@@ -47,7 +47,7 @@ public class MessageController {
         String filepath = UploadUtil.upload(surface);
         Message message = new Message(typeid,mename,filepath,synopsis,writerid);
         return messageService.addMessage(message);
-    }
+    }*/
 
     @RequestMapping("/delMessage")
     @ResponseBody

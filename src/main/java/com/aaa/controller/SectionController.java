@@ -2,10 +2,12 @@ package com.aaa.controller;
 
 import com.aaa.entity.Message;
 import com.aaa.entity.Section;
+import com.aaa.service.MessageQService;
 import com.aaa.service.MessageService;
 import com.aaa.service.SectionService;
 import com.alibaba.fastjson.JSONArray;
 import com.github.pagehelper.PageInfo;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,9 +22,6 @@ import java.util.List;
 public class SectionController {
     @Resource
     SectionService sectionService;
-
-    @Resource
-    MessageService messageService;
 
     @RequestMapping("/sectionList")
     public List<Section> SectionList(){
@@ -78,5 +77,4 @@ public class SectionController {
         System.out.println(sectionService.findMenameByMeid(meid));
         return sectionService.findMenameByMeid(meid);
     }
-
 }

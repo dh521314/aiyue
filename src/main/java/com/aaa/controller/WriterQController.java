@@ -1,17 +1,18 @@
 package com.aaa.controller;
 
 import com.aaa.entity.*;
-import com.aaa.service.MessageQService;
-import com.aaa.service.SectionService;
-import com.aaa.service.TypeService;
-import com.aaa.service.WriterService;
+import com.aaa.service.*;
+import com.aaa.util.UploadUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 @CrossOrigin
@@ -26,6 +27,9 @@ public class WriterQController {
     MessageQService messageQService;
 
     @Resource
+    MessageService messageService;
+
+    @Resource
     SectionService sectionService;
 
     @Resource
@@ -37,11 +41,13 @@ public class WriterQController {
         Reader reader = (Reader) httpSession.getAttribute("reader");
         Integer readerid = reader.getRid();
         List<Writer> writers = writerService.queryWriterByReader(readerid);
-        if (writers != null){
+        if (writers.size()==0){
+            System.out.println("null");
+            return "WriterLogin";
+        }else {
+            System.out.println(writers);
             Integer writerid = writers.get(0).getWid();
             return "redirect:/writerQ/queryJobPlace?writerid="+writerid+"&readerid="+readerid;
-        }else {
-            return "WriterLogin";
         }
     }
 
@@ -60,7 +66,8 @@ public class WriterQController {
             }else {
                 Writer writer = new Writer(wname,wphoto,ana,readerid);
                 writerService.addWriter(writer);
-                Integer writerid = w.getWid();
+                Writer w1 = writerService.QueryByWriterName(wname);
+                Integer writerid = w1.getWid();
                 return "redirect:/writerQ/queryJobPlace?writerid="+writerid+"&readerid="+readerid;
             }
         }
@@ -136,11 +143,76 @@ public class WriterQController {
         }else if (channel == 1){
             List<Type> types = typeService.queryWomanChannel();
             model.addAttribute("types",types);
-        }else{
+        }else if (channel == 2){
             List<Type> types = typeService.queryOtherChannel();
             model.addAttribute("types",types);
         }
-        return "CreateMessage2";
+        return "/CreateMessage2";
+    }
+
+    @RequestMapping("/addMessage")
+    public String addMessage(HttpSession httpSession,Integer typeid, String mename, MultipartFile surface, String synopsis,Model model) throws IOException {
+        System.out.println(typeid+mename+surface+synopsis);
+        if(surface.isEmpty()){
+            return null;
+        }
+
+        Reader reader = (Reader) httpSession.getAttribute("reader");
+        Integer readerid = reader.getRid();
+        List<Writer> writers = writerService.queryWriterByReader(readerid);
+        Integer writerid = writers.get(0).getWid();
+        //保存文件
+        String filepath = UploadUtil.upload(surface);
+        messageService.addMessage(typeid,mename,filepath,synopsis,writerid,0);
+        //查询小说信息（根据mename）
+        List<Message> MessageXinxi = messageQService.queryLikeMename(mename);
+        model.addAttribute("MessageXinxi",MessageXinxi);
+        //查询小说章节（根据messageid）
+        Integer messageid = MessageXinxi.get(0).getMeid();
+        List<Section> MessageSection =messageQService.querySectionAscByMessage(messageid);
+        model.addAttribute("MessageSection",MessageSection);
+        return "CreateMessage3";
+    }
+
+    @RequestMapping("/queryMessageByMename")
+    public String queryMessageByMename(Model model,String mename){
+        //查询小说信息（根据mename）
+        List<Message> MessageXinxi = messageQService.queryLikeMename(mename);
+        model.addAttribute("MessageXinxi",MessageXinxi);
+        return "Writing";
+    }
+
+    @RequestMapping("/findAllSectionByMessage")
+    public String findAllSectionByMessage(Model model,Integer messageid){
+        //倒序查询小说章节（根据messageid）
+        List<Section> MessageSection =messageQService.querySectionDescByMessage(messageid);
+        model.addAttribute("MessageSection",MessageSection);
+        return "MessageFabu";
+    }
+
+    @RequestMapping("/findMessageXinxi")
+    public String findMessageXinxi(Model model,String mename){
+        //查询小说信息（根据mename）
+        List<Message> MessageXinxi = messageQService.queryLikeMename(mename);
+        model.addAttribute("MessageXinxi",MessageXinxi);
+        return "MessageXinxi";
+    }
+
+    @RequestMapping("/updateMessageXinxi")
+    public String updateMessageXinxi(Model model,HttpSession httpSession,Integer meid,Integer typeid, String mename, MultipartFile surface, String synopsis,Integer mestate) throws IOException {
+        System.out.println(meid+typeid+mename+surface+synopsis+mestate);
+        if(surface.isEmpty()){
+            return null;
+        }
+
+        Reader reader = (Reader) httpSession.getAttribute("reader");
+        Integer readerid = reader.getRid();
+        List<Writer> writers = writerService.queryWriterByReader(readerid);
+        Integer writerid = writers.get(0).getWid();
+        //保存文件
+        String filepath = UploadUtil.upload(surface);
+        messageService.updateMessage(meid,typeid,mename,filepath,synopsis,writerid,mestate);
+        return "CreateMessage3";
     }
 
 }

@@ -17,8 +17,8 @@ public class MessageService {
         return messageDao.MessageList();
     }
 
-    public Integer addMessage(Message message){
-        return messageDao.insert(message);
+    public Integer addMessage(Integer typeid, String mename, String surface, String synopsis,Integer writerid,Integer mestate){
+        return messageDao.addMessage(typeid,mename,surface,synopsis,writerid,mestate);
     }
 
     public Integer delMessage(Integer meid){
@@ -63,6 +63,10 @@ public class MessageService {
         PageInfo<Message> pageInfo = new PageInfo<>(bySearch);
 
         return pageInfo;
+    }
+
+    public Integer updateMessage(Integer meid,Integer typeid, String mename, String surface, String synopsis,Integer writerid,Integer mestate){
+        return messageDao.updateMessage(meid,typeid,mename,surface,synopsis,writerid,mestate);
     }
 
 }

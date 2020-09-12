@@ -2,6 +2,7 @@ package com.aaa.dao;
 
 import com.aaa.entity.Message;
 import org.apache.ibatis.annotations.*;
+import org.springframework.web.multipart.MultipartFile;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
@@ -56,5 +57,11 @@ public interface MessageDao extends Mapper<Message> {
     })
     public List<Message> findBySearch1(String search,Integer type,Integer update,Integer order);
 
+    //添加小说信息
+    @Insert("insert into message(typeid,mename,surface,synopsis,writerid,mestate) values(#{typeid},#{mename},#{surface},#{synopsis},#{writerid},#{mestate})")
+    public Integer addMessage(Integer typeid, String mename, String surface, String synopsis,Integer writerid,Integer mestate);
 
+    //修改小说信息
+    @Update("update message set typeid=#{typeid},mename=#{mename},surface=#{surface},synopsis=#{synopsis},writerid=#{writerid},mestate=#{mestate} where meid=#{meid}")
+    public Integer updateMessage(Integer meid,Integer typeid, String mename, String surface, String synopsis,Integer writerid,Integer mestate);
 }
