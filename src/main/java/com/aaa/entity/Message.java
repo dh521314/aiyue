@@ -151,6 +151,37 @@ public class Message implements Serializable {
 		this.clickRate2 = clickRate2;
 	}
 
+	public Type getType() {
+		return type;
+	}
+
+	public void setType(Type type) {
+		this.type = type;
+	}
+
+	public Writer getWriter() {
+		return writer;
+	}
+
+	public void setWriter(Writer writer) {
+		this.writer = writer;
+	}
+
+	public Dynamic getDynamic() {
+		return dynamic;
+	}
+
+	public void setDynamic(Dynamic dynamic) {
+		this.dynamic = dynamic;
+	}
+
+	public Section getSection() {
+		return section;
+	}
+
+	public void setSection(Section section) {
+		this.section = section;
+	}
 
 	@Override
 	public String toString() {

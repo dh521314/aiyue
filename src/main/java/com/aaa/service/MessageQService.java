@@ -31,6 +31,10 @@ public class MessageQService {
         return messageQDao.queryLikeMename(mename);
     }
 
+    public List<Message> queryMename(String mename){
+        return messageQDao.queryMename(mename);
+    }
+
     public List<Message> queryMessageByTypeid(Integer typeid){
         return messageQDao.queryMessageByTypeid(typeid);
     }

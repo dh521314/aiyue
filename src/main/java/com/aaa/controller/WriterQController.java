@@ -205,8 +205,11 @@ public class WriterQController {
     @RequestMapping("/findMessageXinxi")
     public String findMessageXinxi(Model model,String mename){
         //查询小说信息（根据mename）
-        List<Message> MessageXinxi = messageQService.queryLikeMename(mename);
+        List<Message> MessageXinxi = messageQService.queryMename(mename);
         model.addAttribute("MessageXinxi",MessageXinxi);
+        Integer tid = MessageXinxi.get(0).getType().getTid();
+        Type type = typeService.getTypeByTid(tid);
+        model.addAttribute("type",type);
         return "MessageXinxi";
     }
 

@@ -52,4 +52,8 @@ public class TypeService {
     public List<Type> queryOtherChannel(){
         return typeDao.queryOtherChannel();
     }
+
+    public Type getTypeByTid(Integer tid){
+        return typeDao.getTypeByTid(tid);
+    }
 }
