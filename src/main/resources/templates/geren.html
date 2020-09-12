@@ -150,7 +150,14 @@
             </script>
             
             <b class="vip vip0"></b>
-            <span><i></i><a href="javascript:;" onclick="layer.msg(&#39;正在开发中...&#39;);">账户信息修改</a></span>
+            <span>
+                <script type="text/javascript">
+                    let users = JSON.parse(sessionStorage.getItem("reader"));
+
+                    document.getElementById("rid").innerHTML = users.rid;
+                    document.getElementById("userimg").src = "http://127.0.0.1:8088/aiyue"+user.rphoto;
+                </script>
+                <i></i><a href="http://localhost:8088/aiyue/Reader/getReaderByRid">账户信息修改</a></span>
         </p>
             </section>
 </header>    <!-- 列表和分类 -->

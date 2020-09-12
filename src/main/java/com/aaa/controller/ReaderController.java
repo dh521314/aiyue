@@ -3,6 +3,7 @@ package com.aaa.controller;
 import com.aaa.entity.Reader;
 import com.aaa.service.ReaderService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -65,6 +66,7 @@ public class ReaderController {
             readerService.register(reader);
             session.setAttribute("reader",reader);
 
+
             return reader;
         }else{
             //验证码错误
@@ -84,6 +86,34 @@ public class ReaderController {
     public String loginOut(HttpServletRequest request){
         request.getSession().setAttribute("reader",null);
         return "redirect:../MessageQ/queryIndex";
+    }
+
+    @RequestMapping("getReaderByRid")
+    public String getReaderByRid(Model model,HttpSession httpSession){
+        Reader reader = ( Reader ) httpSession.getAttribute("reader");
+        Integer rid = reader.getRid();
+        //根据用户名传参
+        Reader readers = readerService.getReaderByRid(rid);
+        model.addAttribute("readers", readers);
+        return "ReaderManager1";
+    }
+
+    @RequestMapping("ReaderByRid")
+    public String ReaderByRid(Model model,HttpSession httpSession){
+        Reader reader = ( Reader ) httpSession.getAttribute("reader");
+        Integer rid = reader.getRid();
+        //根据用户名传参
+        Reader readers = readerService.getReaderByRid(rid);
+        model.addAttribute("readers", readers);
+        return "ReaderManager2";
+    }
+
+
+    //修改用户信息
+    @RequestMapping("readerUp")
+    public String readerUp(Integer rid, String rname, String rphone){
+        int i = readerService.readerUp(rid,rname,rphone);
+        return "redirect:../login.html";
     }
 
 }

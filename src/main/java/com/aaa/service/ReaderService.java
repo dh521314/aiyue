@@ -5,6 +5,7 @@ import com.aaa.entity.Reader;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class ReaderService {
@@ -24,4 +25,12 @@ public class ReaderService {
         dao.insert(reader);
     }
 
+    public Reader getReaderByRid(Integer rid){
+        return dao.getReaderByRid(rid);
+    }
+
+    //修改用户信息
+    public  Integer readerUp(Integer rid,String rname,String rphone){
+        return dao.readerUp(rid,rname,rphone);
+    }
 }
