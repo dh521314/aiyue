@@ -169,10 +169,15 @@
                 <div class="bookstore_select">
                     <div class="nr sexsel">
                         <div class="nr_total">
-                            <span>全站有666部符合条件的作品</span>
-                            <span>全站共有66666部作品</span>
+                            <span th:text="${'全站有'+pageinfo.total+'部符合条件的作品'}"></span>
+                            <span id="allBook">全站共有66666部作品</span>
                         </div>
                     </div>
+                    <script type="text/javascript">
+                        $.post("MessageQ/queryModeNumber",function(data){
+                            document.getElementById("allBook").innerText = "全站共有"+data+"部作品";
+                        });
+                    </script>
                     <div class="select_con">
                         <!-- 作品分类 -->
                         <div class="kind">

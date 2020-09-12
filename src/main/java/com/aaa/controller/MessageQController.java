@@ -361,10 +361,10 @@ public class MessageQController {
 
     //小说检索页面(小说总数量)
     @RequestMapping("/queryModeNumber")
-    public String queryModeNumber(Model model){
+    @ResponseBody
+    public Integer queryModeNumber(){
         List<Message> Mode = messageQService.queryModeNumber();
-        model.addAttribute("Mode",Mode);
-        return "search";
+        return Mode.get(0).getCount();
     }
 
     //小说检索页面(小说类型)
