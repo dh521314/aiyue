@@ -303,7 +303,7 @@
 			<dd>
 
 				<div class="Tab" th:each="w2:${MessageXinxi}">
-					<a class="now" th:href="@{http://localhost:8088/aiyue/writerQ/findAllSectionByMessage(mename=${w2.mename},messageid=${w2.meid})}">已发布章节</a>
+					<a class="now" th:href="@{http://localhost:8088/aiyue/writerQ/findAllSectionByMessage(messageid=${w2.meid})}">已发布章节</a>
 					<a class="" href="https://author.17k.com/manage/draft.html?bookid=3225328">草稿箱</a>
 					<!--<a class="" href="https://author.17k.com/manage/recycle.html?bookid=3225328">垃圾箱</a>-->
 					<a class="" href="https://author.17k.com/manage/detail.html?bookid=3225328">作品信息</a>
