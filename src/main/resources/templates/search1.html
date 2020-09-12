@@ -326,11 +326,11 @@
                             <li class="next"><a th:href="${pageinfo.pageNum == 1?'javascript:void(0);':'javascript:query(1)'}">首页</a></li>
                             <li class="next"><a th:href="${pageinfo.pageNum == 1?'javascript:void(0);':'javascript:query('+pageinfo.prePage+')'}">上一页</a></li>
                             <li th:if="${pageinfo.pageNum <= 5}" th:each="i,info:${#numbers.sequence(pageinfo.pageNum,pageinfo.pageNum+5>pageinfo.pages?pageinfo.pages:pageNum+5)}">
-                                <a th:href="${i==pageinfo.pageNum ?'javascript:void(0);':'javascript:query('+i+');'}" th:hidden="${info.count > 5}" th:id="${i == pageinfo.pageNum?'currentPage':''}" th:text="${i}"></a>
+                                <a th:href="${i==pageinfo.pageNum ?'javascript:void(0);':'javascript:query('+i+');'}" th:id="${i == pageinfo.pageNum?'currentPage':''}" th:text="${i}"></a>
                             </li>
 
                             <li th:if="${pageinfo.pageNum > 5}" th:each="i,info:${#numbers.sequence(pageinfo.pageNum,pageinfo.pageNum+5>pageinfo.pages?pageinfo.pages:pageNum+5)}">
-                                <a th:href="${i==pageinfo.pageNum ?'javascript:void(0);':'javascript:query('+i+');'}" th:hidden="${info.count > 5}" th:id="${i == pageinfo.pageNum?'currentPage':''}" th:text="${i}"></a>
+                                <a th:href="${i==pageinfo.pageNum ?'javascript:void(0);':'javascript:query('+i+');'}" th:id="${i == pageinfo.pageNum?'currentPage':''}" th:text="${i}"></a>
                             </li>
 
                             <li class="next"><a th:href="${pageinfo.pageNum == pageinfo.pages?'javascript:void(0);':'javascript:query('+pageinfo.nextPage+')' }">下一页</a></li>
