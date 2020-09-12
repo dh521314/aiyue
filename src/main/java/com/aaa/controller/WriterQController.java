@@ -39,15 +39,19 @@ public class WriterQController {
     @RequestMapping("/queryWriterByReader")
     public String queryWriterByReader(HttpSession httpSession){
         Reader reader = (Reader) httpSession.getAttribute("reader");
-        Integer readerid = reader.getRid();
-        List<Writer> writers = writerService.queryWriterByReader(readerid);
-        if (writers.size()==0){
-            System.out.println("null");
-            return "WriterLogin";
+        if (reader == null){
+            return "login";
         }else {
-            System.out.println(writers);
-            Integer writerid = writers.get(0).getWid();
-            return "redirect:/writerQ/queryJobPlace?writerid="+writerid+"&readerid="+readerid;
+            Integer readerid = reader.getRid();
+            List<Writer> writers = writerService.queryWriterByReader(readerid);
+            if (writers.size() == 0) {
+                System.out.println("null");
+                return "WriterLogin";
+            } else {
+                System.out.println(writers);
+                Integer writerid = writers.get(0).getWid();
+                return "redirect:/writerQ/queryJobPlace?writerid=" + writerid + "&readerid=" + readerid;
+            }
         }
     }
 
@@ -58,18 +62,14 @@ public class WriterQController {
         Integer readerid = reader.getRid();
         String wphoto = reader.getRphoto();
         Writer w = writerService.QueryByWriterName(wname);
-        if (reader == null){
-            return "login";
-        }else{
-            if (w != null){
-                return "已存在";
-            }else {
-                Writer writer = new Writer(wname,wphoto,ana,readerid);
-                writerService.addWriter(writer);
-                Writer w1 = writerService.QueryByWriterName(wname);
-                Integer writerid = w1.getWid();
-                return "redirect:/writerQ/queryJobPlace?writerid="+writerid+"&readerid="+readerid;
-            }
+        if (w != null){
+            return "已存在";
+        }else {
+            Writer writer = new Writer(wname,wphoto,ana,readerid);
+            writerService.addWriter(writer);
+            Writer w1 = writerService.QueryByWriterName(wname);
+            Integer writerid = w1.getWid();
+            return "redirect:/writerQ/queryJobPlace?writerid="+writerid+"&readerid="+readerid;
         }
     }
 
