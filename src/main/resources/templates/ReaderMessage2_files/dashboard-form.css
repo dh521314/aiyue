@@ -1,0 +1,118 @@
+/**
+ * 如果你项目需要使用原生的CSS变量，
+ * 请写在 ./common/variable.css中
+ * 这里CSS变量会重复引入，且不会保留（通过设置!;）
+ * 这里适合需要兼容IE浏览器的项目
+ * add：shanyerong
+ * add-desc：全局字体大小、字行间距、字重&颜色值
+*/
+.write-form-li {
+  min-height: 32px;
+  margin: 24px auto;
+}
+.write-form-btns {
+  margin-left: 112px;
+}
+.write-form-button{
+  margin-top:36px;
+}
+.write-form-label {
+  min-width: 100px;
+  color: #7a7a7a;
+  color: rgba(21, 26, 48, .7);
+}
+.write-info {
+  color: #292929;
+  color: rgba(21, 26, 48, .9);
+  line-height: 32px;
+}
+.ui-input {
+  position: relative;
+}
+.write-input {
+  position: relative;
+  margin-right: 24px;
+}
+.write-form-cell {
+  position: relative;
+}
+.write-form-cell select {
+  width: 100%;
+}
+.write-form-cell .ui-select {
+  width: 100%!important;
+}
+.write-form-cell .ui-select-text:empty::before {
+  content: '请选择';
+  font-size: 14px;
+  line-height: 22px;
+  color: #BFBFBF;
+}
+.write-form-cell ._threecolumn {
+  font-size: 0px;
+  margin: 0 -6px;
+}
+.write-form-cell ._threecolumn .ui-input {
+  width: 144px;
+  margin: 0 6px;
+  vertical-align: middle;
+  display: inline-block;
+}
+.write-form-cell ._twocolumn {
+  font-size: 0px;
+  margin: 0 -6px;
+}
+.write-form-cell ._twocolumn .ui-input {
+  width: 222px;
+  margin: 0 6px;
+  vertical-align: middle;
+  display: inline-block;
+}
+.write-form-cell .input-vertified {
+  display: none;
+  position: absolute;
+  right: -24px;
+  top: 6px;
+  font-size: 20px;
+}
+.write-form-cell ._check .input-vertified.icon_check_circle{
+  display: block;
+  color: #47CC6B;
+}
+.write-form-cell ._info .input-vertified.icon_info{
+  display: block;
+  color: #7a7a7a;
+  color: rgba(21, 26, 48, .3);
+}
+.write-tips {
+  font-size: 12px;
+  color: #7A7A7A;
+}
+.write-edit-mode{
+  display: none
+}
+._edit .write-edit-mode {
+  display: block;
+}
+._edit .write-edit-mode._dib {
+  display: inline-block;
+}
+._edit .write-text-mode {
+  display: none;
+}
+.ui-button.dn {
+  display: none;
+}
+.input-caution, .input-error {
+  font-size: 12px;
+  color: #7a7a7a;
+  color: rgba(21, 26, 48, .5);
+  margin-top: 8px;
+}
+.input-error {
+  color: #f2463d;
+}
+.icon-tag-verified {
+  vertical-align: sub;
+  margin-left: 5px;
+}

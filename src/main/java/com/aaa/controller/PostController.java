@@ -23,7 +23,9 @@ public class PostController {
 
     @RequestMapping("/findPost")
     public List<Post> findPost(){
+
         return postServices.findPost();
     }
+
 
 }
