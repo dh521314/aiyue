@@ -199,10 +199,10 @@
     <ul>
         <li data-event-id="1">
             <!-- 高亮添加这个class -->
-            <a href="https://write.qq.com/portal/dashboard" class="_current"><em class="icon-font"></em><em class="icon-font active"></em>工作台</a>
+            <a href="javascript:void(0)" class="_current"><em class="icon-font"></em><em class="icon-font active"></em>工作台</a>
         </li>
-        <li data-event-id="2">
-            <a href="https://write.qq.com/portal/dashboard/books"><em class="icon-font"></em><em class="icon-font active"></em>作品管理</a>
+        <li data-event-id="2" th:each="js:${writers}">
+            <a th:href="@{/writerQ/queryAllMessageByWriter(writerid=${js.wid})}"><em class="icon-font"></em><em class="icon-font active"></em>作品管理</a>
         </li>
         <!--<li data-event-id="3">
             <a href="https://write.qq.com/booknovelsvip/takeindex.html"><em class="icon-font"></em><em class="icon-font active"></em>数据中心</a>
@@ -356,13 +356,13 @@
                 </div>
                 <div class="g-prodution-item-lf pr">
                     <div class="g-prodution-item-title">
-                        <div class="fr ml8 label-mins">
-                            <!-- <label class="label-min">玄幻编辑组</label> -->
-                            <!-- <label class="label-min _sub">连载</label>
+                        <!--<div class="fr ml8 label-mins">
+                            &lt;!&ndash; <label class="label-min">玄幻编辑组</label> &ndash;&gt;
+                            &lt;!&ndash; <label class="label-min _sub">连载</label>
                                 <label class="label-min _warning">玄幻编辑组</label>
                                 <label class="label-min _new">连载</label>
-                                <label class="label-min _finish">玄幻编辑组</label> -->
-                            <!-- <label class="label-min _flat">连载</label> -->
+                                <label class="label-min _finish">玄幻编辑组</label> &ndash;&gt;
+                            &lt;!&ndash; <label class="label-min _flat">连载</label> &ndash;&gt;
                             
                             <label class="label-min _sub">第二编辑组</label>
                             
@@ -370,7 +370,7 @@
                             <label class="label-min _new">新建</label>
                             
 
-                        </div>
+                        </div>-->
                         
                         <a class="g-book-title" href="https://www.hongxiu.com/book/17958946001429904" target="_blank">
                             <h3 class="ell fs20 fw600" th:each="j2:${newMessage}"><i th:text="${j2.mename}"></i></h3>
@@ -415,9 +415,11 @@
                         </ul> -->
 
                     <div class="pa r0 b0 ui-buttons" th:each="j6:${newMessage}">
+<!--
                         <a href="javascript:" class="ui-button book-relate-more j_more_operation" id="j_more_operation" role="button" data-cbid="" data-target="id_1075196914958092" aria-expanded="false">作品相关<em class="icon-font"></em></a>
-                        
-                        <a href="https://write.qq.com/portal/booknovels/chaptertmp/CBID/17958946001429904?entry=publish" class="ui-button" role="button" target="_blank">已发布</a>
+-->
+
+                        <a th:href="@{http://localhost:8088/aiyue/writerQ/findAllSectionByMessage(messageid=${j6.meid})}" class="ui-button" role="button" target="_blank">已发布</a>
                         <a th:href="@{http://localhost:8088/aiyue/writerQ/queryMessageByMename(meid=${j6.meid})}" class="ui-button ui-button-primary" role="button" target="_blank">去写作</a>
                     </div>
                 </div>

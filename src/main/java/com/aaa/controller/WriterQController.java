@@ -52,7 +52,7 @@ public class WriterQController {
             } else {
                 System.out.println(writers);
                 Integer writerid = writers.get(0).getWid();
-                return "redirect:/writerQ/queryJobPlace?writerid=" + writerid + "&readerid=" + readerid;
+                return "redirect:/writerQ/queryJobPlace?writerid=" + writerid;
             }
         }
     }
@@ -83,24 +83,37 @@ public class WriterQController {
             writerService.addWriter(writer);
             Writer w1 = writerService.QueryByWriterName(wname);
             Integer writerid = w1.getWid();
-            return "redirect:/writerQ/queryJobPlace?writerid="+writerid+"&readerid="+readerid;
+            return "redirect:/writerQ/queryJobPlace?writerid="+writerid;
         }
     }
 
     //查询作家所有作品
     @RequestMapping("/queryAllMessageByWriter")
-    public String queryAllMessageByWriter(Model model,Integer writerid){
-        //根据作家查询小说（该作家所有的小说）
-        List<Message> AllMessage = messageQService.queryAllMessByWriter(writerid);
-        model.addAttribute("AllMessage",AllMessage);
-        List<Section> NewSection = sectionService.queryNewSectionByWriterMessage(writerid);
-        model.addAttribute("NewSection",NewSection);
-        return "MessageGuanli";
+    public String queryAllMessageByWriter(HttpSession httpSession,Model model,Integer writerid){
+        Reader reader = (Reader) httpSession.getAttribute("reader");
+        Integer readerid = reader.getRid();
+        List<Message> messages = messageQService.queryMessByWriter(writerid);
+        if (messages.size() == 0){
+            return "MessageGuanliNull";
+        }else{
+            //根据作家查询小说（该作家所有的小说）
+            List<Message> AllMessage = messageQService.queryAllMessByWriter(writerid);
+            model.addAttribute("AllMessage",AllMessage);
+            //查询小说最新章节
+            List<Section> NewSection = sectionService.queryNewSectionByWriterMessage(writerid);
+            model.addAttribute("NewSection",NewSection);
+            //查询作家信息
+            List<Writer> writers = writerService.queryWriterByReader(readerid);
+            model.addAttribute("writers",writers);
+            return "MessageGuanli";
+        }
     }
 
     //查询作家信息和作家最新的一个作品，若没有显示创建
     @RequestMapping("/queryJobPlace")
-    public String queryJobPlace(Model model,Integer writerid,Integer readerid){
+    public String queryJobPlace(HttpSession httpSession,Model model,Integer writerid){
+        Reader reader = (Reader) httpSession.getAttribute("reader");
+        Integer readerid = reader.getRid();
         List<Message> messages = messageQService.queryMessByWriter(writerid);
         if (messages.size() == 0){
             //查询作家信息
