@@ -2,6 +2,7 @@ server:
   servlet:
     context-path: /aiyue
   port: 8088
+  max-http-header-size: 102400
 
 
 spring:
@@ -26,3 +27,4 @@ spring:
     multipart:
       max-file-size: 100MB
       max-request-size: 100MB
+

@@ -71,4 +71,16 @@ public class SectionService {
     public Integer addSections(String sname,Integer messageid,String content,Integer number,Date updatetiem){
         return sectionDao.addSections(sname,messageid,content,number,updatetiem);
     }
+
+    public List<Section> querySectionBySid(Integer sid){
+        return sectionDao.querySectionBySid(sid);
+    }
+
+    public List<Section> queryOneSectionByMessage(Integer messageid){
+        return sectionDao.queryOneSectionByMessage(messageid);
+    }
+
+    public Integer updateSection(Integer sid,String sname,String content,Integer number){
+        return sectionDao.updateSection(sid,sname,content,number);
+    }
 }

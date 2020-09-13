@@ -10,16 +10,16 @@
 	<title>作品管理-已发布章节- 17K创作中心
 
 
-</title>
+	</title>
 	<link rel="stylesheet" href="MessageFubu_files/main.css">
 	<script async="" src="MessageFubu_files/sensorsdata.min.js" charset="UTF-8"></script>
 	<script src="MessageFubu_files/hm.js"></script>
 	<script type="text/javascript" src="MessageFubu_files/main.js"></script>
 	<script type="text/javascript" src="MessageFubu_files/Q.js"></script>
-<!--<link href="//static.17k.com/www/skin/main_old.css" rel="stylesheet" type="text/css"/>-->
-<!--重构-->
-<link rel="stylesheet" href="MessageFubu_files/main(1).css">
-<script type="text/javascript" src="MessageFubu_files/main1.js"></script>
+	<!--<link href="//static.17k.com/www/skin/main_old.css" rel="stylesheet" type="text/css"/>-->
+	<!--重构-->
+	<link rel="stylesheet" href="MessageFubu_files/main(1).css">
+	<script type="text/javascript" src="MessageFubu_files/main1.js"></script>
 	<link href="MessageFubu_files/main(2).css" rel="stylesheet">
 	<script src="MessageFubu_files/main2.js" type="text/javascript"></script>
 	<script id="qd2885765656071f1cae92a68e65323bd2d9e8bef032" src="MessageFubu_files/071f1cae92a68e65323bd2d9e8bef032"
@@ -350,14 +350,14 @@
 			</div>
 			<div class="QUIEND Cell cont">
 				<div class="title">
-					<div class="tool" id="editTools" style="display: none">
-						<button onclick="unEditChapter()">取消修改</button>
-						<button onclick="submitChapter()">发布</button>
+					<div class="tool" id="editTools" style="display: block;">
+						<button onclick="UpdateCancel()">取消修改</button>
+						<button onclick="SubmitUpdate()">发布</button>
 					</div>
-					<div class="tool" id="defaultTools">
-						<button onclick="editSection()">修改</button>
-						<button onclick="removeSection()">删除</button>
-						<button onclick="newSection()">新章节</button>
+					<div class="tool" id="defaultTools" style="display: none;">
+						<button onclick="editChapter(this)">修改</button>
+						<button onclick="removeChapter()">删除</button>
+						<button onclick="newChapter()">新章节</button>
 					</div>
 					<!--<span class="gray">类型:</span> 公共章节 <span class="gray">/ 分巻:</span> 正文-->
 				</div>
@@ -371,10 +371,10 @@
 								<span id="titleCount"></span>/20,正文
 								<span id="contentCount">2</span>字
 							</em>
-							<input id="titleContentInput" type="text" th:value="${mf4.sname}" readonly="" placeholder="未命名新章节">
+							<input autofocus="" id="titleContentInput" type="text" th:value="${mf4.sname}" placeholder="未命名新章节" onKeyup="showCount();">
 						</label>
 						<label class="chapterContent">
-						<textarea autofocus="" id="chapterContentInput" readonly="" placeholder="新章节正文" th:text="${mf4.content}">
+						<textarea autofocus="" id="chapterContentInput"  placeholder="新章节正文" th:text="${mf4.content}" onKeyup="showCounts();">
 							完美
 						</textarea>
 						</label>
@@ -401,19 +401,41 @@
 				var charCounts = strChars.length;
 				document.getElementById('contentCount').innerText=charCounts;
 			})
-			function editSection() {
+			function showCount() {
+				var strChar = document.getElementById('titleContentInput').value;
+				var charCount = strChar.length;
+				if(charCount<20)
+					document.getElementById('titleCount').innerText=charCount;
+				else {
+					alert('字数超出20字!')
+					document.getElementById('titleContentInput').value=strChar;
+				}
+			}
+			function showCounts() {
+				var strChars = document.getElementById('chapterContentInput').value;
+				var charCounts = strChars.length;
+				document.getElementById('contentCount').innerText=charCounts;
+			}
+			function UpdateCancel() {
 				var messageid = document.getElementById("messageid").innerText;
 				var sid = document.getElementById("sid").innerText;
-				window.location="http://localhost:8088/aiyue/writerQ/querySectionBySids?messageid="+messageid+"&sid="+sid;
+				window.location="http://localhost:8088/aiyue/writerQ/querySectionBySid?messageid="+messageid+"&sid="+sid;
 			}
-			function removeSection() {
-				var messageid = document.getElementById("messageid").innerText;
+			function SubmitUpdate() {
 				var sid = document.getElementById("sid").innerText;
-				window.location="http://localhost:8088/aiyue/writerQ/delSection?sid="+sid+"&messageid="+messageid;
-			}
-			function newSection() {
-				var messageid = document.getElementById("messageid").innerText;
-				window.location="http://localhost:8088/aiyue/writerQ/queryMessageByMename?meid="+messageid
+				var sname = document.getElementById("titleContentInput").value;
+				var content = document.getElementById("chapterContentInput").value;
+				var number = document.getElementById("contentCount").innerText;
+				$.post("writerQ/updateSection?sid="+sid+"&sname="+sname+"&content="+content+"&number="+number).then(data=>{
+					if(data == 1){
+						alert("修改成功")
+						var messageid = document.getElementById("messageid").innerText;
+						var sid = document.getElementById("sid").innerText;
+						window.location="http://localhost:8088/aiyue/writerQ/querySectionBySid?messageid="+messageid+"&sid="+sid;
+					}else{
+						alert("修改失败")
+					}
+				})
 			}
 		</script>
 	</div>

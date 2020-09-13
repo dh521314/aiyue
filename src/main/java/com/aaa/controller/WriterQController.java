@@ -214,9 +214,12 @@ public class WriterQController {
         //查询小说信息（根据mename）
         List<Message> MessageXinxi = messageQService.queryMeid(messageid);
         model.addAttribute("MessageXinxi",MessageXinxi);
-        //倒序查询小说章节（根据messageid）
-        List<Section> MessageSection =messageQService.querySectionDescByMessage(messageid);
+        //正序查询小说章节（根据messageid）
+        List<Section> MessageSection =messageQService.querySectionAscByMessage(messageid);
         model.addAttribute("MessageSection",MessageSection);
+        //查询小说第一章
+        List<Section> Section = sectionService.queryOneSectionByMessage(messageid);
+        model.addAttribute("Section",Section);
         return "MessageFabu";
     }
 
@@ -261,4 +264,45 @@ public class WriterQController {
         return sectionService.addSections(sname,messageid,content,number,new Date());
     }
 
+    //根据小说章节id查询章节内容
+    @RequestMapping("/querySectionBySid")
+    public String querySectionBySid(Model model,Integer sid,Integer messageid){
+        //查询小说信息（根据mename）
+        List<Message> MessageXinxi = messageQService.queryMeid(messageid);
+        model.addAttribute("MessageXinxi",MessageXinxi);
+        //正序查询小说章节（根据messageid）
+        List<Section> MessageSection =messageQService.querySectionAscByMessage(messageid);
+        model.addAttribute("MessageSection",MessageSection);
+        List<Section> Section = sectionService.querySectionBySid(sid);
+        model.addAttribute("Section",Section);
+        return "MessageFabu";
+    }
+
+    //根据小说章节id查询章节内容
+    @RequestMapping("/querySectionBySids")
+    public String querySectionBySids(Model model,Integer messageid,Integer sid){
+        //查询小说信息（根据mename）
+        List<Message> MessageXinxi = messageQService.queryMeid(messageid);
+        model.addAttribute("MessageXinxi",MessageXinxi);
+        //正序查询小说章节（根据messageid）
+        List<Section> MessageSection =messageQService.querySectionAscByMessage(messageid);
+        model.addAttribute("MessageSection",MessageSection);
+        //根据sid查询章节
+        List<Section> Section = sectionService.querySectionBySid(sid);
+        model.addAttribute("Section",Section);
+        return "MessageFabuUpdate";
+    }
+
+    //修改章节内容
+    @RequestMapping("/updateSection")
+    @ResponseBody
+    public Integer updateSection(Integer sid,String sname,String content,Integer number){
+        return sectionService.updateSection(sid,sname,content,number);
+    }
+    //删除指定的章节
+    @RequestMapping("/delSection")
+    public String delSection(Integer sid,Integer messageid){
+        sectionService.delSection(sid);
+        return "redirect:/writerQ/findAllSectionByMessage?messageid="+messageid;
+    }
 }

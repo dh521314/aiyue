@@ -5,6 +5,7 @@ import com.aaa.entity.Section;
 import com.aaa.entity.Type;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.cache.decorators.LruCache;
+import org.springframework.data.relational.core.sql.In;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.Date;
@@ -139,4 +140,24 @@ public interface SectionDao extends Mapper<Section> {
     //添加章节
     @Insert("insert into section(sname,messageid,content,number,updatetiem) values(#{sname},#{messageid},#{content},#{number},#{updatetiem})")
     public Integer addSections(String sname,Integer messageid,String content,Integer number,Date updatetiem);
+
+    //根据小说id查询章节内容
+    @Select("select * from section where sid=#{sid}")
+    @Results({
+            @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
+            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
+    })
+    public List<Section> querySectionBySid(Integer sid);
+
+    //根据小说第一章
+    @Select("select *,min(sid) from section where messageid=#{messageid}")
+    @Results({
+            @Result(property = "message", column = "messageid", many = @Many(select = "com.aaa.dao.MessageDao.getMessageByMeid")),
+            @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
+    })
+    public List<Section> queryOneSectionByMessage(Integer messageid);
+
+    //修改小说章节
+    @Update("update section set sname=#{sname},content=#{content},number=#{number} where sid=#{sid}")
+    public Integer updateSection(Integer sid,String sname,String content,Integer number);
 }
