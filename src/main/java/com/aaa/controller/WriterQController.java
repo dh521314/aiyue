@@ -213,6 +213,8 @@ public class WriterQController {
         Integer tid = MessageXinxi.get(0).getType().getTid();
         Type type = typeService.getTypeByTid(tid);
         model.addAttribute("type",type);
+        List<Type> types = typeService.findAll();
+        model.addAttribute("types",types);
         return "MessageXinxi";
     }
 

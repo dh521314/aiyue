@@ -217,6 +217,7 @@
 	width: 100%;
 	display: none;
 }
+
 </style>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   Copyright (c) 中文在线 www.col.com
@@ -377,10 +378,13 @@
 				<div class="Cell" th:each="mx5:${type}">
 					<i hidden th:text="${mx5.tid}" id="typeid"></i>
 
-					<input type="text" th:value="${mx5.tname}"/>
-					<select id="selectType">
-						<option value="1" >已完结</option>
-						<option value="0" >连载中</option>
+					<select id="selectType" >
+						<div th:each="mx5:${types}">
+							<option th:value="${mx5.tid}">
+								<i th:text="${mx5.tname}"></i>
+							</option>
+						</div>
+
 					</select>
 					<!--<span class="val">现代异侠</span>
 					<a href="javascript:editCategory(&#39;24&#39;, &#39;96&#39;)">【申请修改类型】</a>
@@ -421,7 +425,10 @@
 				$(function () {
 					var mestate = document.getElementById("mestate").innerText;
 					$("#selectState").val(mestate);
+					var typeid = document.getElementById("typeid").innerText;
+					$("#selectType").val(typeid);
 				})
+
 			</script>
 			<!--<div class="Row">
 				<div class="Cell title">授权级别：</div>
@@ -435,14 +442,26 @@
 			<div class="Row">
 				<div class="Cell title">内容简介：</div>
 				<div class="Cell" th:each="mx7:${MessageXinxi}">
-					<textarea class="intro" id="introduction" th:text="${mx7.synopsis}">
+					<textarea class="intro" id="introduction" th:text="${mx7.synopsis}" onKeyup="showCount();">
 
 					</textarea>
 					<div class="gray">
-						当前<span id="wordCount" style="color:red">32</span>字，请不要超过400字，此处填写的不是章节内容。
+						当前<span id="wordCount" style="color:red">0</span>字，请不要超过400字，此处填写的不是章节内容。
 					</div>
 				</div>
 			</div>
+			<script>
+				function showCount() {
+					var strChar = document.getElementById('introduction').value;
+					var charCount = strChar.length;
+					if(charCount<401)
+						document.getElementById('wordCount').innerText=charCount;
+					else {
+						alert('字数超出400字!')
+						document.getElementById('introduction').value=strChar;
+					}
+				}
+			</script>
 			<!--<div class="Row">
 				<div class="Cell title">作者公告：</div>
 				<div class="Cell"><textarea class="intro" id="broadcast"

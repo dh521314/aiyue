@@ -53,6 +53,10 @@ public class TypeService {
         return typeDao.queryOtherChannel();
     }
 
+    public List<Type> queryAllType(){
+        return typeDao.selectAll();
+    }
+
     public Type getTypeByTid(Integer tid){
         return typeDao.getTypeByTid(tid);
     }

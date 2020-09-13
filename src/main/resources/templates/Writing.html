@@ -313,22 +313,26 @@
 			</dd>
 		</dl>
 		<div class="Table ChapterEdit">
-			<div class="QUIENDENDENDEND Cell list">
-				<div class="title">共1个草稿
-					<!--<select class="page" onchange="location.href = k.url().searchParams.set('page', this.value)">&lt;!&ndash;for pageList&ndash;&gt;<option  value="">第页</option>&lt;!&ndash;endfor pageList&ndash;&gt;</select>--></div>
+			<!--<div class="QUIENDENDENDEND Cell list">
+				&lt;!&ndash;<div class="title">共1个草稿
+					<select class="page" onchange="location.href = k.url().searchParams.set('page', this.value)">
+						&lt;!&ndash;for pageList&ndash;&gt;
+						<option value="">第页</option>&lt;!&ndash;endfor pageList&ndash;&gt;</select>
+				</div>&ndash;&gt;
 				<div class="leftScroll">
-					<div class="item now" onclick="loadChapterContext(&#39;3225328&#39;, &#39;0&#39;)"><a
-							href="javascript:">未命名章节<span class="red"></span></a>
-						<p><span></span>0字 </p></div>
+					<div class="item now" >
+						<span id="mename" >未命名章节</span>
+						<p><span id="wordCount"></span>字 </p>
+					</div>
 				</div>
-			</div>
+			</div>-->
 			<div class="QUIENDENDENDEND Cell cont">
 				<div class="title">
 					<div class="tool">
-						<button onclick="removeChapter()">删除</button><!--<button onclick="fullscreen()">全屏</button>-->
-						<!--<button onclick="formatContent()">排版</button>-->
-						<button onclick="SaveChapter(1)">保存</button>
-						<button class="blue" onclick="newChapter()">新建</button>
+						<!--<button onclick="removeChapter()">删除</button>&lt;!&ndash;<button onclick="fullscreen()">全屏</button>&ndash;&gt;
+						&lt;!&ndash;<button onclick="formatContent()">排版</button>&ndash;&gt;
+						<button ><a href="JavaScript:history.go(-1)">返回上一步</a></button>-->
+						<button class="blue" onclick="reset()">重置</button>
 						<button class="blue" onclick="SaveChapter(2)">发布</button>
 					</div>
 					<!--<label for="volume">发布至<select id="volume">
@@ -346,22 +350,46 @@
 						<em class="count">标题
 							<span id="titleCount">0</span>/20,正文<span id="contentCount">0</span>字
 						</em>
-						<input id="titleContentInput" type="text" value="" placeholder="未命名新章节">
+						<input autofocus="" id="titleContentInput" type="text" value="" placeholder="未命名新章节" onKeyup="showCount();">
 					</label>
 					<label class="chapterContent">
-						<textarea autofocus="" id="chapterContentInput" placeholder="新章节正文">
-
-						</textarea></label><label class="authorSpeak">
+						<textarea id="chapterContentInput" type="text" placeholder="新章节正文" onKeyup="showCounts();">
+						</textarea>
+					</label>
+					<!--<label class="authorSpeak">
 						<em>作者说<span id="authorSpeakCount">0</span>/200</em>
 						<textarea id="authorSpeak" maxlength="300" placeholder="和读者们说点啥吧">
 
 						</textarea>
-					</label>
+					</label>-->
 				</div>
 				<div id="saveInfo">自动保存中...</div>
 			</div>
 		</div>
-
+		<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+		<script>
+			$(function () {
+				document.getElementById('chapterContentInput').value="";
+			})
+			function reset() {
+				document.getElementById('chapterContentInput').value="";
+			}
+			function showCount() {
+				var strChar = document.getElementById('titleContentInput').value;
+				var charCount = strChar.length;
+				if(charCount<20)
+					document.getElementById('titleCount').innerText=charCount;
+				else {
+					alert('字数超出20字!')
+					document.getElementById('titleContentInput').value=strChar;
+				}
+			}
+			function showCounts() {
+				var strChars = document.getElementById('chapterContentInput').value;
+				var charCounts = strChars.length;
+				document.getElementById('contentCount').innerText=charCounts;
+			}
+		</script>
 	</div>
 </div>
 <div class="footer">
@@ -381,5 +409,12 @@
 <script src="Writing_files/count.js" type="text/javascript"></script>
 
 
-
-<iframe width="1519" height="674" id="_QIDIAN_WEB_IM_IFRAME_2885765656" scrolling="no" frameborder="0" allowtransparency="true" src="Writing_files/index.html" style="position: fixed; z-index: 2000000010; width: 300px; height: 50px; border: 1px solid rgb(218, 222, 231); bottom: 0px; right: 10px; box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 15px; border-radius: 6px 6px 0px 0px; display: none;" data-isopen="0"></iframe><iframe width="0" height="0" id="_QD_STATUS_MANAGE_SOCKET_IFRAME" scrolling="no" frameborder="0" allowtransparency="true" src="Writing_files/index(1).html" style="width: 0px; height: 0px; position: fixed; right: 0px; bottom: 0px;"></iframe></body></html>
+<iframe width="1519" height="674" id="_QIDIAN_WEB_IM_IFRAME_2885765656" scrolling="no" frameborder="0"
+		allowtransparency="true" src="Writing_files/index.html"
+		style="position: fixed; z-index: 2000000010; width: 300px; height: 50px; border: 1px solid rgb(218, 222, 231); bottom: 0px; right: 10px; box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 15px; border-radius: 6px 6px 0px 0px; display: none;"
+		data-isopen="0"></iframe>
+<iframe width="0" height="0" id="_QD_STATUS_MANAGE_SOCKET_IFRAME" scrolling="no" frameborder="0"
+		allowtransparency="true" src="Writing_files/index(1).html"
+		style="width: 0px; height: 0px; position: fixed; right: 0px; bottom: 0px;"></iframe>
+</body>
+</html>
