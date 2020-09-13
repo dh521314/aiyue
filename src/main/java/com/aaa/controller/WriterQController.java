@@ -195,7 +195,10 @@ public class WriterQController {
     }
 
     @RequestMapping("/findAllSectionByMessage")
-    public String findAllSectionByMessage(Model model,Integer messageid){
+    public String findAllSectionByMessage(Model model,Integer messageid,String mename){
+        //查询小说信息（根据mename）
+        List<Message> MessageXinxi = messageQService.queryLikeMename(mename);
+        model.addAttribute("MessageXinxi",MessageXinxi);
         //倒序查询小说章节（根据messageid）
         List<Section> MessageSection =messageQService.querySectionDescByMessage(messageid);
         model.addAttribute("MessageSection",MessageSection);

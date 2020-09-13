@@ -187,7 +187,37 @@
 
 .WPA3-SELECT-PANEL .WPA3-SELECT-PANEL-INSTALL {
 	color: #8e8e8e;
-}</style>
+}
+
+#imgPreview {
+	width: 9%;
+	height: 140px;
+	margin: 10px 500px 0px 20px;
+	border: 1px solid black;
+	text-align: center;
+}
+#prompt3 {
+	width: 100%;
+	height: 180px;
+	text-align: center;
+	position: relative;
+}
+#imgSpan {
+	position: absolute;
+	top: 60px;
+	left: 40px;
+}
+.filepath {
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+}
+#img3 {
+	height: 100%;
+	width: 100%;
+	display: none;
+}
+</style>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   Copyright (c) 中文在线 www.col.com
   Last Review  Zhang Yongfeng <artwc@outlook.com> modified by 2020/8/4 下午1:25
@@ -302,11 +332,11 @@
 		<dl class="QUIEND Modile Tabbox" th:each="mx1:${MessageXinxi}">
 			<dt>作品管理 / 《<nobr th:text="${mx1.mename}"></nobr>》</dt>
 			<dd>
-				<div class="Tab">
-					<a class="now" href="https://author.17k.com/manage/published.html?bookid=3225328">已发布章节</a>
-					<a class="" href="https://author.17k.com/manage/draft.html?bookid=3225328">草稿箱</a>
+				<div class="Tab" th:each="mx2:${MessageXinxi}">
+					<a class="" th:href="@{http://localhost:8088/aiyue/writerQ/findAllSectionByMessage(messageid=${mx2.meid},mename=${mx2.mename})}">已发布章节</a>
+					<a class="" th:href="@{http://localhost:8088/aiyue/writerQ/queryMessageByMename(mename=${mx2.mename})}">草稿箱</a>
 					<!--<a class="" href="https://author.17k.com/manage/recycle.html?bookid=3225328">垃圾箱</a>-->
-					<a class="" href="https://author.17k.com/manage/detail.html?bookid=3225328">作品信息</a>
+					<a class="now" href="javascript:void(0)">作品信息</a>
 					<!--<a class="" href="https://author.17k.com/manage/applicant.html?bookid=3225328">签约&amp;上架</a>
 					<a class="" href="https://author.17k.com/manage/buyoutBook.html?bookid=3225328">买断稿件录入</a>-->
 				</div>
@@ -315,15 +345,28 @@
 		<div class="QUIEND Table Detail">
 			<div class="Row">
 				<div class="Cell title">作品封面：</div>
-				<div class="Cell"><img id="coverTag" class="cover" src="MessageXinxi_files/3225328.jpg-189x272">
+					<div id="imgPreview" th:each="mx3:${MessageXinxi}">
+						<div id="prompt3">
+							 <span id="imgSpan">
+							 点击上传
+							 <br />
+							 <i class="aui-iconfont aui-icon-plus"></i>
+								 <!--AUI框架中的图标-->
+							 </span>
+							<input type="file" id="file" class="filepath" onchange="changepic(this)" accept="image/jpg,image/jpeg,image/png,image/PNG">
+							<!--当vaule值改变时执行changepic函数，规定上传的文件只能是图片-->
+						</div>
+						<img th:src="${mx3.surface}"  id="img3" />
+					</div>
+				<!--<div class="Cell"><img id="coverTag" class="cover" src="MessageXinxi_files/3225328.jpg-189x272">
 					<button onclick="updateImage()">上传</button>
 					<span class="gray">600 * 800</span> <a href="https://www.17k.com/book/2954294.html" target="_blank">封面申请指南&gt;&gt;</a>
-				</div>
+				</div>-->
 			</div>
 			<div class="Row">
 				<div class="Cell title">作品名称：</div>
-				<div class="Cell" th:each="mx2:${MessageXinxi}">
-					<input type="text" th:value="${mx2.mename}" id="mename"/>
+				<div class="Cell" th:each="mx4:${MessageXinxi}">
+					<input type="text" th:value="${mx4.mename}" id="mename"/>
 					<!--<span class="val">DNHX</span>
 					<a href="javascript:editBookName(&#39;3225328&#39;, &#39;DNHX&#39;)">【申请修改书名】</a>
 					<span class="gray">(30天内仅可向管理员申请修改书名1次)</span>-->
@@ -331,10 +374,14 @@
 			</div>
 			<div class="Row">
 				<div class="Cell title">作品类型：</div>
-				<div class="Cell" th:each="mx3:${type}">
-					<i hidden th:text="${mx3.tid}" id="typeid"></i>
+				<div class="Cell" th:each="mx5:${type}">
+					<i hidden th:text="${mx5.tid}" id="typeid"></i>
 
-					<input type="text" th:value="${mx3.tname}"/>
+					<input type="text" th:value="${mx5.tname}"/>
+					<select id="selectType">
+						<option value="1" >已完结</option>
+						<option value="0" >连载中</option>
+					</select>
 					<!--<span class="val">现代异侠</span>
 					<a href="javascript:editCategory(&#39;24&#39;, &#39;96&#39;)">【申请修改类型】</a>
 					<span class="gray">(30天内仅可向管理员申请修改所属分类1次)</span>-->
@@ -350,8 +397,8 @@
 			</div>-->
 			<div class="Row">
 				<div class="Cell title">更新状态：</div>
-				<div class="Cell" th:each="mx4:${MessageXinxi}">
-					<h1 hidden th:text="${mx4.mestate}" id="mestate"></h1>
+				<div class="Cell" th:each="mx6:${MessageXinxi}">
+					<h1 hidden th:text="${mx6.mestate}" id="mestate"></h1>
 					<select id="selectState">
 
 						<option value="1" >已完结</option>
@@ -361,6 +408,16 @@
 			</div>
 			<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
 			<script>
+				function changepic() {
+					$("#prompt3").css("display", "none");
+					var reads = new FileReader();
+					f = document.getElementById('file').files[0];
+					reads.readAsDataURL(f);
+					reads.onload = function(e) {
+						document.getElementById('img3').src = this.result;
+						$("#img3").css("display", "block");
+					};
+				}
 				$(function () {
 					var mestate = document.getElementById("mestate").innerText;
 					$("#selectState").val(mestate);
@@ -377,8 +434,8 @@
 			</div>-->
 			<div class="Row">
 				<div class="Cell title">内容简介：</div>
-				<div class="Cell" th:each="mx5:${MessageXinxi}">
-					<textarea class="intro" id="introduction" th:text="${mx5.synopsis}">
+				<div class="Cell" th:each="mx7:${MessageXinxi}">
+					<textarea class="intro" id="introduction" th:text="${mx7.synopsis}">
 
 					</textarea>
 					<div class="gray">
@@ -401,6 +458,13 @@
 					<button class="blue max" onclick="editBookDetail()">提交</button>
 				</div>
 			</div>
+			<script>
+				function editBookDetail() {
+					var mename = $('#bookName').val();
+					var synopsis = $('#textarea').val();
+					var surface = document.getElementById('file').files[0];
+				}
+			</script>
 		</div>
 	</div>
 </div>
