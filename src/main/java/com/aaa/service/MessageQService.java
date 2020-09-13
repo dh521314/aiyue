@@ -31,8 +31,8 @@ public class MessageQService {
         return messageQDao.queryLikeMename(mename);
     }
 
-    public List<Message> queryMename(String mename){
-        return messageQDao.queryMename(mename);
+    public List<Message> queryMeid(Integer meid){
+        return messageQDao.queryMeid(meid);
     }
 
     public List<Message> queryMessageByTypeid(Integer typeid){

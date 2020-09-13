@@ -301,9 +301,9 @@
 			<dd>
 				<div class="Tab" th:each="mf2:${MessageXinxi}">
 					<a class="now" href="javascript:void(0)">已发布章节</a>
-					<a class="" th:href="@{http://localhost:8088/aiyue/writerQ/queryMessageByMename(mename=${mf2.mename})}">草稿箱</a>
+					<a class="" th:href="@{http://localhost:8088/aiyue/writerQ/queryMessageByMename(meid=${mf2.meid})}">草稿箱</a>
 					<!--<a class="" href="https://author.17k.com/manage/recycle.html?bookid=3225328">垃圾箱</a>-->
-					<a class="" th:href="@{http://localhost:8088/aiyue/writerQ/findMessageXinxi(mename=${mf2.mename})}">作品信息</a>
+					<a class="" th:href="@{http://localhost:8088/aiyue/writerQ/findMessageXinxi(meid=${mf2.meid})}">作品信息</a>
 					<!--<a class="" href="https://author.17k.com/manage/applicant.html?bookid=3225328">签约&amp;上架</a>
 					<a class="" href="https://author.17k.com/manage/buyoutBook.html?bookid=3225328">买断稿件录入</a>-->
 				</div>

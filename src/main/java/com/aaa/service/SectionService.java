@@ -67,4 +67,8 @@ public class SectionService {
     public List<Section> queryNewSectionByWriterMessage(Integer writerid){
         return sectionDao.queryNewSectionByWriterMessage(writerid);
     }
+
+    public Integer addSections(String sname,Integer messageid,String content,Integer number,Date updatetiem){
+        return sectionDao.addSections(sname,messageid,content,number,updatetiem);
+    }
 }

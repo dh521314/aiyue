@@ -3,6 +3,7 @@ package com.aaa.controller;
 import com.aaa.entity.*;
 import com.aaa.service.*;
 import com.aaa.util.UploadUtil;
+import org.springframework.data.relational.core.sql.In;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 @CrossOrigin
@@ -187,17 +189,17 @@ public class WriterQController {
     }
 
     @RequestMapping("/queryMessageByMename")
-    public String queryMessageByMename(Model model,String mename){
+    public String queryMessageByMename(Model model,Integer meid){
         //查询小说信息（根据mename）
-        List<Message> MessageXinxi = messageQService.queryLikeMename(mename);
+        List<Message> MessageXinxi = messageQService.queryMeid(meid);
         model.addAttribute("MessageXinxi",MessageXinxi);
         return "Writing";
     }
 
     @RequestMapping("/findAllSectionByMessage")
-    public String findAllSectionByMessage(Model model,Integer messageid,String mename){
+    public String findAllSectionByMessage(Model model,Integer messageid){
         //查询小说信息（根据mename）
-        List<Message> MessageXinxi = messageQService.queryLikeMename(mename);
+        List<Message> MessageXinxi = messageQService.queryMeid(messageid);
         model.addAttribute("MessageXinxi",MessageXinxi);
         //倒序查询小说章节（根据messageid）
         List<Section> MessageSection =messageQService.querySectionDescByMessage(messageid);
@@ -206,9 +208,9 @@ public class WriterQController {
     }
 
     @RequestMapping("/findMessageXinxi")
-    public String findMessageXinxi(Model model,String mename){
+    public String findMessageXinxi(Model model,Integer meid){
         //查询小说信息（根据mename）
-        List<Message> MessageXinxi = messageQService.queryMename(mename);
+        List<Message> MessageXinxi = messageQService.queryMeid(meid);
         model.addAttribute("MessageXinxi",MessageXinxi);
         Integer tid = MessageXinxi.get(0).getType().getTid();
         Type type = typeService.getTypeByTid(tid);
@@ -233,6 +235,17 @@ public class WriterQController {
         String filepath = UploadUtil.upload(surface);
         messageService.updateMessage(meid,typeid,mename,filepath,synopsis,writerid,mestate);
         return "CreateMessage3";
+    }
+
+    //添加章节
+    @RequestMapping("/addSections")
+    @ResponseBody
+    public Integer addSections(String sname,Integer messageid, String content, Integer number){
+        /*Integer messageids = Integer.valueOf(messageid);
+        Integer numbers = Integer.valueOf(number);*/
+        System.out.println(sname+content);
+
+        return sectionService.addSections(sname,messageid,content,number,new Date());
     }
 
 }

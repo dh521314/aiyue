@@ -135,4 +135,8 @@ public interface SectionDao extends Mapper<Section> {
     //查询小说最新章节
     @Select("select * from section where messageid = #{messageid} order by sid desc limit 1")
     public Section querySectionByMessage(Integer messageid);
+
+    //添加章节
+    @Insert("insert into section(sname,messageid,content,number,updatetiem) values(#{sname},#{messageid},#{content},#{number},#{updatetiem})")
+    public Integer addSections(String sname,Integer messageid,String content,Integer number,Date updatetiem);
 }

@@ -20,13 +20,13 @@ public interface MessageQDao extends Mapper<Message> {
     })
     public List<Message> queryLikeMename(String mename);
 
-    //根据小说名称查询小说，模糊查询
-    @Select("select * from message where mename = #{mename}")
+    //根据小说id查询小说
+    @Select("select * from message where meid = #{meid}")
     @Results({
             @Result(property = "type", column = "typeid", one = @One(select = "com.aaa.dao.TypeDao.getTypeByTid")),
             @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
     })
-    public List<Message> queryMename(String mename);
+    public List<Message> queryMeid(Integer meid);
 
     //根据小说类型查询小说
     @Select("select * from message where typeid=#{typeid}")
