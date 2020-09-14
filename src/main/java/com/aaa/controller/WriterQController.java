@@ -316,4 +316,14 @@ public class WriterQController {
         sectionService.delSection(sid);
         return "redirect:/writerQ/findAllSectionByMessage?messageid="+messageid;
     }
+
+    //修改小说信息
+    @RequestMapping("/updateMessage")
+    @ResponseBody
+    public Integer updateMessage(Integer meid,Integer typeid,String mename,MultipartFile surface,String synopsis,Integer mestate) throws IOException {
+        String upload = UploadUtil.upload(surface);
+        System.out.println(typeid+mename+upload+synopsis+mestate+meid);
+        Integer updateMessage = messageQService.updateMessage(typeid, mename, upload, synopsis, mestate, meid);
+        return updateMessage;
+    }
 }

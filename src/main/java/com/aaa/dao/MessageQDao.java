@@ -171,4 +171,7 @@ public interface MessageQDao extends Mapper<Message> {
             @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid"))
     })
     public List<Message> queryAllMessByWriter(Integer writerid);
+
+    @Select("update message set typeid=#{typeid},mename=#{mename},surface=#{surface},synopsis=#{synopsis},mestate=#{mestate} where meid=#{meid}")
+    public Integer updateMessage(Integer typeid,String mename,String surface,String synopsis,Integer mestate,Integer meid);
 }

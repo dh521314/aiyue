@@ -331,6 +331,7 @@
 	</div>-->
 	<div class="Right">
 		<dl class="QUIEND Modile Tabbox" th:each="mx1:${MessageXinxi}">
+
 			<dt>作品管理 / 《<nobr th:text="${mx1.mename}"></nobr>》</dt>
 			<dd>
 				<div class="Tab" th:each="mx2:${MessageXinxi}">
@@ -357,7 +358,7 @@
 							<input type="file" id="file" class="filepath" onchange="changepic(this)" accept="image/jpg,image/jpeg,image/png,image/PNG">
 							<!--当vaule值改变时执行changepic函数，规定上传的文件只能是图片-->
 						</div>
-						<img th:src="${mx3.surface}"  id="img3" />
+						<img th:src="${'http://localhost:8088/aiyue'+mx3.surface}"  id="img3" />
 					</div>
 				<!--<div class="Cell"><img id="coverTag" class="cover" src="MessageXinxi_files/3225328.jpg-189x272">
 					<button onclick="updateImage()">上传</button>
@@ -367,7 +368,7 @@
 			<div class="Row">
 				<div class="Cell title">作品名称：</div>
 				<div class="Cell" th:each="mx4:${MessageXinxi}">
-					<input type="text" th:value="${mx4.mename}" id="mename"/>
+					<input type="text" id="mename" th:value="${mx4.mename}" />
 					<!--<span class="val">DNHX</span>
 					<a href="javascript:editBookName(&#39;3225328&#39;, &#39;DNHX&#39;)">【申请修改书名】</a>
 					<span class="gray">(30天内仅可向管理员申请修改书名1次)</span>-->
@@ -442,6 +443,7 @@
 			<div class="Row">
 				<div class="Cell title">内容简介：</div>
 				<div class="Cell" th:each="mx7:${MessageXinxi}">
+					<div hidden th:text="${mx7.meid}" id="meid"></div>
 					<textarea class="intro" id="introduction" th:text="${mx7.synopsis}" onKeyup="showCount();">
 
 					</textarea>
@@ -451,6 +453,11 @@
 				</div>
 			</div>
 			<script>
+				$(function () {
+					var strChar = document.getElementById('introduction').value;
+					var charCount = strChar.length;
+					document.getElementById('wordCount').innerText=charCount;
+				})
 				function showCount() {
 					var strChar = document.getElementById('introduction').value;
 					var charCount = strChar.length;
@@ -474,14 +481,41 @@
 			<div class="Row">
 				<div class="Cell title"></div>
 				<div class="Cell">
-					<button class="blue max" onclick="editBookDetail()">提交</button>
+					<button class="blue max" onclick="editMessage()">提交</button>
 				</div>
 			</div>
 			<script>
-				function editBookDetail() {
-					var mename = $('#bookName').val();
-					var synopsis = $('#textarea').val();
-					var surface = document.getElementById('file').files[0];
+				function editMessage() {
+					var meid = document.getElementById("meid").innerText;
+					var mename = $("#mename").val();
+					var synopsis = $("#introduction").val();
+					var surface = document.getElementById("file").files[0];
+					var typeid = $("#selectType option:selected").val();
+					var mestate = $("#selectState option:selected").val();
+					console.log(synopsis);
+					let fd = new FormData();
+					fd.append("meid",meid);
+					fd.append("typeid",typeid);
+					fd.append("mename",mename);
+					fd.append("surface",surface);
+					fd.append("synopsis",synopsis);
+					fd.append("mestate",mestate);
+					fd.toString();
+					$.ajax({
+						url: "http://localhost:8088/aiyue/writerQ/updateMessage",
+						data:fd,
+						type:"psot",
+						processData: false,
+						contentType: false,
+						success: function (arg) {
+
+							alert("修改成功")
+							window.location="http://localhost:8088/aiyue/writerQ/findMessageXinxi?meid="+meid;
+						},
+						error:function(err){
+							console.log(err);
+						}
+					});
 				}
 			</script>
 		</div>

@@ -164,7 +164,12 @@ public class MessageQService {
     public List<Message> queryMessByWriter(Integer writerid){
         return messageQDao.queryMessByWriter(writerid);
     }
+
     public List<Message> queryAllMessByWriter(Integer writerid){
         return messageQDao.queryAllMessByWriter(writerid);
+    }
+
+    public Integer updateMessage(Integer typeid,String mename,String surface,String synopsis,Integer mestate,Integer meid){
+        return messageQDao.updateMessage(typeid,mename,surface,synopsis,mestate,meid);
     }
 }
