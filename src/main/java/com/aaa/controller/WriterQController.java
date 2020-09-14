@@ -326,4 +326,10 @@ public class WriterQController {
         Integer updateMessage = messageQService.updateMessage(typeid, mename, upload, synopsis, mestate, meid);
         return updateMessage;
     }
+
+    @RequestMapping("/editWriter")
+    public String updateWriter(Integer wid, String wname, String ana){
+        Integer i = writerService.updateWriter(wid,wname,ana);
+        return "redirect:http://localhost:8088/aiyue/writerQ/queryWriterByReader";
+    }
 }
