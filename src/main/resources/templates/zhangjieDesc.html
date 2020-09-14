@@ -120,15 +120,27 @@
                     <div class="sres_list"></div></div>
             </form>
             <div class="right-wrap-login ud_userTox" style="right: 0">
-            <div class="unlogin ud_unlogin clearfix">
-            <div class="login fl">
+                <div class="unlogin ud_unlogin clearfix">
+                    <div class="login fl" id="user">
+                        <script>
+                            $.post("Reader/getUser").then(
+                                data=>{
+                                    if(data == null || data == ''){
+                                        document.getElementById("user").innerHTML = "<a class=\"user_login\" href=\"login.html\">登录/注册</a>";
+                                    }else{
+                                        document.getElementById("user").innerHTML = "<a class=\"user_login\" href=\"Bookrack/queryBookrackByReaderid\">"+data.rname+"</a>";
+                                    }
+                                },
+                                err =>{
+                                    console.log(err);
+                                }
+                            );
+                        </script>
+                    </div>
+                </div>
 
-                <a class="user_login" href="javascript:">登录/注册</a>
             </div>
         </div>
-    
-</div>
-       </div>
         <div class="nav clearfix">
             <div class="menu-left fl">
                 <a class href="http://localhost:8088/aiyue/MessageQ/queryIndex">首页<em></em></a>

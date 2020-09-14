@@ -139,7 +139,7 @@ public interface MessageQDao extends Mapper<Message> {
     public List<Message> queryWomanMessByType();
 
     //男频强力推荐小说
-    @Select("select * from message where typeid in (select tid from type where tid=1 and channel = 0) order by meid desc limit 0,1")
+    @Select("select *,min(meid) from message where typeid in (select tid from type where tid=1 and channel = 0) order by meid desc limit 0,1")
     @Results({
             @Result(property = "type", column = "typeid", one = @One(select = "com.aaa.dao.TypeDao.getTypeByTid")),
             @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid")),
@@ -148,7 +148,7 @@ public interface MessageQDao extends Mapper<Message> {
     public List<Message> queryMessByMan();
 
     //女频强力推荐小说
-    @Select("select * from message where typeid in (select tid from type where tid=14 and channel = 1) order by meid desc limit 0,1")
+    @Select("select *,min(meid) from message where typeid in (select tid from type where tid=14 and channel = 1) order by meid desc limit 0,1")
     @Results({
             @Result(property = "type", column = "typeid", one = @One(select = "com.aaa.dao.TypeDao.getTypeByTid")),
             @Result(property = "writer", column = "writerid", one = @One(select = "com.aaa.dao.WriterDao.getWriterByWid")),
