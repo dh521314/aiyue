@@ -11,6 +11,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
      */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        // 对外暴露的访问路径    内部文件放置的目录
         registry.addResourceHandler("/img/**").addResourceLocations("file:/D:/aiyue/img/");
         WebMvcConfigurer.super.addResourceHandlers(registry);
 
