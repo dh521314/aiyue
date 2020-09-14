@@ -138,7 +138,7 @@ public class WriterQController {
             model.addAttribute("messageCount",messageCount.get(0).getCount());
             //作家信息之累计字数
             List<Section> Number = messageQService.queryNumberByWriter(writerid);
-            model.addAttribute("Number",Number.get(0).getSum());
+            model.addAttribute("Number",Number.get(0) == null?0:Number.get(0).getSum());
             //作家信息之累计阅读数
             List<Dynamic> readerNumber = messageQService.queryReadNumberByWriter(writerid);
             model.addAttribute("readerNumber",readerNumber.get(0).getCount());
@@ -147,9 +147,10 @@ public class WriterQController {
             model.addAttribute("newMessage",newMessage);
             //小说页面之最新章节
             List<Section> newSection = messageQService.queryNewSectionByMessage(newMessage.get(0).getMeid());
-            if (newSection.get(0).getSid() == null || newSection.get(0).getSid() == 0){
-                newMessage.get(0).setMename("无最新章节");
-                model.addAttribute("newSection",newSection);
+            if (newSection.size() == 0 ){
+                Section section = new Section();
+                section.setSname("无最新章节");
+                model.addAttribute("newSection",section);
             }else{
                 model.addAttribute("newSection",newSection);
             }
@@ -178,7 +179,8 @@ public class WriterQController {
     }
 
     @RequestMapping("/addMessage")
-    public String addMessage(HttpSession httpSession,Integer typeid, String mename, MultipartFile surface, String synopsis,Model model) throws IOException {
+    @ResponseBody
+    public String addMessage(Integer typeid, String mename, MultipartFile surface, String synopsis,Model model,HttpSession httpSession) throws IOException {
         System.out.println(typeid+mename+surface+synopsis);
         if(surface.isEmpty()){
             return null;
