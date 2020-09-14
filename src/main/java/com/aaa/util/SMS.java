@@ -8,20 +8,22 @@ import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 @Component
+@PropertySource("classpath:config.properties")
 public class SMS {
     //对应你阿里云账户的 accessKeyId
-    @Value("${sms.accessKeyId}")
+    @Value("${accessKeyId}")
     public String accessKeyId;
     //对应你阿里云账户的 accessKeySecret
-    @Value("${sms.accessKeySecret}")
+    @Value("${accessKeySecret}")
     public String accessKeySecret;
     //对应签名名称
     public String signName = "爱阅小说";
     //对应模板代码
-    @Value("${sms.templateCode}")
+    @Value("${templateCode}")
     public String templateCode;
 
     /**
