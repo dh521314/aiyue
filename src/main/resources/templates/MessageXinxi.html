@@ -193,7 +193,7 @@
 	width: 9%;
 	height: 140px;
 	margin: 10px 500px 0px 20px;
-	border: 1px solid black;
+	border: 0px solid black;
 	text-align: center;
 }
 #prompt3 {
@@ -358,8 +358,8 @@
 							<input type="file" id="file" class="filepath" onchange="changepic(this)" accept="image/jpg,image/jpeg,image/png,image/PNG">
 							<!--当vaule值改变时执行changepic函数，规定上传的文件只能是图片-->
 						</div>
-						<img th:src="${'http://localhost:8088/aiyue'+mx3.surface}"  id="img3" />
-					</div>
+						<img th:src="${'http://localhost:8088/aiyue'+mx3.surface}" width="100" height="100"  id="img3" />
+						</div>
 				<!--<div class="Cell"><img id="coverTag" class="cover" src="MessageXinxi_files/3225328.jpg-189x272">
 					<button onclick="updateImage()">上传</button>
 					<span class="gray">600 * 800</span> <a href="https://www.17k.com/book/2954294.html" target="_blank">封面申请指南&gt;&gt;</a>
@@ -413,6 +413,10 @@
 			</div>
 			<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
 			<script>
+				let imgsrc = document.getElementById('img3').src;
+				document.getElementById("prompt3").style.backgroundImage = "url('"+imgsrc+"')";
+
+
 				function changepic() {
 					$("#prompt3").css("display", "none");
 					var reads = new FileReader();

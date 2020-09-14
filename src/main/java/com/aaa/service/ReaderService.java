@@ -33,4 +33,12 @@ public class ReaderService {
     public  Integer readerUp(Integer rid,String rname,String rphone){
         return dao.readerUp(rid,rname,rphone);
     }
+
+    public List<Reader> queryYpwd(Integer rid){
+        return dao.queryYpwd(rid);
+    }
+
+    public Integer updateRpwd(String rpwd,Integer rid){
+        return dao.updateRpwd(rpwd,rid);
+    }
 }

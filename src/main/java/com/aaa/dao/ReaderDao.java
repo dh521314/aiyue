@@ -27,4 +27,13 @@ public interface ReaderDao extends Mapper<Reader> {
     //修改用户信息
     @Update("update reader set rname=#{rname},rphone=#{rphone} where rid=#{rid}")
     public  Integer readerUp(Integer rid,String rname,String rphone);
+
+    //查询密码
+    @Select("select * from reader where rid=#{rid}")
+    public List<Reader> queryYpwd(Integer rid);
+
+    //修改密码
+    @Update("update reader set rpwd=#{rpwd} where rid=#{rid}")
+    public Integer updateRpwd(String rpwd,Integer rid);
+
 }

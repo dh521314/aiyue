@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("Reader")
@@ -114,6 +115,27 @@ public class ReaderController {
     public String readerUp(Integer rid, String rname, String rphone){
         int i = readerService.readerUp(rid,rname,rphone);
         return "redirect:../login.html";
+    }
+
+    //查询密码
+    @RequestMapping("/queryYpwd")
+    public String queryYpwd(HttpSession httpSession,Model model){
+        Reader reader = (Reader) httpSession.getAttribute("reader");
+        Integer readerid = reader.getRid();
+        System.out.println(readerService.queryYpwd(readerid));
+        List<Reader> rpwd = readerService.queryYpwd(readerid);
+        model.addAttribute("rpwd",rpwd);
+        return "ReaderEditPwd1";
+    }
+
+    //修改密码
+    @RequestMapping("/updateRpwd")
+    public String updateRpwd(String rpwd,HttpSession httpSession){
+        Reader reader = (Reader) httpSession.getAttribute("reader");
+        Integer readerid = reader.getRid();
+        System.out.println(rpwd);
+        readerService.updateRpwd(rpwd,readerid);
+        return "login";
     }
 
 }
