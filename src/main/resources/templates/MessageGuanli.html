@@ -282,16 +282,16 @@
                     </div>
                     <ul class="product-list mb12 fix">
                         
-                        <li class="g-prodution-item fix mb24 pt24" data-cbid="17958946001429904" data-item="{&quot;CBID&quot;:&quot;17958946001429904&quot;,&quot;title&quot;:&quot;sdgdzf&quot;,&quot;bookTitleUrl&quot;:&quot;https://www.hongxiu.com/book/17958946001429904&quot;,&quot;coverurl&quot;:&quot;https://ccstatic-1252317822.image.myqcloud.com/bookcoverimg/2020-09-09/default_a45ca1654671e48c4795994ae59bff2f.png?imageMogr2/thumbnail/150x200!&quot;,&quot;lastchaptertitle&quot;:null,&quot;ChapterUrl&quot;:&quot;https://www.hongxiu.com/chapter/17958946001429904/-1&quot;,&quot;newchapterid&quot;:&quot;-1&quot;,&quot;lastnewchaptertime&quot;:&quot;2020-09-09 13:57&quot;,&quot;categoryName&quot;:&quot;第二编辑组&quot;,&quot;favNum&quot;:null,&quot;statusName&quot;:&quot;新建&quot;,&quot;show_flag&quot;:0,&quot;is_buy_out&quot;:0,&quot;auditstatus&quot;:&quot;1&quot;,&quot;lockStatus&quot;:-1,&quot;isfinelayout&quot;:&quot;-1&quot;,&quot;lockTime&quot;:&quot;2020-09-09 16:34:51&quot;,&quot;allwords&quot;:&quot;0&quot;,&quot;hasApplyLastDay&quot;:-1,&quot;isSignBook&quot;:0,&quot;addChapterUrl&quot;:&quot;/contentv3/booknovels/chaptertmp/CBID/17958946001429904/addType/1.html&quot;,&quot;categoryid&quot;:&quot;30008&quot;,&quot;ManageChapterUrl&quot;:&quot;/contentv3/booknovels/chaptermanage/CBID/17958946001429904.html&quot;,&quot;isShowNewExperience&quot;:1,&quot;newaddChapterUrl&quot;:&quot;/portal/booknovels/chaptertmp/CBID/17958946001429904&quot;,&quot;buyout_url&quot;:&quot;&quot;,&quot;isprecollection&quot;:&quot;-1&quot;,&quot;articleid&quot;:null}" locktime="2020-09-09 16:34:51" data-buyout="">
+                        <li class="g-prodution-item fix mb24 pt24" th:each="m1:${AllMessage}" data-cbid="17958946001429904" data-item="{&quot;CBID&quot;:&quot;17958946001429904&quot;,&quot;title&quot;:&quot;sdgdzf&quot;,&quot;bookTitleUrl&quot;:&quot;https://www.hongxiu.com/book/17958946001429904&quot;,&quot;coverurl&quot;:&quot;https://ccstatic-1252317822.image.myqcloud.com/bookcoverimg/2020-09-09/default_a45ca1654671e48c4795994ae59bff2f.png?imageMogr2/thumbnail/150x200!&quot;,&quot;lastchaptertitle&quot;:null,&quot;ChapterUrl&quot;:&quot;https://www.hongxiu.com/chapter/17958946001429904/-1&quot;,&quot;newchapterid&quot;:&quot;-1&quot;,&quot;lastnewchaptertime&quot;:&quot;2020-09-09 13:57&quot;,&quot;categoryName&quot;:&quot;第二编辑组&quot;,&quot;favNum&quot;:null,&quot;statusName&quot;:&quot;新建&quot;,&quot;show_flag&quot;:0,&quot;is_buy_out&quot;:0,&quot;auditstatus&quot;:&quot;1&quot;,&quot;lockStatus&quot;:-1,&quot;isfinelayout&quot;:&quot;-1&quot;,&quot;lockTime&quot;:&quot;2020-09-09 16:34:51&quot;,&quot;allwords&quot;:&quot;0&quot;,&quot;hasApplyLastDay&quot;:-1,&quot;isSignBook&quot;:0,&quot;addChapterUrl&quot;:&quot;/contentv3/booknovels/chaptertmp/CBID/17958946001429904/addType/1.html&quot;,&quot;categoryid&quot;:&quot;30008&quot;,&quot;ManageChapterUrl&quot;:&quot;/contentv3/booknovels/chaptermanage/CBID/17958946001429904.html&quot;,&quot;isShowNewExperience&quot;:1,&quot;newaddChapterUrl&quot;:&quot;/portal/booknovels/chaptertmp/CBID/17958946001429904&quot;,&quot;buyout_url&quot;:&quot;&quot;,&quot;isprecollection&quot;:&quot;-1&quot;,&quot;articleid&quot;:null}" locktime="2020-09-09 16:34:51" data-buyout="">
                             <div class="g-prodution-item-sd mt24">
                                 <div class="g-book-cover">
                                     
                                         <a href="https://www.hongxiu.com/book/17958946001429904" target="_blank">
-                                            <img class="" src="MessageGuanli_files/default_a45ca1654671e48c4795994ae59bff2f.png" width="108" height="144" alt="sdgdzf" onerror="javascript:this.src=&#39;https://ccstatic-1252317822.file.myqcloud.com/bookcoverimg/2019-09-19/5d82ee153b040.jpg&#39;;">
+                                            <img class="" th:src="${'http://localhost:8088/aiyue'+m1.surface}" width="108" height="144" alt="sdgdzf" onerror="javascript:this.src=&#39;https://ccstatic-1252317822.file.myqcloud.com/bookcoverimg/2019-09-19/5d82ee153b040.jpg&#39;;">
                                         </a>
                                         <div class="g-book-tag">
-                                            
-                                            
+
+
                                         </div>
                                     
                                 </div>
@@ -309,7 +309,7 @@
                                     </div>-->
                                     
                                     <a class="g-book-title" href="https://www.hongxiu.com/book/17958946001429904" target="_blank">
-                                        <h3 class="ell fs20" th:each="m1:${AllMessage}"><i th:text="${m1.mename}"></i></h3>
+                                        <h3 class="ell fs20" ><i th:text="${m1.mename}"></i></h3>
                                     </a>
                                     
                                 </div>
