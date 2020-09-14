@@ -7,25 +7,30 @@ import com.aliyuncs.IAcsClient;
 import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.http.MethodType;
 import com.aliyuncs.profile.DefaultProfile;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
-import java.rmi.ServerException;
-
+@Component
 public class SMS {
     //对应你阿里云账户的 accessKeyId
-    private static final String accessKeyId = "LTAI4FnmUstJP8VwonNktxx6";
+    @Value("${sms.accessKeyId}")
+    public String accessKeyId;
     //对应你阿里云账户的 accessKeySecret
-    private static final String accessKeySecret = "TZrGUFFi6TFGIigZw3D4hzKFZr1MXm";
+    @Value("${sms.accessKeySecret}")
+    public String accessKeySecret;
     //对应签名名称
-    private static final String signName="爱阅小说";
+    public String signName = "爱阅小说";
     //对应模板代码
-    private static final String templateCode="SMS_179290529";
+    @Value("${sms.templateCode}")
+    public String templateCode;
 
     /**
      * 短信发送
      * @param telphone 发送的手机号
      * @parpm mobile_code 验证码
      */
-    public static String SendCode(String telphone,int mobile_code) {
+    public String SendCode(String telphone,int mobile_code) {
+        System.out.println(accessKeyId+","+accessKeySecret+","+signName+","+templateCode);
         String result = "";
 
         DefaultProfile profile = DefaultProfile.getProfile("default",
