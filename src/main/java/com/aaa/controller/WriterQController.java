@@ -204,7 +204,16 @@ public class WriterQController {
     }
 
     @RequestMapping("/queryMessageByMename")
-    public String queryMessageByMename(Model model,Integer meid){
+    public String queryMessageByMename(Model model,HttpSession session,Integer meid){
+        if(meid == null){
+            Reader reader = (Reader)session.getAttribute("reader");
+            Integer rid = reader.getRid();
+            List<Writer> writers = writerService.queryWriterByReader(rid);
+            Integer writerid = writers.get(0).getWid();
+            List<Message> messages = messageQService.queryMessByWriter(writerid);
+            model.addAttribute("MessageXinxi",messages);
+            return "Writing";
+        }
         //查询小说信息（根据mename）
         List<Message> MessageXinxi = messageQService.queryMeid(meid);
         model.addAttribute("MessageXinxi",MessageXinxi);
