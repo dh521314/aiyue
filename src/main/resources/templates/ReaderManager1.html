@@ -271,8 +271,8 @@
         <div class="g-section-bg g-body-h1">
             <div class="g-body-h2">
                 <div class="ui-tab-tabs">
-                    <a href="https://write.qq.com/portal/dashboard/authorInfo" class="ui-tab-tab checked" data-rel="">个人信息</a>
-                    <!--<a href="https://write.qq.com/portal/dashboard/authorInfoDetail" class="ui-tab-tab" data-rel="">详细信息</a>-->
+                    <a href="javascript.void(0)" class="ui-tab-tab checked" data-rel="">个人信息</a>
+                    <a href="http://localhost:8088/aiyue/Reader/queryYpwd" class="ui-tab-tab" data-rel="">修改密码</a>
                     
                 </div>
                 <div class="ui-tab-contents">
@@ -329,8 +329,8 @@
                             <div class="write-form-li write-form-button">
                                     <label class="write-form-label"></label>
                                     <a th:href="@{http://localhost:8088/aiyue/Reader/ReaderByRid(rid=${r.rid})}" class="ui-button ui-large ui-button-primary j-user-edit  write-text-mode" role="button">修改</a>
-                                    <!--<a href="javascript:" class="ui-button ui-large ui-button-primary j-user-save  write-edit-mode _dib" role="button">保存</a>
-                                    <a href="javascript:" class="ui-button ui-large j-cancel-form  j-user-cancel  write-edit-mode _dib" role="button">取消</a>-->
+                                    <a href="http://localhost:8088/aiyue/Bookrack/queryBookrackByReaderid" class="ui-button ui-large ui-button-primary j-user-edit  write-text-mode" role="button">退出</a>
+                                    <!--<a href="javascript:" class="ui-button ui-large ui-button-primary j-user-save  write-edit-mode _dib" role="button">保存</a>-->
                             </div>
                                 <!-- 基本form end -->
                             <!-- </div> -->

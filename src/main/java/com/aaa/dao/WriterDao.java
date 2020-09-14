@@ -26,4 +26,7 @@ public interface WriterDao extends Mapper<Writer> {
             @Result(property = "reader", column = "readerid", one = @One(select = "com.aaa.dao.ReaderDao.getReaderByRid"))
     })
     public List<Writer> queryWriterByReader(Integer readerid);
+
+    @Update("update writer set wname=#{wname},ana=#{ana} where wid=#{wid}")
+    public Integer updateWriter(Integer wid, String wname, String ana);
 }

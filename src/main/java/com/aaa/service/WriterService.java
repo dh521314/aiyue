@@ -47,4 +47,8 @@ public class WriterService {
     public List<Writer> queryWriterByReader(Integer readerid){
         return writerDao.queryWriterByReader(readerid);
     }
+
+    public Integer updateWriter(Integer wid,String wname,String ana){
+        return writerDao.updateWriter(wid,wname,ana);
+    }
 }
