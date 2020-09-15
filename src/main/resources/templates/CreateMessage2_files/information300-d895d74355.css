@@ -1056,9 +1056,16 @@ img {
     vertical-align: top
 }
 
-#RealName, #address, #amend_submit, #bankNumber, #bookName, #depositBank, #email, #penName, #phoneNumber, #qq, #rcmdText, #submit, #textarea, .ifmt a, .information a, .mtext, .prdtList .certificate, .question .certificate, .select .advisory {
-    width: 358px;
+#RealName, #address, #amend_submit, #bankNumber, #bookName, #depositBank, #email, #penName, #phoneNumber, #qq, #rcmdText, #submit,#textarea, .ifmt a, .information a, .mtext, .prdtList .certificate, .question .certificate, .select .advisory {
+    width: 100px;
     box-sizing: border-box
+}
+
+#fanhui{
+    width: 100px;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top
 }
 
 .cfIn {
