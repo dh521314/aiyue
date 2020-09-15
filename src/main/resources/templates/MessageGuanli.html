@@ -273,7 +273,7 @@
                 <div class="g-body-h2">
                     
                     <div class="g-title-h2">
-                        <h2 class="g-h2">我的作品</h2>
+                        <h2 class="g-h2"><a href="javascript:location.reload();">我的作品</a></h2>
                         <div class="g-title-sd">
                             <!--<a href="https://write.qq.com/portal/dashboard/activities" class="g-link" target="_blank"><em class="icon-font mr4"></em>征文活动</a>-->
                             
@@ -281,12 +281,32 @@
                             <a href="javascript:history.go(-1)" class="g-link"><em class="icon-font mr4"></em>返回</a>
                         </div>
                     </div>
-                    <ul class="product-list mb12 fix">
-                        
+
+                    <div id="ifmdiv" style="display: none;">
+                        <iframe id="ifm" width="1200px" height="1000px" frameborder="0" scrolling="no" src="http://localhost:8088/aiyue/writerQ/queryMessageByMename?meid=138"></iframe>
+                    </div>
+
+                    <script type="text/javascript">
+                        $(function () {
+                            document.getElementById("zuopin").style.display = "block";
+                        })
+                        function xiezuo(meid){
+                            console.log(meid);
+                            document.getElementById("ifmdiv").style.display = "block";
+                            document.getElementById("zuopin").style.display = "none";
+                            document.getElementById("ifm").src = "http://localhost:8088/aiyue/writerQ/queryMessageByMename?meid="+meid;
+                        }
+
+
+
+
+                    </script>
+
+                    <ul class="product-list mb12 fix" id="zuopin">
+
                         <li class="g-prodution-item fix mb24 pt24" th:each="m1:${AllMessage}" data-cbid="17958946001429904" data-item="{&quot;CBID&quot;:&quot;17958946001429904&quot;,&quot;title&quot;:&quot;sdgdzf&quot;,&quot;bookTitleUrl&quot;:&quot;https://www.hongxiu.com/book/17958946001429904&quot;,&quot;coverurl&quot;:&quot;https://ccstatic-1252317822.image.myqcloud.com/bookcoverimg/2020-09-09/default_a45ca1654671e48c4795994ae59bff2f.png?imageMogr2/thumbnail/150x200!&quot;,&quot;lastchaptertitle&quot;:null,&quot;ChapterUrl&quot;:&quot;https://www.hongxiu.com/chapter/17958946001429904/-1&quot;,&quot;newchapterid&quot;:&quot;-1&quot;,&quot;lastnewchaptertime&quot;:&quot;2020-09-09 13:57&quot;,&quot;categoryName&quot;:&quot;第二编辑组&quot;,&quot;favNum&quot;:null,&quot;statusName&quot;:&quot;新建&quot;,&quot;show_flag&quot;:0,&quot;is_buy_out&quot;:0,&quot;auditstatus&quot;:&quot;1&quot;,&quot;lockStatus&quot;:-1,&quot;isfinelayout&quot;:&quot;-1&quot;,&quot;lockTime&quot;:&quot;2020-09-09 16:34:51&quot;,&quot;allwords&quot;:&quot;0&quot;,&quot;hasApplyLastDay&quot;:-1,&quot;isSignBook&quot;:0,&quot;addChapterUrl&quot;:&quot;/contentv3/booknovels/chaptertmp/CBID/17958946001429904/addType/1.html&quot;,&quot;categoryid&quot;:&quot;30008&quot;,&quot;ManageChapterUrl&quot;:&quot;/contentv3/booknovels/chaptermanage/CBID/17958946001429904.html&quot;,&quot;isShowNewExperience&quot;:1,&quot;newaddChapterUrl&quot;:&quot;/portal/booknovels/chaptertmp/CBID/17958946001429904&quot;,&quot;buyout_url&quot;:&quot;&quot;,&quot;isprecollection&quot;:&quot;-1&quot;,&quot;articleid&quot;:null}" locktime="2020-09-09 16:34:51" data-buyout="">
                             <div class="g-prodution-item-sd mt24">
                                 <div class="g-book-cover">
-                                    
                                         <a href="https://www.hongxiu.com/book/17958946001429904" target="_blank">
                                             <img class="" th:src="${'http://localhost:8088/aiyue'+m1.surface}" width="108" height="144" alt="sdgdzf" onerror="javascript:this.src=&#39;https://ccstatic-1252317822.file.myqcloud.com/bookcoverimg/2019-09-19/5d82ee153b040.jpg&#39;;">
                                         </a>
@@ -294,34 +314,24 @@
 
 
                                         </div>
-                                    
+
                                 </div>
                             </div>
                             <div class="g-prodution-item-lf pr">
                                 <div class="g-prodution-item-title">
-                                    <!--<div class="fr label-mins">
-                                        
-                                        <label class="label-min _sub">第二编辑组</label>
-                                        
-                                        &lt;!&ndash; <label class="label-min">新建</label> &ndash;&gt;
-                                        
-                                        <label class="label-min _new">新建</label>
-                                        
-                                    </div>-->
-                                    
                                     <a class="g-book-title" href="https://www.hongxiu.com/book/17958946001429904" target="_blank">
                                         <h3 class="ell fs20" ><i th:text="${m1.mename}"></i></h3>
                                     </a>
-                                    
+
                                 </div>
                                 <p class="g-prodution-chapter">
-                                    
+
                                         <a href="https://www.hongxiu.com/chapter/17958946001429904/-1" target="_blank"></a>
-                                    
+
                                 </p>
-                                
+
                                 <p class="g-prodution-update" th:each="m2:${NewSection}"><i th:text="${m2.sname}"></i></p>
-                                
+
                                 <p>
                                     <!-- <span>2300 人订阅本章</span> -->
                                 </p>
@@ -333,7 +343,7 @@
 -->
 
                                     <a href="https://write.qq.com/portal/booknovels/chaptertmp/CBID/17958946001429904?entry=publish" class="ui-button" role="button" target="_blank">已发布</a>
-                                    <a href="https://write.qq.com/portal/booknovels/chaptertmp/CBID/17958946001429904/addType/1.html" class="ui-button ui-button-primary" role="button" target="_blank">去写作</a>
+                                    <a th:onclick="'xiezuo('+${m1.meid}+');'" class="ui-button ui-button-primary" role="button">去写作</a>
                                 </div>
                             </div>
                         </li>
