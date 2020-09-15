@@ -284,88 +284,88 @@
 
 </div>
 <div class="g-row mt24">
-    <div class="g-col g-col-2 g-side">
-        <div class="g-side-con">
-            
-<div class="g-nav g-section-bg">
-    <ul>
-        <li data-event-id="1">
-            <!-- 高亮添加这个class -->
-            <a href="javascript:void(0)" class="_current"><em class="icon-font"></em><em class="icon-font active"></em>工作台</a>
-        </li>
-        <li data-event-id="2" th:each="js:${writers}">
-            <a th:href="@{/writerQ/queryAllMessageByWriter(writerid=${js.wid})}"><em class="icon-font"></em><em class="icon-font active"></em>作品管理</a>
-        </li>
-        <!--<li data-event-id="3">
-            <a href="https://write.qq.com/booknovelsvip/takeindex.html"><em class="icon-font"></em><em class="icon-font active"></em>数据中心</a>
-        </li>
-        <li data-event-id="4">
-            <a href="https://write.qq.com/income/index.html"><em class="icon-font"></em><em class="icon-font active"></em>稿酬收入</a>
-        </li>
-        <li data-event-id="5">
-            <a href="https://write.qq.com/labor.html"><em class="icon-font"></em><em class="icon-font active"></em>劳务收入</a>
-        </li>
-        <li data-event-id="6" class="sidebar-interactive">
-            <a href="https://write.qq.com/portal/dashboard/interactive-manage"><em class="icon-font"></em><em class="icon-font active"></em>互动管理</a>
-            <div class="interactive-guide">
-                <p class="interactive-guide-txt"><em class="interactive-guide-star icon-font"></em>新版<span class="c-primary">评论管理</span>全新上线，快来看看</p>
-                <div class="interactive-guide-footer"><a href="https://write.qq.com/portal/dashboard/interactive-manage" class="ui-button ui-button-primary">去看看</a></div>
-            </div>
-        </li>
-        <li data-event-id="7">
-            <a href="https://write.qq.com/portal/dashboard/exchange">
-                <em class="icon-font"></em><em class="icon-font active"></em>积分兑换
-                
-            </a>
-        </li>
-        <li data-event-id="8">
-            <a href="https://write.qq.com/portal/dashboard/authorConsult"><em class="icon-font"></em><em class="icon-font active"></em>作家咨询</a>
-        </li>-->
-        
-    </ul>
-</div>
+    <!-- <div class="g-col g-col-2 g-side">
+         <div class="g-side-con">
+
+ <div class="g-nav g-section-bg">
+     <ul>
+         <li data-event-id="1">
+             &lt;!&ndash; 高亮添加这个class &ndash;&gt;
+             <a href="javascript:void(0)" class="_current"><em class="icon-font"></em><em class="icon-font active"></em>工作台</a>
+         </li>
+         <li data-event-id="2" th:each="js:${writers}">
+             <a th:href="@{/writerQ/queryAllMessageByWriter(writerid=${js.wid})}"><em class="icon-font"></em><em class="icon-font active"></em>作品管理</a>
+         </li>
+         &lt;!&ndash;<li data-event-id="3">
+             <a href="https://write.qq.com/booknovelsvip/takeindex.html"><em class="icon-font"></em><em class="icon-font active"></em>数据中心</a>
+         </li>
+         <li data-event-id="4">
+             <a href="https://write.qq.com/income/index.html"><em class="icon-font"></em><em class="icon-font active"></em>稿酬收入</a>
+         </li>
+         <li data-event-id="5">
+             <a href="https://write.qq.com/labor.html"><em class="icon-font"></em><em class="icon-font active"></em>劳务收入</a>
+         </li>
+         <li data-event-id="6" class="sidebar-interactive">
+             <a href="https://write.qq.com/portal/dashboard/interactive-manage"><em class="icon-font"></em><em class="icon-font active"></em>互动管理</a>
+             <div class="interactive-guide">
+                 <p class="interactive-guide-txt"><em class="interactive-guide-star icon-font"></em>新版<span class="c-primary">评论管理</span>全新上线，快来看看</p>
+                 <div class="interactive-guide-footer"><a href="https://write.qq.com/portal/dashboard/interactive-manage" class="ui-button ui-button-primary">去看看</a></div>
+             </div>
+         </li>
+         <li data-event-id="7">
+             <a href="https://write.qq.com/portal/dashboard/exchange">
+                 <em class="icon-font"></em><em class="icon-font active"></em>积分兑换
+
+             </a>
+         </li>
+         <li data-event-id="8">
+             <a href="https://write.qq.com/portal/dashboard/authorConsult"><em class="icon-font"></em><em class="icon-font active"></em>作家咨询</a>
+         </li>&ndash;&gt;
+
+     </ul>
+ </div>
 
 
-<script>
-    $(".g-nav li").on("click", function() {
-        var $this = $(this);
-        var cauthorid = "17752236906517001";
-        var eventID = $this.data("event-id");
-        dataReport({
-            pageid: "ZQ_common",
-            eventid: "ZQ_E0" + eventID,
-            cauthorid: cauthorid
-        });
-    });
+ <script>
+     $(".g-nav li").on("click", function() {
+         var $this = $(this);
+         var cauthorid = "17752236906517001";
+         var eventID = $this.data("event-id");
+         dataReport({
+             pageid: "ZQ_common",
+             eventid: "ZQ_E0" + eventID,
+             cauthorid: cauthorid
+         });
+     });
 
-    function showReviewManageGuide() {
-        $.ajax({
-            dataType: 'json',
-            contentType: "application/json",
-            url: '/portal/domesticsite?service=guideservice&action=isGuide&type=69&t=' + Date.now(),
-            success: function(res) {
-                if (res.returnCode == 200 && !res.result) {
-                    $(".interactive-guide").show();
-                }
-            }
-        });
-    }
-    $.ajax({
-        dataType: 'json',
-        contentType: "application/json",
-        url: '/ccauthorweb/reviewmanager/getGrayLevelControl?t=' + Date.now(),
-        success: function(res) {
-            if (res.returnCode == 2000 && res.result == 1) {
-                showReviewManageGuide();
-            }
-        }
-    });
-</script>
+     function showReviewManageGuide() {
+         $.ajax({
+             dataType: 'json',
+             contentType: "application/json",
+             url: '/portal/domesticsite?service=guideservice&action=isGuide&type=69&t=' + Date.now(),
+             success: function(res) {
+                 if (res.returnCode == 200 && !res.result) {
+                     $(".interactive-guide").show();
+                 }
+             }
+         });
+     }
+     $.ajax({
+         dataType: 'json',
+         contentType: "application/json",
+         url: '/ccauthorweb/reviewmanager/getGrayLevelControl?t=' + Date.now(),
+         success: function(res) {
+             if (res.returnCode == 2000 && res.result == 1) {
+                 showReviewManageGuide();
+             }
+         }
+     });
+ </script>
 
- 
-        </div>
-    </div>
-    <div class="g-col g-col-10 g-body-main">
+
+         </div>
+     </div>-->
+    <div class="g-col g-col-10">
         <div class="g-section-bg mb16">
             <div class="g-title-h2">
                 <h2 class="g-h2">个人信息</h2>
