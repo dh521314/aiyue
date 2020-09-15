@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin
@@ -47,7 +48,10 @@ public class BookrackController {
             }
         }
         System.out.println(stringBuffer.toString());
-        List<Section> bookrackNewSection = messageQService.bookrackNewSectionByMessage(stringBuffer.toString());
+        List<Section> bookrackNewSection = new ArrayList<Section>();
+        if(stringBuffer.length() > 0){
+            bookrackNewSection = messageQService.bookrackNewSectionByMessage(stringBuffer.toString());
+        }
         model.addAttribute("bookrackNewSection",bookrackNewSection);
         return "geren";
     }
