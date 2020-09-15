@@ -324,17 +324,13 @@
 
                                         <div class="block classify">
                                             <span class="title">分类：</span>
-                                            <select hidden>
-                                                <option>1</option>
-                                                <option>2</option>
-                                            </select>
                                             <div class="pdMenu">
                                                 <div class="certificate city" id="type">
                                                     <span><em class="ctem" data-id="" >请选择</em><i></i></span>
 
                                                     <ul class="hidden" >
                                                         <li data-id="99" data-parentid="0" th:each="c1:${types}">
-                                                            <em th:text="${c1.tname}" onclick="setTid(this)" th:id="${c1.tid}"></em><i hidden th:text="${c1.tid}"></i>
+                                                            <em th:text="${c1.tname}" onclick="setTid(this)" th:id="${c1.tid}"></em>
                                                         </li>
                                                         <!--<li data-id="4" data-parentid="1" class="hidden" th:each="c2:${types}">
                                                             <em th:text="${c2.tname}"></em>
@@ -469,6 +465,7 @@
                                         <div class="block">
                                             <span class="title"></span>
                                             <a href="javascript:void(0);" class="link_block" id="submit" onclick="CreateMessage()">创建作品</a>
+                                            <a href="javascript:history.go(-1)" class="link_block" id="fanhui">返回</a>
                                         </div>
 
                                         <ul class="explain">
