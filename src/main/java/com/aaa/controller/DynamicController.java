@@ -43,8 +43,8 @@ public class DynamicController {
     @RequestMapping("/addDynamicOneSection")
     public String addDynamicOneSection(HttpSession httpSession,Integer messageid,Integer sectionid){
         Reader reader = (Reader) httpSession.getAttribute("reader");
-        Integer readerid = reader.getRid();
-        if (readerid != null && readerid != 0 && readerid != ' ' ){
+        if (reader != null){
+            Integer readerid = reader.getRid();
             Integer integer = dynamicService.addDynamic(readerid,messageid,sectionid);
             return "redirect:/MessageQ/queryOneSectionByMessageid?messageid="+messageid;
         }else{
@@ -56,8 +56,8 @@ public class DynamicController {
     @RequestMapping("/addDynamicEndSection")
     public String addDynamicEndSection(HttpSession httpSession,Integer messageid,Integer sectionid){
         Reader reader = (Reader) httpSession.getAttribute("reader");
-        Integer readerid = reader.getRid();
-        if (readerid != null && readerid != 0 && readerid != ' ' ){
+        if (reader != null){
+            Integer readerid = reader.getRid();
             Integer integer = dynamicService.addDynamic(readerid,messageid,sectionid);
             return "redirect:/MessageQ/queryEndSectionByMessageid?messageid="+messageid;
         }else{
